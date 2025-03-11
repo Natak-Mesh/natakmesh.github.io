@@ -8,12 +8,13 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #e0e0e0;
+    background-color: #121212;
 }
 
 a {
     text-decoration: none;
-    color: #333;
+    color: #6e8efb;
 }
 
 ul {
@@ -22,8 +23,8 @@ ul {
 
 /* Header & Navigation */
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -63,32 +64,51 @@ nav {
 /* Hero Section */
 .hero {
     height: 80vh;
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
-    color: white;
+    background-image: url('../images/natak1.jpg');
+    background-size: cover;
+    background-position: center 5%; /* Halving the distance again between top (0%) and 10% */
+    background-repeat: no-repeat;
+    color: #d8d8d8; /* Softer off-white instead of pure white */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Slightly lighter overlay to show more of the image */
+    z-index: 1;
 }
 
 .hero-content {
     max-width: 800px;
     padding: 0 2rem;
+    position: relative;
+    z-index: 2; /* Place content above the overlay */
 }
 
 .hero h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
 }
 
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
 }
 
 .cta-button {
     padding: 0.8rem 2rem;
-    background-color: white;
+    background-color: #e0e0e0; /* Softer off-white instead of pure white */
     color: #4a6fff;
     border: none;
     border-radius: 5px;
@@ -98,7 +118,7 @@ nav {
 }
 
 .cta-button:hover {
-    background-color: #f0f0f0;
+    background-color: #d0d0d0; /* Slightly darker on hover */
 }
 
 /* Content Sections */
@@ -125,7 +145,7 @@ section h2 {
 /* Section highlight animation */
 @keyframes sectionHighlight {
     0% { background-color: transparent; }
-    50% { background-color: rgba(74, 111, 255, 0.1); }
+    50% { background-color: rgba(74, 111, 255, 0.2); } /* Increased opacity for better visibility in dark mode */
     100% { background-color: transparent; }
 }
 
@@ -190,7 +210,7 @@ section h2 {
 
 /* Image Placeholders */
 .image-placeholder {
-    background-color: #f0f0f0;
+    background-color: #2d2d2d;
     border-radius: 10px;
     padding: 2rem;
     margin-bottom: 2rem;
@@ -200,19 +220,19 @@ section h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px dashed #ccc;
+    border: 2px dashed #444;
 }
 
 .placeholder-text {
     font-weight: bold;
     font-size: 1.2rem;
-    color: #666;
+    color: #a0a0a0;
     margin-bottom: 1rem;
 }
 
 .placeholder-caption {
     font-size: 0.9rem;
-    color: #777;
+    color: #888;
     max-width: 80%;
     margin: 0 auto;
 }
@@ -226,11 +246,11 @@ section h2 {
 }
 
 .service-card {
-    background-color: #f9f9f9;
+    background-color: #1e1e1e;
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s;
 }
 
@@ -240,12 +260,12 @@ section h2 {
 
 .service-card h3 {
     margin-bottom: 1rem;
-    color: #4a6fff;
+    color: #6e8efb;
 }
 
 /* Contact Section */
 .contact-section {
-    background-color: #f5f5f5;
+    background-color: #1a1a1a;
 }
 
 .contact-email {
@@ -255,13 +275,13 @@ section h2 {
 }
 
 .contact-email a {
-    color: #4a6fff;
+    color: #6e8efb;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 .contact-email a:hover {
-    color: #3a5fef;
+    color: #a777e3;
     text-decoration: underline;
 }
 
@@ -275,14 +295,20 @@ form {
 input, textarea {
     margin-bottom: 1rem;
     padding: 0.8rem;
-    border: 1px solid #ddd;
+    border: 1px solid #444;
     border-radius: 5px;
     font-family: inherit;
+    background-color: #2d2d2d;
+    color: #e0e0e0;
 }
 
 textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #aaa;
 }
 
 button[type="submit"] {
