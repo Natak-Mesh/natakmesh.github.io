@@ -1,23 +1,24 @@
-# Natak Mesh Website
+# Natak Mesh Documentation
 
-This repository contains the source code for the Natak Mesh website, hosted at [natakmesh.github.io](https://natakmesh.github.io).
+Welcome to the official documentation site for Natak Mesh products. This site contains user guides and technical documentation for our hardware and software solutions.
 
-## Project Structure
+## Available Documentation
 
-- `index.html` - Main HTML file
-- `css/` - Stylesheet directory
-- `js/` - JavaScript directory
-- `images/` - Image assets directory
-- `docs/` - Documentation directory
+### Mesh V1
+- [Node](mesh-v1/node.md) - Documentation for the Mesh V1 Node hardware
+- [MACsec Configurator](mesh-v1/macsec-configurator.md) - Guide for configuring MACsec on Mesh V1 devices
 
-## Development Guidelines
+### Mesh V2
+- [Overview](mesh-v2/README.md) - Introduction to Mesh V2 technology
 
-When working on this website, please refer to the [prompt instructions](docs/prompt_instructions.md) for development guidelines. These instructions emphasize:
+## About Natak Mesh
 
-- Keeping code simple and minimal
-- Writing well-documented and clean code
-- Avoiding unnecessary features
+Natak Mesh was founded to address a critical gap in the market: the lack of reasonably priced IP mesh radio technology. We create accessible mesh network solutions for those who need reliable communication systems without the technical overhead of building and programming them from scratch.
+
+Our mission is to democratize access to advanced communication technology. Our goal is to put powerful mesh network capabilities into the hands of users who value functionality and reliability without requiring extensive technical expertise.
 
 ## Contact
 
 For questions or inquiries, please contact: [nathan@natakmesh.com](mailto:nathan@natakmesh.com)
+
+Visit our main website: [natakmesh.com](https://natakmesh.com)
