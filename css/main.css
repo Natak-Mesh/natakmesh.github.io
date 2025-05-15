@@ -281,6 +281,20 @@ section {
   transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
+.hero-product-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.hero-product-image:hover {
+  transform: scale(1.02);
+}
+
 /* ===== Buttons ===== */
 .button {
   display: inline-block;
