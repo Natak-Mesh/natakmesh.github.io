@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Natak Mesh</title>
+    <meta name="description" content="Learn about Natak Mesh, our mission, and our commitment to secure networking solutions.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon placeholder - update when branding is ready -->
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* About page specific styles */
+        .about-section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .about-section:nth-child(even) {
+            background-color: var(--background-alt);
+        }
+        
+        .about-container {
+            display: flex;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            max-width: 500px;
+        }
+        
+        .mission-values {
+            margin-top: var(--spacing-xl);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .value-card {
+            background-color: var(--background-color);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .team-section {
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            margin: 0 auto var(--spacing-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+        
+        .team-member h3 {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .team-title {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-sm);
+            font-style: italic;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: var(--spacing-xl) auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: var(--spacing-md) 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -14px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -14px;
+        }
+        
+        .timeline-content {
+            padding: var(--spacing-md);
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        @media (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+                max-width: 100%;
+                margin-bottom: var(--spacing-lg);
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <!-- Logo placeholder - update when branding is ready -->
+                <h1>Natak Mesh</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>About Natak Mesh</h2>
+                    <p>Learn about our company, our mission, and the team behind our innovative networking solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Overview Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-container">
+                    <div class="about-content">
+                        <h2>Our Story</h2>
+                        <p>Natak Mesh was founded with a clear vision: to create networking solutions that prioritize security without compromising on performance or reliability.</p>
+                        <p>In an increasingly connected world, we recognized the need for robust networking hardware that could protect sensitive data while ensuring seamless connectivity. This led to the development of our first-generation Mesh V1 product, which quickly gained recognition for its innovative approach to secure networking.</p>
+                        <p>Today, we continue to push the boundaries of what's possible in secure networking, developing cutting-edge hardware and software solutions that empower organizations to build and maintain secure, reliable networks.</p>
+                    </div>
+                    <div class="about-image">
+                        <!-- Placeholder for company image -->
+                        <div class="placeholder-image">Company Image</div>
+                    </div>
+                </div>
+                
+                <div class="mission-values">
+                    <h2>Our Mission & Values</h2>
+                    <p>At Natak Mesh, our mission is to provide innovative, secure networking solutions that enable reliable connectivity in any environment. We're guided by a set of core values that inform everything we do:</p>
+                    
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <h3>Security First</h3>
+                            <p>We believe that security should never be an afterthought. That's why we build security into the very foundation of our products, ensuring that your data remains protected at all times.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Reliability</h3>
+                            <p>We understand that network downtime can have serious consequences. Our products are designed and built to provide consistent, reliable performance even in challenging conditions.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>Innovation</h3>
+                            <p>We're constantly exploring new technologies and approaches to solve complex networking challenges, pushing the boundaries of what's possible in secure networking.</p>
+                        </div>
+                        <div class="value-card">
+                            <h3>User-Centric Design</h3>
+                            <p>We believe that powerful technology should also be accessible. That's why we focus on creating products that are intuitive to set up and manage, without sacrificing functionality.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="about-section team-section">
+            <div class="container">
+                <h2>Our Team</h2>
+                <p>Natak Mesh is powered by a team of dedicated professionals with expertise in networking, security, hardware design, and software development.</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-photo">Photo</div>
+                        <h3>Jane Doe</h3>
+                        <p class="team-title">Founder & CEO</p>
+                        <p>With over 15 years of experience in network security, Jane leads our company's strategic vision and operations.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">Photo</div>
+                        <h3>John Smith</h3>
+                        <p class="team-title">Chief Technology Officer</p>
+                        <p>John oversees our product development, bringing his extensive background in hardware design and network architecture.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">Photo</div>
+                        <h3>Emily Chen</h3>
+                        <p class="team-title">Head of Security Research</p>
+                        <p>Emily leads our security research team, ensuring our products implement the latest security best practices.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-photo">Photo</div>
+                        <h3>Michael Johnson</h3>
+                        <p class="team-title">Lead Hardware Engineer</p>
+                        <p>Michael brings his expertise in hardware design to create reliable, high-performance networking devices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Timeline Section -->
+        <section class="about-section">
+            <div class="container">
+                <h2 class="text-center">Our Journey</h2>
+                <p class="text-center">From our founding to today, we've been on a mission to revolutionize secure networking.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2020</div>
+                            <h3>Company Founded</h3>
+                            <p>Natak Mesh was established with the goal of creating innovative networking solutions with built-in security.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021</div>
+                            <h3>Mesh V1 Launch</h3>
+                            <p>Our first product, the Mesh V1 node, was released to critical acclaim for its security features and reliability.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2022</div>
+                            <h3>MACsec Configurator</h3>
+                            <p>We launched our specialized tool for configuring and managing MACsec encryption on Natak Mesh networks.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2023</div>
+                            <h3>Expansion</h3>
+                            <p>Natak Mesh expanded operations to serve customers globally, opening new offices and distribution channels.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024</div>
+                            <h3>Mesh V2 Release</h3>
+                            <p>Our next-generation Mesh V2 was released, featuring enhanced performance, expanded capabilities, and improved security.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2025</div>
+                            <h3>Looking Forward</h3>
+                            <p>We continue to innovate and develop new solutions to address the evolving challenges of secure networking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Join us in building secure networks</h2>
+                <p>Explore our products or contact us to learn how Natak Mesh can help with your networking needs.</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="button primary">Explore Products</a>
+                    <a href="contact.html" class="button secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="documentation.html#mesh-v1">Mesh V1</a></li>
+                        <li><a href="documentation.html#mesh-v2">Mesh V2</a></li>
+                        <li><a href="documentation.html#mesh-v1-macsec">MACsec Configuration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@natakmesh.com</p>
+                    <!-- Add more contact information as needed -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

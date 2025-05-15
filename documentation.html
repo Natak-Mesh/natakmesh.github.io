@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Natak Mesh</title>
+    <meta name="description" content="Comprehensive documentation for Natak Mesh networking products.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon placeholder - update when branding is ready -->
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Documentation-specific styles */
+        .documentation-container {
+            display: flex;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .documentation-sidebar {
+            width: 250px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+        }
+        
+        .documentation-sidebar h3 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .documentation-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .documentation-sidebar li {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .documentation-sidebar a {
+            display: block;
+            padding: var(--spacing-xs) 0;
+            color: var(--text-color);
+            transition: color var(--transition-fast);
+        }
+        
+        .documentation-sidebar a:hover,
+        .documentation-sidebar a.active {
+            color: var(--primary-color);
+        }
+        
+        .documentation-sidebar .section-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .documentation-content {
+            flex: 1;
+            max-width: 800px;
+        }
+        
+        .doc-section {
+            margin-bottom: var(--spacing-xxl);
+        }
+        
+        .doc-section h2 {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .doc-section h3 {
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .doc-section p {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .doc-section ul, 
+        .doc-section ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-lg);
+        }
+        
+        .doc-section li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .doc-section code {
+            background-color: var(--background-alt);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .doc-section pre {
+            background-color: var(--secondary-dark);
+            color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .doc-section pre code {
+            background-color: transparent;
+            padding: 0;
+            color: inherit;
+        }
+        
+        @media (max-width: 992px) {
+            .documentation-container {
+                flex-direction: column;
+            }
+            
+            .documentation-sidebar {
+                width: 100%;
+                position: relative;
+                top: 0;
+                margin-bottom: var(--spacing-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <!-- Logo placeholder - update when branding is ready -->
+                <h1>Natak Mesh</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="documentation.html" class="active">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Documentation</h2>
+                    <p>Comprehensive guides and technical documentation for all Natak Mesh products.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="documentation-container">
+                    <aside class="documentation-sidebar">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="#mesh-v1">Mesh V1</a></li>
+                            <li><a href="#mesh-v1-node">Node Hardware</a></li>
+                            <li><a href="#mesh-v1-macsec">MACsec Configuration</a></li>
+                            <li><a href="#mesh-v2">Mesh V2</a></li>
+                            <li><a href="#mesh-v2-overview">Overview</a></li>
+                        </ul>
+                    </aside>
+                    
+                    <div class="documentation-content">
+                        <!-- Mesh V1 Section -->
+                        <div id="mesh-v1" class="doc-section">
+                            <h2>Mesh V1</h2>
+                            <p>Documentation for the first generation of Natak Mesh networking hardware.</p>
+                            
+                            <div id="mesh-v1-node">
+                                <h3>Node Hardware</h3>
+                                <p>The Mesh V1 Node is our first-generation mesh networking device designed for secure, reliable connectivity.</p>
+                                
+                                <!-- This content will be populated from the existing markdown files -->
+                                <p>Detailed documentation for the Mesh V1 Node hardware will be migrated from the existing documentation.</p>
+                                
+                                <p>For now, you can <a href="mesh-v1/node.md">view the raw markdown file</a>.</p>
+                            </div>
+                            
+                            <div id="mesh-v1-macsec">
+                                <h3>MACsec Configuration</h3>
+                                <p>Configure MACsec encryption on your Mesh V1 devices for enhanced security.</p>
+                                
+                                <!-- This content will be populated from the existing markdown files -->
+                                <p>Detailed documentation for MACsec configuration will be migrated from the existing documentation.</p>
+                                
+                                <p>For now, you can <a href="mesh-v1/macsec-configurator.md">view the raw markdown file</a>.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Mesh V2 Section -->
+                        <div id="mesh-v2" class="doc-section">
+                            <h2>Mesh V2</h2>
+                            <p>Documentation for the second generation of Natak Mesh networking hardware.</p>
+                            
+                            <div id="mesh-v2-overview">
+                                <h3>Overview</h3>
+                                <p>The Mesh V2 is our next-generation mesh networking solution with enhanced performance and capabilities.</p>
+                                
+                                <!-- This content will be populated from the existing markdown files -->
+                                <p>Detailed documentation for the Mesh V2 will be migrated from the existing documentation.</p>
+                                
+                                <p>For now, you can <a href="mesh-v2/README.md">view the raw markdown file</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="documentation.html#mesh-v1">Mesh V1</a></li>
+                        <li><a href="documentation.html#mesh-v2">Mesh V2</a></li>
+                        <li><a href="documentation.html#mesh-v1-macsec">MACsec Configuration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@natakmesh.com</p>
+                    <!-- Add more contact information as needed -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Documentation-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth scrolling for documentation sidebar links
+            const sidebarLinks = document.querySelectorAll('.documentation-sidebar a');
+            
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Scroll to the target element with offset for the sticky header
+                        const headerHeight = document.querySelector('.site-header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active state in sidebar
+                        sidebarLinks.forEach(link => link.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Set active sidebar link based on scroll position
+            function setActiveSidebarLink() {
+                const sections = document.querySelectorAll('.doc-section, .doc-section > div[id]');
+                const headerHeight = document.querySelector('.site-header').offsetHeight;
+                
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    
+                    if (sectionTop < headerHeight + 100) {
+                        currentSection = '#' + section.getAttribute('id');
+                    }
+                });
+                
+                if (currentSection) {
+                    sidebarLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === currentSection) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }
+            
+            window.addEventListener('scroll', setActiveSidebarLink);
+            setActiveSidebarLink(); // Set initial active link
+        });
+    </script>
+</body>
+</html>

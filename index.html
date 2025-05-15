@@ -1,87 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Natak Mesh Documentation</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Documentation for Natak Mesh products">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <!-- Theme: Simple Dark -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
-  <style>
-    :root {
-      --theme-color: #4a6fff;
-      --sidebar-nav-link-color: #e0e0e0;
-      --sidebar-nav-link-color--active: #4a6fff;
-      --sidebar-nav-link-font-weight--active: bold;
-      --sidebar-name-color: #4a6fff;
-      --sidebar-toggle-background: #1a1a1a;
-      --sidebar-background: #1a1a1a;
-      --content-max-width: 65em;
-    }
-    
-    .sidebar {
-      padding: 1rem;
-    }
-    
-    .sidebar-nav strong {
-      font-size: 1.1rem;
-      color: #6e8efb;
-      margin-top: 1.5rem;
-      display: block;
-    }
-    
-    .markdown-section code {
-      background-color: #2d2d2d;
-    }
-    
-    .markdown-section pre {
-      background-color: #2d2d2d;
-    }
-    
-    .markdown-section pre>code {
-      background-color: #2d2d2d;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natak Mesh - Networking Solutions</title>
+    <meta name="description" content="Natak Mesh provides innovative networking hardware solutions for secure, reliable connectivity.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon placeholder - update when branding is ready -->
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      name: 'Natak Mesh Docs',
-      repo: 'https://github.com/Natak-Mesh/natakmesh.github.io',
-      loadSidebar: true,
-      subMaxLevel: 3,
-      auto2top: true,
-      search: {
-        maxAge: 86400000, // Expiration time, one day
-        paths: 'auto',
-        placeholder: 'Search documentation',
-        noData: 'No results found',
-        depth: 6,
-        hideOtherSidebarContent: false
-      },
-      copyCode: {
-        buttonText: 'Copy',
-        errorText: 'Error',
-        successText: 'Copied'
-      },
-      toc: {
-        scope: '.markdown-section',
-        headings: 'h1, h2, h3, h4, h5, h6',
-        title: 'Table of Contents',
-      }
-    }
-  </script>
-  <!-- Docsify v4 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
-  <!-- Plugins -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <!-- Logo placeholder - update when branding is ready -->
+                <h1>Natak Mesh</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Secure Networking Solutions</h2>
+                    <p>Advanced mesh networking hardware for reliable, secure connectivity in any environment.</p>
+                    <div class="hero-buttons">
+                        <a href="products.html" class="button primary">Explore Products</a>
+                        <a href="#" class="button secondary shop-button">Shop Now</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder for hero image -->
+                    <div class="placeholder-image">Product Image</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Natak Mesh</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>Enhanced Security</h3>
+                        <p>Built-in MACsec encryption for secure data transmission across your network.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>Reliable Connectivity</h3>
+                        <p>Mesh topology ensures no single point of failure in your network infrastructure.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>High Performance</h3>
+                        <p>Optimized hardware for low-latency, high-throughput networking applications.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>Easy Configuration</h3>
+                        <p>Simple setup and management tools for quick deployment and maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Preview Section -->
+        <section class="products-preview">
+            <div class="container">
+                <h2 class="section-title">Our Products</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <!-- Placeholder for product image -->
+                            <div class="placeholder-image">Mesh V1</div>
+                        </div>
+                        <h3>Mesh V1</h3>
+                        <p>Our first-generation mesh networking node with built-in security features.</p>
+                        <a href="products.html#mesh-v1" class="button">Learn More</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <!-- Placeholder for product image -->
+                            <div class="placeholder-image">Mesh V2</div>
+                        </div>
+                        <h3>Mesh V2</h3>
+                        <p>Next-generation mesh hardware with enhanced performance and capabilities.</p>
+                        <a href="products.html#mesh-v2" class="button">Learn More</a>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <!-- Placeholder for product image -->
+                            <div class="placeholder-image">MACsec Configurator</div>
+                        </div>
+                        <h3>MACsec Configurator</h3>
+                        <p>Specialized tool for configuring MACsec encryption on your mesh network.</p>
+                        <a href="products.html#macsec-configurator" class="button">Learn More</a>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <a href="products.html" class="button primary">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Preview Section -->
+        <section class="documentation-preview">
+            <div class="container">
+                <h2 class="section-title">Documentation</h2>
+                <p class="section-description">Access comprehensive guides and technical documentation for all Natak Mesh products.</p>
+                <div class="doc-links">
+                    <a href="documentation.html#mesh-v1" class="doc-link">
+                        <h3>Mesh V1 Documentation</h3>
+                        <p>Setup guides, configuration options, and troubleshooting for Mesh V1 hardware.</p>
+                    </a>
+                    <a href="documentation.html#mesh-v2" class="doc-link">
+                        <h3>Mesh V2 Documentation</h3>
+                        <p>Comprehensive documentation for our latest Mesh V2 networking solutions.</p>
+                    </a>
+                    <a href="documentation.html#macsec" class="doc-link">
+                        <h3>MACsec Configuration Guide</h3>
+                        <p>Step-by-step instructions for implementing MACsec encryption on your network.</p>
+                    </a>
+                </div>
+                <div class="view-all">
+                    <a href="documentation.html" class="button secondary">Browse All Documentation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to upgrade your network?</h2>
+                <p>Explore our products or contact us for custom solutions tailored to your needs.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="button primary shop-button">Shop Now</a>
+                    <a href="contact.html" class="button secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="documentation.html#mesh-v1">Mesh V1</a></li>
+                        <li><a href="documentation.html#mesh-v2">Mesh V2</a></li>
+                        <li><a href="documentation.html#macsec">MACsec Configuration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@natakmesh.com</p>
+                    <!-- Add more contact information as needed -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

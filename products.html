@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Natak Mesh</title>
+    <meta name="description" content="Explore Natak Mesh's innovative networking hardware solutions.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon placeholder - update when branding is ready -->
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Products page specific styles */
+        .product-hero {
+            text-align: center;
+        }
+        
+        .product-section {
+            padding: var(--spacing-xxl) 0;
+        }
+        
+        .product-section:nth-child(even) {
+            background-color: var(--background-alt);
+        }
+        
+        .product-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+        
+        .product-image {
+            flex: 1;
+            max-width: 500px;
+        }
+        
+        .product-details {
+            flex: 1;
+        }
+        
+        .product-features {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .product-features h3 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .product-cta {
+            margin-top: var(--spacing-lg);
+            display: flex;
+            gap: var(--spacing-md);
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .specs-table th,
+        .specs-table td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .specs-table th {
+            background-color: var(--background-alt);
+            font-weight: 600;
+        }
+        
+        @media (max-width: 992px) {
+            .product-container {
+                flex-direction: column;
+            }
+            
+            .product-image,
+            .product-details {
+                max-width: 100%;
+            }
+            
+            .product-cta {
+                flex-direction: column;
+            }
+            
+            .product-cta .button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <!-- Logo placeholder - update when branding is ready -->
+                <h1>Natak Mesh</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero product-hero">
+            <div class="container">
+                <h2>Our Products</h2>
+                <p>Innovative networking hardware for secure, reliable connectivity</p>
+            </div>
+        </section>
+
+        <!-- Mesh V1 Product Section -->
+        <section id="mesh-v1" class="product-section">
+            <div class="container">
+                <div class="product-container">
+                    <div class="product-image">
+                        <!-- Placeholder for product image -->
+                        <div class="placeholder-image">Mesh V1 Image</div>
+                    </div>
+                    <div class="product-details">
+                        <h2>Mesh V1</h2>
+                        <p>Our first-generation mesh networking node with built-in security features, designed for reliable connectivity in any environment.</p>
+                        
+                        <div class="product-features">
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li>Built-in MACsec encryption for secure data transmission</li>
+                                <li>Mesh topology for no single point of failure</li>
+                                <li>Easy configuration and management</li>
+                                <li>Robust hardware designed for continuous operation</li>
+                                <li>Low power consumption</li>
+                                <li>Compact form factor</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-cta">
+                            <a href="documentation.html#mesh-v1" class="button secondary">View Documentation</a>
+                            <a href="#" class="button primary shop-button">Purchase</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="specs-container">
+                    <h3>Technical Specifications</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Processor</th>
+                            <td>Dual-core ARM Cortex-A53</td>
+                        </tr>
+                        <tr>
+                            <th>Memory</th>
+                            <td>1GB DDR4</td>
+                        </tr>
+                        <tr>
+                            <th>Storage</th>
+                            <td>8GB eMMC Flash</td>
+                        </tr>
+                        <tr>
+                            <th>Network Interfaces</th>
+                            <td>2x Gigabit Ethernet ports</td>
+                        </tr>
+                        <tr>
+                            <th>Wireless</th>
+                            <td>802.11ac Wi-Fi, Bluetooth 5.0</td>
+                        </tr>
+                        <tr>
+                            <th>Power</th>
+                            <td>5V DC via USB-C, Power over Ethernet (PoE)</td>
+                        </tr>
+                        <tr>
+                            <th>Dimensions</th>
+                            <td>100mm x 100mm x 25mm</td>
+                        </tr>
+                        <tr>
+                            <th>Operating Temperature</th>
+                            <td>0°C to 70°C</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mesh V2 Product Section -->
+        <section id="mesh-v2" class="product-section">
+            <div class="container">
+                <div class="product-container">
+                    <div class="product-details">
+                        <h2>Mesh V2</h2>
+                        <p>Our next-generation mesh networking solution with enhanced performance, expanded capabilities, and improved security features.</p>
+                        
+                        <div class="product-features">
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li>Advanced MACsec encryption with hardware acceleration</li>
+                                <li>Enhanced mesh topology with automatic optimization</li>
+                                <li>Improved throughput and lower latency</li>
+                                <li>Web-based management interface</li>
+                                <li>Expanded connectivity options</li>
+                                <li>Ruggedized design for harsh environments</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-cta">
+                            <a href="documentation.html#mesh-v2" class="button secondary">View Documentation</a>
+                            <a href="#" class="button primary shop-button">Purchase</a>
+                        </div>
+                    </div>
+                    <div class="product-image">
+                        <!-- Placeholder for product image -->
+                        <div class="placeholder-image">Mesh V2 Image</div>
+                    </div>
+                </div>
+                
+                <div class="specs-container">
+                    <h3>Technical Specifications</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Processor</th>
+                            <td>Quad-core ARM Cortex-A72</td>
+                        </tr>
+                        <tr>
+                            <th>Memory</th>
+                            <td>2GB DDR4</td>
+                        </tr>
+                        <tr>
+                            <th>Storage</th>
+                            <td>16GB eMMC Flash</td>
+                        </tr>
+                        <tr>
+                            <th>Network Interfaces</th>
+                            <td>3x Gigabit Ethernet ports, 1x SFP+ port</td>
+                        </tr>
+                        <tr>
+                            <th>Wireless</th>
+                            <td>802.11ax Wi-Fi 6, Bluetooth 5.2</td>
+                        </tr>
+                        <tr>
+                            <th>Power</th>
+                            <td>12V DC, Power over Ethernet (PoE+), Redundant power inputs</td>
+                        </tr>
+                        <tr>
+                            <th>Dimensions</th>
+                            <td>120mm x 120mm x 30mm</td>
+                        </tr>
+                        <tr>
+                            <th>Operating Temperature</th>
+                            <td>-20°C to 85°C</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- MACsec Configurator Product Section -->
+        <section id="macsec-configurator" class="product-section">
+            <div class="container">
+                <div class="product-container">
+                    <div class="product-image">
+                        <!-- Placeholder for product image -->
+                        <div class="placeholder-image">MACsec Configurator Image</div>
+                    </div>
+                    <div class="product-details">
+                        <h2>MACsec Configurator</h2>
+                        <p>A specialized tool for configuring and managing MACsec encryption on your Natak Mesh network, ensuring secure data transmission across your infrastructure.</p>
+                        
+                        <div class="product-features">
+                            <h3>Key Features</h3>
+                            <ul class="feature-list">
+                                <li>Intuitive interface for MACsec configuration</li>
+                                <li>Key management and rotation</li>
+                                <li>Security policy enforcement</li>
+                                <li>Encryption status monitoring</li>
+                                <li>Compatible with both Mesh V1 and V2 hardware</li>
+                                <li>Detailed logging and reporting</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-cta">
+                            <a href="documentation.html#mesh-v1-macsec" class="button secondary">View Documentation</a>
+                            <a href="#" class="button primary shop-button">Purchase</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="specs-container">
+                    <h3>System Requirements</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Operating System</th>
+                            <td>Windows 10/11, macOS 11+, Linux (Ubuntu 20.04+)</td>
+                        </tr>
+                        <tr>
+                            <th>Processor</th>
+                            <td>Intel/AMD dual-core or equivalent</td>
+                        </tr>
+                        <tr>
+                            <th>Memory</th>
+                            <td>4GB RAM minimum</td>
+                        </tr>
+                        <tr>
+                            <th>Storage</th>
+                            <td>500MB available space</td>
+                        </tr>
+                        <tr>
+                            <th>Network</th>
+                            <td>Ethernet connection to Mesh network</td>
+                        </tr>
+                        <tr>
+                            <th>Display</th>
+                            <td>1280x720 resolution or higher</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to upgrade your network?</h2>
+                <p>Explore our products or contact us for custom solutions tailored to your needs.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="button primary shop-button">Shop Now</a>
+                    <a href="contact.html" class="button secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="documentation.html#mesh-v1">Mesh V1</a></li>
+                        <li><a href="documentation.html#mesh-v2">Mesh V2</a></li>
+                        <li><a href="documentation.html#mesh-v1-macsec">MACsec Configuration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@natakmesh.com</p>
+                    <!-- Add more contact information as needed -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

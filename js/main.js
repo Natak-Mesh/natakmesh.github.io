@@ -1,64 +1,85 @@
-// Main JavaScript file
+/**
+ * Main JavaScript for Natak Mesh Website
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Website loaded successfully!');
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
     
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            
+            // Animate hamburger to X
+            const spans = menuToggle.querySelectorAll('span');
+            if (spans.length === 3) {
+                spans[0].classList.toggle('rotate-down');
+                spans[1].classList.toggle('fade-out');
+                spans[2].classList.toggle('rotate-up');
+            }
+        });
+    }
+    
+    // Site is in dark mode by default - no toggle needed
+    
+    // Shop button links - update these when Odoo store URL is available
+    const shopButtons = document.querySelectorAll('.shop-button');
+    const odooStoreUrl = '#'; // Replace with actual Odoo store URL
+    
+    shopButtons.forEach(button => {
+        button.setAttribute('href', odooStoreUrl);
+        button.setAttribute('target', '_blank'); // Open in new tab
+    });
+    
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Skip if it's just "#" or shop button
+            if (href === '#' || this.classList.contains('shop-button')) {
+                return;
+            }
+            
             e.preventDefault();
             
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 70, // Adjust for header height
-                    behavior: 'smooth'
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
         });
     });
     
-    // CTA button action - Scroll to About section
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', function() {
-            const aboutSection = document.querySelector('#about');
-            if (aboutSection) {
-                window.scrollTo({
-                    top: aboutSection.offsetTop - 70, // Adjust for header height
-                    behavior: 'smooth'
-                });
-                
-                // Highlight the About section briefly to draw attention
-                aboutSection.classList.add('section-highlight');
-                setTimeout(() => {
-                    aboutSection.classList.remove('section-highlight');
-                }, 1500);
-            }
-        });
-    }
+    // Add CSS class for menu toggle animation
+    const style = document.createElement('style');
+    style.textContent = `
+        .menu-toggle span {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .menu-toggle .rotate-down {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-toggle .fade-out {
+            opacity: 0;
+        }
+        .menu-toggle .rotate-up {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+    `;
+    document.head.appendChild(style);
     
-    // Simple form validation (can be expanded)
-    const contactForm = document.querySelector('.contact-section form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Basic validation
-            const nameInput = this.querySelector('input[type="text"]');
-            const emailInput = this.querySelector('input[type="email"]');
-            const messageInput = this.querySelector('textarea');
-            
-            if (!nameInput.value || !emailInput.value || !messageInput.value) {
-                alert('Please fill out all fields before submitting.');
-                return;
-            }
-            
-            // Here you would typically send the form data to a server
-            // Since this is a static site, we'll just show a success message
-            alert('Thank you for your message! This is a static form for demonstration purposes.\n\nYour message would be sent to: nathan@natakmesh.com');
-            this.reset();
-        });
-    }
+    // Add active class to current page in navigation
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks2 = document.querySelectorAll('.nav-links a');
+    
+    navLinks2.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        }
+    });
 });
