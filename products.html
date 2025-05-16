@@ -31,7 +31,18 @@
         
         .product-image {
             flex: 1;
-            max-width: 500px;
+            max-width: 750px; /* Increased from 500px by 50% */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 450px; /* Increased from 300px by 50% */
+        }
+        
+        .product-img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
         }
         
         .product-details {
@@ -88,6 +99,18 @@
         .specs-table th {
             background-color: var(--background-alt);
             font-weight: 600;
+        }
+        
+        .button.disabled {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        .button.disabled:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
         }
         
         @media (max-width: 992px) {
@@ -149,8 +172,7 @@
             <div class="container">
                 <div class="product-container">
                     <div class="product-image">
-                        <!-- Placeholder for product image -->
-                        <div class="placeholder-image">Mesh V1 Image</div>
+                        <img src="images/node1.png" alt="Mesh V1 Networking Node" class="product-img">
                     </div>
                     <div class="product-details">
                         <h2>Mesh V1</h2>
@@ -159,12 +181,14 @@
                         <div class="product-features">
                             <h3>Key Features</h3>
                             <ul class="feature-list">
-                                <li>Built-in MACsec encryption for secure data transmission</li>
-                                <li>Mesh topology for no single point of failure</li>
-                                <li>Easy configuration and management</li>
-                                <li>Robust hardware designed for continuous operation</li>
-                                <li>Low power consumption</li>
-                                <li>Compact form factor</li>
+                                <li>Dual-protocol networking with 802.11s WiFi and LoRa radio for extended range</li>
+                                <li>WiFi links secured with MACsec link-layer encryption and integrity protection</li>
+                                <li>LoRa links protected by end-to-end AES-256 encryption via Reticulum</li>
+                                <li>Mesh topology ensures no single point of failure in your network</li>
+                                <li>Built with commercial off-the-shelf parts for affordability and repairability</li>
+                                <li>Open source software with continuous community-driven improvements</li>
+                                <li>Low power consumption allows operation from various 5V sources including USB power banks</li>
+                                <li>Compact, durable form factor suitable for various environments</li>
                             </ul>
                         </div>
                         
@@ -175,40 +199,37 @@
                     </div>
                 </div>
                 
-                <div class="specs-container">
+                <div class="specs-container" style="margin-top: var(--spacing-xxl);">
                     <h3>Technical Specifications</h3>
                     <table class="specs-table">
                         <tr>
                             <th>Processor</th>
-                            <td>Dual-core ARM Cortex-A53</td>
+                            <td>Raspberry Pi 4 (4GB RAM)</td>
                         </tr>
                         <tr>
-                            <th>Memory</th>
-                            <td>1GB DDR4</td>
+                            <th>Mesh Radios</th>
+                            <td>
+                                <ul>
+                                    <li>802.11s compatible WiFi card</li>
+                                    <li>RAK4631 RNode</li>
+                                </ul>
+                            </td>
                         </tr>
                         <tr>
-                            <th>Storage</th>
-                            <td>8GB eMMC Flash</td>
-                        </tr>
-                        <tr>
-                            <th>Network Interfaces</th>
-                            <td>2x Gigabit Ethernet ports</td>
-                        </tr>
-                        <tr>
-                            <th>Wireless</th>
-                            <td>802.11ac Wi-Fi, Bluetooth 5.0</td>
+                            <th>Network</th>
+                            <td>1x Ethernet (M12 connector)</td>
                         </tr>
                         <tr>
                             <th>Power</th>
-                            <td>5V DC via USB-C, Power over Ethernet (PoE)</td>
+                            <td>5V (M12 connector)</td>
                         </tr>
                         <tr>
-                            <th>Dimensions</th>
-                            <td>100mm x 100mm x 25mm</td>
+                            <th>Antennas</th>
+                            <td>High gain 2.4/5.8 GHz and 915 MHz</td>
                         </tr>
                         <tr>
-                            <th>Operating Temperature</th>
-                            <td>0°C to 70°C</td>
+                            <th>Enclosure</th>
+                            <td>3D printed</td>
                         </tr>
                     </table>
                 </div>
@@ -224,20 +245,13 @@
                         <p>Our next-generation mesh networking solution with enhanced performance, expanded capabilities, and improved security features.</p>
                         
                         <div class="product-features">
-                            <h3>Key Features</h3>
-                            <ul class="feature-list">
-                                <li>Advanced MACsec encryption with hardware acceleration</li>
-                                <li>Enhanced mesh topology with automatic optimization</li>
-                                <li>Improved throughput and lower latency</li>
-                                <li>Web-based management interface</li>
-                                <li>Expanded connectivity options</li>
-                                <li>Ruggedized design for harsh environments</li>
-                            </ul>
+                            <h3>Coming Soon</h3>
+                            <p>Mesh V2 is currently in development. Stay tuned for more details about its capabilities and features.</p>
                         </div>
                         
                         <div class="product-cta">
                             <a href="documentation.html#mesh-v2" class="button secondary">View Documentation</a>
-                            <a href="#" class="button primary shop-button">Purchase</a>
+                            <a href="#" class="button primary disabled">Coming Soon</a>
                         </div>
                     </div>
                     <div class="product-image">
@@ -246,43 +260,7 @@
                     </div>
                 </div>
                 
-                <div class="specs-container">
-                    <h3>Technical Specifications</h3>
-                    <table class="specs-table">
-                        <tr>
-                            <th>Processor</th>
-                            <td>Quad-core ARM Cortex-A72</td>
-                        </tr>
-                        <tr>
-                            <th>Memory</th>
-                            <td>2GB DDR4</td>
-                        </tr>
-                        <tr>
-                            <th>Storage</th>
-                            <td>16GB eMMC Flash</td>
-                        </tr>
-                        <tr>
-                            <th>Network Interfaces</th>
-                            <td>3x Gigabit Ethernet ports, 1x SFP+ port</td>
-                        </tr>
-                        <tr>
-                            <th>Wireless</th>
-                            <td>802.11ax Wi-Fi 6, Bluetooth 5.2</td>
-                        </tr>
-                        <tr>
-                            <th>Power</th>
-                            <td>12V DC, Power over Ethernet (PoE+), Redundant power inputs</td>
-                        </tr>
-                        <tr>
-                            <th>Dimensions</th>
-                            <td>120mm x 120mm x 30mm</td>
-                        </tr>
-                        <tr>
-                            <th>Operating Temperature</th>
-                            <td>-20°C to 85°C</td>
-                        </tr>
-                    </table>
-                </div>
+                <!-- Technical specifications will be added once the product is finalized -->
             </div>
         </section>
 
@@ -305,47 +283,19 @@
                                 <li>Key management and rotation</li>
                                 <li>Security policy enforcement</li>
                                 <li>Encryption status monitoring</li>
-                                <li>Compatible with both Mesh V1 and V2 hardware</li>
+                                <li>Compatible with Mesh V1 hardware</li>
                                 <li>Detailed logging and reporting</li>
                             </ul>
                         </div>
                         
                         <div class="product-cta">
                             <a href="documentation.html#mesh-v1-macsec" class="button secondary">View Documentation</a>
-                            <a href="#" class="button primary shop-button">Purchase</a>
+                            <a href="https://github.com/natakmesh/macsec-configurator" class="button primary">Download Free</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="specs-container">
-                    <h3>System Requirements</h3>
-                    <table class="specs-table">
-                        <tr>
-                            <th>Operating System</th>
-                            <td>Windows 10/11, macOS 11+, Linux (Ubuntu 20.04+)</td>
-                        </tr>
-                        <tr>
-                            <th>Processor</th>
-                            <td>Intel/AMD dual-core or equivalent</td>
-                        </tr>
-                        <tr>
-                            <th>Memory</th>
-                            <td>4GB RAM minimum</td>
-                        </tr>
-                        <tr>
-                            <th>Storage</th>
-                            <td>500MB available space</td>
-                        </tr>
-                        <tr>
-                            <th>Network</th>
-                            <td>Ethernet connection to Mesh network</td>
-                        </tr>
-                        <tr>
-                            <th>Display</th>
-                            <td>1280x720 resolution or higher</td>
-                        </tr>
-                    </table>
-                </div>
+                <!-- System requirements will be provided in the documentation -->
             </div>
         </section>
 
@@ -389,8 +339,8 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p>Email: info@natakmesh.com</p>
-                    <!-- Add more contact information as needed -->
+                    <p>Email: nathan@natakmesh.com</p>
+                    <p>Tampa, FL</p>
                 </div>
             </div>
             <div class="footer-bottom">
