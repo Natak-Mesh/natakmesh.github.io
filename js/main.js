@@ -23,13 +23,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Site is in dark mode by default - no toggle needed
     
-    // Shop button links - update these when Odoo store URL is available
+    // Shop button - simple "Coming Soon" alert
     const shopButtons = document.querySelectorAll('.shop-button');
-    const odooStoreUrl = '#'; // Replace with actual Odoo store URL
     
     shopButtons.forEach(button => {
-        button.setAttribute('href', odooStoreUrl);
-        button.setAttribute('target', '_blank'); // Open in new tab
+        button.setAttribute('href', '#');
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Shop coming soon!');
+        });
     });
     
     // Add smooth scrolling for anchor links

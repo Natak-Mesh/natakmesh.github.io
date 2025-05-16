@@ -95,73 +95,6 @@
             font-style: italic;
         }
         
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: var(--spacing-xl) auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: var(--primary-color);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-        }
-        
-        .timeline-item {
-            padding: var(--spacing-md) 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border: 4px solid var(--primary-color);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-item:nth-child(odd)::after {
-            right: -14px;
-        }
-        
-        .timeline-item:nth-child(even)::after {
-            left: -14px;
-        }
-        
-        .timeline-content {
-            padding: var(--spacing-md);
-            background-color: var(--background-color);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-        
-        .timeline-year {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-xs);
-        }
-        
         @media (max-width: 992px) {
             .about-container {
                 flex-direction: column;
@@ -171,29 +104,6 @@
                 order: -1;
                 max-width: 100%;
                 margin-bottom: var(--spacing-lg);
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 0;
-            }
-            
-            .timeline-item:nth-child(odd) {
-                text-align: left;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item:nth-child(odd)::after,
-            .timeline-item:nth-child(even)::after {
-                left: 21px;
             }
         }
     </style>
@@ -239,9 +149,9 @@
                 <div class="about-container">
                     <div class="about-content">
                         <h2>Our Story</h2>
-                        <p>Natak Mesh was founded with a clear vision: to create networking solutions that prioritize security without compromising on performance or reliability.</p>
-                        <p>In an increasingly connected world, we recognized the need for robust networking hardware that could protect sensitive data while ensuring seamless connectivity. This led to the development of our first-generation Mesh V1 product, which quickly gained recognition for its innovative approach to secure networking.</p>
-                        <p>Today, we continue to push the boundaries of what's possible in secure networking, developing cutting-edge hardware and software solutions that empower organizations to build and maintain secure, reliable networks.</p>
+                        <p>Natak Mesh was originally inspired by the Rocket M5 MANET builds done by the team at teamawarenesskit.org. We used those solutions for a while but wanted something simpler to set up and use.</p>
+                        <p>Our journey led us to Meshtastic, but the extremely low throughput pushed us back towards WiFi-based solutions. We worked for most of a year on a HaLow WiFi build, but the currently available low-power radios did not have enough of a range advantage to make up for the low throughput.</p>
+                        <p>This exploration ultimately led to our current approach: a combination of standard WiFi and LoRa to have the best of both worlds—high throughput where possible via WiFi, while still maintaining long-range LoRa connections for situations where WiFi is out of range or blocked.</p>
                     </div>
                     <div class="about-image">
                         <!-- Placeholder for company image -->
@@ -251,24 +161,24 @@
                 
                 <div class="mission-values">
                     <h2>Our Mission & Values</h2>
-                    <p>At Natak Mesh, our mission is to provide innovative, secure networking solutions that enable reliable connectivity in any environment. We're guided by a set of core values that inform everything we do:</p>
+                    <p>At Natak Mesh, our mission is to provide affordable networking solutions that enable reliable connectivity without requiring existing infrastructure. We believe in delivering 80% of the capabilities of high-end mesh radios at just 10% of the cost.</p>
                     
                     <div class="values-grid">
                         <div class="value-card">
-                            <h3>Security First</h3>
-                            <p>We believe that security should never be an afterthought. That's why we build security into the very foundation of our products, ensuring that your data remains protected at all times.</p>
+                            <h3>Affordability First</h3>
+                            <p>Using commercial off-the-shelf components to create cost-effective solutions that make advanced networking accessible to more users. Our affordable approach enables deploying more nodes across your area, creating denser mesh networks with better coverage and reliability than fewer, more expensive units.</p>
                         </div>
                         <div class="value-card">
-                            <h3>Reliability</h3>
-                            <p>We understand that network downtime can have serious consequences. Our products are designed and built to provide consistent, reliable performance even in challenging conditions.</p>
+                            <h3>Infrastructure Independence</h3>
+                            <p>Designing systems that create robust, self-healing networks in any environment without requiring existing infrastructure.</p>
                         </div>
                         <div class="value-card">
-                            <h3>Innovation</h3>
-                            <p>We're constantly exploring new technologies and approaches to solve complex networking challenges, pushing the boundaries of what's possible in secure networking.</p>
+                            <h3>Practical Innovation</h3>
+                            <p>Leveraging modern technologies like 3D printing for custom case designs and the Reticulum networking stack for reliable communication. We combine proven approaches with effective solutions to deliver practical, cost-effective results.</p>
                         </div>
                         <div class="value-card">
-                            <h3>User-Centric Design</h3>
-                            <p>We believe that powerful technology should also be accessible. That's why we focus on creating products that are intuitive to set up and manage, without sacrificing functionality.</p>
+                            <h3>Security Without Compromise</h3>
+                            <p>Implementing strong encryption and security features without adding unnecessary complexity or cost. Our approach ensures your data remains protected while maintaining the affordability and ease of use of our systems.</p>
                         </div>
                     </div>
                 </div>
@@ -305,59 +215,6 @@
                         <h3>Michael Johnson</h3>
                         <p class="team-title">Lead Hardware Engineer</p>
                         <p>Michael brings his expertise in hardware design to create reliable, high-performance networking devices.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Company Timeline Section -->
-        <section class="about-section">
-            <div class="container">
-                <h2 class="text-center">Our Journey</h2>
-                <p class="text-center">From our founding to today, we've been on a mission to revolutionize secure networking.</p>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-year">2020</div>
-                            <h3>Company Founded</h3>
-                            <p>Natak Mesh was established with the goal of creating innovative networking solutions with built-in security.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-year">2021</div>
-                            <h3>Mesh V1 Launch</h3>
-                            <p>Our first product, the Mesh V1 node, was released to critical acclaim for its security features and reliability.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-year">2022</div>
-                            <h3>MACsec Configurator</h3>
-                            <p>We launched our specialized tool for configuring and managing MACsec encryption on Natak Mesh networks.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-year">2023</div>
-                            <h3>Expansion</h3>
-                            <p>Natak Mesh expanded operations to serve customers globally, opening new offices and distribution channels.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-year">2024</div>
-                            <h3>Mesh V2 Release</h3>
-                            <p>Our next-generation Mesh V2 was released, featuring enhanced performance, expanded capabilities, and improved security.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <div class="timeline-year">2025</div>
-                            <h3>Looking Forward</h3>
-                            <p>We continue to innovate and develop new solutions to address the evolving challenges of secure networking.</p>
-                        </div>
                     </div>
                 </div>
             </div>
