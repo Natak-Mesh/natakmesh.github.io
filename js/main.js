@@ -23,15 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Site is in dark mode by default - no toggle needed
     
-    // Shop button - simple "Coming Soon" alert
+    // Shop button - redirect to Odoo shop
     const shopButtons = document.querySelectorAll('.shop-button');
     
     shopButtons.forEach(button => {
-        button.setAttribute('href', '#');
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Shop coming soon!');
-        });
+        button.setAttribute('href', 'https://natak.odoo.com/shop');
+        button.setAttribute('target', '_blank');
+        button.setAttribute('rel', 'noopener noreferrer');
     });
     
     // Add smooth scrolling for anchor links
