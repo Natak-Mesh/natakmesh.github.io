@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Manual - Natak Mesh</title>
+    <meta name="description" content="Comprehensive user manual for the Dual-Mode Mesh Network System.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon placeholder - update when branding is ready -->
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* User manual specific styles */
+        .manual-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--container-padding);
+        }
+        
+        .manual-content h1 {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            color: var(--primary-color);
+        }
+        
+        .manual-content h2 {
+            margin-top: var(--spacing-xxl);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--secondary-dark);
+        }
+        
+        .manual-content h3 {
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+        
+        .manual-content h4 {
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .manual-content h5 {
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .manual-content h6 {
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-color);
+        }
+        
+        .manual-content p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+        
+        .manual-content ul, 
+        .manual-content ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-lg);
+        }
+        
+        .manual-content li {
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.5;
+        }
+        
+        .manual-content code {
+            background-color: var(--background-alt);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .manual-content pre {
+            background-color: var(--background-alt);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .manual-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .table-of-contents {
+            background-color: var(--background-alt);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .table-of-contents h4 {
+            margin-top: 0;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+        
+        .table-of-contents ol {
+            margin-bottom: 0;
+        }
+        
+        .table-of-contents a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .table-of-contents a:hover {
+            color: var(--primary-color);
+        }
+        
+        .back-to-docs {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .back-to-docs a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-docs a:hover {
+            color: var(--primary-light);
+        }
+        
+        .back-to-docs a::before {
+            content: '←';
+            margin-right: var(--spacing-xs);
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <!-- Logo placeholder - update when branding is ready -->
+                <h1>Natak Mesh</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="manual-container">
+            <div class="back-to-docs">
+                <a href="documentation.html">Back to Documentation</a>
+            </div>
+            
+            <div class="manual-content">
+                <h1>Dual-Mode Mesh Network System User Manual</h1>
+                
+                <div class="table-of-contents">
+                    <h4>Table of Contents</h4>
+                    <ol>
+                        <li><a href="#system-overview">System Overview</a></li>
+                        <li><a href="#initial-setup">Initial Setup</a></li>
+                        <li><a href="#configuration">Configuration</a></li>
+                        <li><a href="#operation">Operation</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#advanced-features">Advanced Features</a></li>
+                    </ol>
+                </div>
+
+                <h2 id="system-overview">System Overview</h2>
+                <p>The Dual-Mode Mesh Network System is a resilient communication platform that combines high-bandwidth IP-based 802.11s mesh networking with long-range Meshtastic LoRa capabilities. The system is designed as a general-purpose platform that can support a wide range of applications and devices, while providing seamless interoperability with standard Meshtastic users.</p>
+
+                <h3>Key Components</h3>
+
+                <h4>WiFi Mesh Network</h4>
+                <p>The system uses the Batman-adv (Better Approach To Mobile Ad-hoc Networking) protocol to create a layer 2 mesh network over 802.11s wireless connections. This general-purpose IP network provides:</p>
+                <ul>
+                    <li>Self-healing mesh topology</li>
+                    <li>Automatic route discovery and optimization</li>
+                    <li>Seamless client roaming</li>
+                    <li>Layer 2 bridging capabilities</li>
+                    <li>Standard IP connectivity for any connected device</li>
+                </ul>
+
+                <p><strong>MACsec Security Layer</strong></p>
+                <p>All WiFi mesh traffic is encrypted using MACsec (IEEE 802.1AE) to provide:</p>
+                <ul>
+                    <li>Link-layer encryption</li>
+                    <li>Data integrity protection</li>
+                    <li>Replay protection</li>
+                    <li>Secure node authentication</li>
+                </ul>
+
+                <h4>Meshtastic LoRa Radio</h4>
+                <p>Each node includes a Meshtastic LoRa radio that is powered by the node and reports directly back to ATAK through the official Meshtastic ATAK plugin. This component provides:</p>
+                <ul>
+                    <li>Long-range LoRa communication capabilities (up to several kilometers)</li>
+                    <li>Standard Meshtastic protocol compatibility</li>
+                    <li>Direct integration with ATAK through official plugin</li>
+                    <li>Interoperability with users running standard Meshtastic-only setups</li>
+                </ul>
+
+                <h4>ATAK Integration</h4>
+                <p>The system provides dual integration paths with Android Team Awareness Kit (ATAK), each offering different capabilities:</p>
+                
+                <p><strong>WiFi Mesh Integration:</strong></p>
+                <ul>
+                    <li>Full native ATAK capability over IP connection</li>
+                    <li>High-bandwidth support for voice, video, pictures, and maps</li>
+                    <li>Complete tactical data sharing</li>
+                    <li>Real-time collaboration features</li>
+                    <li>Standard ATAK networking over the mesh</li>
+                </ul>
+
+                <p><strong>Meshtastic Integration:</strong></p>
+                <ul>
+                    <li>Integration through official Meshtastic ATAK plugin</li>
+                    <li>Supports chats, markers, and geolocation</li>
+                    <li>Long-range communication when WiFi mesh is unavailable</li>
+                    <li>Interoperability with standard Meshtastic users</li>
+                </ul>
+
+                <h3>Network Architecture</h3>
+                <p>The system provides a hybrid communication architecture that offers significant advantages:</p>
+
+                <p><strong>For NATAK Mesh Node Users:</strong></p>
+                <ul>
+                    <li>High-speed WiFi mesh networking for general IP connectivity and high-bandwidth applications</li>
+                    <li>Long-range LoRa communication through integrated Meshtastic radio</li>
+                    <li>Simultaneous access to both communication methods through ATAK</li>
+                </ul>
+
+                <p><strong>For Standard Meshtastic Users:</strong></p>
+                <ul>
+                    <li>Full interoperability with NATAK mesh nodes via LoRa radio</li>
+                    <li>Standard Meshtastic ATAK plugin compatibility</li>
+                    <li>No special configuration required</li>
+                </ul>
+
+                <p><strong>Network Interoperability:</strong></p>
+                <p>This architecture enables seamless communication between users with different hardware setups. Standard Meshtastic users can communicate with NATAK mesh node users through the LoRa network, while NATAK users benefit from both high-speed local mesh connectivity and long-range LoRa capabilities. This creates a broader, more inclusive communication network where users don't need identical hardware configurations to participate.</p>
+
+                <h2 id="initial-setup">Initial Setup</h2>
+                <p>Your Natak Mesh nodes come pre-configured for immediate WiFi mesh operation, while Meshtastic radios require user configuration.</p>
+
+                <h3>Power-Up Process</h3>
+                <p>When you first power on your nodes:</p>
+                <ul>
+                    <li>There are no external LED indicators or visual signs that the system is powered on</li>
+                    <li>The node's WiFi access point will come online within approximately 1 minute of applying power</li>
+                    <li>Look for a WiFi network named <code>takNodeN</code> (where N is an integer embossed on the top cap of the node case)</li>
+                </ul>
+
+                <h3>Connecting Your Device</h3>
+                <p>To connect your End User Device (EUD) to a node:</p>
+                <ol>
+                    <li>Search for the WiFi network named <code>takNodeN</code> corresponding to your node</li>
+                    <li>Connect using the supplied password</li>
+                    <li>The node will automatically assign your device an IP address via DHCP</li>
+                </ol>
+
+                <p><strong>Note</strong>: Instructions for changing the default WiFi password can be found in the Configuration section.</p>
+
+                <h3>ATAK Integration</h3>
+                <p>Once your device is connected to the node's access point:</p>
+
+                <h4>WiFi Mesh Communication</h4>
+                <ul>
+                    <li>Start ATAK on your device</li>
+                    <li>Devices connected to the WiFi mesh should quickly establish communication</li>
+                    <li>Full ATAK functionality is available including voice, video, pictures, and maps</li>
+                </ul>
+
+                <h4>Meshtastic Communication</h4>
+                <ul>
+                    <li>Follow the normal instructions for the Meshtastic ATAK plugin</li>
+                    <li>Update rates will be much slower compared to WiFi mesh</li>
+                    <li>Provides long-range communication capability</li>
+                </ul>
+
+                <h3>Network Monitoring</h3>
+                <p>Once connected to a node's access point, you can access the WiFi mesh monitor page to view network status, topology, and performance metrics. This web interface provides real-time information about your mesh network's health and connectivity.</p>
+
+                <h3>Pre-Configuration Status</h3>
+                <p><strong>WiFi Mesh Network</strong>: Pre-configured at purchase and will automatically connect when nodes are powered up. Multiple nodes will form a mesh network without additional configuration.</p>
+
+                <p><strong>Meshtastic Radios</strong>: Require user configuration. While the radios are powered and functional, you will need to configure them according to your specific requirements and local regulations.</p>
+
+                <h2 id="configuration">Configuration</h2>
+
+                <h3>Mesh Network Configuration</h3>
+                <p><strong>File Location</strong>: <code>/home/natak/mesh/mesh_config.env</code></p>
+
+                <p><strong>Key Variables</strong>:</p>
+                <ul>
+                    <li><code>MESH_NAME</code>: Defines the mesh network name (must be identical across all nodes)</li>
+                    <li><code>MESH_CHANNEL</code>: Specifies the WiFi channel for mesh communication
+                        <ul>
+                            <li>2.4 GHz channels (1-11): Better range, more potential interference</li>
+                            <li>5 GHz channels: Higher bandwidth, shorter range</li>
+                            <li>DFS channels (52-144): Require radar detection, may not be available in all locations</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>Channel Setup Note</strong>: When changing channels, uncomment the desired channel and ensure you comment out the previously used channel. All nodes in the mesh must use the same channel to communicate with each other.</p>
+
+                <p><strong>After Configuration Changes</strong>: Restart the mesh service with <code>sudo systemctl restart mesh-startup</code></p>
+
+                <h3>WiFi Access Point Configuration</h3>
+                <p><strong>File Location</strong>: <code>/etc/hostapd/hostapd.conf</code></p>
+
+                <p><strong>Access Requirements</strong>: Direct access to the Raspberry Pi is required to modify this configuration. This can be accomplished through SSH, direct keyboard/monitor connection, or other direct access methods.</p>
+
+                <p><strong>Purpose</strong>: This file configures the WiFi access point that allows client devices to connect to the mesh node, including the network name and password.</p>
+
+                <p><strong>Key Configuration Options</strong>:</p>
+                <ul>
+                    <li>WiFi network name (SSID)</li>
+                    <li>WiFi password</li>
+                    <li>Security settings</li>
+                </ul>
+
+                <p><strong>Security Recommendation</strong>: It is strongly recommended to change the default WiFi password to a secure, unique password for your deployment.</p>
+
+                <p><strong>After Configuration Changes</strong>: Restart the hostapd service with <code>sudo systemctl restart hostapd</code></p>
+
+                <h3>Node Configuration with MACsec Config Tool</h3>
+                <p><strong>Tool Location</strong>: <code>/home/natak/macsec_config_tool/Macsec_config_generator.py</code></p>
+
+                <p><strong>Generated Files</strong>:</p>
+                <ul>
+                    <li><code>hostname_mapping.json</code>: Maps MAC addresses to hostnames and IP addresses</li>
+                    <li><code>macsec.sh</code>: Contains encryption keys and peer configurations</li>
+                </ul>
+
+                <p><strong>Important</strong>: These files are generated automatically by the configuration tool and should not be modified manually. Incorrect modifications can break the mesh network's security and functionality.</p>
+
+                <p><strong>Adding Nodes</strong>: Run the MACsec configuration tool and follow the prompts. The tool provides detailed instructions during the node addition process. After configuration, restart the mesh service.</p>
+
+                <h2 id="operation">Operation</h2>
+
+                <h3>Monitoring Network Status</h3>
+                <p>Network status can be monitored through the mesh_monitor web interface.</p>
+
+                <p>To access the mesh monitor interface:</p>
+                <ol>
+                    <li>Connect to the mesh network</li>
+                    <li>Open a web browser</li>
+                    <li>Navigate to the mesh monitor web page at &lt;node IP&gt;:5000</li>
+                </ol>
+
+                <p>The web interface provides a visual representation of:</p>
+                <ul>
+                    <li>Connection quality</li>
+                    <li>Network topology</li>
+                    <li>Data Throughput</li>
+                </ul>
+
+                <h3>General Purpose Connectivity</h3>
+                <p>The system is designed as a general-purpose connectivity platform that can support a wide range of applications and devices.</p>
+
+                <h4>IP Mesh Network for Any Device</h4>
+                <p>The Batman-adv mesh network provides standard IP connectivity that can be used by any IP-capable device:</p>
+                <ul>
+                    <li><strong>Standard IP Applications</strong>: Any application that uses IP networking (web browsing, file sharing, VoIP, etc.) can operate over the mesh network</li>
+                    <li><strong>Device Connectivity</strong>: Any device that can connect to a network (laptops, smartphones, IoT devices, etc.) can join the mesh through any node</li>
+                    <li><strong>Transparent Routing</strong>: Batman-adv automatically handles routing between nodes, making the entire mesh appear as a single network segment</li>
+                    <li><strong>Bridged Connectivity</strong>: The br0 bridge interface allows devices connected via Ethernet or WiFi client mode to communicate seamlessly with the mesh</li>
+                </ul>
+
+                <p>To connect a device to the mesh network:</p>
+                <ol>
+                    <li>Connect to any mesh node via WiFi or Ethernet</li>
+                    <li>The device will receive an IP address via DHCP</li>
+                    <li>The device can now communicate with any other device on the mesh</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="documentation.html#mesh-v1">Mesh V1</a></li>
+                        <li><a href="user-manual.html">User Manual</a></li>
+                        <li><a href="documentation.html#mesh-v1-macsec">MACsec Configuration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@natakmesh.com</p>
+                    <!-- Add more contact information as needed -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

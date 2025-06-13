@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MACsec Configuration - Natak Mesh</title>
+    <meta name="description" content="MACsec Configuration Tool documentation for Natak Mesh networking products.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon placeholder - update when branding is ready -->
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* MACsec configuration specific styles */
+        .macsec-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--container-padding);
+        }
+        
+        .macsec-content h1 {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            color: var(--primary-color);
+        }
+        
+        .macsec-content h2 {
+            margin-top: var(--spacing-xxl);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--secondary-dark);
+        }
+        
+        .macsec-content h3 {
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+        
+        .macsec-content h4 {
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .macsec-content p {
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+        
+        .macsec-content ul, 
+        .macsec-content ol {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-lg);
+        }
+        
+        .macsec-content li {
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.5;
+        }
+        
+        .macsec-content code {
+            background-color: var(--background-alt);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .macsec-content pre {
+            background-color: var(--background-alt);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin-bottom: var(--spacing-md);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .macsec-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .back-to-docs {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .back-to-docs a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-docs a:hover {
+            color: var(--primary-light);
+        }
+        
+        .back-to-docs a::before {
+            content: '←';
+            margin-right: var(--spacing-xs);
+        }
+        
+        .info-box {
+            background-color: var(--background-alt);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .info-box h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .command-example {
+            background-color: var(--background-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            margin: var(--spacing-sm) 0;
+        }
+        
+        .file-structure {
+            font-family: 'Courier New', monospace;
+            background-color: var(--background-alt);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-md) 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <!-- Logo placeholder - update when branding is ready -->
+                <h1>Natak Mesh</h1>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="macsec-container">
+            <div class="back-to-docs">
+                <a href="documentation.html">Back to Documentation</a>
+            </div>
+            
+            <div class="macsec-content">
+                <h1>MACsec Configuration Tool</h1>
+                
+                <p>This tool helps configure MACsec encryption for mesh network nodes. It generates configuration files and maintains a mapping between MAC addresses, hostnames, and IP addresses.</p>
+
+                <h2>Usage</h2>
+                <p>Run the tool:</p>
+                <pre><code>python3 Macsec_config_generator.py</code></pre>
+
+                <h2>Menu Options</h2>
+                <ol>
+                    <li><strong>Add node</strong> - Add a new node to the mesh network</li>
+                    <li><strong>Remove node</strong> - Remove an existing node</li>
+                    <li><strong>Generate all node configs</strong> - Generate configuration files for all nodes</li>
+                    <li><strong>List current nodes</strong> - Display information about configured nodes</li>
+                    <li><strong>Exit</strong> - Exit the program</li>
+                </ol>
+
+                <h2>Required Information</h2>
+                <p>When adding a new node, you'll need:</p>
+
+                <h3>1. MAC Address</h3>
+                <ul>
+                    <li>Format: <code>xx:xx:xx:xx:xx:xx</code></li>
+                    <li>How to get: Run <code>ip addr show wlan1</code> and look for "link/ether" line</li>
+                </ul>
+
+                <h3>2. Hostname</h3>
+                <ul>
+                    <li>This is your Raspberry Pi's hostname</li>
+                    <li>How to get: Run <code>hostname</code></li>
+                    <li>Example output: <code>meshpi1</code></li>
+                </ul>
+
+                <h3>3. br0 IP Address</h3>
+                <ul>
+                    <li>This is the IP address of your bridge interface</li>
+                    <li>How to get: Run <code>ip addr show br0</code> and look for "inet" line</li>
+                    <li>Enter WITHOUT the /24 suffix</li>
+                    <li>Example: If you see <code>192.168.1.1/24</code>, enter just <code>192.168.1.1</code></li>
+                </ul>
+
+                <h2>Output Files</h2>
+                <p>For each node, the tool creates a directory structure:</p>
+                <div class="file-structure">
+{last4ofMAC}/<br>
+└── {hostname}/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── macsec.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── hostname_mapping.json
+                </div>
+
+                <p>For example:</p>
+                <div class="file-structure">
+4455/<br>
+└── meshpi1/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── macsec.sh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── hostname_mapping.json
+                </div>
+
+                <p>Each directory contains:</p>
+
+                <h3>1. macsec.sh</h3>
+                <ul>
+                    <li>MACsec configuration script</li>
+                    <li>Automatically made executable</li>
+                    <li>Contains encryption keys and peer configurations</li>
+                </ul>
+
+                <h3>2. hostname_mapping.json</h3>
+                <ul>
+                    <li>Maps MAC addresses to hostnames and IPs</li>
+                    <li>Used by the mesh monitor application</li>
+                    <li>Example:</li>
+                </ul>
+                <pre><code>{
+  "00:11:22:33:44:55": {
+    "hostname": "meshpi1",
+    "ip": "192.168.1.1"
+  }
+}</code></pre>
+
+                <h2>Example Usage</h2>
+
+                <div class="info-box">
+                    <h4>Step 1: Get required information</h4>
+                    <div class="command-example">
+                        <code># Get MAC address</code><br>
+                        <code>ip addr show wlan1</code><br><br>
+                        <code># Get hostname</code><br>
+                        <code>hostname</code><br><br>
+                        <code># Get br0 IP</code><br>
+                        <code>ip addr show br0</code>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>Step 2: Add a node</h4>
+                    <ul>
+                        <li>Select option 1</li>
+                        <li>Enter MAC address (e.g., <code>00:11:22:33:44:55</code>)</li>
+                        <li>Enter hostname (e.g., <code>meshpi1</code>)</li>
+                        <li>Enter br0 IP without /24 (e.g., <code>192.168.1.1</code>)</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h4>Step 3: Generate configs</h4>
+                    <ul>
+                        <li>Select option 3</li>
+                        <li>Files will be created in directories named like <code>4455-meshpi1</code></li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h4>Step 4: Deploy Configuration Files</h4>
+                    <p>After generating the configuration files, you need to copy them to the correct nodes:</p>
+                    <ul>
+                        <li>Copy <code>macsec.sh</code> and <code>hostname_mapping.json</code> from each generated folder to the <code>~/mesh</code> directory on the corresponding node</li>
+                        <li>Ensure each node receives only its own configuration files</li>
+                    </ul>
+                    <div class="command-example">
+                        <code># Example: Copy files to meshpi1 node</code><br>
+                        <code>scp 4455/meshpi1/macsec.sh meshpi1:~/mesh/</code><br>
+                        <code>scp 4455/meshpi1/hostname_mapping.json meshpi1:~/mesh/</code><br><br>
+                        <code># Or if copying locally on the node:</code><br>
+                        <code>cp 4455/meshpi1/macsec.sh ~/mesh/</code><br>
+                        <code>cp 4455/meshpi1/hostname_mapping.json ~/mesh/</code>
+                    </div>
+                </div>
+
+                <h2>Notes</h2>
+                <ul>
+                    <li>Always use the br0 IP address without the /24 suffix</li>
+                    <li>The hostname should match exactly what the <code>hostname</code> command returns</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="documentation.html#mesh-v1">Mesh V1</a></li>
+                        <li><a href="user-manual.html">User Manual</a></li>
+                        <li><a href="macsec-configuration.html">MACsec Configuration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@natakmesh.com</p>
+                    <!-- Add more contact information as needed -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
