@@ -183,7 +183,7 @@
                 </div>
 
                 <h2 id="system-overview">System Overview</h2>
-                <p>The Dual-Mode Mesh Network System is a resilient communication platform that combines high-bandwidth IP-based 802.11s mesh networking with long-range Meshtastic LoRa capabilities. The system is designed as a general-purpose platform that can support a wide range of applications and devices, while providing seamless interoperability with standard Meshtastic users.</p>
+                <p>The Dual-Mode Mesh Network System is a resilient communication platform that combines high-bandwidth IP-based 802.11s mesh networking with long-range Meshtastic LoRa capabilities and integrated Reticulum networking. The system is designed as a general-purpose platform that can support a wide range of applications and devices, while providing seamless interoperability with standard Meshtastic users.</p>
 
                 <h3>Key Components</h3>
 
@@ -215,6 +215,15 @@
                     <li>Interoperability with users running standard Meshtastic-only setups</li>
                 </ul>
 
+                <h4>Reticulum Integration</h4>
+                <p>Each node includes an integrated Reticulum networking stack that allows connected user devices to access Reticulum-based applications over the mesh network. This integration provides:</p>
+                <ul>
+                    <li>Seamless Reticulum protocol support for connected devices</li>
+                    <li>Network transport over the WiFi mesh infrastructure</li>
+                    <li>Compatibility with Reticulum applications running on PCs, phones, and other connected devices</li>
+                    <li>Enhanced communication options through the Reticulum ecosystem</li>
+                </ul>
+
                 <h4>ATAK Integration</h4>
                 <p>The system provides dual integration paths with Android Team Awareness Kit (ATAK), each offering different capabilities:</p>
                 
@@ -242,6 +251,7 @@
                 <ul>
                     <li>High-speed WiFi mesh networking for general IP connectivity and high-bandwidth applications</li>
                     <li>Long-range LoRa communication through integrated Meshtastic radio</li>
+                    <li>Access to Reticulum-based applications through integrated networking stack</li>
                     <li>Simultaneous access to both communication methods through ATAK</li>
                 </ul>
 
@@ -378,7 +388,7 @@
                 <h4>IP Mesh Network for Any Device</h4>
                 <p>The Batman-adv mesh network provides standard IP connectivity that can be used by any IP-capable device:</p>
                 <ul>
-                    <li><strong>Standard IP Applications</strong>: Any application that uses IP networking (web browsing, file sharing, VoIP, etc.) can operate over the mesh network</li>
+                    <li><strong>Standard IP Applications</strong>: Any application that uses IP networking (web browsing, file sharing, VoIP, Reticulum applications, etc.) can operate over the mesh network</li>
                     <li><strong>Device Connectivity</strong>: Any device that can connect to a network (laptops, smartphones, IoT devices, etc.) can join the mesh through any node</li>
                     <li><strong>Transparent Routing</strong>: Batman-adv automatically handles routing between nodes, making the entire mesh appear as a single network segment</li>
                     <li><strong>Bridged Connectivity</strong>: The br0 bridge interface allows devices connected via Ethernet or WiFi client mode to communicate seamlessly with the mesh</li>
