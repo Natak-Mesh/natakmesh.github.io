@@ -170,7 +170,7 @@
             </div>
             
             <div class="manual-content">
-                <h1>Dual-Mode Mesh Network System User Manual</h1>
+                <h1>Mesh V1 User Manual</h1>
                 
                 <div class="table-of-contents">
                     <h4>Table of Contents</h4>
@@ -183,7 +183,7 @@
                 </div>
 
                 <h2 id="system-overview">System Overview</h2>
-                <p>The Dual-Mode Mesh Network System is a resilient communication platform that combines high-bandwidth IP-based 802.11s mesh networking with long-range Meshtastic LoRa capabilities and integrated Reticulum networking. The system is designed as a general-purpose platform that can support a wide range of applications and devices, while providing seamless interoperability with standard Meshtastic users.</p>
+                <p>The Mesh V1 is a resilient communication platform that combines high-bandwidth IP-based 802.11s mesh networking with long-range Meshtastic LoRa capabilities and integrated Reticulum networking. The system is designed as a general-purpose platform that can support a wide range of applications and devices, while providing seamless interoperability with standard Meshtastic users.</p>
 
                 <h3>Key Components</h3>
 
@@ -195,23 +195,16 @@
                     <li>Seamless client roaming</li>
                     <li>Layer 2 bridging capabilities</li>
                     <li>Standard IP connectivity for any connected device</li>
-                </ul>
-
-                <p><strong>MACsec Security Layer</strong></p>
-                <p>All WiFi mesh traffic is encrypted using MACsec (IEEE 802.1AE) to provide:</p>
-                <ul>
-                    <li>Link-layer encryption</li>
-                    <li>Data integrity protection</li>
-                    <li>Replay protection</li>
-                    <li>Secure node authentication</li>
+                    <li>WPA3 encryption for secure wireless communication</li>
                 </ul>
 
                 <h4>Meshtastic LoRa Radio</h4>
-                <p>Each node includes a Meshtastic LoRa radio that is powered by the node and reports directly back to ATAK through the official Meshtastic ATAK plugin. This component provides:</p>
+                <p>Each node includes a standard Meshtastic node that operates as a normal Meshtastic device. This component provides:</p>
                 <ul>
                     <li>Long-range LoRa communication capabilities (up to several kilometers)</li>
                     <li>Standard Meshtastic protocol compatibility</li>
-                    <li>Direct integration with ATAK through official plugin</li>
+                    <li>Works with the normal Meshtastic application</li>
+                    <li>Mesh networking with other Meshtastic devices</li>
                     <li>Interoperability with users running standard Meshtastic-only setups</li>
                 </ul>
 
@@ -230,6 +223,7 @@
                 <p><strong>WiFi Mesh Integration:</strong></p>
                 <ul>
                     <li>Full native ATAK capability over IP connection</li>
+                    <li>Automatic discovery and connection with other ATAK users on the mesh network</li>
                     <li>High-bandwidth support for voice, video, pictures, and maps</li>
                     <li>Complete tactical data sharing</li>
                     <li>Real-time collaboration features</li>
@@ -239,31 +233,12 @@
                 <p><strong>Meshtastic Integration:</strong></p>
                 <ul>
                     <li>Integration through official Meshtastic ATAK plugin</li>
+                    <li>Runs in parallel with WiFi mesh, allowing simultaneous operation</li>
+                    <li>Enables Mesh V1 users to interoperate with Meshtastic-only users while maintaining high-speed connections to other Mesh V1 owners</li>
                     <li>Supports chats, markers, and geolocation</li>
                     <li>Long-range communication when WiFi mesh is unavailable</li>
-                    <li>Interoperability with standard Meshtastic users</li>
                 </ul>
 
-                <h3>Network Architecture</h3>
-                <p>The system provides a hybrid communication architecture that offers significant advantages:</p>
-
-                <p><strong>For NATAK Mesh Node Users:</strong></p>
-                <ul>
-                    <li>High-speed WiFi mesh networking for general IP connectivity and high-bandwidth applications</li>
-                    <li>Long-range LoRa communication through integrated Meshtastic radio</li>
-                    <li>Access to Reticulum-based applications through integrated networking stack</li>
-                    <li>Simultaneous access to both communication methods through ATAK</li>
-                </ul>
-
-                <p><strong>For Standard Meshtastic Users:</strong></p>
-                <ul>
-                    <li>Full interoperability with NATAK mesh nodes via LoRa radio</li>
-                    <li>Standard Meshtastic ATAK plugin compatibility</li>
-                    <li>No special configuration required</li>
-                </ul>
-
-                <p><strong>Network Interoperability:</strong></p>
-                <p>This architecture enables seamless communication between users with different hardware setups. Standard Meshtastic users can communicate with NATAK mesh node users through the LoRa network, while NATAK users benefit from both high-speed local mesh connectivity and long-range LoRa capabilities. This creates a broader, more inclusive communication network where users don't need identical hardware configurations to participate.</p>
 
                 <h2 id="initial-setup">Initial Setup</h2>
                 <p>Your Natak Mesh nodes come pre-configured for immediate WiFi mesh operation, while Meshtastic radios require user configuration.</p>
@@ -286,7 +261,7 @@
 
                 <p><strong>Note</strong>: Instructions for changing the default WiFi password can be found in the Configuration section.</p>
 
-                <h3>ATAK Integration</h3>
+                <h3>ATAK Startup</h3>
                 <p>Once your device is connected to the node's access point:</p>
 
                 <h4>WiFi Mesh Communication</h4>
@@ -314,21 +289,22 @@
                 <h2 id="configuration">Configuration</h2>
 
                 <h3>Mesh Network Configuration</h3>
-                <p><strong>File Location</strong>: <code>/home/natak/mesh/mesh_config.env</code></p>
+                <p><strong>File Location</strong>: <code>/etc/wpa_supplicant/wpa_supplicant-wlan1.conf</code></p>
 
                 <p><strong>Key Variables</strong>:</p>
                 <ul>
-                    <li><code>MESH_NAME</code>: Defines the mesh network name (must be identical across all nodes)</li>
-                    <li><code>MESH_CHANNEL</code>: Specifies the WiFi channel for mesh communication
+                    <li><code>ssid</code>: Defines the mesh network name (must be identical across all nodes)</li>
+                    <li><code>frequency</code>: Specifies the WiFi frequency for mesh communication
                         <ul>
-                            <li>2.4 GHz channels (1-11): Better range, more potential interference</li>
-                            <li>5 GHz channels: Higher bandwidth, shorter range</li>
-                            <li>DFS channels (52-144): Require radar detection, may not be available in all locations</li>
+                            <li>2.4 GHz frequencies: Better range, more potential interference</li>
+                            <li>5 GHz frequencies: Higher bandwidth, shorter range</li>
                         </ul>
                     </li>
+                    <li><code>psk</code>: Sets the mesh network password for secure communication</li>
+                    <li><code>mesh_fwding=0</code>: Disables mesh forwarding to allow batman-adv to handle routing</li>
                 </ul>
 
-                <p><strong>Channel Setup Note</strong>: When changing channels, uncomment the desired channel and ensure you comment out the previously used channel. All nodes in the mesh must use the same channel to communicate with each other.</p>
+                <p><strong>Configuration Note</strong>: All nodes in the mesh must use the same SSID and frequency to communicate with each other. The mesh_fwding parameter should remain set to 0 to ensure proper batman-adv operation.</p>
 
                 <p><strong>After Configuration Changes</strong>: Restart the mesh service with <code>sudo systemctl restart mesh-startup</code></p>
 
@@ -350,18 +326,6 @@
 
                 <p><strong>After Configuration Changes</strong>: Restart the hostapd service with <code>sudo systemctl restart hostapd</code></p>
 
-                <h3>Node Configuration with MACsec Config Tool</h3>
-                <p><strong>Tool Location</strong>: <code>/home/natak/macsec_config_tool/Macsec_config_generator.py</code></p>
-
-                <p><strong>Generated Files</strong>:</p>
-                <ul>
-                    <li><code>hostname_mapping.json</code>: Maps MAC addresses to hostnames and IP addresses</li>
-                    <li><code>macsec.sh</code>: Contains encryption keys and peer configurations</li>
-                </ul>
-
-                <p><strong>Important</strong>: These files are generated automatically by the configuration tool and should not be modified manually. Incorrect modifications can break the mesh network's security and functionality.</p>
-
-                <p><strong>Adding Nodes</strong>: Run the MACsec configuration tool and follow the prompts. The tool provides detailed instructions during the node addition process. After configuration, restart the mesh service.</p>
 
                 <h2 id="operation">Operation</h2>
 
@@ -426,7 +390,6 @@
                     <ul>
                         <li><a href="documentation.html#mesh-v1">Mesh V1</a></li>
                         <li><a href="user-manual.html">User Manual</a></li>
-                        <li><a href="documentation.html#mesh-v1-macsec">MACsec Configuration</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
