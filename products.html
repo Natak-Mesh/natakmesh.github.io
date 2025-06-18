@@ -181,15 +181,20 @@
                         <div class="product-features">
                             <h3>Key Features</h3>
                             <ul class="feature-list">
-                                <li>Dual-protocol networking with 802.11s WiFi and LoRa radio for extended range</li>
-                                <li>WiFi links secured with MACsec link-layer encryption and integrity protection</li>
-                                <li>LoRa links protected by end-to-end AES-256 encryption via Meshtastic</li>
-                                <li>Onboard Reticulum instance integrates with WiFi mesh for Reticulum-based applications</li>
-                                <li>Mesh topology ensures no single point of failure in your network</li>
-                                <li>Built with commercial off-the-shelf parts for affordability and repairability</li>
-                                <li>Open source software with continuous community-driven improvements</li>
-                                <li>Low power consumption allows operation from various 5V sources including USB power banks</li>
-                                <li>Compact, durable form factor suitable for various environments</li>
+                                <li>Dual-Radio Architecture - High-powered Wi-Fi (2.4/5.8 GHz) and long-range LoRa (915/868 MHz)</li>
+                                <li>Multi-Protocol Support - IP networking, Reticulum, and Meshtastic protocols</li>
+                                <li>WPA3 Encrypted Mesh - Secure 802.11s mesh with batman-adv routing</li>
+                                <li>Commercial Off-the-Shelf Design - Affordable, repairable, and open source</li>
+                                <li>Low Power & Durable - 5V operation with compact, rugged design</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3>ATAK Compatibility</h3>
+                            <ul class="feature-list">
+                                <li>Seamless ATAK Mesh Operations - ATAK nodes automatically connect to each other over the WiFi mesh. Simply start the mesh, connect your EUD to the node, and begin communicating with other ATAK units on the network</li>
+                                <li>High-Speed Communications - WiFi mesh enables high data rate connections for location sharing, chat, pictures, voice, and real-time communications between ATAK devices</li>
+                                <li>Extended Range ATAK Connectivity - Onboard Meshtastic node integrates with the official Meshtastic ATAK plugin to provide long-range ATAK connectivity in poor RF conditions</li>
                             </ul>
                         </div>
                         
@@ -200,78 +205,9 @@
                     </div>
                 </div>
                 
-                <div class="specs-container" style="margin-top: var(--spacing-xxl);">
-                    <h3>Technical Specifications</h3>
-                    <table class="specs-table">
-                        <tr>
-                            <th>Processor</th>
-                            <td>Raspberry Pi 4 (4GB RAM)</td>
-                        </tr>
-                        <tr>
-                            <th>Mesh Radios</th>
-                            <td>
-                                <ul>
-                                    <li>802.11s compatible WiFi card</li>
-                                    <li>RAK4631 Meshtastic device</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Network</th>
-                            <td>1x Ethernet (M12 connector)</td>
-                        </tr>
-                        <tr>
-                            <th>Power</th>
-                            <td>5V (M12 connector)</td>
-                        </tr>
-                        <tr>
-                            <th>Antennas</th>
-                            <td>High gain 2.4/5.8 GHz and 915 MHz</td>
-                        </tr>
-                        <tr>
-                            <th>Enclosure</th>
-                            <td>3D printed</td>
-                        </tr>
-                    </table>
-                </div>
             </div>
         </section>
 
-
-        <!-- MACsec Configurator Product Section -->
-        <section id="macsec-configurator" class="product-section">
-            <div class="container">
-                <div class="product-container">
-                    <div class="product-image">
-                        <!-- Placeholder for product image -->
-                        <div class="placeholder-image">MACsec Configurator Image</div>
-                    </div>
-                    <div class="product-details">
-                        <h2>MACsec Configurator</h2>
-                        <p>A specialized tool for configuring and managing MACsec encryption on your Natak Mesh network, ensuring secure data transmission across your infrastructure.</p>
-                        
-                        <div class="product-features">
-                            <h3>Key Features</h3>
-                            <ul class="feature-list">
-                                <li>Intuitive interface for MACsec configuration</li>
-                                <li>Key management and rotation</li>
-                                <li>Security policy enforcement</li>
-                                <li>Encryption status monitoring</li>
-                                <li>Compatible with Mesh V1 hardware</li>
-                                <li>Detailed logging and reporting</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="product-cta">
-                            <a href="documentation.html#mesh-v1-macsec" class="button secondary">View Documentation</a>
-                            <a href="https://github.com/natakmesh/macsec-configurator" class="button primary">Download Free</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- System requirements will be provided in the documentation -->
-            </div>
-        </section>
 
         <!-- CTA Section -->
         <section class="cta">
@@ -307,7 +243,6 @@
                     <h3>Documentation</h3>
                     <ul>
                         <li><a href="documentation.html#mesh-v1">Mesh V1</a></li>
-                        <li><a href="documentation.html#mesh-v1-macsec">MACsec Configuration</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
