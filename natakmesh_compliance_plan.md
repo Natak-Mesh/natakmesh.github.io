@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document outlines NATakMesh's compliance strategy for selling modular Raspberry Pi–based WiFi/HaLow mesh radio kits with an optional customer-authorized assembly service. The approach ensures conformity with FCC rules for intentional radiators while offering convenience to customers.
+This document outlines NATakMesh's compliance strategy for selling modular Raspberry Pi–based WiFi/LoRa mesh radio kits with an optional customer-authorized assembly service. The approach ensures conformity with FCC rules for intentional radiators while offering convenience to customers.
 
 ---
 
