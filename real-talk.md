@@ -31,3 +31,11 @@ The flat LAN WiFi mesh can be used for anything requiring multiple computers/pho
 **2. Reticulum** - Users can use Reticulum applications like Sideband or MeshChat over the WiFi mesh via the onboard Reticulum transport instance. These provide chat, pictures, and even voice/video in some instances. This allows our nodes to become links in much larger Reticulum based networks if desired.
 
 **3. Meshtastic** - Independent Meshtastic radio allows long-range LoRa connections with other Meshtastic users and operates just fine as a Meshtastic-only device. If users also decide to add the official ATAK Meshtastic plugin, this provides additional capability for long-range ATAK connectivity in parallel to the wifi mesh and allows Natak Mesh users to work with users who use Meshtastic-only for their ATAK connectivity.
+
+## Current Paths of Work
+
+1. **TAKServer Integration** - Since we have a Pi as our controlling computer, we are looking at integrating TAKServer onto the radio, opening more options for ATAK users to coordinate.
+
+2. **EdgeMap Project** - Porting the EdgeMap project onto the radio, offering a simplified situational awareness tool running directly on the radio for users that may want to pivot from ATAK.
+
+3. **User Created Software** - Since this project is open source, the onboard software currently is relatively simple. Our hope is that users will come up with novel uses for the hardware and those can be integrated into future releases.
