@@ -12,8 +12,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Natak Mesh</title>
-    <meta name="description" content="Explore Natak Mesh's innovative networking hardware solutions.">
+    <title>Nucleus V1 - Off-Grid Network Hardware</title>
+    <meta name="description" content="Nucleus V1 keeps your devices connected when cell towers and Wi-Fi aren't around.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <!-- Favicon placeholder - update when branding is ready -->
@@ -172,8 +172,8 @@
     <main>
         <section class="hero product-hero">
             <div class="container">
-                <h2>Our Products</h2>
-                <p>WiFi, Meshtastic, and Reticulum in ready-to-deploy hardware</p>
+                <h2>Nucleus V1</h2>
+                <p>Off-grid network hardware that just works</p>
             </div>
         </section>
 
@@ -186,42 +186,30 @@
                         <img src="images/rangeday2.png" alt="Range Day Testing" style="margin-top: 20px; width: 325px; height: auto; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
                     </div>
                     <div class="product-details">
-                        <h2>Mesh V1</h2>
-                        <p>Multi-protocol mesh networking node combining WiFi mesh, Meshtastic, and Reticulum in a single platform. Once configured, nodes automatically form secure networks across all three protocols, providing high-speed WiFi connectivity alongside dedicated Meshtastic mesh networking.</p>
+                        <h2>Nucleus V1</h2>
+                        <p>Power it on and you're connected. Nucleus V1 creates an encrypted WiFi mesh between nodes while running dedicated LoRa radios for long-range links. Use ATAK, MeshChat, Sideband, or any app that works on a standard network.</p>
                         
                         <div class="product-features">
-                            <h3>Hardware Architecture</h3>
-                            <p>The Mesh V1 uses a three-component architecture built around a Raspberry Pi as the controlling computer. The system integrates an external high-powered WiFi card for mesh networking and an independent RAK4631 Meshtastic radio for LoRa communications.</p>
-                            <p>All components are housed in a 3D printed enclosure with M12 bulkhead connectors providing external connections. The bulkhead connections handle 5V power input and Ethernet connectivity.</p>
+                            <h3>What's Inside</h3>
+                            <p>Raspberry Pi computer with external WiFi card and dedicated Meshtastic radio. Everything fits in a 3D printed case with power and ethernet connections. The modular design, commercial off-the-shelf hardware, non-proprietary software, and 3D printed case make repairs, modifications, and upgrades simple.</p>
                         </div>
                         
                         <div class="product-features">
-                            <h3>Network Architecture</h3>
-                            <p>The Mesh V1 operates three independent radio systems:</p>
+                            <h3>Radios</h3>
                             <ul class="feature-list">
-                                <li><strong>Pi Onboard WiFi</strong> - Creates an access point for devices to connect to the node and access the WiFi mesh. This is just a standard WiFi access point - connect to it like any other WiFi network.</li>
-                                <li><strong>External WiFi Card</strong> - High-powered radio forming the 2.4/5.8 GHz WiFi mesh between nodes</li>
-                                <li><strong>RAK4631 Meshtastic Node</strong> - Standard Meshtastic implementation creating long-range, low-bandwidth LoRa mesh. If you've used Meshtastic before, you know exactly what to expect.</li>
+                                <li><strong>Mesh WiFi</strong> - High-speed links between Nucleus V1 nodes</li>
+                                <li><strong>LoRa Radio</strong> - Long-range Meshtastic for miles of coverage</li>
                             </ul>
                         </div>
                         
                         <div class="product-features">
-                            <h3>Software</h3>
-                            <p>The onboard software handles three main functions:</p>
+                            <h3>What You Can Do</h3>
                             <ul class="feature-list">
-                                <li><strong>WiFi Mesh Networking</strong> - Automatically creates a WiFi mesh network with other nodes, providing a flat local area network between all connected nodes</li>
-                                <li><strong>Reticulum Transport Instance</strong> - Runs a Reticulum transport instance configured to operate over the WiFi mesh</li>
-                                <li><strong>Web Interface</strong> - Self-served web page showing WiFi mesh connection status for everyone on the network</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="product-features">
-                            <h3>What This Lets Us Do</h3>
-                            <p>The flat LAN WiFi mesh can be used for anything requiring multiple computers/phones on the same network. Tested and targeted uses:</p>
-                            <ul class="feature-list">
-                                <li><strong>ATAK</strong> - ATAK devices on the same network auto-discover each other and communicate. WiFi provides enough bandwidth for position updates, texts, pictures, and voice.</li>
-                                <li><strong>Reticulum</strong> - Users can use Reticulum applications like Sideband or MeshChat over the WiFi mesh via the onboard Reticulum transport instance. These provide chat, pictures, and even voice/video in some instances.</li>
-                                <li><strong>Meshtastic</strong> - Independent Meshtastic radio allows long-range LoRa connections with other Meshtastic users and operates just fine as a Meshtastic-only device. If users also decide to add the official ATAK Meshtastic plugin, this provides additional capability for long-range ATAK connectivity in parallel to the wifi mesh.</li>
+                                <li><strong>ATAK</strong> - Share maps, positions, messages, pictures, and voice</li>
+                                <li><strong>Reticulum Apps</strong> - Use Sideband, MeshChat, and other encrypted messaging</li>
+                                <li><strong>Meshtastic</strong> - Long-range text messages and position updates using the standard Meshtastic app, or integrate with ATAK via the plugin</li>
+                                <li><strong>TAKServer</strong> - Optional TAKServer install runs right on the hardware for centralized ATAK coordination and streaming video</li>
+                                <li><strong>Standard Apps</strong> - Any app that works on a local network</li>
                             </ul>
                         </div>
                         
@@ -240,8 +228,8 @@
         <!-- CTA Section -->
         <section class="cta">
             <div class="container">
-                <h2>Ready to upgrade your network?</h2>
-                <p>Explore our products or contact us for custom solutions tailored to your needs.</p>
+                <h2>Get Nucleus V1</h2>
+                <p>Contact us for pricing and availability.</p>
                 <div class="cta-buttons">
                     <a href="#" class="button secondary shop-button">Shop Now</a>
                     <a href="contact.html" class="button secondary">Contact Us</a>
