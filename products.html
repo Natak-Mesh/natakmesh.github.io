@@ -174,7 +174,6 @@
         <section class="hero product-hero">
             <div class="container">
                 <h2>Nucleus V1</h2>
-                <p>Off-grid network hardware that just works</p>
             </div>
         </section>
 
@@ -188,31 +187,33 @@
                     </div>
                     <div class="product-details">
                         <h2>Nucleus V1</h2>
-                        <p>Power it on and you're connected. Nucleus V1 creates an encrypted WiFi mesh between nodes while running dedicated LoRa radios for long-range links. Use ATAK, MeshChat, Sideband, or any app that works on a standard IP LAN.</p>
+                        <p>Nucleus V1 provides off-grid networking through three hardware interfaces:</p>
+                        <ul class="feature-list">
+                            <li><strong>802.11s WiFi Mesh</strong> - External Alfa card creates mesh links between nodes</li>
+                            <li><strong>Meshtastic</strong> - RAK4631 node for long-range communications</li>
+                            <li><strong>Ethernet</strong> - Standard RJ45 connection</li>
+                        </ul>
                         
-                        <p>We named it 'Nucleus' because each node serves as the center of multiple networking technologies. Like the nucleus of a cell, it's the central command center that coordinates different communication systems: a layer 2 WiFi mesh network, Reticulum running across the mesh or ethernet port, Meshtastic radio communications, and an onboard TAKServer. This versatility allows Nucleus to be the core of your communications infrastructure regardless of which applications or protocols you need to use.</p>
+                        <p>Software capabilities:</p>
+                        <ul class="feature-list">
+                            <li><strong>IP Connectivity</strong> - External WiFi card creates a flat LAN between Nucleus nodes while a bridged Ethernet and local access point allow devices to access the network</li>
+                            <li><strong>Reticulum Transport</strong> - An onboard transport instance enables devices using Reticulum based applications such as Sideband or MeshChat to find peers on the Nucleus generated local network</li>
+                            <li><strong>Meshtastic</strong> - Standalone node controlled by the official Meshtastic application on connected devices</li>
+                        </ul>
                         
                         <div class="product-features">
                             <h3>What's Inside</h3>
-                            <p>Raspberry Pi computer with external Alfa WiFi card and dedicated Meshtastic radio (RAK4631 module). Everything fits in a 3D printed case with power and ethernet connections. The modular design, commercial off-the-shelf hardware, non-proprietary software, and 3D printed case make repairs, modifications, and upgrades simple.</p>
-                        </div>
-                        
-                        <div class="product-features">
-                            <h3>Radios</h3>
-                            <ul class="feature-list">
-                                <li><strong>Alfa WiFi Card</strong> - High-speed mesh links between Nucleus V1 nodes</li>
-                                <li><strong>RAK4631 LoRa Module</strong> - Long-range Meshtastic for miles of coverage</li>
-                            </ul>
+                            <p>Built entirely from COTS (Commercial Off-The-Shelf) and 3D printed components. No custom parts means any component can be replaced readily and cheaply. This approach makes the platform easy to modify for specific requirements.</p>
                         </div>
                         
                         <div class="product-features">
                             <h3>What You Can Do</h3>
                             <ul class="feature-list">
-                                <li><strong>ATAK</strong> - Share maps, positions, messages, pictures, and voice</li>
-                                <li><strong>Reticulum Apps</strong> - Use Sideband, MeshChat, and other encrypted messaging</li>
-                                <li><strong>Meshtastic</strong> - Long-range text messages and position updates using the standard Meshtastic app, or integrate with ATAK via the plugin</li>
-                                <li><strong>TAKServer</strong> - Optional TAKServer install runs right on the hardware for centralized ATAK coordination and streaming video</li>
-                                <li><strong>Standard Apps</strong> - Any app that works on a standard IP LAN</li>
+                                <li><strong>ATAK</strong> - Works natively over the WiFi mesh, will automatically discover and communicate with other ATAK EUDs on the mesh network. Also can utilize the onboard Meshtastic radio for ATAK connectivity using the official Meshtastic ATAK plugin</li>
+                                <li><strong>LAN Messaging</strong> - Applications such as Jami and Softros can provide communication over the IP network created by the Nucleus node</li>
+                                <li><strong>Reticulum</strong> - The onboard transport instance allows Reticulum based applications to use the Nucleus' WiFi and Ethernet interfaces to connect to other Reticulum enabled devices on the network independent of IP connections</li>
+                                <li><strong>Meshtastic</strong> - Onboard node can act as a standalone Meshtastic node using the official Meshtastic application for long range, infrastructureless communication</li>
+                                <li><strong>TAKServer</strong> - Each Nucleus comes with TAKServer installed along with MediaMTX to enable more ATAK functionality including video streaming. Can be configured as an option from the shop or be configured by the user</li>
                             </ul>
                         </div>
                         
