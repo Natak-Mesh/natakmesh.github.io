@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EZPF1EF47"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4EZPF1EF47');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data - Natak Mesh</title>
+    <meta name="description" content="Testing results and performance data for Natak Mesh products.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon placeholder - update when branding is ready -->
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Data page specific styles */
+        .product-section {
+            padding: var(--spacing-xxl) 0;
+        }
+        
+        .product-section:nth-child(even) {
+            background-color: var(--background-alt);
+        }
+        
+        .product-container {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-xl);
+        }
+        
+        .product-image {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        .product-img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .product-details {
+            flex: 1;
+        }
+        
+        .product-features {
+            margin-top: var(--spacing-lg);
+        }
+        
+        .product-features h3 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .section-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-xl);
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 992px) {
+            .product-container {
+                flex-direction: column;
+            }
+            
+            .product-image,
+            .product-details {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/Natak Mesh Logo Kit/drive-download-20250629T123827Z-1-001/Logos 300ppi/NatakMeshsecondary-overlay.png" alt="Natak Mesh" class="header-logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="data.html" class="active">Data</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Testing Data</h2>
+                <p>Performance metrics and testing results for Natak Mesh products</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <h2>Testing Results</h2>
+                <p>This page presents field test results from our ongoing testing program. As this is an active project, more data will be added as it's acquired.</p>
+            </div>
+        </section>
+
+        <!-- Maximum WiFi Range Test Section -->
+        <section class="product-section">
+            <div class="container">
+                <h2 class="section-title">WiFi Range Test</h2>
+                <div class="product-container">
+                    <div class="product-image" style="height: auto;">
+                        <img src="images/1km.png" alt="1 Kilometer WiFi Range Test" class="product-img">
+                    </div>
+                    <div class="product-details">
+                        <h3>WiFi Range Test</h3>
+                        <p>This test measures the maximum effective range of the WiFi mesh network between two Nucleus V1 nodes.</p>
+                        
+                        <div class="product-features">
+                            <h3>Test Setup</h3>
+                            <ul class="feature-list">
+                                <li><strong>Environment:</strong> Open field with clear line of sight</li>
+                                <li><strong>Equipment:</strong> Two Nucleus V1 nodes with standard antennas</li>
+                                <li><strong>Node Configuration:</strong> Both nodes at approximately 4' elevation, one static and one mounted on an OHV</li>
+                                <li><strong>Measurement:</strong> Batman mesh statistics used to monitor data rates</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3>Results</h3>
+                            <ul class="feature-list">
+                                <li><strong>800m:</strong> Data rate dropped below 1 Mbps</li>
+                                <li><strong>900m:</strong> Connection still maintained as shown in the image</li>
+                                <li><strong>900m-1km:</strong> Connection completely lost</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Throughput at Various Ranges Section -->
+        <section class="product-section" style="background-color: var(--background-alt);">
+            <div class="container">
+                <h2 class="section-title">Throughput at Various Ranges</h2>
+                <div class="product-container">
+                    <div class="product-image" style="height: auto;">
+                        <img src="images/test1.png" alt="Throughput at Various Ranges Test" class="product-img">
+                    </div>
+                    <div class="product-details">
+                        <h3>Throughput at Various Ranges</h3>
+                        <p>This test measures the data throughput capabilities of the Nucleus V1 nodes at different distances.</p>
+                        
+                        <div class="product-features">
+                            <h3>Test Setup</h3>
+                            <ul class="feature-list">
+                                <li><strong>Environment:</strong> Test environment with varying terrain and obstacles</li>
+                                <li><strong>Equipment:</strong> Three Nucleus V1 nodes with standard antennas</li>
+                                <li><strong>Node Configuration:</strong> Node 1 (mobile) carried at ~4' elevation, Node 3 mounted at ~4' elevation, Node 2 placed at 0' elevation near ground clutter but with line of sight to Node 3 to force hopping behavior on the mesh</li>
+                                <li><strong>Measurement:</strong> BATMAN mesh statistics used to monitor throughput rates</li>
+                                <li><strong>Note:</strong> Data points related to "lora switch" were from an older version without full Meshtastic integration and are not relevant to this WiFi range discussion</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3>Results</h3>
+                            <ul class="feature-list">
+                                <li><strong>Clear Line of Sight:</strong> Good throughput maintained up to ~300m</li>
+                                <li><strong>Obstructed Line of Sight:</strong> Trees blocking direct LoS reduced maximum range to ~500m</li>
+                                <li><strong>Performance Drop-off:</strong> Sharp decrease in throughput after ~300m</li>
+                                <li><strong>Maximum Range:</strong> Connection completely lost beyond ~500m with obstructions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Throughput Test Section -->
+        <section class="product-section">
+            <div class="container">
+                <h2 class="section-title">Additional Throughput Test</h2>
+                <div class="product-container">
+                    <div class="product-image" style="height: auto;">
+                        <img src="images/test2.png" alt="Additional Throughput Test" class="product-img">
+                    </div>
+                    <div class="product-details">
+                        <h3>Additional Throughput Test</h3>
+                        <p>This test provides additional data on throughput capabilities under different conditions.</p>
+                        
+                        <div class="product-features">
+                            <h3>Test Setup</h3>
+                            <ul class="feature-list">
+                                <li><strong>Environment:</strong> Test environment with more Line of Sight (LoS) obstructions than the previous test</li>
+                                <li><strong>Equipment:</strong> Two Nucleus V1 nodes with standard antennas</li>
+                                <li><strong>Node Configuration:</strong> Both nodes at approximately 4' elevation with direct connection between them</li>
+                                <li><strong>Measurement:</strong> BATMAN mesh statistics used to monitor throughput rates</li>
+                                <li><strong>Note:</strong> Data points related to "lora mode" were from an older version without full Meshtastic integration and are not relevant to this WiFi range discussion</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3>Results</h3>
+                            <ul class="feature-list">
+                                <li><strong>Throughput with Obstructions:</strong> Throughput drops sharply once Line of Sight (LoS) is obstructed, down to approximately 1 Mbps by 300 meters</li>
+                                <li><strong>Connection Stability:</strong> Dropouts become noticeable at 350 meters, with WiFi connection mostly lost by 400 meters</li>
+                                <li><strong>North Side Test Area:</strong> From 250m to 320m in relatively clear LoS, only a mild drop in throughput was observed</li>
+                                <li><strong>Impact of Obstructions:</strong> Adding obstructions from 320m to 370m produced an extreme cut in throughput</li>
+                                <li><strong>Conclusion:</strong> Line of Sight obstructions have a significant impact on throughput and connection stability, with a much sharper performance drop-off compared to clear LoS conditions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Power Draw Section -->
+        <section class="product-section">
+            <div class="container">
+                <h2 class="section-title">Power Draw</h2>
+                <p>This section will contain power consumption data once testing is complete.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="documentation.html">Documentation</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="data.html">Data</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="documentation.html#mesh-v1">Mesh V1</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: nathan@natakmesh.com</p>
+                    <p>Tampa, FL</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
