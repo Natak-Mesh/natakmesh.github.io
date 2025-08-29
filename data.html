@@ -30,28 +30,28 @@
         
         .product-container {
             display: flex;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
             gap: var(--spacing-xl);
         }
         
         .product-image {
-            flex: 1;
-            max-width: 600px;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
         }
         
         .product-img {
+            width: 100%;
             max-width: 100%;
-            max-height: 100%;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
         }
         
         .product-details {
-            flex: 1;
+            width: 100%;
         }
         
         .product-features {
@@ -75,7 +75,7 @@
         }
         
         .feature-list li::before {
-            content: '✓';
+            content: '•';
             color: var(--primary-color);
             position: absolute;
             left: 0;
@@ -89,6 +89,7 @@
             color: var(--text-light);
         }
         
+        /* This media query is no longer needed since we're already using a column layout
         @media (max-width: 992px) {
             .product-container {
                 flex-direction: column;
@@ -99,6 +100,7 @@
                 max-width: 100%;
             }
         }
+        */
     </style>
 </head>
 <body>
@@ -137,8 +139,8 @@
 
         <section class="content-section">
             <div class="container">
-                <h2>Testing Results</h2>
-                <p>This page presents field test results from our ongoing testing program. As this is an active project, more data will be added as it's acquired.</p>
+                <h2>WiFi Testing Results</h2>
+                <p>This page presents field test results from our ongoing testing program, focusing specifically on <strong>WiFi connection performance</strong>. All data shown on this page relates to the WiFi capabilities of the Nucleus V1 nodes, not other communication methods. As this is an active project, more data will be added as it's acquired.</p>
             </div>
         </section>
 
@@ -152,7 +154,7 @@
                     </div>
                     <div class="product-details">
                         <h3>WiFi Range Test</h3>
-                        <p>This test measures the maximum effective range of the WiFi mesh network between two Nucleus V1 nodes.</p>
+                        <p>This test measures the maximum effective range of the <strong>WiFi mesh network</strong> between two Nucleus V1 nodes. These results are specific to the WiFi connection capabilities of the devices.</p>
                         
                         <div class="product-features">
                             <h3>Test Setup</h3>
@@ -165,11 +167,11 @@
                         </div>
                         
                         <div class="product-features">
-                            <h3>Results</h3>
+                            <h3>WiFi Connection Results</h3>
                             <ul class="feature-list">
-                                <li><strong>800m:</strong> Data rate dropped below 1 Mbps</li>
-                                <li><strong>900m:</strong> Connection still maintained as shown in the image</li>
-                                <li><strong>900m-1km:</strong> Connection completely lost</li>
+                                <li><strong>800m:</strong> WiFi data rate dropped below 1 Mbps</li>
+                                <li><strong>900m:</strong> WiFi connection still maintained as shown in the image</li>
+                                <li><strong>900m-1km:</strong> WiFi connection completely lost</li>
                             </ul>
                         </div>
                     </div>
@@ -180,14 +182,14 @@
         <!-- Throughput at Various Ranges Section -->
         <section class="product-section" style="background-color: var(--background-alt);">
             <div class="container">
-                <h2 class="section-title">Throughput at Various Ranges</h2>
+                <h2 class="section-title">WiFi Throughput at Various Ranges</h2>
                 <div class="product-container">
                     <div class="product-image" style="height: auto;">
-                        <img src="images/test1.png" alt="Throughput at Various Ranges Test" class="product-img">
+                        <img src="images/test1.png" alt="WiFi Throughput at Various Ranges Test" class="product-img">
                     </div>
                     <div class="product-details">
-                        <h3>Throughput at Various Ranges</h3>
-                        <p>This test measures the data throughput capabilities of the Nucleus V1 nodes at different distances.</p>
+                        <h3>WiFi Throughput at Various Ranges</h3>
+                        <p>This test measures the <strong>WiFi data throughput capabilities</strong> of the Nucleus V1 nodes at different distances. All measurements reflect WiFi connection performance only.</p>
                         
                         <div class="product-features">
                             <h3>Test Setup</h3>
@@ -201,12 +203,12 @@
                         </div>
                         
                         <div class="product-features">
-                            <h3>Results</h3>
+                            <h3>WiFi Connection Results</h3>
                             <ul class="feature-list">
-                                <li><strong>Clear Line of Sight:</strong> Good throughput maintained up to ~300m</li>
-                                <li><strong>Obstructed Line of Sight:</strong> Trees blocking direct LoS reduced maximum range to ~500m</li>
-                                <li><strong>Performance Drop-off:</strong> Sharp decrease in throughput after ~300m</li>
-                                <li><strong>Maximum Range:</strong> Connection completely lost beyond ~500m with obstructions</li>
+                                <li><strong>Clear Line of Sight:</strong> Good WiFi throughput maintained up to ~300m</li>
+                                <li><strong>Obstructed Line of Sight:</strong> Trees blocking direct LoS reduced maximum WiFi range to ~500m</li>
+                                <li><strong>Performance Drop-off:</strong> Sharp decrease in WiFi throughput after ~300m</li>
+                                <li><strong>Maximum Range:</strong> WiFi connection completely lost beyond ~500m with obstructions</li>
                             </ul>
                         </div>
                     </div>
@@ -217,14 +219,14 @@
         <!-- Additional Throughput Test Section -->
         <section class="product-section">
             <div class="container">
-                <h2 class="section-title">Additional Throughput Test</h2>
+                <h2 class="section-title">Additional WiFi Throughput Test</h2>
                 <div class="product-container">
                     <div class="product-image" style="height: auto;">
-                        <img src="images/test2.png" alt="Additional Throughput Test" class="product-img">
+                        <img src="images/test2.png" alt="Additional WiFi Throughput Test" class="product-img">
                     </div>
                     <div class="product-details">
-                        <h3>Additional Throughput Test</h3>
-                        <p>This test provides additional data on throughput capabilities under different conditions.</p>
+                        <h3>Additional WiFi Throughput Test</h3>
+                        <p>This test provides additional data on <strong>WiFi throughput capabilities</strong> under different conditions. All measurements shown are exclusively for WiFi connections.</p>
                         
                         <div class="product-features">
                             <h3>Test Setup</h3>
@@ -238,13 +240,13 @@
                         </div>
                         
                         <div class="product-features">
-                            <h3>Results</h3>
+                            <h3>WiFi Connection Results</h3>
                             <ul class="feature-list">
-                                <li><strong>Throughput with Obstructions:</strong> Throughput drops sharply once Line of Sight (LoS) is obstructed, down to approximately 1 Mbps by 300 meters</li>
-                                <li><strong>Connection Stability:</strong> Dropouts become noticeable at 350 meters, with WiFi connection mostly lost by 400 meters</li>
-                                <li><strong>North Side Test Area:</strong> From 250m to 320m in relatively clear LoS, only a mild drop in throughput was observed</li>
-                                <li><strong>Impact of Obstructions:</strong> Adding obstructions from 320m to 370m produced an extreme cut in throughput</li>
-                                <li><strong>Conclusion:</strong> Line of Sight obstructions have a significant impact on throughput and connection stability, with a much sharper performance drop-off compared to clear LoS conditions</li>
+                                <li><strong>Throughput with Obstructions:</strong> WiFi throughput drops sharply once Line of Sight (LoS) is obstructed, down to approximately 1 Mbps by 300 meters</li>
+                                <li><strong>Connection Stability:</strong> WiFi dropouts become noticeable at 350 meters, with WiFi connection mostly lost by 400 meters</li>
+                                <li><strong>North Side Test Area:</strong> From 250m to 320m in relatively clear LoS, only a mild drop in WiFi throughput was observed</li>
+                                <li><strong>Impact of Obstructions:</strong> Adding obstructions from 320m to 370m produced an extreme cut in WiFi throughput</li>
+                                <li><strong>Conclusion:</strong> Line of Sight obstructions have a significant impact on WiFi throughput and connection stability, with a much sharper performance drop-off compared to clear LoS conditions</li>
                             </ul>
                         </div>
                     </div>
@@ -255,8 +257,8 @@
         <!-- Power Draw Section -->
         <section class="product-section">
             <div class="container">
-                <h2 class="section-title">Power Draw</h2>
-                <p>This section will contain power consumption data once testing is complete.</p>
+                <h2 class="section-title">Power Draw During WiFi Operation</h2>
+                <p>The node uses 5V via the provided USB A > M12 cable. Current draw during operation is ~0.5 A.</p>
             </div>
         </section>
     </main>
