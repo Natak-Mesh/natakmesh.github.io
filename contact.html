@@ -90,6 +90,7 @@
         
         .contact-method h4 {
             margin-bottom: var(--spacing-xs);
+            color: var(--warning-color);
         }
         
         .contact-method p {
@@ -110,12 +111,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            padding: 0.5rem 1rem;
             background-color: var(--primary-color);
             color: white;
-            border-radius: 50%;
+            border-radius: var(--border-radius);
             transition: background-color var(--transition-fast);
+            text-decoration: none;
+            font-size: 0.9rem;
         }
         
         .social-link:hover {
@@ -276,15 +278,22 @@
                             </div>
                             
                             <div class="contact-method">
+                                <h4>Reticulum</h4>
+                                <p>NomadNet URL:<br><span style="color: var(--primary-color);">3fadf69e5173e5679829add8c4ac622a:/page/index.mu</span></p>
+                                <p style="margin-top: 1rem;">Sideband LXMF Address:<br><span style="color: var(--primary-color);">87dc8476ed678c28c708d41ff21ff97a</span></p>
+                                <p style="margin-top: 0.5rem;"><em>Reachable from public test nets</em></p>
+                            </div>
+                            
+                            <div class="contact-method">
                                 <h4>Address</h4>
                                 <p>Tampa, FL<br>United States</p>
                             </div>
                             
                             <div class="social-links">
-                                <a href="#" class="social-link" aria-label="Twitter">T</a>
-                                <a href="#" class="social-link" aria-label="LinkedIn">L</a>
-                                <a href="#" class="social-link" aria-label="GitHub">G</a>
-                                <a href="#" class="social-link" aria-label="YouTube">Y</a>
+                                <a href="https://www.linkedin.com/company/natak-mesh/?viewAsMember=true" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                <a href="https://www.instagram.com/natak_mesh/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+                                <a href="https://www.youtube.com/@NatakMesh" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">YouTube</a>
+                                <a href="https://github.com/Natak-Mesh/Nucleus_V1" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
                             </div>
                         </div>
                         
