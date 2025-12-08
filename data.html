@@ -88,6 +88,81 @@
             margin: 0 auto var(--spacing-xl);
             color: var(--text-light);
         }
+
+        /* Accordion Styles */
+        .accordion {
+            margin-bottom: 50px !important;
+        }
+
+        .accordion-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .accordion-header.active {
+            background-color: var(--primary-dark);
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: white;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        .accordion-content.active {
+            max-height: 5000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .accordion-content-inner {
+            padding: var(--spacing-xl);
+            color: #333;
+        }
+
+        .accordion-content-inner h3 {
+            color: #222;
+        }
+
+        .accordion-content-inner p,
+        .accordion-content-inner li {
+            color: #444;
+        }
+
+        .version-info {
+            font-size: 0.85rem;
+            font-weight: normal;
+            opacity: 0.9;
+            margin-left: 1rem;
+        }
         
         /* This media query is no longer needed since we're already using a column layout
         @media (max-width: 992px) {
@@ -144,11 +219,50 @@
             </div>
         </section>
 
-        <!-- Maximum WiFi Range Test Section -->
+        <!-- Test Sections Container -->
         <section class="product-section">
             <div class="container">
-                <h2 class="section-title">WiFi Range Test</h2>
-                <div class="product-container">
+                
+                <!-- Accordion 0: Wi-Fi max range -->
+                <div class="accordion" style="margin-bottom: 100px !important;">
+                    <button class="accordion-header">
+                        <span>Wi-Fi max range <span class="version-info">Hardware 1.1 | Software 2.0</span></span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div class="product-container">
+                    <div class="product-details">
+                        <h3>Wi-Fi max range</h3>
+                        <p>Test data and results will be added here soon.</p>
+                        
+                        <div class="product-features">
+                            <h3>Test Setup</h3>
+                            <ul class="feature-list">
+                                <li>Details to be added</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3>Results</h3>
+                            <ul class="feature-list">
+                                <li>Results to be added</li>
+                            </ul>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion 1: Maximum WiFi Range Test -->
+                <div class="accordion" style="margin-bottom: 100px !important;">
+                    <button class="accordion-header">
+                        <span>WiFi Range Test <span class="version-info">Hardware 1.0 | Software 0.9</span></span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div class="product-container">
                     <div class="product-image" style="height: auto;">
                         <img src="images/1km.png" alt="1 Kilometer WiFi Range Test" class="product-img">
                     </div>
@@ -174,16 +288,20 @@
                                 <li><strong>900m-1km:</strong> WiFi connection completely lost</li>
                             </ul>
                         </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Throughput at Various Ranges Section -->
-        <section class="product-section" style="background-color: var(--background-alt);">
-            <div class="container">
-                <h2 class="section-title">WiFi Throughput at Various Ranges</h2>
-                <div class="product-container">
+                <!-- Accordion 2: WiFi Throughput at Various Ranges -->
+                <div class="accordion" style="margin-bottom: 100px !important;">
+                    <button class="accordion-header">
+                        <span>WiFi Throughput at Various Ranges <span class="version-info">Hardware 1.0 | Software 0.9</span></span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div class="product-container">
                     <div class="product-image" style="height: auto;">
                         <img src="images/test1.png" alt="WiFi Throughput at Various Ranges Test" class="product-img">
                     </div>
@@ -211,16 +329,20 @@
                                 <li><strong>Maximum Range:</strong> WiFi connection completely lost beyond ~500m with obstructions</li>
                             </ul>
                         </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Additional Throughput Test Section -->
-        <section class="product-section">
-            <div class="container">
-                <h2 class="section-title">Additional WiFi Throughput Test</h2>
-                <div class="product-container">
+                <!-- Accordion 3: Additional WiFi Throughput Test -->
+                <div class="accordion" style="margin-bottom: 100px !important;">
+                    <button class="accordion-header">
+                        <span>Additional WiFi Throughput Test <span class="version-info">Hardware 1.0 | Software 0.9</span></span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div class="product-container">
                     <div class="product-image" style="height: auto;">
                         <img src="images/test2.png" alt="Additional WiFi Throughput Test" class="product-img">
                     </div>
@@ -249,16 +371,20 @@
                                 <li><strong>Conclusion:</strong> Line of Sight obstructions have a significant impact on WiFi throughput and connection stability, with a much sharper performance drop-off compared to clear LoS conditions</li>
                             </ul>
                         </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Meshtastic Radio Information Section -->
-        <section class="product-section" style="background-color: var(--background-alt);">
-            <div class="container">
-                <h2 class="section-title">Meshtastic Radio Capabilities</h2>
-                <div class="product-container">
+                <!-- Accordion 4: Meshtastic Radio Capabilities -->
+                <div class="accordion" style="margin-bottom: 100px !important;">
+                    <button class="accordion-header">
+                        <span>Meshtastic Radio Capabilities</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div class="product-container">
                     <div class="product-details">
                         <h3>Meshtastic Radio</h3>
                         <p>The Nucleus V1 includes an onboard RAK4631 Meshtastic radio for longer-range communication. While WiFi provides high-bandwidth connections at shorter ranges, the Meshtastic radio enables much longer-range communication with lower bandwidth.</p>
@@ -267,21 +393,28 @@
                             <h3>Meshtastic Range Tests</h3>
                             <ul class="feature-list">
                                 <li>For detailed range test data on Meshtastic radios, please visit the <a href="https://meshtastic.org/docs/overview/range-tests/" target="_blank">official Meshtastic range tests documentation</a>.</li>
-                                <li>These tests demonstrate the significant range advantages of LoRa-based Meshtastic radios compared to WiFi.</li>
+                                <li>Our field testing has made connections easily at ~8 miles.</li>
                                 <li>With the large knowledge base of Meshtastic users already documenting performance, we currently focus primarily on WiFi performance testing since Meshtastic performance characteristics are well-established.</li>
-                                <li>We plan to conduct our own Meshtastic field testing with the Nucleus V1 in the future to validate performance with our specific hardware configuration.</li>
                             </ul>
+                        </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Power Draw Section -->
-        <section class="product-section">
-            <div class="container">
-                <h2 class="section-title">Power Draw During WiFi Operation</h2>
-                <p>The node uses 5V via the provided USB A > M12 cable. Current draw during operation is ~0.5 A.</p>
+                <!-- Accordion 5: Power Draw During WiFi Operation -->
+                <div class="accordion" style="margin-bottom: 100px !important;">
+                    <button class="accordion-header">
+                        <span>Power Draw During WiFi Operation</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>The node uses 5V via the provided USB A > M12 cable. Current draw during operation is ~0.5 A.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -325,5 +458,32 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    // Toggle active class on header
+                    this.classList.toggle('active');
+                    
+                    // Get the accordion content
+                    const content = this.nextElementSibling;
+                    
+                    // Toggle active class on content
+                    content.classList.toggle('active');
+                    
+                    // Toggle icon between + and -
+                    const icon = this.querySelector('.accordion-icon');
+                    if (this.classList.contains('active')) {
+                        icon.textContent = '−';
+                    } else {
+                        icon.textContent = '+';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
