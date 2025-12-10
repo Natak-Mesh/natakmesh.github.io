@@ -139,7 +139,7 @@
         }
 
         .accordion-content.active {
-            max-height: 5000px;
+            max-height: 15000px;
             transition: max-height 0.5s ease-in;
         }
 
@@ -232,22 +232,53 @@
                     <div class="accordion-content">
                         <div class="accordion-content-inner">
                             <div class="product-container">
+                    <div class="product-image" style="height: auto;">
+                        <img src="images/guat_test/Photos-3-001/all markers.png" alt="Wi-Fi Max Range Test" class="product-img">
+                    </div>
                     <div class="product-details">
-                        <h3>Wi-Fi max range</h3>
-                        <p>Test data and results will be added here soon.</p>
+                        <h3>Maximum Nucleus Range Test</h3>
+                        <p>This test measures the maximum range of the Nucleus under extremely favorable conditions. LoRa connection was also checked across the full range offered by the test area.</p>
                         
                         <div class="product-features">
                             <h3>Test Setup</h3>
-                            <ul class="feature-list">
-                                <li>Details to be added</li>
-                            </ul>
+                            <p>A stationary Nucleus node was staged at ~48 meters above the lake, the stationary node's Meshtastic radio was set into range test mode. The second node was taken via boat onto the lake. Wi-Fi connection was tracked via the mobile node's web interface. The mobile node's Meshtastic radio in range test mode received sequential pings from the base node.</p>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/guat_test/Photos-3-001/base_node_setup.jpg" alt="Base Node Setup" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Base node</p>
+                            </div>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/guat_test/Photos-3-001/mobile_node-2.jpg" alt="Mobile Node" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Mobile node</p>
+                            </div>
                         </div>
                         
                         <div class="product-features">
                             <h3>Results</h3>
                             <ul class="feature-list">
-                                <li>Results to be added</li>
+                                <li>On the outbound trip WiFi connectivity suffered a fast throughput fall off from 5.7 Mbps to ~2.9 Mbps at around 1,600 meters and had full cut out before 1,700 meters. See Figure 1.</li>
                             </ul>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/guat_test/Photos-3-001/outbound_wifi_cutoff.png" alt="Outbound WiFi Cutoff" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 1</p>
+                            </div>
+                            <ul class="feature-list" style="margin-top: var(--spacing-lg);">
+                                <li>Test continued across the lake tracking LoRa pings. No issues out to 12.26 km at which point we ran out of lake and began the return trip. See Figure 2.</li>
+                            </ul>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/guat_test/Photos-3-001/lora.png" alt="LoRa Test Results" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 2</p>
+                            </div>
+                            <ul class="feature-list" style="margin-top: var(--spacing-lg);">
+                                <li>On the return trip, on a slightly different heading than the outbound trip, the WiFi radio established a mesh connection at ~5.5 km. See Figure 3. From there throughput improved, reaching ~4 Mbps between 2 and 2.5 km improving as we got closer to the base node. Note the throughput drop off at around 500m is likely due to terrain shadowing between the base node and the dock. See Figure 4.</li>
+                            </ul>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/guat_test/Photos-3-001/wifi_5k.png" alt="WiFi Connection at 5.5km" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 3</p>
+                            </div>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/guat_test/Photos-3-001/wiw_5k_2.png" alt="WiFi Throughput on Return Trip" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 4</p>
+                            </div>
                         </div>
                             </div>
                         </div>
