@@ -12,8 +12,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nucleus V1 - Off-Grid Network Hardware</title>
-    <meta name="description" content="Nucleus V1 keeps your devices connected when cell towers and Wi-Fi aren't around.">
+    <title>Nucleus Products - Mesh Networking Hardware</title>
+    <meta name="description" content="Nucleus mesh networking nodes - V1.2 with LoRa and Ethernet, or Mini for compact WiFi mesh.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <!-- Favicon placeholder - update when branding is ready -->
@@ -22,6 +22,7 @@
         /* Products page specific styles */
         .product-hero {
             text-align: center;
+            padding: var(--spacing-xl) 0;
         }
         
         .product-section {
@@ -40,17 +41,14 @@
         
         .product-image {
             flex: 1;
-            max-width: 1125px; /* Increased from 750px by another 50% */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            height: 900px; /* Increased to accommodate larger image */
+            max-width: 600px;
+            height: auto !important;
+            overflow: visible !important;
         }
         
         .product-img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: auto;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
         }
@@ -91,36 +89,6 @@
             margin-top: var(--spacing-lg);
             display: flex;
             gap: var(--spacing-md);
-        }
-        
-        .specs-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: var(--spacing-lg);
-        }
-        
-        .specs-table th,
-        .specs-table td {
-            padding: var(--spacing-sm);
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .specs-table th {
-            background-color: var(--background-alt);
-            font-weight: 600;
-        }
-        
-        .button.disabled {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-        
-        .button.disabled:hover {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
         }
         
         @media (max-width: 992px) {
@@ -173,50 +141,52 @@
     <main>
         <section class="hero product-hero">
             <div class="container">
-                <h2>Nucleus V1</h2>
+                <h2>Nucleus Product Family</h2>
+                <p>Mesh networking nodes for diverse deployment scenarios</p>
             </div>
         </section>
 
-        <!-- Mesh V1 Product Section -->
-        <section id="mesh-v1" class="product-section">
+        <!-- Nucleus V1.2 Product Section -->
+        <section id="nucleus-v12" class="product-section">
             <div class="container">
                 <div class="product-container">
-                    <div class="product-image" style="height: auto;">
-                        <img src="images/node1.png" alt="Mesh V1 Networking Node" class="product-img">
-                        <img src="images/rangeday2.png" alt="Range Day Testing" style="margin-top: 20px; width: 325px; height: auto; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                    <div class="product-image">
+                        <img src="images/12_25_update/V1.2 Assembly render 1.jpg" alt="Nucleus V1.2" class="product-img">
                     </div>
                     <div class="product-details">
-                        <h2>Nucleus V1</h2>
-                        <p>Nucleus V1 provides off-grid networking through three hardware interfaces:</p>
-                        <ul class="feature-list">
-                            <li><strong>802.11s WiFi Mesh</strong> - External Alfa card creates mesh links between nodes</li>
-                            <li><strong>Meshtastic</strong> - RAK4631 node for long-range communications</li>
-                            <li><strong>Ethernet</strong> - Standard RJ45 connection</li>
-                        </ul>
-                        
-                        <p>Software capabilities:</p>
-                        <ul class="feature-list">
-                            <li><strong>IP Connectivity</strong> - External WiFi card creates a flat LAN between Nucleus nodes while a bridged Ethernet and local access point allow devices to access the network</li>
-                            <li><strong>Reticulum Transport</strong> - An onboard transport instance enables devices using Reticulum based applications such as Sideband or MeshChat to find peers on the Nucleus generated local network</li>
-                            <li><strong>Meshtastic</strong> - Standalone node controlled by the official Meshtastic application on connected devices</li>
-                        </ul>
+                        <h2>Nucleus V1.2</h2>
+                        <p>The V1.2 is the full-featured Nucleus platform with WiFi mesh, LoRa radio, and Ethernet connectivity.</p>
                         
                         <div class="product-features">
-                            <h3>What's Inside</h3>
-                            <p>Built entirely from COTS (Commercial Off-The-Shelf) and 3D printed components. No custom parts means any component can be replaced readily and cheaply. This approach makes the platform easy to modify for specific requirements.</p>
-                        </div>
-                        
-                        <div class="product-features">
-                            <h3>What You Can Do</h3>
+                            <h3>Hardware Interfaces</h3>
                             <ul class="feature-list">
-                                <li><strong>ATAK</strong> - Works natively over the WiFi mesh, will automatically discover and communicate with other ATAK EUDs on the mesh network. Also can utilize the onboard Meshtastic radio for ATAK connectivity using the official Meshtastic ATAK plugin</li>
-                                <li><strong>LAN Messaging</strong> - Applications such as Jami and Softros can provide communication over the IP network created by the Nucleus node</li>
-                                <li><strong>Reticulum</strong> - The onboard transport instance allows Reticulum based applications to use the Nucleus' WiFi and Ethernet interfaces to connect to other Reticulum enabled devices on the network independent of IP connections</li>
-                                <li><strong>Meshtastic</strong> - Onboard node can act as a standalone Meshtastic node using the official Meshtastic application for long range, infrastructureless communication</li>
-                                <li><strong>TAKServer</strong> - Each Nucleus comes with TAKServer installed along with MediaMTX to enable more ATAK functionality including video streaming. Can be configured as an option from the shop or be configured by the user</li>
+                                <li><strong>802.11s WiFi Mesh</strong> - External radio creates mesh links between nodes</li>
+                                <li><strong>Meshtastic LoRa Radio</strong> - Onboard radio for long-range communications</li>
+                                <li><strong>Ethernet Port</strong> - RJ45 connection for wired devices</li>
+                                <li><strong>WiFi Access Point</strong> - Connect phones, tablets, and laptops to the mesh</li>
                             </ul>
                         </div>
                         
+                        <div class="product-features">
+                            <h3>Software Capabilities</h3>
+                            <ul class="feature-list">
+                                <li><strong>WPA3 Encrypted Mesh</strong> - Secure WiFi connections with efficient IP-based routing</li>
+                                <li><strong>Mesh Monitoring</strong> - Built-in web interface for network management</li>
+                                <li><strong>Wi-Fi Channel Analysis</strong> - Aircrack-ng tools for spectrum analysis</li>
+                                <li><strong>Reticulum Transport</strong> - Onboard transport for Reticulum applications like Sideband and MeshChat</li>
+                                <li><strong>TAKserver & MediaMTX</strong> - Pre-installed but not activated by default</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3>Use Cases</h3>
+                            <ul class="feature-list">
+                                <li><strong>ATAK</strong> - Works natively over WiFi mesh. Meshtastic radio can be used with the ATAK Meshtastic plugin to fuse LoRa connectivity into ATAK's communication network</li>
+                                <li><strong>Reticulum Applications</strong> - Run Sideband, MeshChat, or other Reticulum apps over the mesh</li>
+                                <li><strong>Meshtastic Messaging</strong> - Standalone LoRa node controlled by the Meshtastic app</li>
+                                <li><strong>Satellite Backhaul</strong> - Connect Ethernet port to Starlink or other internet source to provide internet access across the mesh</li>
+                            </ul>
+                        </div>
                         
                         <div class="product-cta">
                             <a href="documentation.html#mesh-v1" class="button secondary">View Documentation</a>
@@ -225,15 +195,60 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </section>
 
+        <!-- Nucleus Mini Product Section -->
+        <section id="nucleus-mini" class="product-section">
+            <div class="container">
+                <div class="product-container">
+                    <div class="product-image">
+                        <img src="images/12_25_update/Nucleus Mini render 1.png" alt="Nucleus Mini" class="product-img">
+                    </div>
+                    <div class="product-details">
+                        <h2>Nucleus Mini</h2>
+                        <p>Compact WiFi mesh node for lightweight deployments. Same core mesh functionality in a smaller package.</p>
+                        
+                        <div class="product-features">
+                            <h3>Hardware Interfaces</h3>
+                            <ul class="feature-list">
+                                <li><strong>802.11s WiFi Mesh</strong> - External radio creates mesh links between nodes</li>
+                                <li><strong>WiFi Access Point</strong> - Connect phones, tablets, and laptops to the mesh</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3>Software Capabilities</h3>
+                            <ul class="feature-list">
+                                <li><strong>WPA3 Encrypted Mesh</strong> - Secure WiFi connections with efficient IP-based routing</li>
+                                <li><strong>Mesh Monitoring</strong> - Built-in web interface for network management</li>
+                                <li><strong>Wi-Fi Channel Analysis</strong> - Aircrack-ng tools for spectrum analysis</li>
+                                <li><strong>Reticulum Transport</strong> - Onboard transport for Reticulum applications</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3>Use Cases</h3>
+                            <ul class="feature-list">
+                                <li><strong>ATAK</strong> - Works natively over WiFi mesh</li>
+                                <li><strong>Reticulum Applications</strong> - Run Sideband, MeshChat, or other Reticulum apps over the mesh</li>
+                                <li><strong>Compact Deployments</strong> - Ideal for scenarios where size and weight are critical</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-cta">
+                            <a href="documentation.html" class="button secondary">View Documentation</a>
+                            <a href="#" class="button primary shop-button">Purchase</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- CTA Section -->
         <section class="cta">
             <div class="container">
-                <h2>Get Nucleus V1</h2>
+                <h2>Get Nucleus</h2>
                 <p>Contact us for pricing and availability.</p>
                 <div class="cta-buttons">
                     <a href="#" class="button secondary shop-button">Shop Now</a>

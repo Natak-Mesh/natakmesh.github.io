@@ -145,6 +145,15 @@
             content: '←';
             margin-right: var(--spacing-xs);
         }
+        
+        .config-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: var(--spacing-lg) auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -184,60 +193,88 @@
                 <div class="table-of-contents">
                     <h4>Table of Contents</h4>
                     <ol>
-                        <li><a href="#system-overview">System Overview</a>
+                        <li><a href="#initial-setup">Initial Setup</a></li>
+                        <li><a href="#web-interface">Web Interface & Monitoring</a></li>
+                        <li><a href="#configuration">Configuration</a></li>
+                        <li><a href="#base-nucleus-features">Base Nucleus Features (All Models)</a>
                             <ul>
-                                <li><a href="#hardware-overview">Hardware Overview</a></li>
-                                <li><a href="#networking-layers">Networking Layers</a></li>
-                                <li><a href="#software-applications">Software Applications</a></li>
-                                <li><a href="#tak-integration">TAK Integration</a></li>
+                                <li><a href="#wifi-mesh">WiFi 802.11s Mesh</a></li>
+                                <li><a href="#reticulum">Reticulum Network</a></li>
                             </ul>
                         </li>
-                        <li><a href="#initial-setup">Initial Setup</a>
+                        <li><a href="#v12-features">Nucleus V1.2 Additional Features</a>
                             <ul>
-                                <li><a href="#getting-started">Getting Started</a></li>
-                                <li><a href="#connect-your-device">Connect Your Device</a></li>
-                                <li><a href="#monitor-your-network">Monitor Your Network</a></li>
-                                <li><a href="#meshtastic-radio-setup">Meshtastic Radio Setup</a></li>
-                                <li><a href="#whats-ready-to-use">What's Ready to Use</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#configuration">Configuration</a>
-                            <ul>
-                                <li><a href="#change-wifi-mesh-namechannelpassword">Change WiFi Mesh Name/Channel/Password</a></li>
-                                <li><a href="#change-node-ap-hostnamechannelpassword">Change Node AP Hostname/Channel/Password</a></li>
+                                <li><a href="#v12-hardware">Hardware Additions</a></li>
+                                <li><a href="#meshtastic">Meshtastic LoRa Radio</a></li>
+                                <li><a href="#tak-integration">TAK Server Integration</a></li>
+                                <li><a href="#ethernet-connectivity">Ethernet Connectivity</a></li>
                             </ul>
                         </li>
                     </ol>
                 </div>
 
-                <h2 id="system-overview">System Overview</h2>
+                <h2 id="initial-setup">Initial Setup</h2>
 
-                <h3 id="hardware-overview">Hardware Overview</h3>
-                <p>Nucleus V1 is off-grid networking hardware that creates multiple communication layers. Each node runs WiFi mesh networking and a dedicated LoRa radio, giving you reliable connectivity at different ranges and speeds.</p>
+                <h3>Getting Started</h3>
+                <p>Simply plug your Nucleus node into power to start it up. After about 1 minute, the node's WiFi access point will come online as <code>takNodeN</code> (or equivalent based on your configuration).</p>
 
-                <h3 id="networking-layers">Networking Layers</h3>
+                <h3>Connect Your Device</h3>
+                <p>Connect to the <code>takNodeN</code> WiFi network using the provided password. The node's onboard DHCP server will automatically assign your device an IP address and connect it to the WiFi mesh network.</p>
 
-                <h4>WiFi 802.11s Mesh</h4>
-                <p>Creates encrypted mesh networks between nodes:</p>
+                <h3>What's Ready to Use</h3>
+                <p><strong>WiFi Mesh</strong>: Works immediately. Multiple nodes automatically form a mesh network.</p>
+
+                <h2 id="web-interface">Web Interface & Monitoring</h2>
+                <p>Access the built-in web interface by opening your browser and navigating to your node's IP address on port 5000 (e.g., <code>10.20.12.1:5000</code>).</p>
+
+                <h3>Network Monitor</h3>
+                <p>Each connected node displays a card showing:</p>
                 <ul>
-                    <li>Self-healing - if one node goes down, traffic routes around it</li>
-                    <li>Any WiFi device can connect - phones, laptops, tablets</li>
-                    <li>WPA3 encryption</li>
-                    <li>Devices roam between nodes seamlessly</li>
-                    <li>High-speed data transfer for voice, video, and files</li>
+                    <li>Mesh interface IP address</li>
+                    <li>Link cost (lower is better)</li>
+                    <li>Time connected</li>
+                    <li>WiFi connection statistics including estimated throughput in Mbps</li>
                 </ul>
 
-                <h4>Reticulum</h4>
-                <p>Runs automatically over WiFi mesh and Ethernet connections:</p>
+                <img src="images/12_25_update/mesh_monitor.png" alt="Network Monitor Interface" class="config-image">
+
+                <h3>Configuration</h3>
+                <p>All configuration options are managed through the web interface.</p>
+
+                <img src="images/12_25_update/mesh_monitor_config.png" alt="Configuration Interface" class="config-image">
+
+                <h3>WiFi Scan</h3>
+                <p>The WiFi scan uses the mesh interface to scan available 2.4 GHz channels to determine how congested they are. If operating in an area with extensive RF noise, this helps you select the least used channel for the mesh.</p>
+                <p><strong>Important notes:</strong></p>
                 <ul>
-                    <li>Works with phones, PCs, any device running Reticulum</li>
-                    <li>Just connect to WiFi and your Reticulum apps find the network</li>
-                    <li>Encrypted messaging, file sharing, and communication apps</li>
-                    <li>Automatic routing and network discovery</li>
+                    <li>This scan only detects WiFi access points, not mesh points, bluetooth, jamming, etc. - this is not a complete picture of the RF spectrum</li>
+                    <li>The mesh connection will be brought down for the duration of the scan</li>
                 </ul>
 
-                <h4>LoRa Radio (Meshtastic)</h4>
-                <p>Each node runs a dedicated Meshtastic radio:</p>
+                <img src="images/12_25_update/mesh_monitor_wifi_scan_1.png" alt="WiFi Scan Interface" class="config-image">
+                <img src="images/12_25_update/mesh_monitor_wifi_scan_2.png" alt="WiFi Scan Results" class="config-image">
+
+                <h3>Remote Access</h3>
+                <p>Remote access allows you to turn on rpi-connect. This has been pre-configured to connect back to the Natak infrastructure to allow remote troubleshooting and updating when activated and connected to an internet-accessible device.</p>
+
+                <img src="images/12_25_update/mesh_monitor_remote_access.png" alt="Remote Access Interface" class="config-image">
+
+
+                <h2 id="v12-features">Nucleus V1.2 Additional Features</h2>
+                <p>The following features are exclusive to the Nucleus V1.2 model.</p>
+
+                <h3 id="v12-hardware">Hardware Additions</h3>
+                <p>Nucleus V1.2 includes additional hardware capabilities beyond the base Nucleus platform:</p>
+                <ul>
+                    <li>Dedicated Meshtastic LoRa radio module</li>
+                    <li>Ethernet port for wired connectivity</li>
+                    <li>Enhanced processing power for TAK Server operation</li>
+                </ul>
+
+                <h3 id="meshtastic">Meshtastic LoRa Radio</h3>
+                <p>The Meshtastic radio receives power in parallel with the WiFi radio and works like any standard Meshtastic device:</p>
+                
+                <h4>Features</h4>
                 <ul>
                     <li>Range up to several kilometers</li>
                     <li>Works with any Meshtastic device</li>
@@ -245,32 +282,20 @@
                     <li>Low power, long range backup communication</li>
                 </ul>
 
-                <h3 id="software-applications">Software Applications</h3>
-
-                <h4>ATAK over WiFi Mesh</h4>
+                <h4>Setup</h4>
                 <ul>
-                    <li>Full ATAK features - voice, video, pictures, maps</li>
-                    <li>Automatic connection with other ATAK users</li>
-                    <li>High-speed data sharing</li>
-                    <li>Real-time collaboration</li>
+                    <li>Pair your Meshtastic mobile app to the radio</li>
+                    <li>Configure radio settings for your area and requirements</li>
+                    <li>Enable the ATAK Meshtastic plugin if you want ATAK integration over LoRa</li>
                 </ul>
 
                 <h4>ATAK over LoRa</h4>
                 <ul>
                     <li>Uses the standard Meshtastic ATAK plugin</li>
                     <li>Works alongside WiFi connections</li>
-                    <li>Connects Nucleus V1 users with Meshtastic-only users</li>
+                    <li>Connects Nucleus V1.2 users with Meshtastic-only users</li>
                     <li>Text, markers, and location sharing</li>
                     <li>Long-range backup when WiFi is out of range</li>
-                </ul>
-
-                <h4>Reticulum Apps</h4>
-                <p>Works over Ethernet or WiFi connections:</p>
-                <ul>
-                    <li><strong>MeshChat</strong> - Text messaging and group chat</li>
-                    <li><strong>Sideband</strong> - Encrypted messaging with file transfer</li>
-                    <li>Other Reticulum applications for communication and file sharing</li>
-                    <li>Automatic discovery - just connect and apps work</li>
                 </ul>
 
                 <h4>Meshtastic Official App</h4>
@@ -281,10 +306,13 @@
                     <li>Works with other Meshtastic devices</li>
                 </ul>
 
-                <h3 id="tak-integration">TAK Integration</h3>
+                <h4>Ready to Use</h4>
+                <p><strong>Meshtastic Radio</strong>: Requires configuration through the Meshtastic app for your specific location and use case.</p>
+
+                <h3 id="tak-integration">TAK Server Integration</h3>
 
                 <h4>Pre-Installed Software</h4>
-                <p>Every Nucleus V1 node comes with TAK Server 5.3 and MediaMTX pre-installed but not activated or configured:</p>
+                <p>Every Nucleus V1.2 node comes with TAK Server 5.3 and MediaMTX pre-installed but not activated or configured:</p>
                 <ul>
                     <li><strong>TAK Server 5.3</strong> - Latest version installed but requires activation and configuration</li>
                     <li><strong>MediaMTX</strong> - Video streaming server installed but requires setup</li>
@@ -315,87 +343,16 @@
                     <li><strong>Video Streaming</strong> - Stream live video feeds between connected ATAK users via MediaMTX</li>
                 </ul>
 
-
-                <h2 id="initial-setup">Initial Setup</h2>
-
-                <h3 id="getting-started">Getting Started</h3>
-                <p>Simply plug your Nucleus V1 node into power to start it up. After about 1 minute, the node's WiFi access point will come online as <code>takNodeN</code> (or equivalent based on your configuration).</p>
-
-                <h3 id="connect-your-device">Connect Your Device</h3>
-                <p>You have two connection options:</p>
+                <h3 id="ethernet-connectivity">Ethernet Connectivity</h3>
+                <p>Nucleus V1.2 includes an Ethernet port for wired connectivity:</p>
                 <ul>
-                    <li><strong>WiFi</strong>: Connect to the <code>takNodeN</code> network using the provided password</li>
-                    <li><strong>Ethernet</strong>: Plug directly into the node's Ethernet port</li>
+                    <li>Connect directly to the node's Ethernet port</li>
+                    <li>Automatic IP assignment via onboard DHCP server</li>
+                    <li>Full access to mesh network via wired connection</li>
+                    <li>Reticulum network access over Ethernet</li>
+                    <li>Bridge mesh connection to the internet via Ethernet uplink</li>
+                    <li>Ideal for stationary devices or server connections</li>
                 </ul>
-                
-                <p>The node's onboard DHCP server will automatically assign your device an IP address and connect it to the WiFi mesh network.</p>
-
-                <h3 id="monitor-your-network">Monitor Your Network</h3>
-                <p>Check your mesh network status through the built-in web interface. Open your web browser and go to your node's IP address on port 5000 (e.g., <code>192.168.200.x:5000</code>). This shows connection quality, network topology, and data flow between nodes.</p>
-
-                <h3 id="meshtastic-radio-setup">Meshtastic Radio Setup</h3>
-                <p>The Meshtastic radio receives power in parallel with the WiFi radio and works like any standard Meshtastic device:</p>
-                <ul>
-                    <li>Pair your Meshtastic mobile app to the radio</li>
-                    <li>Configure radio settings for your area and requirements</li>
-                    <li>Enable the ATAK Meshtastic plugin if you want ATAK integration over LoRa</li>
-                </ul>
-
-                <h3 id="whats-ready-to-use">What's Ready to Use</h3>
-                <p><strong>WiFi Mesh</strong>: Works immediately. Multiple nodes automatically form a mesh network.</p>
-                
-                <p><strong>Meshtastic Radio</strong>: Requires configuration through the Meshtastic app for your specific location and use case.</p>
-
-                <h2 id="configuration">Configuration</h2>
-
-                <h3 id="change-wifi-mesh-namechannelpassword">Change WiFi Mesh Name/Channel/Password</h3>
-                <p>Two files control the mesh settings and must be coordinated:</p>
-
-                <h4>File 1: ~/mesh/batmesh.sh</h4>
-                <p><strong>What to change</strong>:</p>
-                <ul>
-                    <li><code>MESH_NAME</code>: The mesh network name</li>
-                    <li><code>MESH_CHANNEL</code>: WiFi channel number (e.g., 11)</li>
-                </ul>
-
-                <h4>File 2: /etc/wpa_supplicant/wpa_supplicant-wlan1-encrypt.conf</h4>
-                <p><strong>What to change</strong>:</p>
-                <ul>
-                    <li><code>ssid</code>: Must match MESH_NAME from batmesh.sh</li>
-                    <li><code>frequency</code>: Frequency in MHz that matches the channel
-                        <ul>
-                            <li>Example: Channel 11 = 2462 MHz</li>
-                        </ul>
-                    </li>
-                    <li><code>psk</code>: Mesh password</li>
-                </ul>
-
-                <p><strong>Important</strong>:</p>
-                <ul>
-                    <li>All nodes need the same mesh name and channel</li>
-                    <li>Don't adjust any other code in either file</li>
-                    <li>Channel number in batmesh.sh must correspond to frequency in MHz in wpa_supplicant</li>
-                </ul>
-
-                <p><strong>After changes</strong>: Reboot the node</p>
-
-                <h3 id="change-node-ap-hostnamechannelpassword">Change Node AP Hostname/Channel/Password</h3>
-                <p><strong>File</strong>: <code>/etc/hostapd/hostapd.conf</code></p>
-
-                <p><strong>Access needed</strong>: SSH into the node or connect keyboard/monitor directly.</p>
-
-                <p><strong>What it does</strong>: Sets up the WiFi network that your devices connect to.</p>
-
-                <p><strong>You can change</strong>:</p>
-                <ul>
-                    <li>WiFi network name</li>
-                    <li>WiFi password</li>
-                    <li>Security settings</li>
-                </ul>
-
-                <p><strong>Security tip</strong>: Change the default WiFi password to something secure.</p>
-
-                <p><strong>After changes</strong>: Reboot after changes</p>
             </div>
         </div>
     </main>

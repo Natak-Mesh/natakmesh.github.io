@@ -12,8 +12,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nucleus V1 - Off-Grid Network</title>
-    <meta name="description" content="Nucleus V1 keeps phones, tablets, and laptops connected when cell towers and Wi-Fi aren't around.">
+    <title>Nucleus - Mesh Networking Nodes</title>
+    <meta name="description" content="Mesh networking nodes built from COTS parts and 3D-printed enclosures. WiFi mesh with optional LoRa radio.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <!-- Favicon placeholder - update when branding is ready -->
@@ -50,27 +50,38 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h2>Nucleus V1</h2>
-                    <p>Dual-radio MANET node: Wi-Fi mesh for local IP connectivity, LoRa for long-range messaging. Each node extends the network—add as many as you need. Nodes can bridge to the internet via satellite backhaul like Starlink.</p>
-                    <p>The Wi-Fi mesh provides high-bandwidth connectivity for ATAK, Reticulum applications, and VOIP. The LoRa radio offers long-range, low-bandwidth messaging and ships running Meshtastic—or flash it with Reticulum RNode firmware.</p>
-                    <p>Built with COTS components and 3D-printed enclosures to keep costs down. Nucleus V1 isn't competing with high-end tactical radios—it's making field data mesh capability accessible at the lowest price point possible.</p>
+                    <h2>Nucleus</h2>
+                    <p>Mesh networking nodes built from COTS parts and 3D-printed enclosures.</p>
+                    <p>Built on 802.11s WiFi mesh with WPA3 encryption and efficient IP-based routing. An onboard access point connects your devices to the mesh. Includes a mesh monitoring page, Wi-Fi channel analysis via aircrack-ng, and a Reticulum transport instance.</p>
+                    <p>The V1.2 adds an Ethernet port, an onboard LoRa radio (Meshtastic firmware by default), and enough compute to run an onboard TAKserver.</p>
                     <div class="hero-buttons">
-                        <a href="products.html" class="button primary">See how it works</a>
+                        <a href="products.html" class="button primary">See Products</a>
                     </div>
                 </div>
                 <div class="hero-image">
                     <!-- Product image -->
-                    <img src="images/natak1.jpg" alt="Nucleus V1 Hardware" class="hero-product-image">
-                    <p class="hero-image-caption">Nucleus V1 is the backbone of your field communications.</p>
+                    <img src="images/12_25_update/2_radios.jpg" alt="Nucleus Hardware" class="hero-product-image">
                 </div>
             </div>
         </section>
 
-        <!-- Diagram Section -->
-        <section class="diagram-section">
+        <!-- Product Family Section -->
+        <section class="product-family">
             <div class="container">
-                <div class="diagram-container">
-                    <img src="images/wpa excalidraw.png" alt="Natak Mesh Plugin Version Diagram" class="diagram-image">
+                <h2 class="section-title">Product Family</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <img src="images/12_25_update/V1.2 Assembly render 1.jpg" alt="Nucleus V1.2" style="width: 100%; height: 450px; object-fit: contain; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
+                        <h3>V1.2</h3>
+                        <p>WiFi mesh + LoRa radio + Ethernet</p>
+                        <a href="products.html#nucleus-v12" class="button secondary" style="margin-top: var(--spacing-sm);">Learn More</a>
+                    </div>
+                    <div class="feature-card">
+                        <img src="images/12_25_update/Nucleus Mini render 1.png" alt="Nucleus Mini" style="width: 100%; height: 450px; object-fit: contain; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
+                        <h3>Mini</h3>
+                        <p>WiFi mesh only — compact form factor</p>
+                        <a href="products.html#nucleus-mini" class="button secondary" style="margin-top: var(--spacing-sm);">Learn More</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -78,32 +89,32 @@
         <!-- Features Section -->
         <section class="features">
             <div class="container">
-                <h2 class="section-title">Why Nucleus V1</h2>
+                <h2 class="section-title">Capabilities</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Easy</h3>
-                        <p>Power it on, connect, and you're in.</p>
+                        <div class="feature-icon">📡</div>
+                        <h3>ATAK Compatible</h3>
+                        <p>Works natively over WiFi mesh. The V1.2's Meshtastic radio can be used with the ATAK Meshtastic plugin to fuse LoRa connectivity into ATAK's communication network.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔒</div>
-                        <h3>Secure</h3>
-                        <p>WPA3 Wi-Fi and encrypted protocols keep traffic private.</p>
+                        <h3>WPA3 + Encrypted Protocols</h3>
+                        <p>Secure WiFi connections with support for encrypted application layers.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔄</div>
-                        <h3>Resilient</h3>
-                        <p>Mesh links reroute automatically if nodes drop out.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">💰</div>
-                        <h3>Affordable</h3>
-                        <p>Built from proven, off-the-shelf parts.</p>
+                        <h3>Auto-Routing Mesh</h3>
+                        <p>Mesh topology adjusts automatically when nodes join or drop from the network.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔧</div>
-                        <h3>Flexible</h3>
-                        <p>Works with ATAK, MeshChat, Sideband, and other Reticulum apps.</p>
+                        <h3>COTS Components</h3>
+                        <p>All parts are off-the-shelf and user-replaceable. 3D-printed enclosures.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>Reticulum Transport</h3>
+                        <p>Onboard transport for Reticulum applications like Sideband and MeshChat.</p>
                     </div>
                 </div>
             </div>
