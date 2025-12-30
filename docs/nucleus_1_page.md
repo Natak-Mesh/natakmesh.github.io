@@ -84,3 +84,17 @@
 | **Web Dashboard** | Monitoring, config, WiFi analysis | ✅ Active |
 | **TAKserver + MediaMTX** | Tactical mapping & video | ⚙️ On Request |
 | **Mumble** | Push-to-talk voice channels | ⚙️ On Request |
+
+---
+
+## How You'll Use It
+
+**ATAK Devices** — Natively use the encrypted WiFi mesh to connect to other ATAK devices (or TAKserver if configured). Add the ATAK Meshtastic plugin to also use the LoRa radio in parallel. Bridge to remote devices/servers over the internet securely using Tailscale + something like Starlink Mobile.
+
+**Meshtastic** — Use standalone via the Meshtastic app for long-range text and GPS communication.
+
+**Jami** — Make direct or group voice/video calls and send text messages over the encrypted mesh network.
+
+**Reticulum Apps** — Use Reticulum-enabled apps with the mesh as transport for text, pictures, voice, etc. Can also bridge securely over the internet via Tailscale.
+
+**Extensibility** — The mesh network is a full IP network. The existing applications are just a useful selection—nodes can have additional services installed to meet specific needs. Reticulum can take advantage of many other methods of data transmission and can be configured to match whatever hardware the node is connected to.
