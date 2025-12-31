@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nucleus Products - Mesh Networking Hardware</title>
-    <meta name="description" content="Nucleus mesh networking nodes - V1.2 with LoRa and Ethernet, or Mini for compact WiFi mesh.">
+    <meta name="description" content="Nucleus mesh networking nodes - Self-healing encrypted mesh network with built-in communications.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <!-- Favicon placeholder - update when branding is ready -->
@@ -25,6 +25,12 @@
             padding: var(--spacing-xl) 0;
         }
         
+        .product-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-sm);
+        }
+        
         .product-section {
             padding: var(--spacing-xxl) 0;
         }
@@ -33,81 +39,170 @@
             background-color: var(--background-alt);
         }
         
-        .product-container {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-xl);
-        }
-        
-        .product-image {
-            flex: 1;
-            max-width: 600px;
-            height: auto !important;
-            overflow: visible !important;
-        }
-        
-        .product-img {
+        /* Capabilities Table */
+        .capabilities-table {
             width: 100%;
-            height: auto;
+            border-collapse: collapse;
+            margin: var(--spacing-xl) 0;
+            background: var(--background-alt);
             border-radius: var(--border-radius);
+            overflow: hidden;
             box-shadow: var(--box-shadow);
         }
         
-        .product-details {
-            flex: 1;
+        .capabilities-table thead {
+            background-color: var(--primary-color);
+            color: white;
         }
         
-        .product-features {
-            margin-top: var(--spacing-lg);
+        .capabilities-table th,
+        .capabilities-table td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
         }
         
-        .product-features h3 {
-            margin-bottom: var(--spacing-md);
+        .capabilities-table th {
+            font-weight: 600;
         }
         
-        .feature-list {
+        .capabilities-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .capabilities-table tbody tr:hover {
+            background-color: var(--background-color);
+        }
+        
+        .capabilities-table tbody td:first-child {
+            color: var(--secondary-dark);
+        }
+        
+        .status-active {
+            color: #48bb78;
+            font-weight: bold;
+        }
+        
+        .status-on-request {
+            color: #a0a0a0;
+            font-weight: bold;
+        }
+        
+        /* What You Can Do Section */
+        .use-cases-list {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: var(--spacing-lg) 0;
         }
         
-        .feature-list li {
+        .use-cases-list li {
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-xl);
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .use-cases-list li::before {
+            content: '→';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .use-cases-list strong {
+            color: var(--primary-color);
+        }
+        
+        /* Hardware Comparison Cards */
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .hardware-card {
+            background: var(--background-alt);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hardware-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        
+        .hardware-card-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .hardware-card-content {
+            padding: var(--spacing-lg);
+        }
+        
+        .hardware-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .hardware-features {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .hardware-features li {
             margin-bottom: var(--spacing-sm);
             padding-left: var(--spacing-lg);
             position: relative;
         }
         
-        .feature-list li::before {
-            content: '•';
-            color: var(--primary-color);
+        .hardware-features li::before {
+            content: '✓';
+            color: var(--success-color);
             position: absolute;
             left: 0;
             font-weight: bold;
         }
         
-        .product-cta {
-            margin-top: var(--spacing-lg);
-            display: flex;
-            gap: var(--spacing-md);
+        .hardware-features li {
+            color: var(--text-color);
         }
         
-        @media (max-width: 992px) {
-            .product-container {
+        .hardware-card-cta {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .hardware-card-cta .button {
+            flex: 1;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .capabilities-table {
+                font-size: 0.9rem;
+            }
+            
+            .capabilities-table th,
+            .capabilities-table td {
+                padding: var(--spacing-sm);
+            }
+            
+            .hardware-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hardware-card-cta {
                 flex-direction: column;
-            }
-            
-            .product-image,
-            .product-details {
-                max-width: 100%;
-            }
-            
-            .product-cta {
-                flex-direction: column;
-            }
-            
-            .product-cta .button {
-                width: 100%;
-                text-align: center;
             }
         }
     </style>
@@ -141,104 +236,128 @@
     <main>
         <section class="hero product-hero">
             <div class="container">
-                <h2>Nucleus Product Family</h2>
-                <p>Mesh networking nodes for diverse deployment scenarios</p>
+                <h2>Natak Nucleus Node</h2>
             </div>
         </section>
 
-        <!-- Nucleus V1.2 Product Section -->
-        <section id="nucleus-v12" class="product-section">
+        <!-- System Capabilities Section -->
+        <section class="product-section">
             <div class="container">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="images/12_25_update/V1.2 Assembly render 1.jpg" alt="Nucleus V1.2" class="product-img">
-                    </div>
-                    <div class="product-details">
-                        <h2>Nucleus V1.2</h2>
-                        <p>The V1.2 is the full-featured Nucleus platform with WiFi mesh, LoRa radio, and Ethernet connectivity.</p>
-                        
-                        <div class="product-features">
-                            <h3>Hardware Interfaces</h3>
-                            <ul class="feature-list">
-                                <li><strong>802.11s WiFi Mesh</strong> - External radio creates mesh links between nodes</li>
-                                <li><strong>Meshtastic LoRa Radio</strong> - Onboard radio for long-range communications</li>
-                                <li><strong>Ethernet Port</strong> - RJ45 connection for wired devices</li>
-                                <li><strong>WiFi Access Point</strong> - Connect phones, tablets, and laptops to the mesh</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="product-features">
-                            <h3>Software Capabilities</h3>
-                            <ul class="feature-list">
-                                <li><strong>WPA3 Encrypted Mesh</strong> - Secure WiFi connections with efficient IP-based routing</li>
-                                <li><strong>Mesh Monitoring</strong> - Built-in web interface for network management</li>
-                                <li><strong>Wi-Fi Channel Analysis</strong> - Aircrack-ng tools for spectrum analysis</li>
-                                <li><strong>Reticulum Transport</strong> - Onboard transport for Reticulum applications like Sideband and MeshChat</li>
-                                <li><strong>TAKserver & MediaMTX</strong> - Pre-installed but not activated by default</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="product-features">
-                            <h3>Use Cases</h3>
-                            <ul class="feature-list">
-                                <li><strong>ATAK</strong> - Works natively over WiFi mesh. Meshtastic radio can be used with the ATAK Meshtastic plugin to fuse LoRa connectivity into ATAK's communication network</li>
-                                <li><strong>Reticulum Applications</strong> - Run Sideband, MeshChat, or other Reticulum apps over the mesh</li>
-                                <li><strong>Meshtastic Messaging</strong> - Standalone LoRa node controlled by the Meshtastic app</li>
-                                <li><strong>Internet Backhaul</strong> - Connect Ethernet port to Starlink or other internet source to provide internet access across the mesh</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="product-cta">
-                            <a href="documentation.html#mesh-v1" class="button secondary">View Documentation</a>
-                            <a href="data.html" class="button secondary">Testing Data</a>
-                            <a href="#" class="button primary shop-button">Purchase</a>
-                        </div>
-                    </div>
-                </div>
+                <h2>System Capabilities</h2>
+                <table class="capabilities-table">
+                    <thead>
+                        <tr>
+                            <th>System</th>
+                            <th>What It Does</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>WiFi Mesh</strong></td>
+                            <td>Encrypted self-healing network backbone—data hops through nodes to extend reach beyond any single radio's range</td>
+                            <td class="status-active">✅ Active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Meshtastic/LoRa</strong></td>
+                            <td>Slow but long-range LoRa-based mesh network for text & GPS</td>
+                            <td class="status-active">✅ Active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jami</strong></td>
+                            <td>Secure voice/video calls</td>
+                            <td class="status-active">✅ Active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reticulum</strong></td>
+                            <td>Flexible multi-transport comms</td>
+                            <td class="status-active">✅ Active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tailscale</strong></td>
+                            <td>VPN to remote infrastructure</td>
+                            <td class="status-active">✅ Active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Internet Gateway</strong></td>
+                            <td>Share internet across mesh</td>
+                            <td class="status-active">✅ Active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Web Dashboard</strong></td>
+                            <td>Monitoring, config, WiFi analysis</td>
+                            <td class="status-active">✅ Active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TAKserver + MediaMTX</strong></td>
+                            <td>ATAK client integration & video streaming infrastructure</td>
+                            <td class="status-on-request">⚙️ On Request</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mumble</strong></td>
+                            <td>Push-to-talk voice channels</td>
+                            <td class="status-on-request">⚙️ On Request</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
-        <!-- Nucleus Mini Product Section -->
-        <section id="nucleus-mini" class="product-section">
+        <!-- What You Can Do Section -->
+        <section class="product-section">
             <div class="container">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="images/12_25_update/Nucleus Mini render 1.png" alt="Nucleus Mini" class="product-img">
+                <h2>What You Can Do</h2>
+                <ul class="use-cases-list">
+                    <li><strong>Connect ATAK devices</strong> over encrypted WiFi mesh, with optional LoRa radio backup and secure internet bridging via Tailscale</li>
+                    <li><strong>Make secure calls</strong> with Jami for voice/video/text, or use Meshtastic standalone for long-range text and GPS</li>
+                    <li><strong>Run Reticulum apps</strong> for encrypted communications over multiple transport methods</li>
+                    <li><strong>Extend the platform</strong> — the mesh is a full IP network that can host additional services as needed</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Choose Your Hardware Section -->
+        <section class="product-section">
+            <div class="container">
+                <h2>Choose Your Hardware</h2>
+                <div class="hardware-grid">
+                    <!-- Nucleus V1.2 Card -->
+                    <div class="hardware-card">
+                        <img src="images/12_25_update/V1.2 Assembly render 1.jpg" alt="Nucleus V1.2" class="hardware-card-image">
+                        <div class="hardware-card-content">
+                            <h3>Nucleus V1.2</h3>
+                            <p>Full-featured platform with WiFi mesh, LoRa radio, and Ethernet connectivity.</p>
+                            <ul class="hardware-features">
+                                <li>802.11s WiFi Mesh (WPA3 encrypted, self-healing)</li>
+                                <li>WiFi Access Point for device connectivity</li>
+                                <li>Ethernet Port (RJ45) for wired connections/internet backhaul</li>
+                                <li>Built-in Meshtastic LoRa radio</li>
+                                <li>TAKserver capability (on request)</li>
+                            </ul>
+                            <div class="hardware-card-cta">
+                                <a href="documentation.html#mesh-v1" class="button secondary">Documentation</a>
+                                <a href="#" class="button primary shop-button">Purchase</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-details">
-                        <h2>Nucleus Mini</h2>
-                        <p>Compact WiFi mesh node for lightweight deployments. Same core mesh functionality in a smaller package.</p>
-                        
-                        <div class="product-features">
-                            <h3>Hardware Interfaces</h3>
-                            <ul class="feature-list">
-                                <li><strong>802.11s WiFi Mesh</strong> - External radio creates mesh links between nodes</li>
-                                <li><strong>WiFi Access Point</strong> - Connect phones, tablets, and laptops to the mesh</li>
+
+                    <!-- Nucleus Mini Card -->
+                    <div class="hardware-card">
+                        <img src="images/12_25_update/Nucleus Mini render 1.png" alt="Nucleus Mini" class="hardware-card-image">
+                        <div class="hardware-card-content">
+                            <h3>Nucleus Mini</h3>
+                            <p>Compact WiFi mesh node optimized for size and minimal power draw.</p>
+                            <ul class="hardware-features">
+                                <li>Full-power 802.11s WiFi Mesh (same as V1.2)</li>
+                                <li>WiFi Access Point for device connectivity</li>
+                                <li>Optimized for size & minimal power draw</li>
+                                <li>Perfect for adding high-speed data to existing LoRa meshes</li>
+                                <li>No onboard LoRa, TAKserver, or Ethernet</li>
                             </ul>
-                        </div>
-                        
-                        <div class="product-features">
-                            <h3>Software Capabilities</h3>
-                            <ul class="feature-list">
-                                <li><strong>WPA3 Encrypted Mesh</strong> - Secure WiFi connections with efficient IP-based routing</li>
-                                <li><strong>Mesh Monitoring</strong> - Built-in web interface for network management</li>
-                                <li><strong>Wi-Fi Channel Analysis</strong> - Aircrack-ng tools for spectrum analysis</li>
-                                <li><strong>Reticulum Transport</strong> - Onboard transport for Reticulum applications</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="product-features">
-                            <h3>Use Cases</h3>
-                            <ul class="feature-list">
-                                <li><strong>ATAK</strong> - Works natively over WiFi mesh</li>
-                                <li><strong>Reticulum Applications</strong> - Run Sideband, MeshChat, or other Reticulum apps over the mesh</li>
-                                <li><strong>Compact Deployments</strong> - Ideal for scenarios where size and weight are critical</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="product-cta">
-                            <a href="documentation.html" class="button secondary">View Documentation</a>
-                            <a href="#" class="button primary shop-button">Purchase</a>
+                            <div class="hardware-card-cta">
+                                <a href="documentation.html" class="button secondary">Documentation</a>
+                                <a href="#" class="button primary shop-button">Purchase</a>
+                            </div>
                         </div>
                     </div>
                 </div>
