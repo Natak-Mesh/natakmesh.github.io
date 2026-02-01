@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EZPF1EF47"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4EZPF1EF47');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Natak Mesh</title>
+    <meta name="description" content="Watch Nucleus mesh networking hardware in action - demos and walkthroughs.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon placeholder - update when branding is ready -->
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Video page styles */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--spacing-xl);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .video-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            background: var(--background-color);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .video-card a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+            background: var(--secondary-dark);
+        }
+        
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-fast);
+        }
+        
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.7);
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--transition-fast);
+        }
+        
+        .video-card:hover .play-overlay {
+            background: rgba(0,0,0,0.9);
+        }
+        
+        .video-info {
+            padding: var(--spacing-md);
+        }
+        
+        .video-info h3 {
+            margin: 0 0 var(--spacing-xs) 0;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .video-info p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .channel-link {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+        
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .video-info {
+                padding: var(--spacing-sm);
+            }
+            
+            .play-overlay {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .play-overlay svg {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/Natak Mesh Logo Kit/drive-download-20250629T123827Z-1-001/Logos 300ppi/NatakMeshsecondary-overlay.png" alt="Natak Mesh" class="header-logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="videos.html" class="active">Videos</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="data.html">Test Data</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Videos</h2>
+                    <p>See Nucleus in action</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="video-grid">
+                    <div class="video-card">
+                        <a href="https://youtu.be/R5DFeud1Huc" target="_blank" rel="noopener">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/R5DFeud1Huc/maxresdefault.jpg" alt="Basic Walkthrough">
+                                <div class="play-overlay">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Basic Walkthrough</h3>
+                                <p>Basics of Nucleus</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="video-card">
+                        <a href="https://youtu.be/PsK474PKhlI" target="_blank" rel="noopener">
+                            <div class="video-thumbnail">
+                                <img src="https://img.youtube.com/vi/PsK474PKhlI/maxresdefault.jpg" alt="Reticulum Integration">
+                                <div class="play-overlay">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="video-info">
+                                <h3>Reticulum Integration</h3>
+                                <p>Quick walk through of the onboard Reticulum capabilities of Nucleus</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="channel-link">
+                    <a href="https://www.youtube.com/channel/UClKNpGHC4dwV2QpXQ5B5vGw" target="_blank" rel="noopener" class="button secondary">View All Videos on YouTube</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="data.html">Test Data</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: nathan@natakmesh.com</p>
+                    <p>Tampa, FL</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
