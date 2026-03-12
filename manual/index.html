@@ -7,7 +7,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #1a1a2e;
+            background-color: #121212;
             color: #e0e0e0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.7;
@@ -22,29 +22,29 @@
             font-size: 2.2em;
             text-align: center;
             margin-bottom: 20px;
-            border-bottom: 2px solid #3a3a5c;
+            border-bottom: 2px solid #333333;
             padding-bottom: 15px;
         }
         h2 {
-            color: #a0c4ff;
+            color: #e0e0e0;
             font-size: 1.6em;
             margin-top: 50px;
             margin-bottom: 15px;
-            border-bottom: 1px solid #3a3a5c;
+            border-bottom: 1px solid #333333;
             padding-bottom: 8px;
         }
         h3 {
-            color: #b8d4ff;
+            color: #e0e0e0;
             font-size: 1.25em;
             margin-top: 35px;
             margin-bottom: 10px;
         }
         p {
             margin-bottom: 15px;
-            color: #cccccc;
+            color: #a0a0a0;
         }
         code {
-            background-color: #2a2a4a;
+            background-color: #1e1e1e;
             color: #7fdbca;
             padding: 2px 6px;
             border-radius: 4px;
@@ -52,7 +52,7 @@
         }
         ol {
             margin: 15px 0 15px 30px;
-            color: #cccccc;
+            color: #a0a0a0;
         }
         ol li {
             margin-bottom: 8px;
@@ -61,7 +61,7 @@
             color: #e0e0e0;
         }
         em {
-            color: #999999;
+            color: #888888;
             font-size: 0.9em;
         }
         img {
@@ -99,6 +99,24 @@
         .fig-pair .fig-item img {
             max-width: 100%;
         }
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+            border: 1px solid #333333;
+            transition: background-color 0.2s ease;
+            z-index: 100;
+        }
+        .back-button:hover {
+            background-color: #333333;
+        }
         @media (max-width: 700px) {
             .fig-pair { flex-direction: column; align-items: center; }
             .fig-pair .fig-item { width: 80%; }
@@ -109,6 +127,8 @@
     </style>
 </head>
 <body>
+<a href="../resources.html" class="back-button">← Resources</a>
+
 <div class="container">
 
     <div class="logo">
@@ -117,7 +137,7 @@
 
     <h1>Nucleus User Manual</h1>
 
-    <p>At its most basic level the Nucleus is a 2.4 GHz IP mesh radio. The Nucleus also includes a Meshtastic radio for longer range, low bandwidth connections. The Nucleus onboard computer has some useful software installed by default, including Reticulum and OpenDHT to allow external applications to enable decentralized video, voice, and text communication, among others.</p>
+    <p>This manual covers hardware setup, Nucleus OS, and app configuration for the Nucleus mesh radio.</p>
 
     <h2>First Steps</h2>
 
