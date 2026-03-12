@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nucleus User Manual</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3a3a5c;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #a0c4ff;
+            font-size: 1.6em;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #3a3a5c;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #b8d4ff;
+            font-size: 1.25em;
+            margin-top: 35px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+            color: #cccccc;
+        }
+        code {
+            background-color: #2a2a4a;
+            color: #7fdbca;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        ol {
+            margin: 15px 0 15px 30px;
+            color: #cccccc;
+        }
+        ol li {
+            margin-bottom: 8px;
+        }
+        ol li strong {
+            color: #e0e0e0;
+        }
+        em {
+            color: #999999;
+            font-size: 0.9em;
+        }
+        img {
+            border-radius: 6px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo img {
+            max-width: 600px;
+            box-shadow: none;
+        }
+        .fig-single {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .fig-single img {
+            max-width: 50%;
+        }
+        .fig-single-sm img {
+            max-width: 30%;
+        }
+        .fig-pair {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .fig-pair .fig-item {
+            text-align: center;
+            width: 36%;
+        }
+        .fig-pair .fig-item img {
+            max-width: 100%;
+        }
+        @media (max-width: 700px) {
+            .fig-pair { flex-direction: column; align-items: center; }
+            .fig-pair .fig-item { width: 80%; }
+            .fig-single img { max-width: 80%; }
+            .fig-single-sm img { max-width: 60%; }
+            .logo img { max-width: 90%; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="logo">
+        <img src="images/NatakMeshsecondary-overlay.png" alt="Natak Mesh">
+    </div>
+
+    <h1>Nucleus User Manual</h1>
+
+    <p>At its most basic level the Nucleus is a 2.4 GHz IP mesh radio. The Nucleus also includes a Meshtastic radio for longer range, low bandwidth connections. The Nucleus onboard computer has some useful software installed by default, including Reticulum and OpenDHT to allow external applications to enable decentralized video, voice, and text communication, among others.</p>
+
+    <h2>First Steps</h2>
+
+    <p>The Nucleus ships without its antennas installed. The Wi-Fi antenna is marked with "WiFi" on the antenna itself and with a small WiFi symbol next to the port it should be installed on (Fig. 1). The LoRa antenna is installed on the unmarked RF connector (Fig. 2).</p>
+
+    <div class="fig-pair">
+        <div class="fig-item">
+            <img src="images/wifi_antenna_fig1.jpg" alt="Fig. 1: Wi-Fi antenna"><br>
+            <em>Fig. 1: Wi-Fi antenna</em>
+        </div>
+        <div class="fig-item">
+            <img src="images/lora_antenna_fig2.jpg" alt="Fig. 2: LoRa antenna"><br>
+            <em>Fig. 2: LoRa antenna</em>
+        </div>
+    </div>
+
+    <p>The Nucleus also ships with a USB-A to M12 cable (Fig. 3). Screw the M12 connector onto the matching port on the Nucleus, then plug into any 5V power source to start the Nucleus. Auto boot should be complete within 1 minute. The general assembly is shown in Fig. 4 with a generic USB power bank providing power.</p>
+
+    <div class="fig-pair">
+        <div class="fig-item">
+            <img src="images/power2.jpg" alt="Fig. 3: M12 power connector"><br>
+            <em>Fig. 3: M12 power connector</em>
+        </div>
+        <div class="fig-item">
+            <img src="images/general_assembly.jpg" alt="Fig. 4: General assembly"><br>
+            <em>Fig. 4: General assembly</em>
+        </div>
+    </div>
+
+    <h2>EUD Prep and Node Placement</h2>
+
+    <h3>Recommended Apps</h3>
+    <p>To take advantage of all the Nucleus capabilities we recommend setting up your EUD as follows (Fig. 5).</p>
+
+    <ol>
+        <li><strong>Web Browser</strong> — Create a shortcut to your node's IP address at port 5000. This will bring you to the Nucleus user interface.</li>
+        <li><strong>Tailscale</strong> — Optional. There is an instance already running on the Nucleus.</li>
+        <li><strong>OpenTAK ICU</strong> — Used for streaming video to the Nucleus, primarily used for ingestion by TAKserver (if installed) to be viewed by ATAK users.</li>
+        <li><strong>ATAK</strong> — Works particularly well on the high-speed IP mesh. With the official Meshtastic plugin installed, it can also take advantage of the onboard Meshtastic radio.</li>
+        <li><strong>Meshtastic App</strong> — For configuring the Meshtastic radio and using it standalone if desired.</li>
+        <li><strong>Jami</strong> — Text, Voice over IP, and video streaming.</li>
+        <li><strong>Sideband</strong> — A Reticulum-based application to take advantage of the Nucleus onboard Reticulum transport instance.</li>
+    </ol>
+
+    <div class="fig-single fig-single-sm">
+        <img src="images/EUD apps.png" alt="Fig. 5: EUD apps"><br>
+        <em>Fig. 5: EUD apps</em>
+    </div>
+
+    <h3>Placement of Radio</h3>
+    <p>Due to the nature of the shorter wavelengths of the onboard radios, it is recommended to mount the antennas as high as possible on the body to provide the best line of sight (Fig. 6). Either by physically setting the radio higher or using remote mount antennas.</p>
+
+    <div class="fig-single">
+        <img src="images/radio placement.jpg" alt="Fig. 6: Radio placement"><br>
+        <em>Fig. 6: Radio placement</em>
+    </div>
+
+    <h2>Nucleus OS</h2>
+
+    <p>After the Nucleus has booted it will begin advertising a WiFi access point labelled as <code>00xx-nucleus-ap</code>, where <code>xx</code> is your node's serial number. The default password is <code>52235223</code>. This should be changed via the configuration page as soon as possible.</p>
+
+    <p>Once connected to that access point, take the web browser to <code>10.20.xx.1:5000</code> where <code>xx</code> is the serial number of your node. This will open the Nucleus OS UI.</p>
+
+    <h3>Home Page</h3>
+    <p>The home page displays the current node's mesh IP and channel, the info on the node's AP and number of clients connected to it, and a list of other Nucleus nodes connected via WiFi (Fig. 7). Below that are a series of navigation buttons to the other sections of the OS.</p>
+    <div class="fig-single">
+        <img src="images/OS_front _page.png" alt="Fig. 7: Nucleus OS home page"><br>
+        <em>Fig. 7: Nucleus OS home page</em>
+    </div>
+
+    <h3>Monitor Page</h3>
+    <p>The Monitor page displays more in-depth statistics on each other node connected on the IP mesh (Fig. 8).</p>
+    <div class="fig-single">
+        <img src="images/OS_node_page.png" alt="Fig. 8: Monitor page"><br>
+        <em>Fig. 8: Monitor page</em>
+    </div>
+
+    <h3>Node Configuration Page</h3>
+    <p>The Node Configuration page allows modification of mesh and node variables without having to edit system files directly (Fig. 9).</p>
+    <div class="fig-single">
+        <img src="images/OS_config_page.png" alt="Fig. 9: Node Configuration page"><br>
+        <em>Fig. 9: Node Configuration page</em>
+    </div>
+
+    <h3>Wi-Fi Scan Page</h3>
+    <p>This page allows the user to scan the 2.4 GHz space (Fig. 10). It looks for interference on each of the 2.4 GHz channels, allowing the user to select the least congested channel for the mesh. Note, each node must switch to the same channel to join the mesh. Running this scan will disconnect the mesh network for the duration of the scan.</p>
+    <div class="fig-single">
+        <img src="images/OS_channel_scane_page.png" alt="Fig. 10: Wi-Fi Scan page"><br>
+        <em>Fig. 10: Wi-Fi Scan page</em>
+    </div>
+
+    <h3>Remote Management Page</h3>
+    <p>This page allows the user to start/stop Tailscale connections and select a tailnet if there are multiples configured (Fig. 11). As a default, the node will be connected to the Natak Mesh tailnet to allow remote updating and troubleshooting if desired. New tailnets can be added or removed as desired.</p>
+    <div class="fig-single">
+        <img src="images/OS_tailscale_page.png" alt="Fig. 11: Remote Management page"><br>
+        <em>Fig. 11: Remote Management page</em>
+    </div>
+
+    <h3>Ethernet Port Mode Page</h3>
+    <p>This page allows the user to select what mode the ethernet port (if present) will run in (Fig. 12). WAN mode will allow the Nucleus node to accept an IP address from a DHCP server and will bridge that connection to the Wi-Fi mesh. LAN mode converts the ethernet interface to a DHCP server, allowing other client devices to connect to the Wi-Fi mesh via the ethernet port.</p>
+    <div class="fig-single">
+        <img src="images/OS_ethernet_page.png" alt="Fig. 12: Ethernet Port Mode page"><br>
+        <em>Fig. 12: Ethernet Port Mode page</em>
+    </div>
+
+    <h3>OpenDHT Page</h3>
+    <p>This page monitors the OpenDHT server on the node (Fig. 13). It shows the running state, the number of other DHT servers connected, and configuration details.</p>
+    <div class="fig-single">
+        <img src="images/OS_Opendht_page.png" alt="Fig. 13: OpenDHT page"><br>
+        <em>Fig. 13: OpenDHT page</em>
+    </div>
+
+    <h3>Meshtastic Page</h3>
+    <p>This page allows serial control of the onboard Meshtastic radio, enabling sending and receiving messages with other Meshtastic radios without use of the app (Fig. 14). Functionality here will expand in future revisions; currently it provides bare bones messaging.</p>
+    <div class="fig-single">
+        <img src="images/OS_Meshtastic_page.png" alt="Fig. 14: Meshtastic page"><br>
+        <em>Fig. 14: Meshtastic page</em>
+    </div>
+
+    <h3>Reticulum Monitoring Page</h3>
+    <p>This page monitors the onboard Reticulum transport instance (Fig. 15). It displays the running state, reachable destinations, and interfaces.</p>
+    <div class="fig-single">
+        <img src="images/OS_reticulum_page.png" alt="Fig. 15: Reticulum Monitoring page"><br>
+        <em>Fig. 15: Reticulum Monitoring page</em>
+    </div>
+
+    <h3>OpenTAKServer Page</h3>
+    <p>This page displays the server running state, number of connected EUDs, video stream list, and a link to open the OTS web interface (Fig. 16). This allows access to OTS directly from the Nucleus OS.</p>
+    <div class="fig-single">
+        <img src="images/OS_OTS_page.png" alt="Fig. 16: OpenTAKServer page"><br>
+        <em>Fig. 16: OpenTAKServer page</em>
+    </div>
+
+    <h2>App Setup</h2>
+
+    <h3>Jami</h3>
+    <p>Navigate to Account Settings &gt; Advanced to configure the OpenDHT settings to match those shown in Fig. 17. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
+    <div class="fig-single fig-single-sm">
+        <img src="images/jami_opendht_settings.png" alt="Fig. 17: Jami OpenDHT settings"><br>
+        <em>Fig. 17: Jami OpenDHT settings</em>
+    </div>
+
+    <h3>Sideband</h3>
+    <p>Navigate to the Connectivity section of Sideband and configure the TCP settings to match those shown in Fig. 18. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
+    <div class="fig-single fig-single-sm">
+        <img src="images/sideband_tcp.png" alt="Fig. 18: Sideband TCP settings"><br>
+        <em>Fig. 18: Sideband TCP settings</em>
+    </div>
+
+    <h3>Meshtastic</h3>
+    <p>Refer to the official Meshtastic documentation to configure the Meshtastic radio. Once configured, the user can continue to use the Meshtastic app or switch to serial control of the Meshtastic radio through the Nucleus UI.</p>
+
+    <h3>ATAK</h3>
+    <p>ATAK will automatically take advantage of the Nucleus Wi-Fi mesh with no configuration needed. The official Meshtastic plugin can be loaded to give ATAK use of the onboard Meshtastic radio. If OpenTAKServer is installed, the OTS connection can be activated as well. Configuration of these features will be covered in future documentation.</p>
+
+</div>
+</body>
+</html>
