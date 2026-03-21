@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nucleus Products - Mesh Networking Hardware</title>
+    <title>Nucleus - Mesh Networking Hardware</title>
     <meta name="description" content="Nucleus mesh networking nodes - Self-healing encrypted mesh network with built-in communications.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
@@ -83,9 +83,12 @@
         /* Product Cards - Large Featured */
         .product-showcase {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: var(--spacing-xl);
             margin-top: var(--spacing-lg);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .product-card-large {
@@ -316,9 +319,6 @@
                 justify-content: center;
             }
             
-            .product-showcase {
-                grid-template-columns: 1fr;
-            }
         }
         
         @media (max-width: 768px) {
@@ -356,6 +356,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="use-cases.html">Use Cases</a></li>
                     <li><a href="videos.html">Videos</a></li>
                     <li><a href="resources.html">Resources</a></li>
                     <li><a href="data.html">Test Data</a></li>
@@ -372,11 +373,11 @@
         <section class="product-hero">
             <div class="container">
                 <div class="product-hero-content">
-                    <h1>Nucleus Mesh Nodes</h1>
-                    <p class="tagline">Build infrastructure-independent networks. Self-healing WiFi mesh with optional LoRa radio—no cell towers or internet required.</p>
+                    <h1>Nucleus</h1>
+                    <p class="tagline">Build infrastructure-independent networks. Self-healing WiFi mesh with built-in LoRa radio—no cell towers or internet required.</p>
                     <div class="product-hero-buttons">
                         <a href="#" class="button primary shop-button">Shop Now</a>
-                        <a href="#comparison" class="button secondary">Compare Models</a>
+                        <a href="#capabilities" class="button secondary">See Capabilities</a>
                     </div>
                 </div>
                 <div class="product-hero-image">
@@ -388,44 +389,26 @@
         <!-- Products Section -->
         <section class="product-section" id="products">
             <div class="container">
-                <h2 class="section-title">Choose Your Node</h2>
+                <h2 class="section-title">The Nucleus</h2>
                 <div class="product-showcase">
-                    <!-- Nucleus V1.2 -->
-                    <div class="product-card-large" id="nucleus-v12">
+                    <div class="product-card-large" id="nucleus">
                         <div class="product-card-image">
-                            <img src="images/12_25_update/V1.2 Assembly render 1.jpg" alt="Nucleus V1.2">
+                            <img src="images/12_25_update/V1.2 Assembly render 1.jpg" alt="Nucleus">
                         </div>
                         <div class="product-card-body">
-                            <h3>Nucleus V1.2</h3>
-                            <p class="product-subtitle">Full-featured mesh node with all connectivity options</p>
+                            <h3>Nucleus</h3>
+                            <p class="product-subtitle">Full-featured mesh node with multiple connectivity options</p>
                             <ul class="product-highlights">
-                                <li>802.11s WiFi Mesh (WPA3, self-healing)</li>
+                                <li>802.11s WiFi Mesh — ~30 Mbps (~4,400x faster than LoRa). WPA3 encrypted video, voice, and fast data transfer without infrastructure.</li>
+                                <li>Built-in Meshtastic LoRa radio — ~6.8 kbps (Short/Fast), tested 8+ miles with LoS</li>
+                                <li>Both radios use mesh topology — data hops through every connected node to extend range, automatically rerouting around failures</li>
                                 <li>WiFi Access Point for device connectivity</li>
                                 <li>Ethernet port (RJ45) for wired connections</li>
-                                <li>Built-in Meshtastic LoRa radio</li>
-                                <li>TAKserver capability (on request)</li>
-                            </ul>
-                            <div class="product-card-actions">
-                                <a href="videos.html#mesh-v1" class="button secondary">Watch Videos</a>
-                                <a href="#" class="button primary shop-button">Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Nucleus Mini -->
-                    <div class="product-card-large" id="nucleus-mini">
-                        <div class="product-card-image">
-                            <img src="images/12_25_update/Nucleus Mini render 1.png" alt="Nucleus Mini">
-                        </div>
-                        <div class="product-card-body">
-                            <h3>Nucleus Mini</h3>
-                            <p class="product-subtitle">Compact WiFi mesh optimized for size and power</p>
-                            <ul class="product-highlights">
-                                <li>Full-power 802.11s WiFi Mesh</li>
-                                <li>WiFi Access Point for device connectivity</li>
-                                <li>Optimized for minimal size & power draw</li>
-                                <li>Perfect for adding data to existing LoRa meshes</li>
-                                <li>No onboard LoRa, TAKserver, or Ethernet</li>
+                                <li>ATAK works natively over the WiFi mesh — pictures, messaging, position updates, and TAKserver integration at full speed with no additional plugins</li>
+                                <li>Onboard OpenDHT server — video, voice, and text via Jami with no internet or central server required</li>
+                                <li>Reticulum transport for decentralized encrypted messaging (Sideband, MeshChat)</li>
+                                <li>Tailscale VPN for secure remote access when internet is available</li>
+                                <li>Optional OpenTAKServer — run a full TAK server directly on a mobile Nucleus node</li>
                             </ul>
                             <div class="product-card-actions">
                                 <a href="videos.html" class="button secondary">Watch Videos</a>
@@ -437,118 +420,31 @@
             </div>
         </section>
 
-        <!-- Comparison Section -->
-        <section class="product-section" id="comparison">
-            <div class="container">
-                <h2 class="section-title">Quick Comparison</h2>
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>V1.2</th>
-                            <th>Mini</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>WiFi Mesh (802.11s)</td>
-                            <td><span class="check-yes">✓</span></td>
-                            <td><span class="check-yes">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>WiFi Access Point</td>
-                            <td><span class="check-yes">✓</span></td>
-                            <td><span class="check-yes">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Ethernet Port (RJ45)</td>
-                            <td><span class="check-yes">✓</span></td>
-                            <td><span class="check-no">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>LoRa Radio (Meshtastic)</td>
-                            <td><span class="check-yes">✓</span></td>
-                            <td><span class="check-no">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>TAKserver Capable</td>
-                            <td><span class="check-yes">✓</span></td>
-                            <td><span class="check-no">—</span></td>
-                        </tr>
-                        <tr>
-                            <td>Compact Form Factor</td>
-                            <td><span class="check-no">—</span></td>
-                            <td><span class="check-yes">✓</span></td>
-                        </tr>
-                        <tr>
-                            <td>Minimal Power Draw</td>
-                            <td><span class="check-no">—</span></td>
-                            <td><span class="check-yes">✓</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
 
-        <!-- Capabilities Section (Placeholder) -->
+        <!-- Additional Details Section -->
         <section class="product-section" id="capabilities">
             <div class="container">
-                <h2 class="section-title">System Capabilities</h2>
+                <h2 class="section-title">More About the Platform</h2>
                 <div class="capabilities-grid">
                     <div class="capability-card">
-                        <div class="capability-icon">📡</div>
-                        <h3>WiFi Mesh</h3>
-                        <p>Encrypted self-healing network backbone—data hops through nodes to extend reach beyond any single radio's range.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">📻</div>
-                        <h3>Meshtastic/LoRa</h3>
-                        <p>Long-range LoRa-based mesh network for text and GPS when WiFi range isn't enough.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🔒</div>
-                        <h3>Encrypted Communications</h3>
-                        <p>WPA3 WiFi encryption with support for additional encrypted application layers.</p>
-                    </div>
-                    <div class="capability-card">
                         <div class="capability-icon">🌐</div>
-                        <h3>Internet Gateway</h3>
-                        <p>Share internet connectivity across the entire mesh network when available.</p>
+                        <h3>Internet Integration</h3>
+                        <p>Plug a node into any internet connection to share it across the mesh and extend secure communications over the existing internet via Reticulum and Tailscale.</p>
                     </div>
                     <div class="capability-card">
                         <div class="capability-icon">🖥️</div>
                         <h3>Web Dashboard</h3>
-                        <p>Monitoring, configuration, and WiFi analysis through a built-in web interface.</p>
+                        <p>Built-in web interface for monitoring mesh status, configuring node settings, and scanning WiFi channels — accessible from any device connected to the node.</p>
                     </div>
                     <div class="capability-card">
-                        <div class="capability-icon">🔧</div>
-                        <h3>Extensible Platform</h3>
-                        <p>Linux-based system that can host additional services as needed. Full IP network.</p>
+                        <div class="capability-icon">🔩</div>
+                        <h3>COTS Components</h3>
+                        <p>All off-the-shelf, user-replaceable parts with 3D-printed enclosures. No proprietary hardware — repair or modify with standard components.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Use Cases Section -->
-        <section class="product-section" id="use-cases">
-            <div class="container">
-                <h2 class="section-title">What You Can Do</h2>
-                <div class="use-cases-grid">
-                    <div class="use-case-card">
-                        <h3>Connect ATAK Devices</h3>
-                        <p>ATAK is designed to work on IP mesh networks like Nucleus provides. The onboard Meshtastic radio can also provide ATAK connectivity via the official ATAK Meshtastic plugin.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <h3>Secure Communications</h3>
-                        <p>Voice, video, and text over WiFi mesh with Jami. Text, pictures, and voice messages via Reticulum transport. Text and GPS over LoRa using the Meshtastic radio and official app.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <h3>Run Reticulum Apps</h3>
-                        <p>Reticulum transport runs across the WiFi mesh by default, but is easily expandable to use the internet when available or other connected communication hardware.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <h3>Extend the Platform</h3>
-                        <p>The mesh is a full IP network—host additional services, stream video, or integrate with existing infrastructure.</p>
+                    <div class="capability-card">
+                        <div class="capability-icon">🐧</div>
+                        <h3>Linux-Based & Extensible</h3>
+                        <p>Full Linux OS with a standard IP network. Add services, run scripts, or integrate with existing infrastructure using basic Linux knowledge.</p>
                     </div>
                 </div>
             </div>
@@ -560,7 +456,7 @@
                 <h2>Ready to Build Your Network?</h2>
                 <p>Get started with Nucleus mesh nodes. Contact us for pricing and availability.</p>
                 <div class="cta-buttons">
-                    <a href="#" class="button primary shop-button">Shop Now</a>
+                    <a href="#" class="button secondary shop-button">Shop Now</a>
                     <a href="contact.html" class="button secondary">Contact Us</a>
                 </div>
             </div>
@@ -579,6 +475,7 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.html">Products</a></li>
+                        <li><a href="use-cases.html">Use Cases</a></li>
                         <li><a href="videos.html">Videos</a></li>
                         <li><a href="resources.html">Resources</a></li>
                         <li><a href="data.html">Test Data</a></li>
@@ -589,7 +486,7 @@
                 <div class="footer-section">
                     <h3>Videos</h3>
                     <ul>
-                        <li><a href="videos.html#mesh-v1">Mesh V1</a></li>
+                        <li><a href="videos.html">Nucleus</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">

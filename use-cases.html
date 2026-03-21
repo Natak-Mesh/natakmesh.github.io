@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EZPF1EF47"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4EZPF1EF47');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Cases - Nucleus Mesh Networking</title>
+    <meta name="description" content="Real-world use cases for Nucleus mesh networking nodes — tactical training, large events, private communications, secure gateways, and Starlink distribution.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        .use-case-hero {
+            background-color: var(--background-alt);
+            padding: var(--spacing-xxl) 0;
+            text-align: center;
+        }
+
+        .use-case-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-dark);
+        }
+
+        .use-case-hero p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .use-case-section {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .use-case-section:nth-child(even) {
+            background-color: var(--background-alt);
+        }
+
+        .use-case-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .use-case-content .use-case-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .use-case-content h2 {
+            color: #f85b18;
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .use-case-content .use-case-tagline {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: var(--spacing-lg);
+            font-style: italic;
+        }
+
+        .use-case-content p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .use-case-features {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0;
+        }
+
+        .use-case-features li {
+            padding: var(--spacing-xs) 0;
+            padding-left: var(--spacing-lg);
+            position: relative;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .use-case-features li::before {
+            content: '→';
+            color: #f85b18;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .use-case-hero h1 {
+                font-size: 2rem;
+            }
+
+            .use-case-content h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/Natak Mesh Logo Kit/drive-download-20250629T123827Z-1-001/Logos 300ppi/NatakMeshsecondary-overlay.png" alt="Natak Mesh" class="header-logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="use-cases.html" class="active">Use Cases</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="data.html">Test Data</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="use-case-hero">
+            <div class="container">
+                <h1>Use Cases</h1>
+                <p>How people are using the Nucleus — from tactical training to private communications to pushing Starlink across a mesh network.</p>
+            </div>
+        </section>
+
+        <!-- Use Case 1: Tactical / Airsoft / Training -->
+        <section class="use-case-section" id="tactical">
+            <div class="container">
+                <div class="use-case-content">
+                    <div class="use-case-icon">🎯</div>
+                    <h2>Tactical Training & Airsoft</h2>
+                    <p class="use-case-tagline">Full situational awareness without cell towers or internet.</p>
+                    <p>Connect ATAK devices across the WiFi mesh for real-time position tracking, messaging, and image sharing at speeds that LoRa alone can't touch. The built-in Meshtastic radio extends coverage beyond WiFi range via the official ATAK Meshtastic plugin, giving you both high-speed data and long-range fallback in one package.</p>
+                    <p>Add an OpenTAKServer node and the entire team has centralized SA, data packages, and video streaming — all running on portable, battery-powered hardware with no external infrastructure.</p>
+                    <ul class="use-case-features">
+                        <li>ATAK works natively over the WiFi mesh — no plugins needed for the IP network</li>
+                        <li>Meshtastic plugin extends ATAK coverage to miles beyond WiFi range</li>
+                        <li>Optional OpenTAKServer runs directly on a Nucleus node</li>
+                        <li>Battery powered, fully portable</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Case 2: Large Events -->
+        <section class="use-case-section" id="events">
+            <div class="container">
+                <div class="use-case-content">
+                    <div class="use-case-icon">🏔️</div>
+                    <h2>Large Events & Outdoor Activities</h2>
+                    <p class="use-case-tagline">Stay in touch when cell signal isn't an option.</p>
+                    <p>At festivals, races, group hikes, or any large outdoor gathering, cell towers get overloaded or simply don't exist. The Nucleus Meshtastic radio gives your group encrypted text and GPS sharing over miles of range — no cell signal required.</p>
+                    <p>For groups that need more than text, the WiFi mesh adds high-speed data for voice calls, photo sharing, and real-time coordination between teams spread across a large area.</p>
+                    <ul class="use-case-features">
+                        <li>Meshtastic text and GPS with 8+ mile range (line of sight)</li>
+                        <li>WiFi mesh for voice, pictures, and fast data when closer together</li>
+                        <li>Works completely independent of cell networks</li>
+                        <li>Each node extends coverage for the entire group</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Case 3: Private Communications -->
+        <section class="use-case-section" id="privacy">
+            <div class="container">
+                <div class="use-case-content">
+                    <div class="use-case-icon">🔐</div>
+                    <h2>Private Communications</h2>
+                    <p class="use-case-tagline">Full comms without exposing personal devices or relying on carrier networks.</p>
+                    <p>In situations where privacy matters — protests, journalism, sensitive coordination — the Nucleus provides encrypted video, voice, text, and picture sharing over its own network. No personal cell phones on the network, no carrier logs, no central servers.</p>
+                    <p>Jami provides video and voice calls via the onboard OpenDHT server. Reticulum handles decentralized encrypted messaging. Everything stays on the mesh unless you explicitly bridge it to the internet.</p>
+                    <ul class="use-case-features">
+                        <li>WPA3 encrypted WiFi mesh — no carrier involvement</li>
+                        <li>Video, voice, and text via Jami with no central server</li>
+                        <li>Reticulum for decentralized encrypted messaging</li>
+                        <li>No personal phone numbers or identities exposed</li>
+                        <li>Network is self-contained — nothing leaves the mesh unless you want it to</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Case 4: Secure Remote Gateway -->
+        <section class="use-case-section" id="gateway">
+            <div class="container">
+                <div class="use-case-content">
+                    <div class="use-case-icon">🔒</div>
+                    <h2>Secure Remote Gateway</h2>
+                    <p class="use-case-tagline">Tunnel into secure networks from anywhere with an internet connection.</p>
+                    <p>Plug a Nucleus node into any ethernet connection and use the onboard Tailscale VPN or Reticulum transport to establish encrypted tunnels back to your secure infrastructure. Instantly extend your secure network to a remote location without specialized hardware or complex VPN setups.</p>
+                    <p>Once connected, other nodes on the local mesh can route through the gateway node — giving the entire team secure connectivity back to home base.</p>
+                    <ul class="use-case-features">
+                        <li>Plug into any ethernet port to bridge to secure networks</li>
+                        <li>Tailscale VPN for instant encrypted tunnel back to your infrastructure</li>
+                        <li>Reticulum transport for decentralized secure routing</li>
+                        <li>Gateway shares connectivity across the entire local mesh</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Case 5: Starlink Distribution -->
+        <section class="use-case-section" id="starlink">
+            <div class="container">
+                <div class="use-case-content">
+                    <div class="use-case-icon">🛰️</div>
+                    <h2>Starlink Distribution</h2>
+                    <p class="use-case-tagline">Push satellite internet across the mesh network from a single dish.</p>
+                    <p>Connect one Nucleus node to a Starlink dish via ethernet and the entire mesh network gets internet access. Every node and every device connected to those nodes can reach the internet — no additional routers, no extra configuration.</p>
+                    <p>Ideal for remote locations, field operations, or disaster response where a single Starlink connection needs to serve a spread-out team.</p>
+                    <ul class="use-case-features">
+                        <li>One Starlink dish serves the entire mesh network</li>
+                        <li>Plug ethernet from Starlink into any Nucleus node</li>
+                        <li>Internet automatically shared to all connected nodes and devices</li>
+                        <li>Combine with Tailscale/Reticulum for secure internet-bridged comms</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Build Your Network?</h2>
+                <p>Get started with Nucleus mesh nodes. Contact us for pricing and availability.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="button secondary shop-button">Shop Now</a>
+                    <a href="contact.html" class="button secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="use-cases.html">Use Cases</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="data.html">Test Data</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Videos</h3>
+                    <ul>
+                        <li><a href="videos.html">Nucleus</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: nathan@natakmesh.com</p>
+                    <p>Tampa, FL</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
