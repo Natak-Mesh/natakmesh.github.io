@@ -12,8 +12,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nucleus - Mesh Networking Hardware</title>
-    <meta name="description" content="Nucleus mesh networking nodes - Self-healing encrypted mesh network with built-in communications.">
+    <title>Nucleus — ATAK-Ready Mesh Networking Hardware | Natak Mesh</title>
+    <meta name="description" content="Nucleus mesh radio — native ATAK over WiFi mesh, built-in LoRa CoT bridge, ATAK voice, video streaming, and portable OpenTAKServer. No plugins required.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="favicon.ico">
@@ -146,24 +146,23 @@
         }
         
         .product-highlights {
-            list-style: none;
-            padding: 0;
+            list-style: disc;
+            padding: 0 0 0 1.5rem;
             margin: 0 0 var(--spacing-lg) 0;
         }
         
         .product-highlights li {
             padding: var(--spacing-xs) 0;
-            padding-left: var(--spacing-lg);
-            position: relative;
             color: var(--text-color);
         }
-        
-        .product-highlights li::before {
-            content: '✓';
-            color: var(--success-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+
+        .product-highlights .highlight-category {
+            list-style: none;
+            font-weight: 600;
+            color: var(--secondary-dark);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-xs);
+            margin-left: -1.5rem;
         }
         
         .product-card-actions {
@@ -174,65 +173,6 @@
         .product-card-actions .button {
             flex: 1;
             text-align: center;
-        }
-        
-        /* Comparison Table */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: var(--spacing-lg) 0;
-            background: var(--background-alt);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-        }
-        
-        .comparison-table thead {
-            background-color: var(--primary-color);
-        }
-        
-        .comparison-table th {
-            padding: var(--spacing-md) var(--spacing-lg);
-            text-align: left;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .comparison-table th:not(:first-child) {
-            text-align: center;
-        }
-        
-        .comparison-table td {
-            padding: var(--spacing-md) var(--spacing-lg);
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-color);
-        }
-        
-        .comparison-table td:not(:first-child) {
-            text-align: center;
-        }
-        
-        .comparison-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .comparison-table tbody tr:hover {
-            background-color: var(--background-color);
-        }
-        
-        .comparison-table td:first-child {
-            font-weight: 500;
-            color: var(--secondary-dark);
-        }
-        
-        .check-yes {
-            color: var(--success-color);
-            font-size: 1.3rem;
-        }
-        
-        .check-no {
-            color: var(--text-light);
-            font-size: 1.2rem;
         }
         
         /* Capabilities Grid */
@@ -276,34 +216,6 @@
             line-height: 1.6;
         }
         
-        /* Use Cases Section */
-        .use-cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
-        }
-        
-        .use-case-card {
-            background: var(--background-color);
-            padding: var(--spacing-lg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        .use-case-card h3 {
-            color: var(--primary-color);
-            margin-bottom: var(--spacing-sm);
-            font-size: 1.1rem;
-        }
-        
-        .use-case-card p {
-            color: var(--text-light);
-            margin: 0;
-            line-height: 1.6;
-        }
-        
         /* Responsive */
         @media (max-width: 992px) {
             .product-hero .container {
@@ -324,15 +236,6 @@
         @media (max-width: 768px) {
             .product-hero-content h1 {
                 font-size: 2rem;
-            }
-            
-            .comparison-table {
-                font-size: 0.9rem;
-            }
-            
-            .comparison-table th,
-            .comparison-table td {
-                padding: var(--spacing-sm);
             }
             
             .product-card-actions {
@@ -374,10 +277,10 @@
             <div class="container">
                 <div class="product-hero-content">
                     <h1>Nucleus</h1>
-                    <p class="tagline">Build infrastructure-independent networks. Self-healing WiFi mesh with built-in LoRa radio—no cell towers or internet required.</p>
+                    <p class="tagline">A portable mesh radio with two parallel networks built for ATAK. High-speed WiFi mesh for full ATAK operations — voice, video, SA, chat — with a LoRa mesh running in parallel to extend your reach miles beyond WiFi range. No plugins required.</p>
                     <div class="product-hero-buttons">
                         <a href="#" class="button primary shop-button">Shop Now</a>
-                        <a href="#capabilities" class="button secondary">See Capabilities</a>
+                        <a href="#atak-integration" class="button secondary">ATAK Integration</a>
                     </div>
                 </div>
                 <div class="product-hero-image">
@@ -397,18 +300,28 @@
                         </div>
                         <div class="product-card-body">
                             <h3>Nucleus</h3>
-                            <p class="product-subtitle">Full-featured mesh node with multiple connectivity options</p>
+                            <p class="product-subtitle">ATAK-ready mesh radio with WiFi mesh and LoRa CoT bridge</p>
                             <ul class="product-highlights">
-                                <li>802.11s WiFi Mesh — ~30 Mbps (~4,400x faster than LoRa). WPA3 encrypted video, voice, and fast data transfer without infrastructure.</li>
-                                <li>Built-in Meshtastic LoRa radio — ~6.8 kbps (Short/Fast), tested 8+ miles with LoS</li>
-                                <li>Both radios use mesh topology — data hops through every connected node to extend range, automatically rerouting around failures</li>
-                                <li>WiFi Access Point for device connectivity</li>
-                                <li>Ethernet port (RJ45) for wired connections</li>
-                                <li>ATAK works natively over the WiFi mesh — pictures, messaging, position updates, and TAKserver integration at full speed with no additional plugins</li>
-                                <li>Onboard OpenDHT server — video, voice, and text via Jami with no internet or central server required</li>
+                                <li class="highlight-category">ATAK Integration</li>
+                                <li>ATAK works natively over the WiFi mesh — SA, chat, pictures, routes, and data packages at full speed with no plugins</li>
+                                <li>Built-in CoT bridge transparently forwards ATAK SA and chat over Meshtastic LoRa — no plugin needed on the phone, zero configuration</li>
+                                <li>ATAK voice plugin works across the WiFi mesh — contact discovery, multi-channel support</li>
+                                <li>Video streaming via OpenTAK ICU — when OpenTAKServer is installed, its built-in MediaMTX server distributes video to all ATAK clients</li>
+                                <li>Optional OpenTAKServer runs directly on a Nucleus node — portable TAK server for field operations</li>
+
+                                <li class="highlight-category">Radios & Connectivity</li>
+                                <li>802.11s WiFi mesh — ~30 Mbps close range, 1–5 Mbps out to 1–3 miles with elevation and LoS. WPA3 encrypted.</li>
+                                <li>Built-in Meshtastic LoRa radio (RAK4631) — ~6.8 kbps (Short/Fast), tested 8+ miles with LoS</li>
+                                <li>LoRa mode switchable via web UI: CoT Bridge mode or BLE mode (Meshtastic phone app)</li>
+                                <li>Both radios use mesh topology — data hops through every connected node to extend range, auto-rerouting around failures</li>
+                                <li>WiFi Access Point (5.8 GHz) for device connectivity</li>
+                                <li>Ethernet port (RJ45) for wired connections or internet gateway</li>
+
+                                <li class="highlight-category">Additional Services</li>
+                                <li>Onboard OpenDHT server — video, voice, and text via Jami with no internet or central server</li>
                                 <li>Reticulum transport for decentralized encrypted messaging (Sideband, MeshChat)</li>
                                 <li>Tailscale VPN for secure remote access when internet is available</li>
-                                <li>Optional OpenTAKServer — run a full TAK server directly on a mobile Nucleus node</li>
+                                <li>Internet gateway — plug any node into an internet source and share it across the mesh</li>
                             </ul>
                             <div class="product-card-actions">
                                 <a href="videos.html" class="button secondary">Watch Videos</a>
@@ -420,21 +333,59 @@
             </div>
         </section>
 
+        <!-- ATAK Integration Details Section -->
+        <section class="product-section" id="atak-integration">
+            <div class="container">
+                <h2 class="section-title">ATAK Integration</h2>
+                <div class="capabilities-grid">
+                    <div class="capability-card">
+                        <div class="capability-icon">📡</div>
+                        <h3>Native ATAK Over WiFi</h3>
+                        <p>ATAK discovers other devices and shares SA automatically over the WiFi mesh via standard multicast. No TAKserver required for basic operations. Pictures, chat, routes, and data packages all transfer at full WiFi speed — the way ATAK was designed to work over an IP network.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">🔗</div>
+                        <h3>LoRa CoT Bridge</h3>
+                        <p>The Nucleus runs a CoT bridge daemon that intercepts ATAK multicast traffic on the local network and transparently forwards SA and chat as CoT packets over Meshtastic LoRa. Remote positions appear natively in ATAK — no plugin required on the phone. Rate-limited and loop-protected for reliable operation.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">🎙️</div>
+                        <h3>Voice Over Mesh</h3>
+                        <p>The ATAK voice plugin works natively across the WiFi mesh. Voice traffic, contact discovery, and channel selection are all routed between nodes via multicast. Multi-hop voice forwarding is handled by 802.11s at Layer 2 with built-in deduplication.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">🎥</div>
+                        <h3>Video Streaming</h3>
+                        <p>When OpenTAKServer is installed, its built-in MediaMTX RTSP server receives video from OpenTAK ICU (H.264 + AAC audio) and distributes it to all ATAK clients on the mesh. Stream camera feeds from the field to every connected device.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">🖥️</div>
+                        <h3>Portable OpenTAKServer</h3>
+                        <p>OpenTAKServer installs and runs directly on a Nucleus node. Centralized SA, data packages, mission planning, and video feeds — all on a portable, battery-powered device. No cloud, no base station, no external infrastructure.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">🔄</div>
+                        <h3>Bridge / BLE Mode Toggle</h3>
+                        <p>The onboard LoRa radio switches between CoT Bridge mode (ATAK SA forwarding over LoRa) and BLE mode (standard Meshtastic phone app) via the web dashboard or REST API. Use the radio for ATAK bridging or hand it to Meshtastic — your choice.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Additional Details Section -->
+        <!-- Platform Details Section -->
         <section class="product-section" id="capabilities">
             <div class="container">
-                <h2 class="section-title">More About the Platform</h2>
+                <h2 class="section-title">Platform Details</h2>
                 <div class="capabilities-grid">
                     <div class="capability-card">
                         <div class="capability-icon">🌐</div>
-                        <h3>Internet Integration</h3>
-                        <p>Plug a node into any internet connection to share it across the mesh and extend secure communications over the existing internet via Reticulum and Tailscale.</p>
+                        <h3>Internet Gateway</h3>
+                        <p>Plug any node into an internet connection (Ethernet, Starlink, cellular) and the entire mesh gets internet access. Combine with Tailscale or Reticulum for secure internet-bridged communications.</p>
                     </div>
                     <div class="capability-card">
                         <div class="capability-icon">🖥️</div>
                         <h3>Web Dashboard</h3>
-                        <p>Built-in web interface for monitoring mesh status, configuring node settings, and scanning WiFi channels — accessible from any device connected to the node.</p>
+                        <p>Built-in web interface for monitoring mesh status, configuring node settings, toggling LoRa bridge mode, and scanning WiFi channels — accessible from any device connected to the node.</p>
                     </div>
                     <div class="capability-card">
                         <div class="capability-icon">🔩</div>
@@ -468,7 +419,7 @@
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>Natak Mesh</h3>
-                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                    <p>Portable mesh radios built for ATAK.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>

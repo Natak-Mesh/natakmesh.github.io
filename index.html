@@ -12,8 +12,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nucleus - Mesh Networking Nodes</title>
-    <meta name="description" content="Mesh networking nodes built from COTS parts and 3D-printed enclosures. WiFi mesh with optional LoRa radio.">
+    <title>Nucleus — Mesh Networking with Native ATAK Integration | Natak Mesh</title>
+    <meta name="description" content="Nucleus is a portable mesh radio with two parallel networks built for ATAK. High-speed WiFi mesh for full ATAK operations, plus a LoRa mesh running simultaneously to extend SA — plus a built-in CoT bridge that extends SA over LoRa. No plugins required.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <!-- Favicon placeholder - update when branding is ready -->
@@ -51,11 +51,10 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h2>Nucleus</h2>
-                    <p>At its core, the Nucleus solves the speed problem — LoRa mesh networks are great for range but too slow for video, file transfers, and real-time data. The Nucleus is a 2.4 GHz IP mesh radio that brings high-speed connectivity to the mesh without any external infrastructure.</p>
-                    <p>It also includes a Meshtastic radio for longer range, low bandwidth connections. The onboard computer has useful software installed by default, including Reticulum and OpenDHT to enable decentralized video, voice, and text communication.</p>
-                    <p>Off-the-shelf components and 3D-printed enclosures keep costs low. Linux-based. Modify or add services with basic Linux knowledge.</p>
-                    <p>Multiple radios in one package. WiFi mesh: ~30 Mbps close range, 1–5 Mbps out to 1–3 miles with elevation and LoS. LoRa: ~2.5 kbps, tested to 8+ miles with LoS.</p>
+                    <h2>Nucleus — WiFi Mesh + LoRa with Native ATAK Integration</h2>
+                    <p>The Nucleus is a portable mesh node with two radios running parallel mesh networks — a high-speed Wi-Fi IP mesh and a slower, longer-ranged Meshtastic-based LoRa mesh. Connect your EUD and ATAK works at full speed — situational awareness (SA), chat, pictures, voice, and video streaming with no plugins and no external infrastructure.</p>
+                    <p>The Nucleus automatically listens for ATAK traffic on the local network and sends it over the long-range LoRa radio in parallel to the Wi-Fi mesh — positions, chat, markers, routes, and shapes reach teammates miles beyond Wi-Fi range with zero configuration on the phone.</p>
+                    <p>Run a portable OpenTAKServer directly on a Nucleus node for centralized SA, data packages, and video distribution in the field.</p>
                     <div class="hero-buttons">
                         <a href="products.html" class="button primary">See Products</a>
                     </div>
@@ -75,42 +74,71 @@
                     <div class="feature-card">
                         <img src="images/12_25_update/V1.2 Assembly render 1.jpg" alt="Nucleus" style="width: 100%; height: 450px; object-fit: contain; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
                         <h3>Nucleus</h3>
-                        <p>WiFi mesh + LoRa radio — multiple connectivity options</p>
+                        <p>ATAK-ready WiFi mesh radio with built-in LoRa CoT bridge</p>
                         <a href="products.html#nucleus" class="button secondary" style="margin-top: var(--spacing-sm);">Learn More</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Features Section -->
+        <!-- ATAK Capabilities Section -->
         <section class="features">
             <div class="container">
-                <h2 class="section-title">Capabilities</h2>
+                <h2 class="section-title">ATAK Integration</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
                         <div class="feature-icon">📡</div>
-                        <h3>ATAK Compatible</h3>
-                        <p>Works natively over WiFi mesh. The onboard Meshtastic radio can be used with the ATAK Meshtastic plugin to fuse LoRa connectivity into ATAK's communication network.</p>
+                        <h3>Native ATAK Over WiFi Mesh</h3>
+                        <p>ATAK works out of the box over the WiFi mesh via standard multicast. SA, chat, pictures, routes, and data packages at ~30 Mbps — the way ATAK was built to run. No plugins, no TAKserver required for basic SA.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔗</div>
+                        <h3>LoRa CoT Bridge</h3>
+                        <p>A built-in daemon transparently bridges ATAK SA and chat over Meshtastic LoRa. No plugin needed on the phone — the Nucleus intercepts multicast on the LAN and forwards it over LoRa automatically. Tested to 8+ miles with line of sight.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎙️</div>
+                        <h3>ATAK Voice Over Mesh</h3>
+                        <p>The ATAK voice plugin works natively across the WiFi mesh. Voice, contact discovery, and multi-channel support all route across the mesh network without additional configuration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎥</div>
+                        <h3>Video Streaming</h3>
+                        <p>When OpenTAKServer is installed, its built-in MediaMTX RTSP server enables video streaming from OpenTAK ICU to all ATAK clients on the mesh. H.264 video with AAC audio.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🖥️</div>
+                        <h3>Portable OpenTAKServer</h3>
+                        <p>Run OpenTAKServer directly on a Nucleus node. Centralized SA, data packages, and video distribution — all on portable, battery-powered hardware with no external infrastructure.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔒</div>
-                        <h3>WPA3 + Encrypted Protocols</h3>
-                        <p>Secure WiFi connections with support for encrypted application layers.</p>
+                        <h3>WPA3 Encrypted Mesh</h3>
+                        <p>802.11s WiFi mesh with WPA3 encryption. Auto-healing topology that reroutes around failures. ~30 Mbps close range, 1–5 Mbps out to 1–3 miles with elevation and LoS.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Capabilities Section -->
+        <section class="features" style="background-color: var(--background-alt);">
+            <div class="container">
+                <h2 class="section-title">Additional Capabilities</h2>
+                <div class="feature-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🔄</div>
-                        <h3>Auto-Routing Mesh</h3>
-                        <p>Mesh topology adjusts automatically when nodes join or drop from the network.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔧</div>
-                        <h3>COTS Components</h3>
-                        <p>All parts are off-the-shelf and user-replaceable. 3D-printed enclosures.</p>
+                        <div class="feature-icon">📻</div>
+                        <h3>Meshtastic LoRa Radio</h3>
+                        <p>Onboard RAK4631 LoRa radio running Meshtastic firmware. Switch between CoT Bridge mode and BLE mode (for the Meshtastic phone app) via the web UI.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🌐</div>
                         <h3>Reticulum Transport</h3>
-                        <p>Onboard transport for Reticulum applications like Sideband and MeshChat.</p>
+                        <p>Onboard transport for Reticulum applications like Sideband and MeshChat. Decentralized encrypted messaging over the mesh.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>COTS Components</h3>
+                        <p>All off-the-shelf, user-replaceable parts with 3D-printed enclosures. Linux-based — add services or modify with basic Linux knowledge.</p>
                     </div>
                 </div>
             </div>
@@ -123,7 +151,7 @@
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>Natak Mesh</h3>
-                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
+                    <p>Portable mesh radios built for ATAK.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>

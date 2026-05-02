@@ -328,8 +328,8 @@ section {
 
 .button.secondary {
   background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+  color: #e0e0e0;
+  border: 2px solid #e0e0e0;
 }
 
 .button.secondary:hover {
