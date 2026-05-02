@@ -224,6 +224,57 @@
         <section class="product-section">
             <div class="container">
                 
+                <!-- Accordion: Wi-Fi/LoRa Combined Performance in Congested Area -->
+                <div class="accordion" style="margin-bottom: 100px !important;">
+                    <button class="accordion-header">
+                        <span>Wi-Fi/LoRa Combined Performance in Congested Area <span class="version-info">Hardware 1.2 | Software 2.9.2</span></span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div class="product-container">
+                    <div class="product-details">
+                        <h3>Wi-Fi/LoRa Combined Performance in Congested Area</h3>
+                        
+                        <div class="product-features">
+                            <h3>Test Setup</h3>
+                            <p>Node 0023 connected to yogurt cup antenna on second story balcony (see Fig. 1).</p>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/midlo_1/antenna 2.jpg" alt="Yogurt cup antenna on second story balcony" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 1</p>
+                            </div>
+                            <p>Node 0022 using stock Nucleus antennas was mounted in a pack as this was the mobile node for the test. See Fig. 2.</p>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/midlo_1/PACK1.jpg" alt="Node 0022 mounted in pack" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 2</p>
+                            </div>
+                            <p>The area was an apartment complex of relatively large apartments (~1,000+ ft²) built in 2014. Typical structure shown in Fig. 3.</p>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/midlo_1/typCl.jpg" alt="Typical apartment complex structure" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 3</p>
+                            </div>
+                            <p>The test was performed as follows. Node 0022 and 0023 Meshtastic radios were disconnected from the Nucleus serial connection and connected to the official app. They were both set into range test mode with Node 0023 (stationary) set to a 15 second transmit cycle.</p>
+                            <p>Node 0022 was then transported around the complex. Wi-Fi was monitored via the Nucleus_OS web UI with the link quality reported at each location (green markers). Yellow markers indicate intermittent/poor Wi-Fi connection. Once Wi-Fi was lost, LoRa pings were noted with red diamonds. No failure was noted for the LoRa connections — pings were constant throughout the entire test run. See following figures.</p>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/midlo_1/Screenshot_20260502-092825.png" alt="Test results map view" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 4</p>
+                            </div>
+                            <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
+                                <img src="images/midlo_1/Screenshot_20260502-092838.png" alt="Test results detail view" class="product-img">
+                                <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 5</p>
+                            </div>
+                        </div>
+                        
+                        <div class="product-features">
+                            <h3>Analysis</h3>
+                            <p>Wi-Fi performance was about as expected. With no intermediate mesh nodes to provide line of sight, single large apartment buildings proved to be enough to block the IP mesh by ~75 meters. The LoRa radio had no issues holding a connection across the entire complex out to 250+ meters.</p>
+                            <p>Compare these figures to the Wi-Fi range tests done previously to note the impact of line of sight on the high speed IP mesh.</p>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Accordion 0: Wi-Fi max range -->
                 <div class="accordion" style="margin-bottom: 100px !important;">
                     <button class="accordion-header">
