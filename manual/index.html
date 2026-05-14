@@ -271,6 +271,16 @@
         <em>Fig. 16: OpenTAKServer page</em>
     </div>
 
+    <h2>Node Administration</h2>
+
+    <h3>SSH Access</h3>
+    <p>SSH is enabled on the Nucleus. To access the node directly, plug it into your router or switch via the ethernet port — it will accept an IP address from your DHCP server. Avahi is running on the node, so it should be discoverable on your local network at:</p>
+    <p><code>ssh natak@00xx-nucleus.local</code></p>
+    <p>Where <code>xx</code> is the node's serial number printed on the case. The default password is <code>52235223</code>.</p>
+
+    <h3>Nucleus OS Repository</h3>
+    <p>A local copy of the git repository used to deploy the Nucleus software is located at <code>~/Nucleus_os</code>. The Nucleus live file system is configured per that repo. To pull the latest updates, run <code>git pull</code> from within the repo directory. Changes will then be available to deploy.</p>
+
     <h2>App Setup</h2>
 
     <h3>Jami</h3>
