@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EZPF1EF47"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4EZPF1EF47');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesh Communications — Voice, Text, and Internet Over Mesh | Natak Mesh</title>
+    <meta name="description" content="Jami encrypted voice and video calls, Meshtastic LoRa text and GPS, internet gateway distribution over Starlink or cellular. Off-grid communications with no external infrastructure.">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" href="../favicon.ico">
+    <style>
+        .uc-hero {
+            background-color: var(--background-alt);
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .uc-hero .container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+
+        .uc-hero-text {
+            flex: 1;
+        }
+
+        .uc-hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-dark);
+        }
+
+        .uc-hero-text .tagline {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .uc-hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .uc-hero-image img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            object-fit: cover;
+        }
+
+        .breadcrumb {
+            padding: var(--spacing-md) 0;
+        }
+
+        .breadcrumb a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #f85b18;
+            font-size: 1.05rem;
+            font-weight: 500;
+            padding: var(--spacing-sm) 0;
+            transition: color var(--transition-fast);
+        }
+
+        .breadcrumb a::before {
+            content: '\2190';
+            font-size: 1.3rem;
+        }
+
+        .breadcrumb a:hover {
+            color: #ff7a3d;
+        }
+
+        .content-block {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .content-block:nth-child(even) {
+            background-color: var(--background-alt);
+        }
+
+        .content-row {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+
+        .content-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-text h2 {
+            color: #f85b18;
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .content-text p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .content-image {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .content-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .content-image .image-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-sm);
+        }
+
+        .content-image .image-group img {
+            width: 100%;
+            height: auto;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0;
+        }
+
+        .feature-list li {
+            padding: var(--spacing-xs) 0;
+            padding-left: var(--spacing-lg);
+            position: relative;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: '\2192';
+            color: #f85b18;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .image-placeholder {
+            background-color: var(--background-color);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xl);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .uc-hero .container,
+            .content-row,
+            .content-row.reverse {
+                flex-direction: column;
+            }
+
+            .uc-hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .content-text h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../images/Natak Mesh Logo Kit/drive-download-20250629T123827Z-1-001/Logos 300ppi/NatakMeshsecondary-overlay.png" alt="Natak Mesh" class="header-logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../products.html">Products</a></li>
+                    <li><a href="../use-cases.html" class="active">Use Cases</a></li>
+                    <li><a href="../videos.html">Videos</a></li>
+                    <li><a href="../resources.html">Resources</a></li>
+                    <li><a href="../data.html">Test Data</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../use-cases.html">Back to Use Cases</a>
+            </div>
+        </div>
+
+        <!-- Hero -->
+        <section class="uc-hero">
+            <div class="container">
+                <div class="uc-hero-text">
+                    <h1>Mesh Communications</h1>
+                    <p class="tagline">Voice calls, text messaging, GPS sharing, and internet distribution — all running on the mesh with no cell towers, no ISP, and no cloud services. The Nucleus provides multiple communication paths that work completely off-grid.</p>
+                </div>
+                <div class="uc-hero-image">
+                    <img src="../images/12_25_update/2_radios.jpg" alt="Nucleus dual radio setup">
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 1: Jami Voice & Video -->
+        <section class="content-block">
+            <div class="container">
+                <div class="content-row">
+                    <div class="content-text">
+                        <h2>Jami — Encrypted Voice and Video Calls</h2>
+                        <p>Every Nucleus node runs an OpenDHT server instance. Jami uses this for peer discovery and call routing — encrypted voice and video calls between any devices on the mesh with no phone company, no SIP server, and no cloud accounts.</p>
+                        <p>OpenDHT runs with network isolation on every node — your DHT is invisible to the public internet. Peer discovery is entirely within your network. No external observer can see who's calling whom. Works fully offline — verified.</p>
+                        <p>Jami also works across Tailscale tunnels between remote nodes. Add the remote tunnel IPs to the OpenDHT bootstrap config and calls route over whichever path is available — local mesh or internet tunnel.</p>
+                        <ul class="feature-list">
+                            <li>Encrypted voice and video calls — no phone company, no SIP server</li>
+                            <li>OpenDHT on every node for peer discovery within the mesh</li>
+                            <li>Network-isolated — your DHT is not visible on the public internet</li>
+                            <li>Works fully offline on just the mesh</li>
+                            <li>Also works across Tailscale tunnels for remote nodes</li>
+                            <li>No cloud accounts, no call logs, no metadata collection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 2: Meshtastic -->
+        <section class="content-block">
+            <div class="container">
+                <div class="content-row reverse">
+                    <div class="content-text">
+                        <h2>Meshtastic — Long-Range Text and GPS</h2>
+                        <p>The Nucleus includes a built-in Meshtastic LoRa radio (RAK4631) that provides AES-256 encrypted text messaging and GPS sharing over radio. Multi-mile range through terrain that blocks WiFi — no cell towers, no ISP, no infrastructure of any kind.</p>
+                        <p>When the LoRa radio is in BLE mode (toggled via the web UI), you use the standard Meshtastic phone app over Bluetooth to send and receive messages. Each node in the Meshtastic mesh extends range for every other node — messages hop through intermediate nodes automatically.</p>
+                        <p>The Nucleus web dashboard also provides a built-in Meshtastic messaging interface — no phone app required if you don't want one.</p>
+                        <ul class="feature-list">
+                            <li>AES-256 encrypted text and GPS over LoRa radio</li>
+                            <li>Multi-mile range — tested 8+ miles with line of sight</li>
+                            <li>Works through terrain that blocks WiFi</li>
+                            <li>BLE mode for standard Meshtastic phone app</li>
+                            <li>Web UI messaging — no phone app required</li>
+                            <li>No cell towers, no carrier records, no metadata trail</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <img src="../images/12_25_update/Meshtastic_app.png" alt="Meshtastic app interface">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 3: Internet Gateway -->
+        <section class="content-block">
+            <div class="container">
+                <div class="content-row">
+                    <div class="content-text">
+                        <h2>Internet Gateway Distribution</h2>
+                        <p>Plug any Nucleus node into an internet source — Starlink, Ethernet, cellular modem — and the entire mesh network gets internet access. Every node and every device connected to those nodes can reach the internet with no additional routers or configuration.</p>
+                        <p>The gateway node handles NAT and routing automatically. One internet connection serves the entire distributed mesh. Combine with Tailscale for secure tunnel back to your infrastructure, or Reticulum transport for decentralized encrypted routing over the internet link.</p>
+                        <ul class="feature-list">
+                            <li>One internet source serves the entire mesh network</li>
+                            <li>Plug Ethernet from Starlink, cellular modem, or any source into any node</li>
+                            <li>Internet automatically shared to all connected nodes and devices</li>
+                            <li>NAT and routing handled automatically</li>
+                            <li>Combine with Tailscale or Reticulum for secure internet-bridged comms</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <img src="../images/starlink.jpg" alt="Starlink internet gateway connected to mesh">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 4: Events & Outdoor -->
+        <section class="content-block">
+            <div class="container">
+                <div class="content-row reverse">
+                    <div class="content-text">
+                        <h2>Large Events and Outdoor Activities</h2>
+                        <p>At festivals, races, group hikes, or any large outdoor gathering, cell towers get overloaded or don't exist. The Nucleus Meshtastic radio gives your group encrypted text and GPS sharing over miles of range — no cell signal required.</p>
+                        <p>For groups that need more than text, the WiFi mesh adds high-speed data for voice calls via Jami, photo sharing, and real-time coordination between teams spread across a large area. Each node extends coverage for the entire group.</p>
+                        <ul class="feature-list">
+                            <li>Meshtastic text and GPS with 8+ mile range (line of sight)</li>
+                            <li>WiFi mesh for voice, pictures, and fast data when closer together</li>
+                            <li>Works completely independent of cell networks</li>
+                            <li>Each node extends coverage for the entire group</li>
+                            <li>Battery powered and portable — carry in a pack</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <div class="image-group">
+                            <img src="../images/5_15_26 update/pack1.jpg" alt="Nucleus in field deployment">
+                            <img src="../images/range day.jpg" alt="Field testing at range">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 5: The Full Picture -->
+        <section class="content-block">
+            <div class="container">
+                <div class="content-row">
+                    <div class="content-text">
+                        <h2>All Services at a Glance</h2>
+                        <p>The Nucleus runs all of these communication services simultaneously. Jami for voice and video, Meshtastic for long-range text, the WiFi mesh for high-speed IP data, and internet gateway when a connection is available. They all coexist on the same hardware, running in parallel.</p>
+                        <p>Switch between Meshtastic CoT Bridge mode (for ATAK SA forwarding) and BLE mode (for Meshtastic phone app) via the web dashboard. The WiFi mesh and all IP-based services run regardless of which LoRa mode is active.</p>
+                        <ul class="feature-list">
+                            <li>All services run simultaneously on the same node</li>
+                            <li>LoRa mode switchable via web UI — CoT Bridge or BLE</li>
+                            <li>WiFi mesh and IP services always active regardless of LoRa mode</li>
+                            <li>Web dashboard for monitoring and configuration from any connected device</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <img src="../images/12_25_update/apps_services.png" alt="Nucleus apps and services overview">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Build Your Network?</h2>
+                <p>Get started with Nucleus mesh nodes. Contact us for pricing and availability.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="button secondary shop-button">Shop Now</a>
+                    <a href="../contact.html" class="button secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Portable mesh radios built for ATAK.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../products.html">Products</a></li>
+                        <li><a href="../use-cases.html">Use Cases</a></li>
+                        <li><a href="../videos.html">Videos</a></li>
+                        <li><a href="../resources.html">Resources</a></li>
+                        <li><a href="../data.html">Test Data</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Videos</h3>
+                    <ul>
+                        <li><a href="../videos.html">Nucleus</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: nathan@natakmesh.com</p>
+                    <p>Tampa, FL</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

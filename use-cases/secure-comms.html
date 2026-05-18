@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EZPF1EF47"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4EZPF1EF47');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Communications — Encrypted Comms with No External Infrastructure | Natak Mesh</title>
+    <meta name="description" content="Reticulum encrypted messaging, Tailscale/WireGuard tunnels between remote nodes, and WPA3 mesh encryption. No cloud accounts, no metadata collection.">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="icon" href="../favicon.ico">
+    <style>
+        .uc-hero {
+            background-color: var(--background-alt);
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .uc-hero .container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+
+        .uc-hero-text {
+            flex: 1;
+        }
+
+        .uc-hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-dark);
+        }
+
+        .uc-hero-text .tagline {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .uc-hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .uc-hero-image img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            object-fit: cover;
+        }
+
+        .breadcrumb {
+            padding: var(--spacing-md) 0;
+        }
+
+        .breadcrumb a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #f85b18;
+            font-size: 1.05rem;
+            font-weight: 500;
+            padding: var(--spacing-sm) 0;
+            transition: color var(--transition-fast);
+        }
+
+        .breadcrumb a::before {
+            content: '\2190';
+            font-size: 1.3rem;
+        }
+
+        .breadcrumb a:hover {
+            color: #ff7a3d;
+        }
+
+        .content-block {
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .content-block:nth-child(even) {
+            background-color: var(--background-alt);
+        }
+
+        .content-row {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+        }
+
+        .content-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-text h2 {
+            color: #f85b18;
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .content-text h3 {
+            color: #f85b18;
+            font-size: 1.3rem;
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .content-text p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .content-image {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .content-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .content-image .image-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-sm);
+        }
+
+        .content-image .image-group img {
+            width: 100%;
+            height: auto;
+        }
+
+        .content-image .image-stack {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .content-image .image-stack img {
+            width: 100%;
+            height: auto;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0;
+        }
+
+        .feature-list li {
+            padding: var(--spacing-xs) 0;
+            padding-left: var(--spacing-lg);
+            position: relative;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: '\2192';
+            color: #f85b18;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .image-placeholder {
+            background-color: var(--background-color);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xl);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Full-width content block (no image column) */
+        .content-full {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-full h2 {
+            color: #f85b18;
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .content-full p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        @media (max-width: 768px) {
+            .uc-hero .container,
+            .content-row,
+            .content-row.reverse {
+                flex-direction: column;
+            }
+
+            .uc-hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .content-text h2,
+            .content-full h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <img src="../images/Natak Mesh Logo Kit/drive-download-20250629T123827Z-1-001/Logos 300ppi/NatakMeshsecondary-overlay.png" alt="Natak Mesh" class="header-logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../products.html">Products</a></li>
+                    <li><a href="../use-cases.html" class="active">Use Cases</a></li>
+                    <li><a href="../videos.html">Videos</a></li>
+                    <li><a href="../resources.html">Resources</a></li>
+                    <li><a href="../data.html">Test Data</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../use-cases.html">Back to Use Cases</a>
+            </div>
+        </div>
+
+        <!-- Hero -->
+        <section class="uc-hero">
+            <div class="container">
+                <div class="uc-hero-text">
+                    <h1>Secure Communications</h1>
+                    <p class="tagline">No cloud accounts. No call logs. No metadata collection. The Nucleus runs multiple independent encrypted communication paths — if one is compromised or blocked, others keep working. Nothing leaves the mesh unless you explicitly send it out.</p>
+                </div>
+                <div class="uc-hero-image">
+                    <img src="../images/12_25_update/rns_transport.jpg" alt="Reticulum transport node">
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 1: Reticulum -->
+        <section class="content-block">
+            <div class="container">
+                <div class="content-row">
+                    <div class="content-text">
+                        <h2>Reticulum — Encrypted Messaging</h2>
+                        <p>Reticulum provides end-to-end encrypted messaging with forward secrecy and store-and-forward delivery. Every Nucleus node runs Reticulum transport, creating a decentralized messaging backbone across the mesh.</p>
+                        <p>Use Sideband or Columba from a phone, or MeshChat or NomadNet from a connected PC or laptop — point it at the node and go. Reticulum's own cryptography means the transport doesn't matter — it's encrypted end-to-end regardless of whether it's riding on the WiFi mesh, an Ethernet cable, a VPN tunnel, or a standard internet connection.</p>
+                        <p>With additional configuration, Reticulum can also ride on HF radios, VHF radios, or LoRa RNodes, extending reach well beyond IP networks.</p>
+                        <ul class="feature-list">
+                            <li>End-to-end encrypted with forward secrecy</li>
+                            <li>Store-and-forward delivery — messages queue when the recipient is offline</li>
+                            <li>Packets don't reveal source addresses — destinations are cryptographic hashes, not assigned addresses</li>
+                            <li>Transport-agnostic: WiFi mesh, Ethernet, VPN, internet, HF/VHF, LoRa RNodes</li>
+                            <li>Client apps: Sideband, Columba (phone), MeshChat, NomadNet (PC/laptop)</li>
+                            <li>Every node runs as a transport instance — the mesh itself is the infrastructure</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <div class="image-stack">
+                            <img src="../images/12_25_update/rnstatus.png" alt="Reticulum network status">
+                            <img src="../images/12_25_update/reticulum_tcp.png" alt="Reticulum TCP interface configuration">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 2: VPN / Tunnels -->
+        <section class="content-block">
+            <div class="container">
+                <div class="content-row reverse">
+                    <div class="content-text">
+                        <h2>Tailscale — Connect Remote Nodes</h2>
+                        <p>When internet is available, Tailscale connects geographically separated nodes over WireGuard. Login and done. All services — Jami calls, Reticulum messaging, ATAK, everything — route transparently over the tunnel like the remote node is sitting on the same local mesh.</p>
+                        <p>This turns the Nucleus from a local mesh into a distributed system. A node in one city can talk to a node in another as if they were next to each other. The applications don't care which transport is underneath — they just see another peer on the network.</p>
+                        <ul class="feature-list">
+                            <li>Tailscale/WireGuard connects remote nodes — login and done</li>
+                            <li>All mesh services route transparently over the tunnel</li>
+                            <li>Jami calls work across tunnels — add remote tunnel IPs to the OpenDHT bootstrap config</li>
+                            <li>Reticulum peers over TCP — add a TCPClientInterface pointing at the remote node's Tailscale IP</li>
+                            <li>Both are encrypted pipes — the applications don't care which transport is underneath</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <img src="../images/12_25_update/mesh_monitor_remote_access.png" alt="Remote access configuration via web dashboard">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 3: Mesh Encryption -->
+        <section class="content-block">
+            <div class="container">
+                <div class="content-row">
+                    <div class="content-text">
+                        <h2>Encrypted Mesh Transport</h2>
+                        <p>The WiFi mesh itself runs 802.11s with WPA3 — traffic between nodes is encrypted at the link layer before any application-level encryption even touches it. No access point, no central controller, self-healing topology that reroutes around failures automatically.</p>
+                        <p>This means every communication channel on the Nucleus has at least two layers of encryption: the mesh transport layer (WPA3) and the application layer (Reticulum's own crypto, Jami's TLS, Meshtastic's AES-256). Most traffic has three layers when tunneled over WireGuard.</p>
+                        <ul class="feature-list">
+                            <li>802.11s with WPA3 — link-layer encryption on the mesh itself</li>
+                            <li>Self-healing topology — reroutes around node failures automatically</li>
+                            <li>No central controller or access point for the mesh backbone</li>
+                            <li>Multiple encryption layers: transport (WPA3) + application (Reticulum/Jami/Meshtastic) + optional tunnel (WireGuard)</li>
+                        </ul>
+                    </div>
+                    <div class="content-image">
+                        <img src="../images/wpa excalidraw.png" alt="WPA3 mesh encryption diagram">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block 4: What This Means -->
+        <section class="content-block">
+            <div class="container">
+                <div class="content-full">
+                    <h2>What This Adds Up To</h2>
+                    <p>The Nucleus is not a single encrypted channel — it's a stack of independent encrypted communication paths that operate simultaneously. Reticulum for messaging, WireGuard for tunneling, WPA3 for the mesh transport, and Meshtastic AES-256 for LoRa.</p>
+                    <p>Every layer is encrypted independently. None of them depend on commercial services. No cloud accounts, no call logs, no metadata collection by third parties. You control all the infrastructure — the nodes, the network, the keys.</p>
+                    <p>If one path goes down or gets blocked, the others keep working. If the internet goes away, the local mesh and LoRa still function. If WiFi gets jammed, LoRa still operates. The system degrades gracefully rather than failing completely.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Build Your Network?</h2>
+                <p>Get started with Nucleus mesh nodes. Contact us for pricing and availability.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="button secondary shop-button">Shop Now</a>
+                    <a href="../contact.html" class="button secondary">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Portable mesh radios built for ATAK.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../products.html">Products</a></li>
+                        <li><a href="../use-cases.html">Use Cases</a></li>
+                        <li><a href="../videos.html">Videos</a></li>
+                        <li><a href="../resources.html">Resources</a></li>
+                        <li><a href="../data.html">Test Data</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Videos</h3>
+                    <ul>
+                        <li><a href="../videos.html">Nucleus</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: nathan@natakmesh.com</p>
+                    <p>Tampa, FL</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

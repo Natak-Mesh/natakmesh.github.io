@@ -7,13 +7,12 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-4EZPF1EF47');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use Cases — ATAK Mesh Networking | Natak Mesh</title>
-    <meta name="description" content="How the Nucleus is used — ATAK operations, extended range SA over LoRa, portable OpenTAKServer, private communications, internet gateway distribution, and more.">
+    <title>Use Cases — ATAK, Secure Comms, Mesh Networking | Natak Mesh</title>
+    <meta name="description" content="How the Nucleus is used — ATAK operations, secure communications with Reticulum and VPN tunnels, off-grid mesh comms with Jami and Meshtastic, internet gateway distribution.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="favicon.ico">
@@ -38,58 +37,92 @@
             line-height: 1.6;
         }
 
-        .use-case-section {
+        .use-case-cards {
             padding: var(--spacing-xxl) 0;
         }
 
-        .use-case-section:nth-child(even) {
-            background-color: var(--background-alt);
-        }
-
-        .use-case-content {
-            max-width: 800px;
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-xl);
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .use-case-content h2 {
+        .uc-card {
+            background-color: var(--background-alt);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .uc-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .uc-card-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: var(--background-color);
+        }
+
+        .uc-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .uc-card-body {
+            padding: var(--spacing-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .uc-card-body h2 {
+            font-size: 1.5rem;
             color: #f85b18;
-            font-size: 1.8rem;
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
         }
 
-        .use-case-content .use-case-tagline {
-            font-size: 1.15rem;
+        .uc-card-body .card-tagline {
             color: var(--text-light);
-            margin-bottom: var(--spacing-lg);
-            font-style: italic;
-        }
-
-        .use-case-content p {
-            color: var(--text-color);
-            line-height: 1.8;
+            font-size: 1rem;
             margin-bottom: var(--spacing-md);
+            line-height: 1.6;
         }
 
-        .use-case-features {
+        .uc-card-body .card-features {
             list-style: none;
             padding: 0;
-            margin: var(--spacing-md) 0;
+            margin: 0 0 var(--spacing-lg) 0;
+            flex: 1;
         }
 
-        .use-case-features li {
+        .uc-card-body .card-features li {
             padding: var(--spacing-xs) 0;
             padding-left: var(--spacing-lg);
             position: relative;
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
 
-        .use-case-features li::before {
-            content: '→';
+        .uc-card-body .card-features li::before {
+            content: '\2192';
             color: #f85b18;
             position: absolute;
             left: 0;
             font-weight: bold;
+        }
+
+        .uc-card-body .button {
+            align-self: flex-start;
         }
 
         @media (max-width: 768px) {
@@ -97,8 +130,8 @@
                 font-size: 2rem;
             }
 
-            .use-case-content h2 {
-                font-size: 1.4rem;
+            .cards-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -135,103 +168,70 @@
         <section class="use-case-hero">
             <div class="container">
                 <h1>Use Cases</h1>
-                <p>How people are using the Nucleus — from ATAK operations and portable OpenTAKServer deployments to private communications and internet gateway distribution.</p>
+                <p>How people are using the Nucleus — from ATAK operations and portable TAKserver deployments to encrypted communications and off-grid mesh networking.</p>
             </div>
         </section>
 
-        <!-- Use Case 1: ATAK Operations -->
-        <section class="use-case-section" id="atak-operations">
+        <!-- Cards -->
+        <section class="use-case-cards">
             <div class="container">
-                <div class="use-case-content">
-                    <h2>ATAK Operations</h2>
-                    <p class="use-case-tagline">Full-speed ATAK over mesh — no infrastructure, no plugins.</p>
-                    <p>Connect ATAK devices to the Nucleus WiFi mesh and everything works at full speed — SA, chat, pictures, routes, data packages, and voice. ATAK auto-discovers other devices on the mesh via standard multicast. No TAKserver required for basic SA sharing, no plugins to install, no configuration on the phone beyond connecting to the WiFi access point.</p>
-                    <p>The WiFi mesh runs at ~30 Mbps close range and 1–5 Mbps at distance, which means ATAK operates the way it was designed to — not throttled through a LoRa bottleneck. File transfers, picture sharing, and data packages move at real speed.</p>
-                    <p>Add an OpenTAKServer node and the team gets centralized SA, data packages, mission planning, and video distribution — all running on a portable, battery-powered Nucleus in the field.</p>
-                    <ul class="use-case-features">
-                        <li>ATAK works natively over the WiFi mesh — SA, chat, pictures, voice at full speed</li>
-                        <li>Auto-discovery via multicast — no TAKserver needed for basic SA</li>
-                        <li>ATAK voice plugin routes voice across the mesh network</li>
-                        <li>Video streaming via OpenTAK ICU through OpenTAKServer's built-in MediaMTX to all ATAK clients</li>
-                        <li>Optional OpenTAKServer runs directly on a Nucleus node</li>
-                        <li>Battery powered, fully portable, no external infrastructure</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                <div class="cards-grid">
 
-        <!-- Use Case 2: Extended Range SA -->
-        <section class="use-case-section" id="extended-range">
-            <div class="container">
-                <div class="use-case-content">
-                    <h2>Extended Range SA via LoRa CoT Bridge</h2>
-                    <p class="use-case-tagline">Your position shows up on ATAK screens miles away — automatically.</p>
-                    <p>The Nucleus includes a built-in CoT bridge that transparently forwards ATAK SA and chat messages over the onboard Meshtastic LoRa radio. When your ATAK device sends a position update on the local network, the Nucleus intercepts it and pushes it out as CoT packets over LoRa. Remote Nucleus nodes receive it and inject it back into their local network as native multicast — your position shows up on distant ATAK screens automatically.</p>
-                    <p>Zero configuration on the phone. No ATAK plugin needed. The bridge handles the compression, rate limiting, and loop prevention transparently. Tested to 8+ miles with line of sight on the LoRa link.</p>
-                    <p>This gives you two layers of coverage: high-speed WiFi mesh for close/medium range (SA, voice, video, files), and long-range LoRa for position and chat extending well beyond WiFi range.</p>
-                    <ul class="use-case-features">
-                        <li>Transparent SA + chat bridging over Meshtastic LoRa — no phone plugin needed</li>
-                        <li>Sends CoT packets directly over LoRa — no phone plugin needed</li>
-                        <li>Rate-limited (30s per UID) and loop-protected for clean operation</li>
-                        <li>LoRa tested to 8+ miles with line of sight</li>
-                        <li>Toggle between CoT Bridge mode and BLE mode (Meshtastic phone app) via web UI</li>
-                        <li>Two layers: high-speed WiFi mesh + long-range LoRa SA</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                    <!-- ATAK Card -->
+                    <div class="uc-card">
+                        <div class="uc-card-image">
+                            <img src="images/12_25_update/atak.jpg" alt="ATAK running on mesh">
+                        </div>
+                        <div class="uc-card-body">
+                            <h2>ATAK Operations</h2>
+                            <p class="card-tagline">Full-speed ATAK over mesh — SA, chat, pictures, voice, video, and portable OpenTAKServer. No plugins required.</p>
+                            <ul class="card-features">
+                                <li>Native ATAK over WiFi mesh via multicast</li>
+                                <li>LoRa CoT bridge extends SA miles beyond WiFi</li>
+                                <li>Voice, video streaming, optional OpenTAKServer</li>
+                                <li>WiFi mesh ~30 Mbps close range — max range varies with terrain, <a href="data.html" style="color: #f85b18;">see test data for real-world results</a></li>
+                                <li>LoRa tested 8+ miles with line of sight</li>
+                            </ul>
+                            <a href="use-cases/atak.html" class="button secondary">Read More</a>
+                        </div>
+                    </div>
 
-        <!-- Use Case 3: Large Events -->
-        <section class="use-case-section" id="events">
-            <div class="container">
-                <div class="use-case-content">
-                    <h2>Large Events & Outdoor Activities</h2>
-                    <p class="use-case-tagline">Stay in touch when cell signal isn't an option.</p>
-                    <p>At festivals, races, group hikes, or any large outdoor gathering, cell towers get overloaded or simply don't exist. The Nucleus Meshtastic radio gives your group encrypted text and GPS sharing over miles of range — no cell signal required.</p>
-                    <p>For groups that need more than text, the WiFi mesh adds high-speed data for voice calls, photo sharing, and real-time coordination between teams spread across a large area.</p>
-                    <ul class="use-case-features">
-                        <li>Meshtastic text and GPS with 8+ mile range (line of sight)</li>
-                        <li>WiFi mesh for voice, pictures, and fast data when closer together</li>
-                        <li>Works completely independent of cell networks</li>
-                        <li>Each node extends coverage for the entire group</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                    <!-- Secure Comms Card -->
+                    <div class="uc-card">
+                        <div class="uc-card-image">
+                            <img src="images/12_25_update/rns_transport.jpg" alt="Reticulum transport node">
+                        </div>
+                        <div class="uc-card-body">
+                            <h2>Secure Communications</h2>
+                            <p class="card-tagline">Encrypted comms with no cloud accounts, no metadata collection, and no external infrastructure dependency.</p>
+                            <ul class="card-features">
+                                <li>Reticulum — e2e encrypted messaging with forward secrecy</li>
+                                <li>Tailscale tunnels between remote nodes</li>
+                                <li>WPA3 mesh encryption at the transport layer</li>
+                                <li>Yggdrasil sovereign overlay (coming)</li>
+                            </ul>
+                            <a href="use-cases/secure-comms.html" class="button secondary">Read More</a>
+                        </div>
+                    </div>
 
-        <!-- Use Case 4: Private Communications -->
-        <section class="use-case-section" id="privacy">
-            <div class="container">
-                <div class="use-case-content">
-                    <h2>Private Communications</h2>
-                    <p class="use-case-tagline">Full comms without exposing personal devices or relying on carrier networks.</p>
-                    <p>In situations where privacy matters — journalism, sensitive coordination, or operating without carrier infrastructure — the Nucleus provides encrypted video, voice, text, and picture sharing over its own network. No personal cell phones on the network, no carrier logs, no central servers.</p>
-                    <p>Jami provides video and voice calls via the onboard OpenDHT server. Reticulum handles decentralized encrypted messaging. Everything stays on the mesh unless you explicitly bridge it to the internet.</p>
-                    <ul class="use-case-features">
-                        <li>WPA3 encrypted WiFi mesh — no carrier involvement</li>
-                        <li>Video, voice, and text via Jami with no central server</li>
-                        <li>Reticulum for decentralized encrypted messaging</li>
-                        <li>No personal phone numbers or identities exposed</li>
-                        <li>Network is self-contained — nothing leaves the mesh unless you want it to</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                    <!-- Mesh Comms Card -->
+                    <div class="uc-card">
+                        <div class="uc-card-image">
+                            <img src="images/12_25_update/2_radios.jpg" alt="Nucleus dual radio mesh node">
+                        </div>
+                        <div class="uc-card-body">
+                            <h2>Mesh Communications</h2>
+                            <p class="card-tagline">Voice calls, text messaging, GPS sharing, and internet distribution — all off-grid on the mesh.</p>
+                            <ul class="card-features">
+                                <li>Jami encrypted voice/video via OpenDHT</li>
+                                <li>Meshtastic LoRa text and GPS over radio</li>
+                                <li>Internet gateway — Starlink/cellular shared across mesh</li>
+                                <li>Events, outdoor activities, field deployments</li>
+                            </ul>
+                            <a href="use-cases/mesh-comms.html" class="button secondary">Read More</a>
+                        </div>
+                    </div>
 
-        <!-- Use Case 5: Internet Gateway / Starlink Distribution -->
-        <section class="use-case-section" id="gateway">
-            <div class="container">
-                <div class="use-case-content">
-                    <h2>Internet Gateway & Starlink Distribution</h2>
-                    <p class="use-case-tagline">Push internet across the mesh from a single connection.</p>
-                    <p>Plug any Nucleus node into an internet source — Starlink, Ethernet, cellular — and the entire mesh network gets internet access. Every node and every device connected to those nodes can reach the internet with no additional routers or configuration.</p>
-                    <p>Use Tailscale VPN for secure tunnel back to your infrastructure, or Reticulum transport for decentralized secure routing. Ideal for remote locations, field operations, or disaster response where a single internet connection needs to serve a spread-out team.</p>
-                    <ul class="use-case-features">
-                        <li>One internet source serves the entire mesh network</li>
-                        <li>Plug Ethernet from Starlink, cellular modem, or any internet source into any node</li>
-                        <li>Internet automatically shared to all connected nodes and devices</li>
-                        <li>Combine with Tailscale/Reticulum for secure internet-bridged comms</li>
-                    </ul>
                 </div>
             </div>
         </section>

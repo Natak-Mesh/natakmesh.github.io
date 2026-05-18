@@ -120,25 +120,52 @@
             </div>
         </section>
 
-        <!-- Additional Capabilities Section -->
+        <!-- Private Communications Section -->
         <section class="features" style="background-color: var(--background-alt);">
             <div class="container">
-                <h2 class="section-title">Additional Capabilities</h2>
+                <h2 class="section-title">Private Communications</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">📻</div>
-                        <h3>Meshtastic LoRa Radio</h3>
-                        <p>Onboard RAK4631 LoRa radio running Meshtastic firmware. Switch between CoT Bridge mode and BLE mode (for the Meshtastic phone app) via the web UI.</p>
+                        <div class="feature-icon">📞</div>
+                        <h3>Encrypted Voice & Video</h3>
+                        <p>Jami + OpenDHT on every node. Encrypted calls with no phone company, no SIP server, no cloud accounts. Works offline and across Tailscale tunnels between remote nodes.</p>
                     </div>
                     <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h3>Secure Messaging</h3>
+                        <p>Reticulum transport bridges encrypted traffic across the mesh, ethernet, or VPN tunnels. Forward secrecy, store-and-forward delivery. Packets don't reveal source addresses.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📻</div>
+                        <h3>Long-Range Encrypted Text</h3>
+                        <p>Meshtastic LoRa — AES-256 encrypted text and GPS over radio. Multi-mile range, no cell towers, no carrier records, no metadata trail.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: var(--spacing-lg);">
+                    <a href="products.html#private-comms" class="button secondary">See All Private Comms Features</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Platform</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
                         <div class="feature-icon">🌐</div>
-                        <h3>Reticulum Transport</h3>
-                        <p>Onboard transport for Reticulum applications like Sideband and MeshChat. Decentralized encrypted messaging over the mesh.</p>
+                        <h3>Internet Gateway</h3>
+                        <p>Plug any node into an internet source and the entire mesh gets access. Combine with Tailscale or Reticulum for secure internet-bridged comms.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔧</div>
                         <h3>COTS Components</h3>
                         <p>All off-the-shelf, user-replaceable parts with 3D-printed enclosures. Linux-based — add services or modify with basic Linux knowledge.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔮</div>
+                        <h3>Coming: Sovereign Networking</h3>
+                        <p>Yggdrasil overlay comes installed but not yet preconfigured. The goal: zero-dependency encrypted overlay with no accounts, no coordination server — just a keypair and a VPS you control.</p>
                     </div>
                 </div>
             </div>
