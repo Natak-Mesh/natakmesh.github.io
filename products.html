@@ -12,8 +12,8 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nucleus — ATAK-Ready Mesh Networking Hardware | Natak Mesh</title>
-    <meta name="description" content="Nucleus mesh radio — native ATAK over WiFi mesh, built-in LoRa CoT bridge, ATAK voice, video streaming, and portable OpenTAKServer. No plugins required.">
+    <title>Products — Nucleus Mesh Radio & Natak TAK Server | Natak Mesh</title>
+    <meta name="description" content="Natak Mesh products: the Nucleus ATAK-ready mesh radio with WiFi mesh and LoRa CoT bridge, and the Natak TAK Server — a turnkey mini-PC appliance running official TAKServer with a custom web UI and onboard MediaMTX.">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="favicon.ico">
@@ -175,6 +175,83 @@
             text-align: center;
         }
         
+        /* Product Lineup */
+        .product-lineup {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .lineup-card {
+            background: var(--background-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lineup-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+        }
+
+        .lineup-card-image {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            background: var(--background-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lineup-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: var(--spacing-xs);
+        }
+
+        .lineup-card-body {
+            padding: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .lineup-card-body h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .lineup-card-body p {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-lg);
+            flex: 1;
+        }
+
+        .lineup-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2px 10px;
+            border-radius: 999px;
+            margin-bottom: var(--spacing-sm);
+            align-self: flex-start;
+        }
+
         /* Capabilities Grid */
         .capabilities-grid {
             display: grid;
@@ -276,54 +353,69 @@
         <section class="product-hero">
             <div class="container">
                 <div class="product-hero-content">
-                    <h1>Nucleus</h1>
-                    <p class="tagline">A portable mesh radio with two parallel networks built for ATAK. High-speed WiFi mesh for full ATAK operations — voice, video, SA, chat — with a LoRa mesh running in parallel to extend your reach miles beyond WiFi range. No plugins required.</p>
+                    <h1>Products</h1>
+                    <p class="tagline">Two ways to run your own private TAK network: the <strong>Nucleus</strong> portable mesh radio for off-grid edge teams, and the <strong>Natak TAK Server</strong> — a private TAKServer appliance you can reach anywhere over VPN.</p>
                     <div class="product-hero-buttons">
+                        <a href="#nucleus" class="button secondary">Nucleus</a>
+                        <a href="#tak-server" class="button secondary">Natak TAK Server</a>
                         <a href="#" class="button primary shop-button">Shop Now</a>
-                        <a href="#atak-integration" class="button secondary">ATAK Integration</a>
-                        <a href="#private-comms" class="button secondary">Private Comms</a>
                     </div>
                 </div>
                 <div class="product-hero-image">
-                    <img src="images/5_15_26 update/pc1.jpg" alt="Nucleus Product Family">
+                    <img src="images/6_20_26_photoshoot/nucleus_1.jpg" alt="Natak Mesh products">
                 </div>
             </div>
         </section>
 
-        <!-- Products Section -->
+        <!-- Product Lineup Section -->
+        <section class="product-section" id="lineup">
+            <div class="container">
+                <h2 class="section-title">Product Lineup</h2>
+                <div class="product-lineup">
+                    <div class="lineup-card">
+                        <div class="lineup-card-image">
+                            <img src="images/6_20_26_photoshoot/nucleus_1.jpg" alt="Nucleus mesh radio">
+                        </div>
+                        <div class="lineup-card-body">
+                            <h3>Nucleus</h3>
+                            <p>Portable, battery-powered mesh radio with parallel WiFi and LoRa networks. Native ATAK over WiFi mesh, a built-in LoRa CoT bridge, voice, and video — no plugins, no base station required.</p>
+                            <a href="#nucleus" class="button primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="lineup-card">
+                        <div class="lineup-card-image">
+                            <img src="images/6_20_26_photoshoot/server_1.jpg" alt="Natak TAK Server appliance">
+                        </div>
+                        <div class="lineup-card-body">
+                            <span class="lineup-badge">New</span>
+                            <h3>Natak TAK Server</h3>
+                            <p>A robust mini-PC running official TAKServer with a custom web UI and onboard MediaMTX video. Built-in Tailscale VPN gives your team private access over any internet connection — or plug it into a Nucleus to serve users on the mesh.</p>
+                            <a href="#tak-server" class="button primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nucleus Section -->
         <section class="product-section" id="products">
             <div class="container">
                 <h2 class="section-title">The Nucleus</h2>
                 <div class="product-showcase">
                     <div class="product-card-large" id="nucleus">
                         <div class="product-card-image" style="gap: 4px; height: auto; padding: 0;">
-                            <img src="images/5_15_26 update/nucleus.jpg" alt="Nucleus" style="width: 50%; height: auto; padding: 0;">
-                            <img src="images/5_15_26 update/topview.jpg" alt="Nucleus top view" style="width: 50%; height: auto; padding: 0;">
+                            <img src="images/6_20_26_photoshoot/nucleus_1.jpg" alt="Nucleus" style="width: 50%; height: auto; padding: 0;">
+                            <img src="images/6_20_26_photoshoot/package_1.jpg" alt="Nucleus plan view" style="width: 50%; height: auto; padding: 0;">
                         </div>
                         <div class="product-card-body">
                             <h3>Nucleus</h3>
                             <p class="product-subtitle">ATAK-ready mesh radio with WiFi mesh and LoRa CoT bridge</p>
+                            <p style="color: var(--text-light); line-height: 1.6; margin-bottom: var(--spacing-md);">A portable, battery-powered node running two parallel mesh networks — a high-speed WiFi mesh for full ATAK operations and a long-range LoRa mesh that pushes SA miles beyond WiFi range. Off-grid by default, with an internet gateway when a connection is available.</p>
                             <ul class="product-highlights">
-                                <li class="highlight-category">ATAK Integration</li>
-                                <li>ATAK works natively over the WiFi mesh — SA, chat, pictures, routes, and data packages at full speed with no plugins</li>
-                                <li>Built-in CoT bridge transparently forwards ATAK SA and chat over Meshtastic LoRa — no plugin needed on the phone, zero configuration</li>
-                                <li>ATAK voice plugin works across the WiFi mesh — contact discovery, multi-channel support</li>
-                                <li>Video streaming via OpenTAK ICU — when OpenTAKServer is installed, its built-in MediaMTX server distributes video to all ATAK clients</li>
-                                <li>Optional OpenTAKServer runs directly on a Nucleus node — portable TAK server for field operations</li>
-
-                                <li class="highlight-category">Radios & Connectivity</li>
-                                <li>802.11s WiFi mesh — ~30 Mbps close range, 1–5 Mbps out to 1–3 miles with elevation and LoS. WPA3 encrypted.</li>
-                                <li>Built-in Meshtastic LoRa radio (RAK4631) — ~6.8 kbps (Short/Fast), tested 8+ miles with LoS</li>
-                                <li>LoRa mode switchable via web UI: CoT Bridge mode or BLE mode (Meshtastic phone app)</li>
-                                <li>Both radios use mesh topology — data hops through every connected node to extend range, auto-rerouting around failures</li>
-                                <li>WiFi Access Point (5.8 GHz) for device connectivity</li>
-                                <li>Ethernet port (RJ45) for wired connections or internet gateway</li>
-
-                                <li class="highlight-category">Additional Services</li>
-                                <li>Onboard OpenDHT server — video, voice, and text via Jami with no internet or central server</li>
-                                <li>Reticulum transport for decentralized encrypted messaging (Sideband, MeshChat)</li>
-                                <li>Tailscale VPN for secure remote access when internet is available</li>
-                                <li>Internet gateway — plug any node into an internet source and share it across the mesh</li>
+                                <li>802.11s WiFi mesh — ~30 Mbps close range, reaching 1–3 miles with elevation and LoS, WPA3 encrypted</li>
+                                <li>Built-in Meshtastic LoRa radio — tested 8+ miles with line of sight</li>
+                                <li>Native ATAK over WiFi plus a built-in LoRa CoT bridge — no plugins on the phone</li>
+                                <li>Optional OpenTAKServer runs right on a node for portable, in-field TAK</li>
                             </ul>
                             <div class="product-card-actions">
                                 <a href="videos.html" class="button secondary">Watch Videos</a>
@@ -332,111 +424,69 @@
                         </div>
                     </div>
                 </div>
+                <div class="capabilities-grid" style="max-width: 900px; margin-left: auto; margin-right: auto;">
+                    <div class="capability-card">
+                        <div class="capability-icon">📡</div>
+                        <h3>Native ATAK Integration</h3>
+                        <p>ATAK runs natively over the WiFi mesh, and a built-in CoT bridge extends SA and chat over long-range LoRa — voice and video included, no plugins required.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">📻</div>
+                        <h3>Dual Mesh Networks</h3>
+                        <p>A fast WiFi mesh and a long-range LoRa mesh run in parallel, both self-healing — data hops node to node and reroutes around failures automatically.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-icon">🔒</div>
+                        <h3>Private Comms</h3>
+                        <p>Encrypted voice, video, and messaging across the mesh via Jami and Reticulum — plus Tailscale VPN for secure remote access when internet is available.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- ATAK Integration Details Section -->
-        <section class="product-section" id="atak-integration">
+        <!-- Natak TAK Server Section -->
+        <section class="product-section" id="tak-server">
             <div class="container">
-                <h2 class="section-title">ATAK Integration</h2>
-                <div class="capabilities-grid">
+                <h2 class="section-title">Natak TAK Server</h2>
+                <div class="product-showcase">
+                    <div class="product-card-large">
+                        <div class="product-card-image">
+                            <img src="images/6_20_26_photoshoot/server_1.jpg" alt="Natak TAK Server appliance">
+                        </div>
+                        <div class="product-card-body">
+                            <span class="lineup-badge">New</span>
+                            <h3>Natak TAK Server</h3>
+                            <p class="product-subtitle">Your own private TAKServer, accessible wherever you have a connection</p>
+                            <p style="color: var(--text-light); line-height: 1.6; margin-bottom: var(--spacing-md);">A compact mini-PC that boots straight into a fully configured TAK server. Most teams already have a network connection and just want a TAK server of their own — this gives you one, on more capable hardware than fits inside a Nucleus node. Built-in Tailscale VPN keeps access private, and it can plug into a Nucleus to serve users over the mesh.</p>
+                            <ul class="product-highlights">
+                                <li>Official TAKServer — SA, data packages, and mission management</li>
+                                <li>Custom web UI for streamlined setup and management</li>
+                                <li>Onboard MediaMTX server for low-latency video streaming</li>
+                                <li>Built-in Tailscale VPN — private access over any connection, no public cloud</li>
+                            </ul>
+                            <p style="color: var(--text-light); font-style: italic; margin-bottom: var(--spacing-lg);">Full specs and the complete software stack are being finalized — more details coming soon. Reach out for early availability and pricing.</p>
+                            <div class="product-card-actions">
+                                <a href="contact.html" class="button secondary">Contact Us</a>
+                                <a href="#" class="button primary shop-button">Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="capabilities-grid" style="max-width: 900px; margin-left: auto; margin-right: auto;">
                     <div class="capability-card">
-                        <div class="capability-icon">📡</div>
-                        <h3>Native ATAK Over WiFi</h3>
-                        <p>ATAK discovers other devices and shares SA automatically over the WiFi mesh. Pictures, chat, routes, and data packages all transfer at full WiFi speed — the way ATAK was designed to work.</p>
+                        <div class="capability-icon">🖥️</div>
+                        <h3>Official TAKServer</h3>
+                        <p>The standard TAK server trusted for centralized situational awareness, data packages, and mission management — pre-configured and ready to go.</p>
                     </div>
                     <div class="capability-card">
-                        <div class="capability-icon">🔗</div>
-                        <h3>LoRa CoT Bridge</h3>
-                        <p>The Nucleus runs a CoT bridge daemon that intercepts ATAK multicast traffic on the local network and transparently forwards SA and chat as CoT packets over Meshtastic LoRa. Remote positions appear natively in ATAK — no plugin required on the phone. Rate-limited and loop-protected for reliable operation.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🎙️</div>
-                        <h3>Voice Over Mesh</h3>
-                        <p>The ATAK voice plugin works natively across the WiFi mesh. Voice traffic, contact discovery, and channel selection all work between nodes automatically — including multi-hop.</p>
+                        <div class="capability-icon">🔒</div>
+                        <h3>Private VPN Access</h3>
+                        <p>Built-in Tailscale VPN gives your team private access over any internet connection — your hardware, your keys, no public cloud.</p>
                     </div>
                     <div class="capability-card">
                         <div class="capability-icon">🎥</div>
                         <h3>Video Streaming</h3>
-                        <p>When OpenTAKServer is installed, its built-in video server receives feeds from OpenTAK ICU and distributes them to all ATAK clients on the mesh. Stream camera feeds from the field to every connected device.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🖥️</div>
-                        <h3>Portable OpenTAKServer</h3>
-                        <p>OpenTAKServer installs and runs directly on a Nucleus node. Centralized SA, data packages, mission planning, and video feeds — all on a portable, battery-powered device. No cloud, no base station, no external infrastructure.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🔄</div>
-                        <h3>Bridge / BLE Mode Toggle</h3>
-                        <p>Switch the LoRa radio between CoT Bridge mode for ATAK, or release it for Bluetooth pairing as a standard Meshtastic radio. Toggle from the web dashboard.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Private Communications Section -->
-        <section class="product-section" id="private-comms">
-            <div class="container">
-                <h2 class="section-title">Private Communications</h2>
-                <div class="capabilities-grid">
-                    <div class="capability-card">
-                        <div class="capability-icon">📞</div>
-                        <h3>Encrypted Voice & Video</h3>
-                        <p>Encrypted voice and video calls over the mesh via Jami. No phone company, no cloud accounts, no internet required. Works between remote nodes over Tailscale too.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">💬</div>
-                        <h3>Secure Messaging</h3>
-                        <p>Reticulum-based encrypted messaging across the mesh, VPN tunnels, or internet. End-to-end encrypted regardless of transport. Use Sideband or Columba from a phone, MeshChat from a PC.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">📻</div>
-                        <h3>Long-Range Encrypted Text</h3>
-                        <p>Meshtastic LoRa — encrypted text and GPS over radio. Multi-mile range through terrain that blocks WiFi. No cell towers, no infrastructure. Web UI included — no phone app required.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🔗</div>
-                        <h3>Remote Encrypted Link</h3>
-                        <p>Tailscale connects remote nodes over the internet via WireGuard. All services — calls, messaging, everything — work transparently over the tunnel.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🛡️</div>
-                        <h3>Encrypted Mesh Transport</h3>
-                        <p>The WiFi mesh itself is WPA3 encrypted — traffic between nodes is protected before any app-level encryption. Self-healing topology that reroutes around failures automatically.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🔮</div>
-                        <h3>Coming: Sovereign Networking</h3>
-                        <p>Yggdrasil overlay network comes installed but is not yet preconfigured. The goal: zero-dependency encrypted networking with no accounts and no coordination server.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Platform Details Section -->
-        <section class="product-section" id="capabilities">
-            <div class="container">
-                <h2 class="section-title">Platform Details</h2>
-                <div class="capabilities-grid">
-                    <div class="capability-card">
-                        <div class="capability-icon">🌐</div>
-                        <h3>Internet Gateway</h3>
-                        <p>Plug any node into an internet connection (Ethernet, Starlink, cellular) and the entire mesh gets internet access. Combine with Tailscale or Reticulum for secure internet-bridged communications.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🖥️</div>
-                        <h3>Web Dashboard</h3>
-                        <p>Built-in web interface for monitoring mesh status, configuring node settings, toggling LoRa bridge mode, and scanning WiFi channels — accessible from any device connected to the node.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🔩</div>
-                        <h3>COTS Components</h3>
-                        <p>All off-the-shelf, user-replaceable parts with 3D-printed enclosures. No proprietary hardware — repair or modify with standard components.</p>
-                    </div>
-                    <div class="capability-card">
-                        <div class="capability-icon">🐧</div>
-                        <h3>Linux-Based & Extensible</h3>
-                        <p>Full Linux OS with a standard IP network. Add services, run scripts, or integrate with existing infrastructure using basic Linux knowledge.</p>
+                        <p>An onboard MediaMTX media server distributes low-latency video to every connected client — from the field or the command post.</p>
                     </div>
                 </div>
             </div>
@@ -446,7 +496,7 @@
         <section class="cta">
             <div class="container">
                 <h2>Ready to Build Your Network?</h2>
-                <p>Get started with Nucleus mesh nodes. Contact us for pricing and availability.</p>
+                <p>Get started with Nucleus mesh nodes and the Natak TAK Server. Contact us for pricing and availability.</p>
                 <div class="cta-buttons">
                     <a href="#" class="button secondary shop-button">Shop Now</a>
                     <a href="contact.html" class="button secondary">Contact Us</a>
