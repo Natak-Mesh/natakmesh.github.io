@@ -139,6 +139,69 @@
             border-bottom: none;
         }
 
+        @media print {
+            @page {
+                margin: 12mm;
+            }
+
+            .site-header,
+            .site-footer {
+                display: none;
+            }
+
+            body {
+                background: #fff;
+                color: #000;
+            }
+
+            .specs-hero,
+            .specs-section,
+            .specs-section:nth-child(even) {
+                background: #fff;
+                padding: 0 0 var(--spacing-lg);
+            }
+
+            .specs-hero h1,
+            .specs-block h2,
+            .specs-table td:first-child {
+                color: #000;
+            }
+
+            .specs-hero .tagline,
+            .specs-intro {
+                color: #333;
+            }
+
+            .specs-hero-image img {
+                max-height: 260px;
+                box-shadow: none;
+            }
+
+            .specs-table th {
+                background-color: #38189d !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .specs-table th,
+            .specs-table td {
+                border-bottom: 1px solid #bbb;
+                padding: 6px 8px;
+            }
+
+            .specs-block,
+            .specs-table {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .specs-intro a,
+            .specs-table a {
+                color: #c2410c !important;
+            }
+        }
+
         @media (max-width: 700px) {
             .specs-hero .container {
                 flex-direction: column;
