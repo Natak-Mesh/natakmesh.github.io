@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EZPF1EF47"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4EZPF1EF47');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nucleus Specifications — Natak Mesh</title>
+    <meta name="description" content="Hardware specifications for the Nucleus mesh radio — compute platform, radios, I/O, antenna connectors, power draw, and enclosure.">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Specs page specific styles */
+        .specs-hero {
+            background-color: var(--background-alt);
+            padding: var(--spacing-xl) 0;
+        }
+
+        .specs-hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-xl);
+        }
+
+        .specs-hero-content {
+            flex: 1;
+        }
+
+        .specs-hero-image {
+            flex: 0 0 auto;
+        }
+
+        .specs-hero-image img {
+            max-height: 400px;
+            width: auto;
+            display: block;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .specs-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-dark);
+        }
+
+        .specs-hero .tagline {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            max-width: 700px;
+        }
+
+        .specs-section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .specs-hero + .specs-section {
+            padding-top: var(--spacing-lg);
+        }
+
+        .specs-section:nth-child(even) {
+            background-color: var(--background-alt);
+        }
+
+        .specs-block {
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .specs-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .specs-block h2 {
+            margin-bottom: var(--spacing-md);
+            color: var(--secondary-dark);
+        }
+
+        .specs-intro {
+            max-width: 800px;
+            color: var(--text-light);
+            margin: 0 0 var(--spacing-md);
+        }
+
+        .specs-intro a,
+        .specs-table a {
+            color: #f85b18;
+        }
+
+        .specs-intro a:hover,
+        .specs-table a:hover {
+            color: #ff7a45;
+        }
+
+        .specs-table + .specs-intro {
+            margin-top: var(--spacing-lg);
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--spacing-md);
+        }
+
+        .specs-table + .specs-table {
+            margin-top: var(--spacing-xl);
+        }
+
+        .specs-table th,
+        .specs-table td {
+            text-align: left;
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .specs-table th {
+            background-color: var(--primary-color);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .specs-table td:first-child {
+            width: 32%;
+            font-weight: bold;
+            color: var(--secondary-dark);
+        }
+
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        @media (max-width: 700px) {
+            .specs-hero .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .specs-hero-image img {
+                max-height: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .specs-hero h1 {
+                font-size: 2rem;
+            }
+
+            .specs-table td:first-child {
+                width: 40%;
+            }
+
+            .specs-table th,
+            .specs-table td {
+                padding: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/Natak Mesh Logo Kit/drive-download-20250629T123827Z-1-001/Logos 300ppi/NatakMeshsecondary-overlay.png" alt="Natak Mesh" class="header-logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="use-cases.html">Use Cases</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="data.html">Test Data</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="shop-button">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="specs-hero">
+            <div class="container">
+                <div class="specs-hero-content">
+                    <h1>Nucleus Specifications</h1>
+                    <p class="tagline">Hardware specifications, Nucleus mesh radio.</p>
+                </div>
+                <div class="specs-hero-image">
+                    <img src="images/v3%20hardware%20photos/cap%20on%201.jpg" alt="Nucleus mesh radio">
+                </div>
+            </div>
+        </section>
+
+        <section class="specs-section">
+            <div class="container">
+                <div class="specs-block">
+                    <h2>Compute</h2>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Item</th>
+                            <th>Specification</th>
+                        </tr>
+                        <tr>
+                            <td>Platform</td>
+                            <td>Raspberry Pi 4</td>
+                        </tr>
+                        <tr>
+                            <td>Operating system</td>
+                            <td>Raspberry Pi OS</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="specs-block">
+                    <h2>Radios</h2>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Item</th>
+                            <th>Specification</th>
+                        </tr>
+                        <tr>
+                            <td>WiFi mesh radio</td>
+                            <td>2.4 GHz, 20 MHz channel</td>
+                        </tr>
+                        <tr>
+                            <td>WiFi mesh conducted output power</td>
+                            <td>500 mW</td>
+                        </tr>
+                        <tr>
+                            <td>LoRa mesh radio</td>
+                            <td>915 MHz, SF7, 250 kHz bandwidth</td>
+                        </tr>
+                        <tr>
+                            <td>LoRa mesh conducted output power</td>
+                            <td>1,000 mW</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="specs-section">
+            <div class="container">
+                <div class="specs-block">
+                    <h2>I/O</h2>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Item</th>
+                            <th>Specification</th>
+                        </tr>
+                        <tr>
+                            <td>WiFi access point</td>
+                            <td>5 GHz</td>
+                        </tr>
+                        <tr>
+                            <td>Ethernet</td>
+                            <td>10/100/1000 Mbps, RJ45</td>
+                        </tr>
+                        <tr>
+                            <td>USB-C</td>
+                            <td>USB 2.0</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="specs-block">
+                    <h2>Antennas</h2>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Item</th>
+                            <th>Specification</th>
+                        </tr>
+                        <tr>
+                            <td>WiFi mesh antenna</td>
+                            <td>5 dBi</td>
+                        </tr>
+                        <tr>
+                            <td>LoRa mesh antenna</td>
+                            <td>5 dBi</td>
+                        </tr>
+                        <tr>
+                            <td>Connector type</td>
+                            <td>RP-SMA</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="specs-section">
+            <div class="container">
+                <div class="specs-block">
+                    <h2>Power</h2>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Item</th>
+                            <th>Specification</th>
+                        </tr>
+                        <tr>
+                            <td>Input voltage</td>
+                            <td>5 V DC</td>
+                        </tr>
+                        <tr>
+                            <td>Average current draw</td>
+                            <td>0.6 A</td>
+                        </tr>
+                        <tr>
+                            <td>Typical power consumption</td>
+                            <td>3 W</td>
+                        </tr>
+                        <tr>
+                            <td>Battery</td>
+                            <td>External</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="specs-block">
+                    <h2>Enclosure</h2>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Item</th>
+                            <th>Specification</th>
+                        </tr>
+                        <tr>
+                            <td>Material</td>
+                            <td>PCTG</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="specs-block">
+                    <h2>Range</h2>
+                    <p class="specs-intro">Range on a mesh network is governed by node density more than by the output power of any single unit. Coverage is extended by adding nodes, not by increasing power at one of them. All figures below are single links between two radios, and are drawn from the field tests documented on the <a href="data.html">Test Data</a> page.</p>
+                    <table class="specs-table">
+                        <tr>
+                            <th>WiFi mesh</th>
+                            <th>Measured range</th>
+                        </tr>
+                        <tr>
+                            <td>50 m elevation difference, clear line of sight</td>
+                            <td>5 km</td>
+                        </tr>
+                        <tr>
+                            <td>Ground level</td>
+                            <td>1 km</td>
+                        </tr>
+                        <tr>
+                            <td>Heavy obstruction, buildings or dense tree cover</td>
+                            <td>100 m</td>
+                        </tr>
+                    </table>
+                    <table class="specs-table">
+                        <tr>
+                            <th>LoRa</th>
+                            <th>Measured range</th>
+                        </tr>
+                        <tr>
+                            <td>With elevation, longest test conducted</td>
+                            <td>22 miles, link held</td>
+                        </tr>
+                        <tr>
+                            <td>With elevation, secondary test</td>
+                            <td>8 miles, link held</td>
+                        </tr>
+                        <tr>
+                            <td>Maximum range</td>
+                            <td>Not established in testing to date</td>
+                        </tr>
+                    </table>
+                    <p class="specs-intro">LoRa results were measured on 159 mW radios. V3 ships a 1,000 mW LoRa radio, not yet range tested.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Portable mesh radios built for ATAK.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="use-cases.html">Use Cases</a></li>
+                        <li><a href="videos.html">Videos</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="data.html">Test Data</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Videos</h3>
+                    <ul>
+                        <li><a href="videos.html">Nucleus</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: nathan@natakmesh.com</p>
+                    <p>Tampa, FL</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
