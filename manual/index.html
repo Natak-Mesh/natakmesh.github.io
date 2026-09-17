@@ -162,7 +162,7 @@
             <em>Fig. 3: M12 power connector</em>
         </div>
         <div class="fig-item">
-            <img src="images/general_assembly.jpg" alt="Fig. 4: General assembly"><br>
+            <img src="images/with_battery_1.jpg" alt="Fig. 4: General assembly"><br>
             <em>Fig. 4: General assembly</em>
         </div>
     </div>
@@ -177,7 +177,6 @@
         <li><strong>Tailscale</strong> — Optional. There is an instance already running on the Nucleus.</li>
         <li><strong>OpenTAK ICU</strong> — Used for streaming video to the Nucleus, primarily used for ingestion by TAKserver (if installed) to be viewed by ATAK users.</li>
         <li><strong>ATAK</strong> — Works particularly well on the high-speed IP mesh. With the official Meshtastic plugin installed, it can also take advantage of the onboard Meshtastic radio.</li>
-        <li><strong>Meshtastic App</strong> — For configuring the Meshtastic radio and using it standalone if desired.</li>
         <li><strong>Jami</strong> — Text, Voice over IP, and video streaming.</li>
         <li><strong>Sideband</strong> — A Reticulum-based application to take advantage of the Nucleus onboard Reticulum transport instance.</li>
     </ol>
@@ -199,76 +198,83 @@
 
     <p>After the Nucleus has booted it will begin advertising a WiFi access point labelled as <code>00xx-nucleus-ap</code>, where <code>xx</code> is your node's serial number. The default password is <code>52235223</code>. This should be changed via the configuration page as soon as possible.</p>
 
-    <p>Once connected to that access point, take the web browser to <code>10.20.xx.1:5000</code> where <code>xx</code> is the serial number of your node. This will open the Nucleus OS UI.</p>
+    <p>Once connected to that access point, take the web browser to <code>10.20.xx.1:5000</code> where <code>xx</code> is the serial number of your node. This will open the Nucleus OS UI. Alternatively, the node can be reached by hostname at <code>00xx-nucleus.local</code>, where <code>xx</code> is the same serial number.</p>
 
     <h3>Home Page</h3>
     <p>The home page displays the current node's mesh IP and channel, the info on the node's AP and number of clients connected to it, and a list of other Nucleus nodes connected via WiFi (Fig. 7). Below that are a series of navigation buttons to the other sections of the OS.</p>
     <div class="fig-single">
-        <img src="images/OS_front _page.png" alt="Fig. 7: Nucleus OS home page"><br>
+        <img src="images/front page with buttons.png" alt="Fig. 7: Nucleus OS home page"><br>
         <em>Fig. 7: Nucleus OS home page</em>
     </div>
 
     <h3>Monitor Page</h3>
     <p>The Monitor page displays more in-depth statistics on each other node connected on the IP mesh (Fig. 8).</p>
     <div class="fig-single">
-        <img src="images/OS_node_page.png" alt="Fig. 8: Monitor page"><br>
+        <img src="images/connected node details.png" alt="Fig. 8: Monitor page"><br>
         <em>Fig. 8: Monitor page</em>
     </div>
 
-    <h3>Node Configuration Page</h3>
-    <p>The Node Configuration page allows modification of mesh and node variables without having to edit system files directly (Fig. 9).</p>
+    <h3>Meshtastic CoT Bridge</h3>
+    <p>the CoT bridge module automatically uses the Nucleus onboard Meshtastic radio to send/receive basic CoT data across the LoRa mesh network in parallel to the Wi-Fi mesh network.</p>
     <div class="fig-single">
-        <img src="images/OS_config_page.png" alt="Fig. 9: Node Configuration page"><br>
-        <em>Fig. 9: Node Configuration page</em>
+        <img src="images/meshtastic log.png" alt="Fig. 9: Meshtastic CoT Bridge"><br>
+        <em>Fig. 9: Meshtastic CoT Bridge</em>
+    </div>
+
+    <h3>Node Configuration Page</h3>
+    <p>The Node Configuration page allows modification of mesh and node variables without having to edit system files directly (Fig. 10).</p>
+    <div class="fig-single">
+        <img src="images/OS_config_page.png" alt="Fig. 10: Node Configuration page"><br>
+        <em>Fig. 10: Node Configuration page</em>
     </div>
 
     <h3>Wi-Fi Scan Page</h3>
-    <p>This page allows the user to scan the 2.4 GHz space (Fig. 10). It looks for interference on each of the 2.4 GHz channels, allowing the user to select the least congested channel for the mesh. Note, each node must switch to the same channel to join the mesh. Running this scan will disconnect the mesh network for the duration of the scan.</p>
+    <p>This page allows the user to scan the 2.4 GHz space (Fig. 11). It looks for interference on each of the 2.4 GHz channels, allowing the user to select the least congested channel for the mesh. Note, each node must switch to the same channel to join the mesh. Running this scan will disconnect the mesh network for the duration of the scan.</p>
     <div class="fig-single">
-        <img src="images/OS_channel_scane_page.png" alt="Fig. 10: Wi-Fi Scan page"><br>
-        <em>Fig. 10: Wi-Fi Scan page</em>
+        <img src="images/OS_channel_scane_page.png" alt="Fig. 11: Wi-Fi Scan page"><br>
+        <em>Fig. 11: Wi-Fi Scan page</em>
     </div>
 
     <h3>Remote Management Page</h3>
-    <p>This page allows the user to start/stop Tailscale connections and select a tailnet if there are multiples configured (Fig. 11). As a default, the node will be connected to the Natak Mesh tailnet to allow remote updating and troubleshooting if desired. New tailnets can be added or removed as desired.</p>
+    <p>This page allows the user to start/stop Tailscale connections and select a tailnet if there are multiples configured (Fig. 12). As a default, the node will be connected to the Natak Mesh tailnet to allow remote updating and troubleshooting if desired. New tailnets can be added or removed as desired.</p>
     <div class="fig-single">
-        <img src="images/OS_tailscale_page.png" alt="Fig. 11: Remote Management page"><br>
-        <em>Fig. 11: Remote Management page</em>
+        <img src="images/OS_tailscale_page.png" alt="Fig. 12: Remote Management page"><br>
+        <em>Fig. 12: Remote Management page</em>
     </div>
 
     <h3>Ethernet Port Mode Page</h3>
-    <p>This page allows the user to select what mode the ethernet port (if present) will run in (Fig. 12). WAN mode will allow the Nucleus node to accept an IP address from a DHCP server and will bridge that connection to the Wi-Fi mesh. LAN mode converts the ethernet interface to a DHCP server, allowing other client devices to connect to the Wi-Fi mesh via the ethernet port.</p>
+    <p>This page allows the user to select what mode the ethernet port (if present) will run in (Fig. 13). WAN mode will allow the Nucleus node to accept an IP address from a DHCP server and will bridge that connection to the Wi-Fi mesh. LAN mode converts the ethernet interface to a DHCP server, allowing other client devices to connect to the Wi-Fi mesh via the ethernet port.</p>
     <div class="fig-single">
-        <img src="images/OS_ethernet_page.png" alt="Fig. 12: Ethernet Port Mode page"><br>
-        <em>Fig. 12: Ethernet Port Mode page</em>
+        <img src="images/OS_ethernet_page.png" alt="Fig. 13: Ethernet Port Mode page"><br>
+        <em>Fig. 13: Ethernet Port Mode page</em>
     </div>
 
     <h3>OpenDHT Page</h3>
-    <p>This page monitors the OpenDHT server on the node (Fig. 13). It shows the running state, the number of other DHT servers connected, and configuration details.</p>
+    <p>This page monitors the OpenDHT server on the node (Fig. 14). It shows the running state, the number of other DHT servers connected, and configuration details.</p>
     <div class="fig-single">
-        <img src="images/OS_Opendht_page.png" alt="Fig. 13: OpenDHT page"><br>
-        <em>Fig. 13: OpenDHT page</em>
+        <img src="images/OS_Opendht_page.png" alt="Fig. 14: OpenDHT page"><br>
+        <em>Fig. 14: OpenDHT page</em>
     </div>
 
     <h3>Meshtastic Page</h3>
-    <p>This page allows serial control of the onboard Meshtastic radio, enabling sending and receiving messages with other Meshtastic radios without use of the app (Fig. 14). Functionality here will expand in future revisions; currently it provides bare bones messaging.</p>
+    <p>This page allows serial control of the onboard Meshtastic radio, enabling sending and receiving messages with other Meshtastic radios without use of the app (Fig. 15). Functionality here will expand in future revisions; currently it provides bare bones messaging.</p>
     <div class="fig-single">
-        <img src="images/OS_Meshtastic_page.png" alt="Fig. 14: Meshtastic page"><br>
-        <em>Fig. 14: Meshtastic page</em>
+        <img src="images/OS_Meshtastic_page.png" alt="Fig. 15: Meshtastic page"><br>
+        <em>Fig. 15: Meshtastic page</em>
     </div>
 
     <h3>Reticulum Monitoring Page</h3>
-    <p>This page monitors the onboard Reticulum transport instance (Fig. 15). It displays the running state, reachable destinations, and interfaces.</p>
+    <p>This page monitors the onboard Reticulum transport instance (Fig. 16). It displays the running state, reachable destinations, and interfaces.</p>
     <div class="fig-single">
-        <img src="images/OS_reticulum_page.png" alt="Fig. 15: Reticulum Monitoring page"><br>
-        <em>Fig. 15: Reticulum Monitoring page</em>
+        <img src="images/OS_reticulum_page.png" alt="Fig. 16: Reticulum Monitoring page"><br>
+        <em>Fig. 16: Reticulum Monitoring page</em>
     </div>
 
     <h3>OpenTAKServer Page</h3>
-    <p>This page displays the server running state, number of connected EUDs, video stream list, and a link to open the OTS web interface (Fig. 16). This allows access to OTS directly from the Nucleus OS.</p>
+    <p>This page displays the server running state, number of connected EUDs, video stream list, and a link to open the OTS web interface (Fig. 17). This allows access to OTS directly from the Nucleus OS.</p>
     <div class="fig-single">
-        <img src="images/OS_OTS_page.png" alt="Fig. 16: OpenTAKServer page"><br>
-        <em>Fig. 16: OpenTAKServer page</em>
+        <img src="images/OS_OTS_page.png" alt="Fig. 17: OpenTAKServer page"><br>
+        <em>Fig. 17: OpenTAKServer page</em>
     </div>
 
     <h2>Node Administration</h2>
@@ -284,17 +290,17 @@
     <h2>App Setup</h2>
 
     <h3>Jami</h3>
-    <p>Navigate to Account Settings &gt; Advanced to configure the OpenDHT settings to match those shown in Fig. 17. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
+    <p>Navigate to Account Settings &gt; Advanced to configure the OpenDHT settings to match those shown in Fig. 18. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
     <div class="fig-single fig-single-sm">
-        <img src="images/jami_opendht_settings.png" alt="Fig. 17: Jami OpenDHT settings"><br>
-        <em>Fig. 17: Jami OpenDHT settings</em>
+        <img src="images/jami_opendht_settings.png" alt="Fig. 18: Jami OpenDHT settings"><br>
+        <em>Fig. 18: Jami OpenDHT settings</em>
     </div>
 
     <h3>Sideband</h3>
-    <p>Navigate to the Connectivity section of Sideband and configure the TCP settings to match those shown in Fig. 18. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
+    <p>Navigate to the Connectivity section of Sideband and configure the TCP settings to match those shown in Fig. 19. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
     <div class="fig-single fig-single-sm">
-        <img src="images/sideband_tcp.png" alt="Fig. 18: Sideband TCP settings"><br>
-        <em>Fig. 18: Sideband TCP settings</em>
+        <img src="images/sideband_tcp.png" alt="Fig. 19: Sideband TCP settings"><br>
+        <em>Fig. 19: Sideband TCP settings</em>
     </div>
 
     <h3>Meshtastic</h3>
