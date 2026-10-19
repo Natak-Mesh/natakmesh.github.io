@@ -1,0 +1,304 @@
+---
+layout: page
+title: Style guide
+description: "Every component of the natakmesh.com design system (site.css), on one page."
+noindex: true
+sitemap: false
+---
+{%- comment -%}
+  Internal reference page. Not linked from the site, kept out of search (noindex)
+  and the sitemap. Facts used as sample content come from V3 OS 0.16.0
+  (github.com/Natak-Mesh/V3_OS). Leave out anything still open in REDESIGN.md.
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>Design system</b> &nbsp;/&nbsp; Instrument</p>
+      <h1>Style guide</h1>
+      <p class="lede">Every component in <code>assets/css/site.css</code>, on one page. Pages on the new layout use <code>layout: page</code> and only these classes.</p>
+      <p>This is the page intro (<code>.hero</code>): eyebrow, one H1, a lede, a muted paragraph, actions and a readout. The photo column is optional. Without it the text takes the full width.</p>
+      <div class="actions">
+        <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+        <a class="btn btn-line" href="#tables">Secondary button</a>
+        <a href="#figures">Text link in actions</a>
+      </div>
+      <dl class="readout">
+        <div><dt>Software</dt><dd>V3 OS 0.16.0</dd></div>
+        <div><dt>Base</dt><dd>Debian 13</dd></div>
+        <div><dt>Memory</dt><dd>1 GB</dd></div>
+        <div><dt>Mesh</dt><dd>802.11s</dd></div>
+      </dl>
+    </div>
+    <figure>
+      <img src="{{ '/assets/img/hardware/nucleus-v3-cap-on-angle.jpg' | relative_url }}" alt="Black Nucleus v3 standing upright with its two antennas fitted and port caps on" width="722" height="959">
+      <figcaption><b>FIG. 01</b>Hero figure. The only image on a page without <code>loading="lazy"</code>.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="colour">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>Colour</p>
+    <div class="sec-body">
+      <h2 id="colour">Colour tokens</h2>
+      <p class="muted">Dark neutrals plus one accent, the brand orange. Ratios are against <code>--bg</code>. Lines are decoration only and never carry text.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Token</th><th scope="col">Value</th><th scope="col">Use</th><th scope="col" class="num">Contrast</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><span class="swatch sw-bg"></span><code>--bg</code></th><td class="v">#0f1011</td><td>Page background</td><td class="num">n/a</td></tr>
+            <tr><th scope="row"><span class="swatch sw-bg-raised"></span><code>--bg-raised</code></th><td class="v">#16181a</td><td>Buy block, code</td><td class="num">n/a</td></tr>
+            <tr><th scope="row"><span class="swatch sw-line"></span><code>--line</code></th><td class="v">#26292c</td><td>Rules, row borders</td><td class="num">1.3</td></tr>
+            <tr><th scope="row"><span class="swatch sw-line-strong"></span><code>--line-strong</code></th><td class="v">#3a3e42</td><td>Table heads, frames</td><td class="num">1.8</td></tr>
+            <tr><th scope="row"><span class="swatch sw-text"></span><code>--text</code></th><td class="v">#e6e4df</td><td>Body text, headings</td><td class="num">15.0</td></tr>
+            <tr><th scope="row"><span class="swatch sw-muted"></span><code>--muted</code></th><td class="v">#a3a19b</td><td>Secondary text, row labels</td><td class="num">7.4</td></tr>
+            <tr><th scope="row"><span class="swatch sw-faint"></span><code>--faint</code></th><td class="v">#8a8882</td><td>Labels, captions, footer</td><td class="num">5.4</td></tr>
+            <tr><th scope="row"><span class="swatch sw-accent"></span><code>--accent</code></th><td class="v">#f85b18</td><td>Links, focus, buttons, numbers</td><td class="num">5.9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted">Button text is <code>--bg</code> on <code>--accent</code> (5.9:1, 6.9:1 on hover). Never put light text on orange: <code>--text</code> on <code>--accent</code> is 2.5:1.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="type">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>Type</p>
+    <div class="sec-body">
+      <h2 id="type">Type scale</h2>
+      <p class="muted">IBM Plex Sans (variable, 100 to 700) for text. IBM Plex Mono 400 and 500 for labels, specs, addresses and config. Both are self-hosted WOFF2 under the SIL Open Font License. Plex Sans is preloaded.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Element</th><th scope="col">Sample</th><th scope="col">Spec</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">H1</th><td><span class="sg-h1">Nucleus</span></td><td class="v">Sans 600, 2.6 to 4.25 rem</td></tr>
+            <tr><th scope="row">H2</th><td><span class="sg-h2">Ports and radios</span></td><td class="v">Sans 600, 1.5 to 1.9 rem</td></tr>
+            <tr><th scope="row">H3</th><td><span class="sg-h3">Radios off, node on</span></td><td class="v">Sans 600, 1.05 rem</td></tr>
+            <tr><th scope="row">H4</th><td><span class="sg-h4">Interfaces</span></td><td class="v">Mono 500, 0.75 rem, caps</td></tr>
+            <tr><th scope="row">Lede</th><td><span class="lede">One sentence that says what the page is about.</span></td><td class="v">Sans 400, 1.25 rem</td></tr>
+            <tr><th scope="row">Body</th><td>Body text at 17 px with a 1.6 line height.</td><td class="v">Sans 400, 1.0625 rem</td></tr>
+            <tr><th scope="row">Small</th><td><span class="small">Footnotes and table notes.</span></td><td class="v">Sans 400, 0.9 rem</td></tr>
+            <tr><th scope="row">Label</th><td><span class="eyebrow">Eyebrow / label</span></td><td class="v">Mono 400, 0.8 rem, caps</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Prose</h3>
+      <p>Paragraphs stop at 68 characters so lines stay readable. A <a href="#type">text link</a> is underlined in orange and turns orange on hover. Inline code looks like <code>nucleusctl apply --dry-run</code>. A key is <kbd>Esc</kbd>. <strong>Bold</strong> is for the one thing in a paragraph that mustn't be missed.</p>
+      <p class="muted">Muted paragraphs (<code>.muted</code>) carry explanation under a heading. Section bodies are mostly muted, and key sentences stay in full text colour.</p>
+      <ul>
+        <li>Lists use a faint marker.</li>
+        <li>Each item is a full sentence or a short fact.</li>
+        <li>Don't repeat the paragraph above as bullets.</li>
+      </ul>
+      <ol>
+        <li>Connect to <code>0009-nucleus-ap</code>.</li>
+        <li>Open <code>http://0009-nucleus.local</code>.</li>
+        <li>Change the default passwords.</li>
+      </ol>
+      <blockquote>A blockquote, for quoting someone else. Use it rarely.</blockquote>
+
+      <h3>Code block</h3>
+      <pre><code>sudo nucleusctl validate        # check config.yaml
+sudo nucleusctl apply --dry-run # preview changed files + units
+sudo nucleusctl apply           # render + restart affected units</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="sections">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>Sections</p>
+    <div class="sec-body">
+      <h2 id="sections">Numbered sections</h2>
+      <p class="muted">Each section is a <code>.sec</code> with a label rail (<code>.sec-label</code>: an orange number and a caps label) and a body (<code>.sec-body</code>). Under 54 rem the rail moves above the body. Number sections in page order, starting at 01.</p>
+      <pre><code>&lt;section class="sec" aria-labelledby="ports"&gt;
+  &lt;div class="wrap"&gt;
+    &lt;p class="sec-label"&gt;&lt;span&gt;03&lt;/span&gt;Interfaces&lt;/p&gt;
+    &lt;div class="sec-body"&gt;
+      &lt;h2 id="ports"&gt;Ports and radios&lt;/h2&gt;
+      ...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+      <h3>Two columns (<code>.cols-2</code>)</h3>
+      <div class="cols-2">
+        <div>
+          <h3>WiFi mesh</h3>
+          <p class="muted">An 802.11s mesh on 2.4&nbsp;GHz, encrypted with WPA3 (SAE). Babel routes traffic between nodes, and smcroute forwards multicast across them.</p>
+        </div>
+        <div>
+          <h3>Access point</h3>
+          <p class="muted">A separate 5&nbsp;GHz access point for phones and laptops, named after the node: <code>0009-nucleus-ap</code> on node 9. It always comes back on at boot.</p>
+        </div>
+      </div>
+
+      <h3>Figure and text (<code>.split</code>)</h3>
+      <div class="split">
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-ports-closeup.jpg' | relative_url }}" alt="Top panel of the black Nucleus with the port caps off, showing the USB-C port, RJ45 jack, M12 power connector and two antenna connectors" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 02</b>Top panel, caps off.</figcaption>
+        </figure>
+        <div>
+          <h3>Ethernet</h3>
+          <p class="muted">Out of the box the Ethernet port is a WAN port: a DHCP client that shares its internet connection with the mesh. In LAN mode it serves DHCP to a wired device instead. Over Ethernet the web UI asks for a password. Over the mesh and the access point it doesn't.</p>
+          <h3>Radios off, node on</h3>
+          <p class="muted">The WiFi mesh, the Meshtastic radio and the access point each have their own switch. With them off, the node stays reachable over USB-C, Ethernet or the console.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="tables">
+  <div class="wrap">
+    <p class="sec-label"><span>04</span>Tables</p>
+    <div class="sec-body">
+      <h2 id="tables">Tables, not cards</h2>
+      <p class="muted">Specs, services and comparisons go in tables. Row headers are <code>&lt;th scope="row"&gt;</code> in muted text. Values that are numbers, units or identifiers get <code>class="v"</code> (mono). Wrap wide tables in <code>.table-scroll</code>.</p>
+
+      <h3>Status table</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Service</th><th scope="col">What it does</th><th scope="col">Default</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">WiFi mesh</th><td>802.11s on 2.4&nbsp;GHz with WPA3. Babel routing, multicast forwarding.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Meshtastic + CoT bridge</th><td>Runs the LoRa radio and passes ATAK position and chat over it.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Reticulum transport</th><td>rnsd as a transport node. AutoInterface on the mesh, TCP server on port 4242 for client apps.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">KISS TNC</th><td>Reticulum over a serial packet-radio TNC.</td><td><span class="status opt">Off</span></td></tr>
+            <tr><th scope="row">HaLow mesh</th><td>A second 802.11s mesh over Wi-Fi HaLow (802.11ah).</td><td><span class="status opt">Add-on</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted"><code>.status.on</code> is a filled orange square. <code>.status.opt</code> is an outlined square in faint text, for off or conditional.</p>
+
+      <h3>Spec tables in two columns (<code>.cols-2.spec</code>)</h3>
+      <div class="cols-2 spec">
+        <table>
+          <caption>Software</caption>
+          <tbody>
+            <tr><th scope="row">Operating system</th><td class="v">V3 OS 0.16.0</td></tr>
+            <tr><th scope="row">Base</th><td class="v">Debian 13 (trixie)</td></tr>
+            <tr><th scope="row">Licence</th><td class="v">MIT</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <caption>Addresses on node 9</caption>
+          <tbody>
+            <tr><th scope="row">Mesh IP</th><td class="v">10.20.1.9</td></tr>
+            <tr><th scope="row">Access point network</th><td class="v">10.20.9.1</td></tr>
+            <tr><th scope="row">Access point name</th><td class="v">0009-nucleus-ap</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Numeric columns</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Interface</th><th scope="col">Type</th><th scope="col" class="num">Port</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">LAN TCP server</th><td><code>TCPServerInterface</code></td><td class="num">4242</td></tr>
+            <tr><th scope="row">Entry node</th><td><code>TCPClientInterface</code></td><td class="num">4243</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Link list (<code>.link-list</code>)</h3>
+      <ul class="link-list">
+        <li><a href="https://github.com/Natak-Mesh/V3_OS">V3 OS</a><span>The node software. Nodes update themselves from here through the web UI.</span></li>
+        <li><a href="https://reticulum.network">Reticulum</a><span>The network stack behind Sideband, MeshChat and NomadNet.</span></li>
+        <li><a href="https://meshtastic.org">Meshtastic</a><span>Firmware for the LoRa radio.</span></li>
+      </ul>
+
+      <h3>Facts (<code>.facts</code>)</h3>
+      <dl class="facts">
+        <dt>Web UI</dt><dd>http://0009-nucleus.local</dd>
+        <dt>Fallback</dt><dd>http://&lt;node-ip&gt;:8080</dd>
+        <dt>Reticulum TCP</dt><dd>br-lan:4242</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="figures">
+  <div class="wrap">
+    <p class="sec-label"><span>05</span>Figures</p>
+    <div class="sec-body">
+      <h2 id="figures">Figures</h2>
+      <p class="muted">Photos sit in a 1&nbsp;px frame on a light ground, with a mono caption that starts with a figure number. Number figures in page order. Only the black v3 enclosure appears outside the manual. Every image has <code>width</code>, <code>height</code> and descriptive <code>alt</code>. Every image except the hero also has <code>loading="lazy"</code> and <code>decoding="async"</code>.</p>
+
+      <h3>Figure row (<code>.fig-row</code>)</h3>
+      <div class="fig-row">
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-pouch.jpg' | relative_url }}" alt="Black Nucleus in an olive MOLLE pouch with the antennas above the flap" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 03</b>In its pouch.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-cap-closeup.jpg' | relative_url }}" alt="Close-up of the Nucleus top panel with the port caps fitted and the WiFi antenna marked" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 04</b>Caps on.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-ports-angle.jpg' | relative_url }}" alt="Angled view of the Nucleus top panel with the caps off, showing the USB-C and RJ45 ports" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 05</b>Caps off.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-rear-logo.jpg' | relative_url }}" alt="Rear of the black Nucleus enclosure with the serial number 42 and the Natak Mesh logo printed in orange" width="697" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 06</b>Serial number on the back.</figcaption>
+        </figure>
+      </div>
+
+      <h3>Narrow figure and phone screenshot</h3>
+      <div class="cols-2">
+        <figure class="narrow">
+          <img src="{{ '/assets/img/hardware/nucleus-v3-helmet-kit.jpg' | relative_url }}" alt="Black Nucleus next to a helmet with a headset, cables and a power bank" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 07</b><code>figure.narrow</code> caps the width at 22&nbsp;rem.</figcaption>
+        </figure>
+        <figure class="phone">
+          <img src="{{ '/assets/img/screenshots/sideband-tcp-interface.jpg' | relative_url }}" alt="Sideband connectivity settings on Android with Connect via TCP turned on, host 10.20.12.1 and port 4242" width="758" height="1600" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 08</b><code>figure.phone</code> shows screenshots at phone size (18&nbsp;rem).</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="blocks">
+  <div class="wrap">
+    <p class="sec-label"><span>06</span>Blocks</p>
+    <div class="sec-body">
+      <h2 id="blocks">Buttons, notes and the buy block</h2>
+
+      <h3>Buttons</h3>
+      <div class="actions">
+        <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+        <a class="btn btn-line" href="#blocks">Secondary</a>
+        <button class="btn btn-line" type="button">Button element</button>
+        <a href="#blocks">Text link</a>
+      </div>
+      <p class="small muted">One orange button per screen at most. It's for buying. Everything else is a text link or <code>.btn-line</code>. Tab through this page to see the focus ring: 2&nbsp;px orange, offset 3&nbsp;px. On orange buttons it switches to light.</p>
+
+      <h3>Note (<code>.note</code>)</h3>
+      <div class="note">
+        <span class="note-label">Not yet tested</span>
+        Use a note for a limit or an untested claim. Say it plainly, with what we know and what we haven't measured.
+      </div>
+
+      <h3>Buy block (<code>.buy</code>)</h3>
+      <div class="buy">
+        <h2>Get a Nucleus</h2>
+        <p class="muted">The specific next step at the end of a page. A mesh needs at least two nodes.</p>
+        <div class="actions">
+          <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+          <a href="mailto:{{ site.email }}">Questions? Email us</a>
+        </div>
+      </div>
+
+      <h3>Header and footer</h3>
+      <p class="muted">Both come from the layout (<code>_includes/site-header.html</code>, <code>site-footer.html</code>). Menu items are in <code>_data/navigation.yml</code> under <code>primary</code> and <code>footer</code>. A page highlights its menu item with <code>nav: &lt;id&gt;</code>. Below 54&nbsp;rem the menu folds behind a Menu button (<code>aria-expanded</code>, Escape closes it). Without JavaScript the links stay visible.</p>
+      <hr>
+      <p class="small faint">Fonts: IBM Plex, &copy; IBM Corp., <a href="{{ '/assets/fonts/OFL.txt' | relative_url }}">SIL Open Font License 1.1</a>.</p>
+    </div>
+  </div>
+</section>

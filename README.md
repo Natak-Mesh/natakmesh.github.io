@@ -26,12 +26,15 @@ docker compose run --rm site sh -c "bundle exec jekyll build && bundle exec html
 | Path | What |
 |------|------|
 | `*.html`, `use-cases/` | Pages. Each starts with front matter (`title`, `description`, `nav`) and contains only its `<main>` content. |
-| `_layouts/default.html` | The page shell: `<head>`, header, footer, scripts |
-| `_includes/` | Header, footer, icons, analytics |
-| `_data/navigation.yml` | Menu items (header and footer) |
+| `_layouts/page.html` | **New design** page shell (`layout: page`): `site.css`, `site.js`, `site-header.html`, `site-footer.html`. Set `noindex: true` to keep a page out of search. |
+| `_layouts/default.html` | Old page shell, used until each page is rebuilt (Session 4) |
+| `_includes/` | Headers, footers, icons, analytics |
+| `_data/navigation.yml` | Menu items. `main` = old layout, `primary` + `footer` = new layout |
 | `_config.yml` | Site settings: email, shop URL, GoatCounter code, plugins |
-| `assets/css/main.css` | Shared styles. `assets/css/pages/<name>.css` is page-specific (set `page_css: <name>`). |
-| `assets/js/` | `main.js` (menu). `pages/<name>.js` is page-specific (set `page_js: <name>`). |
+| `assets/css/site.css` | **New design system.** Every component is shown on `/styleguide.html`. Keep under 30 KB. |
+| `assets/css/main.css` | Old shared styles. `assets/css/pages/<name>.css` is page-specific (set `page_css: <name>`). |
+| `assets/fonts/` | IBM Plex Sans (variable) + Plex Mono 400/500, self-hosted. `OFL.txt` is the licence. |
+| `assets/js/` | `site.js` (new menu), `main.js` (old menu). `pages/<name>.js` is page-specific (set `page_js: <name>`). |
 | `assets/img/` | Web-ready images only, by category (`brand`, `hardware`, `field`, `tests`, `screenshots`, `manual`, `diagrams`) |
 | `assets/docs/` | Downloadable documents |
 | `manual/` | User manual (standalone page) |

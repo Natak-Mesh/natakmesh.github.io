@@ -1,0 +1,11 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Natak Mesh. Portable mesh radios built for ATAK.<br>{{ site.location }} &middot; <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    <ul>
+      {%- for item in site.data.navigation.footer %}
+      <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+      {%- endfor %}
+    </ul>
+    <p class="footer-meta">&copy; {{ site.time | date: '%Y' }} Natak Mesh. Visits are counted with <a href="https://www.goatcounter.com/">GoatCounter</a>: no cookies, no personal data.</p>
+  </div>
+</footer>

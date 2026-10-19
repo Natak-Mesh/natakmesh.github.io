@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  {%- if page.noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+  {% seo %}
+  {%- comment -%} Lets site.css collapse the mobile menu only when JS runs. {%- endcomment %}
+  <script>document.documentElement.className += ' js';</script>
+  <link rel="preload" href="{{ '/assets/fonts/plex-sans-var.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  {% include head-icons.html %}
+  {% include analytics.html %}
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+{% include site-header.html %}
+<main id="main">
+{{ content }}
+</main>
+{% include site-footer.html %}
+</body>
+</html>

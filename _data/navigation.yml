@@ -25,3 +25,41 @@ main:
   - id: contact
     title: Contact
     url: /contact.html
+
+# New layout (_layouts/page.html, _includes/site-header.html).
+# URLs point at today's pages until Session 4 moves them (REDESIGN.md section 5).
+primary:
+  - id: nucleus
+    title: Nucleus
+    url: /products.html
+  - id: tak-server
+    title: TAK Server
+    url: /products.html#tak-server
+  - id: field
+    title: Field
+    url: /use-cases.html
+  - id: reticulum
+    title: Reticulum
+    url: /use-cases/secure-comms.html
+  - id: field-tests
+    title: Field tests
+    url: /data.html
+  - id: manual
+    title: Manual
+    url: /manual/
+
+footer:
+  - title: Nucleus
+    url: /products.html
+  - title: TAK Server
+    url: /products.html#tak-server
+  - title: Reticulum
+    url: /use-cases/secure-comms.html
+  - title: Field tests
+    url: /data.html
+  - title: Manual
+    url: /manual/
+  - title: About
+    url: /about.html
+  - title: Contact
+    url: /contact.html
