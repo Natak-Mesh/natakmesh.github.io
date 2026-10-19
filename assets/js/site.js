@@ -29,3 +29,20 @@
   if (wide.addEventListener) wide.addEventListener('change', reset);
   else if (wide.addListener) wide.addListener(reset);
 })();
+
+/* Video facades (.yt): load the youtube-nocookie player only on click. */
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a.yt[data-yt]');
+  if (!a || e.ctrlKey || e.metaKey || e.shiftKey) return;
+  e.preventDefault();
+  var f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + a.getAttribute('data-yt') + '?autoplay=1';
+  f.title = a.getAttribute('data-title') || 'YouTube video';
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  var box = document.createElement('div');
+  box.className = 'yt';
+  box.appendChild(f);
+  a.parentNode.replaceChild(box, a);
+  f.focus();
+});

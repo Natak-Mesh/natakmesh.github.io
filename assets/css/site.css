@@ -355,6 +355,30 @@ td code, th code { white-space: nowrap; }
   color: var(--accent);
 }
 
+/* ===== Video facade =====
+   A thumbnail link to YouTube. site.js swaps in a youtube-nocookie iframe on
+   click, so nothing loads from YouTube before that. Without JS it's a link. */
+.video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(17rem, 100%), 1fr)); gap: 2rem 1.5rem; }
+.yt {
+  position: relative; display: block; aspect-ratio: 16 / 9;
+  background: var(--bg-raised); border: 1px solid var(--line-strong);
+  text-decoration: none;
+}
+.yt img { width: 100%; height: 100%; object-fit: cover; border: 0; background: none; }
+.yt-play {
+  position: absolute; left: 0.75rem; bottom: 0.75rem;
+  padding: 0.45rem 0.65rem;
+  background: var(--bg); color: var(--text); border: 1px solid var(--line-strong);
+  font: 500 0.7rem/1 var(--mono); text-transform: uppercase; letter-spacing: 0.08em;
+}
+.yt-play::before {
+  content: ""; display: inline-block; margin-right: 0.5rem;
+  border-style: solid; border-width: 0.3rem 0 0.3rem 0.5rem;
+  border-color: transparent transparent transparent var(--accent);
+}
+a.yt:hover .yt-play { border-color: var(--accent); }
+.yt iframe { display: block; width: 100%; height: 100%; border: 0; }
+
 /* ===== Footer ===== */
 .site-footer { border-top: 1px solid var(--line); color: var(--faint); font: 400 0.8rem/1.7 var(--mono); }
 .site-footer .wrap {
@@ -441,8 +465,16 @@ td .lede, td .eyebrow { display: block; margin: 0; }
   }
   body { font-size: 11pt; }
   .nav, .menu-toggle, .skip-link, .btn, .site-footer ul { display: none !important; }
+  @page { margin: 16mm; }
   .site-header .wrap { min-height: 0; padding-top: 0.5rem; padding-bottom: 0.5rem; }
-  .sec > .wrap { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  /* One column on paper: the label rail moves above the body. */
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-top: 1rem; padding-bottom: 1rem; }
+  .sec > .wrap { grid-template-columns: minmax(0, 1fr); padding-top: 1rem; padding-bottom: 1rem; }
+  .sec-label { padding-top: 0; margin-bottom: 0.5rem; display: flex; gap: 0.75rem; }
+  .sec-label span { display: inline; margin: 0; }
+  .hero figure, figure.narrow { max-width: 14rem; }
+  figure.phone { max-width: 12rem; }
+  .yt-play { display: none; }
   a { text-decoration: none; }
   main a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: var(--muted); overflow-wrap: anywhere; }
   .buy, .note, figure, tr { break-inside: avoid; }

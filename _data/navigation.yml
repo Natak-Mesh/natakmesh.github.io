@@ -1,4 +1,5 @@
 # Old navigation (default.html pages). Used by _includes/header.html and _includes/footer.html.
+# Only use-cases/secure-comms.html still uses it (until Session 5).
 # `id` is matched against a page's `nav:` front matter to highlight it.
 main:
   - id: home
@@ -10,25 +11,26 @@ main:
   - id: tak-server
     title: TAK Server
     url: /tak-server/
-  - id: use-cases
-    title: Use Cases
-    url: /use-cases.html
-  - id: videos
-    title: Videos
-    url: /videos.html
-  - id: data
-    title: Test Data
-    url: /data.html
+  - id: field
+    title: Field
+    url: /field/
+  - id: field-tests
+    title: Field Tests
+    url: /field-tests/
+  - id: manual
+    title: Manual
+    url: /manual/
   - id: about
     title: About
-    url: /about.html
+    url: /about/
   - id: contact
     title: Contact
-    url: /contact.html
+    url: /contact/
 
 # New layout (_layouts/page.html, _includes/site-header.html).
-# Pages not rebuilt yet keep their current URLs (REDESIGN.md section 5).
 # Never point an item at a redirect stub.
+# "Reticulum" stays on the old secure-comms page until Session 5 replaces
+# it (name and page are decided then).
 primary:
   - id: nucleus
     title: Nucleus
@@ -38,13 +40,13 @@ primary:
     url: /tak-server/
   - id: field
     title: Field
-    url: /use-cases.html
+    url: /field/
   - id: reticulum
     title: Reticulum
     url: /use-cases/secure-comms.html
   - id: field-tests
     title: Field tests
-    url: /data.html
+    url: /field-tests/
   - id: manual
     title: Manual
     url: /manual/
@@ -54,13 +56,15 @@ footer:
     url: /nucleus/
   - title: TAK Server
     url: /tak-server/
+  - title: Field
+    url: /field/
   - title: Reticulum
     url: /use-cases/secure-comms.html
   - title: Field tests
-    url: /data.html
+    url: /field-tests/
   - title: Manual
     url: /manual/
   - title: About
-    url: /about.html
+    url: /about/
   - title: Contact
-    url: /contact.html
+    url: /contact/

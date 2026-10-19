@@ -30,7 +30,7 @@ sitemap: false
       </dl>
     </div>
     <figure>
-      <img src="{{ '/assets/img/hardware/nucleus-v3-cap-on-angle.jpg' | relative_url }}" alt="Black Nucleus v3 standing upright with its two antennas fitted and port caps on" width="722" height="959">
+      <img src="{{ '/assets/img/hardware/nucleus-v3-cap-on-angle.jpg' | relative_url }}" alt="Black Nucleus v3 standing upright with its two antennas fitted and port caps on" width="722" height="959" decoding="async" fetchpriority="high">
       <figcaption><b>FIG. 01</b>Hero figure. The only image on a page without <code>loading="lazy"</code>.</figcaption>
     </figure>
   </div>
@@ -295,6 +295,19 @@ sudo nucleusctl apply           # render + restart affected units</code></pre>
           <a href="mailto:{{ site.email }}">Questions? Email us</a>
         </div>
       </div>
+
+      <h3>Video facade (<code>.yt</code>, <code>.video-grid</code>)</h3>
+      <p class="muted">A local thumbnail that links to YouTube. Nothing loads from YouTube until someone presses play. Then <code>site.js</code> swaps in a <code>youtube-nocookie.com</code> player. Without JS it's just a link. Store thumbnails in <code>assets/img/video/&lt;id&gt;.jpg</code> (480&times;270). Put the date in the caption. Use <code>figure.narrow</code> for one video, <code>.video-grid</code> for a list.</p>
+      <figure class="narrow">
+        <a class="yt" href="https://www.youtube.com/watch?v=gnjL0Lkp4RQ" data-yt="gnjL0Lkp4RQ" data-title="Nucleus v3 release, VoIP integrations, 1W Meshtastic radio">
+          <img src="{{ '/assets/img/video/gnjL0Lkp4RQ.jpg' | relative_url }}" alt="Video thumbnail: Nucleus v3 release" width="480" height="270" loading="lazy" decoding="async">
+          <span class="yt-play">Play 4:15</span>
+        </a>
+        <figcaption><b>2026-08-24</b>Caption: date, then what the video shows.</figcaption>
+      </figure>
+
+      <h3>Print</h3>
+      <p class="muted">When printed, the page switches to black on white, the label rail moves above each section, the menu and buttons are hidden, and external links print their URL. Try it on <a href="{{ '/manual/' | relative_url }}">the manual</a>.</p>
 
       <h3>Header and footer</h3>
       <p class="muted">Both come from the layout (<code>_includes/site-header.html</code>, <code>site-footer.html</code>). Menu items are in <code>_data/navigation.yml</code> under <code>primary</code> and <code>footer</code>. A page highlights its menu item with <code>nav: &lt;id&gt;</code>. Below 54&nbsp;rem the menu folds behind a Menu button (<code>aria-expanded</code>, Escape closes it). Without JavaScript the links stay visible.</p>

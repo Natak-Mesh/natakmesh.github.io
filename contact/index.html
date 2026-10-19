@@ -1,0 +1,65 @@
+---
+layout: page
+title: Contact
+description: "Reach Natak Mesh by email, LXMF or NomadNet. Questions about Nucleus, orders, support and updates."
+nav: contact
+redirect_from:
+  - /contact.html
+---
+{%- comment -%}
+  Addresses from the old contact.html. FAQ: kept only what's checked.
+  Dropped: the non-working form, the map placeholder, "integrates seamlessly",
+  international shipping, 1-year/extended warranty (no policy document exists;
+  ask Nathan before restoring). "Firmware updates" rewritten from V3 OS
+  docs/manual/update.md. GitHub link now points at the org, not Nucleus_V1.
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>Contact</b> &nbsp;/&nbsp; Tampa, FL</p>
+      <h1>Contact</h1>
+      <p class="lede">Email is quickest. If you'd rather not use email, message us over Reticulum.</p>
+      <dl class="facts">
+        <dt>Email</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd>
+        <dt>LXMF</dt><dd>11efea534593c763cd173f7d62123bff</dd>
+        <dt>NomadNet</dt><dd>94a419d0accb789e62e4b8f7bb5b1fce:/page/index.mu</dd>
+        <dt>Location</dt><dd>{{ site.location }}, United States</dd>
+      </dl>
+      <p class="small">Paste the LXMF address into Sideband, MeshChat, NomadNet or the Reticulum page of a Nucleus. Open the NomadNet address in NomadNet or MeshChat.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="elsewhere">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>Elsewhere</p>
+    <div class="sec-body">
+      <h2 id="elsewhere">Code and videos</h2>
+      <ul class="link-list">
+        <li><a href="https://github.com/Natak-Mesh">GitHub</a><span>V3 OS, the software on every Nucleus.</span></li>
+        <li><a href="https://www.youtube.com/@NatakMesh">YouTube</a><span>Demos and walkthroughs. Also on <a href="{{ '/field-tests/#videos' | relative_url }}">field tests</a>.</span></li>
+        <li><a href="https://www.instagram.com/natak_mesh/">Instagram</a><span>Photos from builds and tests.</span></li>
+        <li><a href="https://www.linkedin.com/company/natak-mesh/">LinkedIn</a><span>Company page.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="faq">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>Questions</p>
+    <div class="sec-body">
+      <h2 id="faq">Common questions</h2>
+      <h3>How do I buy a Nucleus?</h3>
+      <p class="muted">From our <a href="{{ site.shop_url }}" rel="noopener">online store</a>. For larger orders, email us.</p>
+      <h3>How many do I need?</h3>
+      <p class="muted">At least two. A mesh needs two nodes to form, and every node you add extends coverage.</p>
+      <h3>What support do you offer?</h3>
+      <p class="muted">Email us with any problem. Setup, troubleshooting or a question about how something works.</p>
+      <h3>How do updates work?</h3>
+      <p class="muted">The node's System Update page checks GitHub for a newer version of V3 OS. Press Update now and the node installs it and restarts its services. It needs an internet connection, for example through the Ethernet port. Your settings are kept.</p>
+      <h3>Is there a manual?</h3>
+      <p class="muted">Yes. There's a short <a href="{{ '/manual/' | relative_url }}">manual</a> on this site, and the full operator manual, one page per web UI screen, is <a href="https://github.com/Natak-Mesh/V3_OS/tree/main/docs/manual">on GitHub</a>.</p>
+    </div>
+  </div>
+</section>

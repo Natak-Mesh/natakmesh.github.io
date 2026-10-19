@@ -1,0 +1,78 @@
+---
+layout: page
+title: About Natak Mesh
+description: "Natak Mesh builds Nucleus, a portable WiFi mesh and LoRa radio for ATAK teams, in Tampa, FL. Why we built it, what we tried first, and how it's made."
+nav: about
+redirect_from:
+  - /about.html
+---
+{%- comment -%}
+  Story from the old about.html (Nathan's own account). Software facts: V3 OS
+  0.16.0 (MIT licence, Debian 13, updates from GitHub). Enclosure material: D12.
+  No values grid, no "what's next" (nothing confirmed to announce).
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>About</b> &nbsp;/&nbsp; Tampa, FL</p>
+      <h1>About Natak Mesh</h1>
+      <p class="lede">We build Nucleus, a portable mesh radio for teams that run ATAK without a network. We're in Tampa, Florida.</p>
+      <p>We built it because the options we used were either too slow for ATAK or too much work to set up. Here's how we got from those to the Nucleus.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="story">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>How it started</p>
+    <div class="sec-body">
+      <h2 id="story">What we tried first</h2>
+      <div class="split">
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-battery-phone.jpg' | relative_url }}" alt="Black Nucleus with a power bank and a phone showing a map with team markers" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 01</b>Nucleus v3 with a power bank and a phone.</figcaption>
+        </figure>
+        <div>
+          <h3>Rocket M5 MANET builds</h3>
+          <p class="muted">We started with the Rocket M5 MANET builds from the team at teamawarenesskit.org. We used them for a while. They worked, but we wanted something simpler to set up and carry.</p>
+          <h3>Meshtastic</h3>
+          <p class="muted">Next we tried Meshtastic. The range is great, but the throughput is far too low for what ATAK does: live positions for a whole team, voice, pictures and files.</p>
+          <h3>WiFi HaLow</h3>
+          <p class="muted">Then we spent most of a year on a WiFi HaLow build. The low-power HaLow radios we could buy didn't reach far enough further than 2.4&nbsp;GHz to make up for their much lower throughput.</p>
+          <h3>A WiFi mesh with LoRa on the side</h3>
+          <p class="muted">So we built a 2.4&nbsp;GHz WiFi mesh focused on throughput and reliability, and added a LoRa radio for the long, slow links. ATAK runs on the mesh at full rate, and a bridge on each node sends position and chat over LoRa when someone walks out of WiFi range. That's the Nucleus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="built">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>How it's built</p>
+    <div class="sec-body">
+      <h2 id="built">Off-the-shelf parts, open software</h2>
+      <p class="muted">We keep the cost down with off-the-shelf consumer parts: a Raspberry Pi 4, WiFi and LoRa radios, RP-SMA antennas, and a USB power bank for the battery. The enclosure is 3D-printed in PCTG.</p>
+      <p class="muted">The software is V3 OS, our own build on Debian 13. It's open source under the MIT licence, and it sits on open projects: Meshtastic for LoRa, Reticulum for encrypted messaging, Babel for mesh routing. Every node updates itself from our GitHub repository, from the web UI.</p>
+      <p class="muted">Use the parts you need. ATAK over the mesh, Meshtastic with plain Meshtastic radios, Reticulum with Sideband or MeshChat. None of them lock you to us.</p>
+      <div class="actions">
+        <a class="btn btn-line" href="{{ '/nucleus/' | relative_url }}">What's in a Nucleus</a>
+        <a href="https://github.com/Natak-Mesh/V3_OS">V3 OS on GitHub</a>
+        <a href="{{ '/field-tests/' | relative_url }}">Field tests</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="talk">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>Contact</p>
+    <div class="sec-body">
+      <h2 id="talk">Talk to us</h2>
+      <p class="muted">Email, LXMF or NomadNet. All the addresses are on the <a href="{{ '/contact/' | relative_url }}">contact page</a>.</p>
+      <div class="actions">
+        <a class="btn btn-line" href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </div>
+    </div>
+  </div>
+</section>

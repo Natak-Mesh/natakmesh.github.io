@@ -1,0 +1,314 @@
+---
+layout: page
+title: Field tests
+description: "Measured WiFi mesh and LoRa range and throughput from our own field tests, with dates, hardware versions and setups. Plus demo videos."
+nav: field-tests
+redirect_from:
+  - /data.html
+  - /videos.html
+---
+{%- comment -%}
+  Results come from the old data.html, unchanged. Dates: photo EXIF where it
+  exists, otherwise the month the result was first published on the site.
+  All LoRa results used the older 159 mW RAK4631 radio. Older-hardware photos
+  are allowed here only with the hardware version shown (Session 4b rule).
+  Videos: facades only (site.js loads youtube-nocookie on click).
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>Field tests</b> &nbsp;/&nbsp; Measured, not modelled</p>
+      <h1>Field tests</h1>
+      <p class="lede">What we measured, where, and on which hardware. Every result here is a single link between two or three nodes. A mesh with more nodes reaches further.</p>
+      <p>Most of these tests ran on earlier hardware (versions 1.0 to 1.2) with a 159&nbsp;mW LoRa radio. Version 3 has a 500&nbsp;mW WiFi radio and a 1&nbsp;W LoRa radio. We'll add version 3 results here as we measure them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="summary">
+  <div class="wrap">
+    <p class="sec-label"><span>00</span>Summary</p>
+    <div class="sec-body">
+      <h2 id="summary">All results</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Date</th><th scope="col">Test</th><th scope="col">Hardware</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><td class="v">2026-05-02</td><td><a href="#congested">WiFi and LoRa in an apartment complex</a></td><td class="v">1.2</td><td>WiFi blocked by about 75&nbsp;m. LoRa held past 250&nbsp;m.</td></tr>
+            <tr><td class="v">2025-11-30</td><td><a href="#lake">Maximum range over a lake</a></td><td class="v">1.1</td><td>WiFi to 1.6&nbsp;km out, reconnected at 5.5&nbsp;km in. LoRa held to 12.26&nbsp;km.</td></tr>
+            <tr><td class="v">2025-08</td><td><a href="#throughput">WiFi throughput, three nodes</a></td><td class="v">1.0</td><td>Good to about 300&nbsp;m, lost past about 500&nbsp;m.</td></tr>
+            <tr><td class="v">2025-08</td><td><a href="#obstructed">WiFi throughput, obstructed</a></td><td class="v">1.0</td><td>About 1&nbsp;Mbps at 300&nbsp;m, lost by 400&nbsp;m.</td></tr>
+            <tr><td class="v">2025-05</td><td><a href="#open-field">WiFi range, open field</a></td><td class="v">1.0</td><td>Under 1&nbsp;Mbps at 800&nbsp;m, lost between 900&nbsp;m and 1&nbsp;km.</td></tr>
+            <tr><td class="v">2025-08</td><td><a href="#lora">LoRa range</a></td><td class="v">1.x</td><td>Easy connections at about 8&nbsp;miles.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted">Dates with a day come from the test photos. Dates with only a month are when we first published the result. Jump to the <a href="#videos">videos</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="congested">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>2026-05-02</p>
+    <div class="sec-body">
+      <p class="eyebrow"><b>Hardware 1.2</b> &nbsp;/&nbsp; Software 2.9.2 &nbsp;/&nbsp; LoRa 159&nbsp;mW</p>
+      <h2 id="congested">WiFi and LoRa in an apartment complex</h2>
+      <p class="muted">How far the WiFi mesh and LoRa reach between buildings, with no nodes in between to give line of sight.</p>
+      <h3>Setup</h3>
+      <ul class="muted">
+        <li>Node 0023, fixed: on a second-floor balcony, with a yogurt-cup antenna (FIG. 01).</li>
+        <li>Node 0022, mobile: stock antennas, carried in a pack (FIG. 02).</li>
+        <li>Site: apartment complex built in 2014, large units of about 1,000&nbsp;ft² (FIG. 03).</li>
+        <li>LoRa: both radios disconnected from the Nucleus and set to Meshtastic range-test mode in the official app. Node 0023 sent every 15&nbsp;s.</li>
+        <li>WiFi: link quality read from the web UI at each stop.</li>
+      </ul>
+      <div class="fig-row">
+        <figure>
+          <img src="{{ '/assets/img/tests/midlo-antenna.jpg' | relative_url }}" alt="Hardware 1.2 node on a second-floor balcony railing with a yogurt-cup antenna on a mast" width="602" height="800" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 01</b>Node 0023 on the balcony. Hardware 1.2.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/tests/midlo-pack.jpg' | relative_url }}" alt="Grey backpack with two antennas sticking out of the top, carrying the mobile node" width="602" height="800" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 02</b>Node 0022 in a pack. Hardware 1.2.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/tests/midlo-typical-setup.jpg' | relative_url }}" alt="Two-storey apartment building behind a lawn and trees, typical of the test site" width="602" height="800" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 03</b>Typical building on the site.</figcaption>
+        </figure>
+      </div>
+      <h3>Results</h3>
+      <p class="muted">Green markers: WiFi link, with link quality. Yellow: intermittent or poor WiFi. Red diamonds: LoRa pings once WiFi was gone. LoRa didn't miss a ping for the whole run.</p>
+      <div class="cols-2">
+        <figure>
+          <img src="{{ '/assets/img/tests/midlo-atak-2.jpg' | relative_url }}" alt="ATAK map with range rings at 25 m steps and green WiFi markers close to the fixed node" width="1100" height="495" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 04</b>WiFi markers near the fixed node.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/tests/midlo-atak-3.jpg' | relative_url }}" alt="ATAK map with yellow intermittent-WiFi markers and red LoRa markers out past 150 m" width="1100" height="495" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 05</b>WiFi drops out. LoRa continues.</figcaption>
+        </figure>
+      </div>
+      <table>
+        <thead><tr><th scope="col">Link</th><th scope="col">Result</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">WiFi mesh</th><td>Blocked by a single large building at about 75&nbsp;m.</td></tr>
+          <tr><th scope="row">LoRa</th><td>Held across the whole complex, past 250&nbsp;m. No missed pings.</td></tr>
+        </tbody>
+      </table>
+      <p class="muted">That's about what we expected. Without a node in between to give line of sight, one building is enough to stop the WiFi mesh. Compare the lake and open-field tests below to see how much line of sight matters.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" aria-labelledby="lake">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>2025-11-30</p>
+    <div class="sec-body">
+      <p class="eyebrow"><b>Hardware 1.1</b> &nbsp;/&nbsp; Software 2.0 &nbsp;/&nbsp; LoRa 159&nbsp;mW</p>
+      <h2 id="lake">Maximum range over a lake</h2>
+      <p class="muted">The longest WiFi link we could get under very favourable conditions, with LoRa checked across the whole lake.</p>
+      <h3>Setup</h3>
+      <ul class="muted">
+        <li>Fixed node about 48&nbsp;m above the lake, its Meshtastic radio in range-test mode (FIG. 06).</li>
+        <li>Mobile node on a boat (FIG. 07). WiFi tracked in its web UI, LoRa pings counted by its Meshtastic radio.</li>
+      </ul>
+      <div class="fig-row">
+        <figure>
+          <img src="{{ '/assets/img/tests/guat-base-node.jpg' | relative_url }}" alt="Grey hardware 1.1 node with two antennas on a rocky ledge high above a lake" width="602" height="800" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 06</b>Fixed node, 48&nbsp;m above the water. Hardware 1.1.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/tests/guat-mobile-node.jpg' | relative_url }}" alt="Hand holding the grey hardware 1.1 mobile node over the side of a moving boat" width="602" height="800" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 07</b>Mobile node on the boat. Hardware 1.1.</figcaption>
+        </figure>
+      </div>
+      <h3>Results</h3>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Leg</th><th scope="col">Distance</th><th scope="col">Result</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Outbound, WiFi</th><td class="v">~1,600 m</td><td>Throughput fell from 5.7 to about 2.9&nbsp;Mbps, then cut out before 1,700&nbsp;m (FIG. 08).</td></tr>
+            <tr><th scope="row">Outbound, LoRa</th><td class="v">12.26 km</td><td>No missed pings. We ran out of lake and turned back (FIG. 09).</td></tr>
+            <tr><th scope="row">Return, WiFi</th><td class="v">~5.5 km</td><td>On a slightly different heading, the mesh reconnected at about 5.5&nbsp;km (FIG. 10). About 4&nbsp;Mbps between 2 and 2.5&nbsp;km, rising as we got closer.</td></tr>
+            <tr><th scope="row">Return, WiFi</th><td class="v">~500 m</td><td>Throughput dipped, likely terrain between the fixed node and the dock (FIG. 11).</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cols-2">
+        <figure>
+          <img src="{{ '/assets/img/tests/guat-wifi-cutoff.jpg' | relative_url }}" alt="ATAK map over water with yellow markers labelled with falling WiFi throughput on the outbound leg" width="1100" height="490" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 08</b>Outbound: WiFi throughput falls off, then cuts out.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/tests/guat-lora-markers.jpg' | relative_url }}" alt="ATAK map of the lake with a line of green LoRa ping markers out to 12.26 km" width="1100" height="490" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 09</b>LoRa pings out to 12.26&nbsp;km.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/tests/guat-wifi-5km.jpg' | relative_url }}" alt="ATAK map with the marker where the WiFi mesh reconnected on the return leg" width="1100" height="490" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 10</b>Return: WiFi reconnects at about 5.5&nbsp;km.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/tests/guat-wifi-5km-2.jpg' | relative_url }}" alt="ATAK map with WiFi throughput markers on the return leg toward the dock" width="1100" height="490" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 11</b>Return: throughput toward the dock.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" aria-labelledby="throughput">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>2025-08</p>
+    <div class="sec-body">
+      <p class="eyebrow"><b>Hardware 1.0</b> &nbsp;/&nbsp; Software 0.9</p>
+      <h2 id="throughput">WiFi throughput, three nodes</h2>
+      <ul class="muted">
+        <li>Three nodes with stock antennas, over mixed terrain with trees.</li>
+        <li>Node 1, mobile, carried at about 4&nbsp;ft. Node 3 fixed at about 4&nbsp;ft. Node 2 on the ground in clutter, with line of sight to node 3, to force the mesh to hop.</li>
+        <li>Throughput read from the mesh statistics of the time (BATMAN, used before V3 OS).</li>
+      </ul>
+      <figure>
+        <img src="{{ '/assets/img/tests/wifi-throughput-1.jpg' | relative_url }}" alt="ATAK map over woodland with markers labelled with WiFi throughput and hop count" width="1100" height="521" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 12</b>Throughput markers. Points labelled "lora switch" came from an older LoRa setup and don't apply here.</figcaption>
+      </figure>
+      <table>
+        <thead><tr><th scope="col">Conditions</th><th scope="col">Result</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Clear line of sight</th><td>Good throughput to about 300&nbsp;m, then a sharp drop.</td></tr>
+          <tr><th scope="row">Trees in the way</th><td>Lost completely past about 500&nbsp;m.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="obstructed">
+  <div class="wrap">
+    <p class="sec-label"><span>04</span>2025-08</p>
+    <div class="sec-body">
+      <p class="eyebrow"><b>Hardware 1.0</b> &nbsp;/&nbsp; Software 0.9</p>
+      <h2 id="obstructed">WiFi throughput, obstructed</h2>
+      <ul class="muted">
+        <li>Two nodes with stock antennas, both at about 4&nbsp;ft, linked directly.</li>
+        <li>More obstructions than the three-node test. Throughput from BATMAN statistics.</li>
+      </ul>
+      <figure>
+        <img src="{{ '/assets/img/tests/wifi-throughput-2.jpg' | relative_url }}" alt="ATAK map over woodland and ponds with range rings and WiFi throughput markers" width="1100" height="521" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 13</b>Throughput markers. Points labelled "lora mode" came from an older LoRa setup and don't apply here.</figcaption>
+      </figure>
+      <table>
+        <thead><tr><th scope="col">Distance</th><th scope="col">Result</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">250 to 320 m, mostly clear</th><td>Only a mild drop in throughput (north side of the site).</td></tr>
+          <tr><th scope="row">300 m, obstructed</th><td>About 1&nbsp;Mbps.</td></tr>
+          <tr><th scope="row">320 to 370 m, obstructed</th><td>Throughput cut sharply.</td></tr>
+          <tr><th scope="row">350 m</th><td>Noticeable dropouts.</td></tr>
+          <tr><th scope="row">400 m</th><td>Link mostly lost.</td></tr>
+        </tbody>
+      </table>
+      <p class="muted">Obstructions cut WiFi throughput and stability much faster than distance does.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="open-field">
+  <div class="wrap">
+    <p class="sec-label"><span>05</span>2025-05</p>
+    <div class="sec-body">
+      <p class="eyebrow"><b>Hardware 1.0</b> &nbsp;/&nbsp; Software 0.9</p>
+      <h2 id="open-field">WiFi range, open field</h2>
+      <ul class="muted">
+        <li>Two nodes with stock antennas, both at about 4&nbsp;ft, in an open field with clear line of sight.</li>
+        <li>One fixed, one on an off-highway vehicle. Data rate from BATMAN statistics.</li>
+      </ul>
+      <figure>
+        <img src="{{ '/assets/img/tests/wifi-1km-throughput.jpg' | relative_url }}" alt="ATAK map with range rings and WiFi data-rate markers out to about 900 m" width="1100" height="521" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 14</b>Data-rate markers. The link still held at 900&nbsp;m.</figcaption>
+      </figure>
+      <table>
+        <thead><tr><th scope="col">Distance</th><th scope="col">Result</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">800 m</th><td>Below 1&nbsp;Mbps.</td></tr>
+          <tr><th scope="row">900 m</th><td>Link still up.</td></tr>
+          <tr><th scope="row">900 m to 1 km</th><td>Link lost.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="lora">
+  <div class="wrap">
+    <p class="sec-label"><span>06</span>2025-08</p>
+    <div class="sec-body">
+      <p class="eyebrow"><b>Hardware 1.x</b> &nbsp;/&nbsp; RAK4631 &nbsp;/&nbsp; LoRa 159&nbsp;mW</p>
+      <h2 id="lora">LoRa range</h2>
+      <p class="muted">We've connected easily at about 8&nbsp;miles. We spend most of our test time on WiFi, because Meshtastic range is already well documented by its users. See the <a href="https://meshtastic.org/docs/overview/range-tests/">Meshtastic range tests</a>.</p>
+      <div class="note">
+        <span class="note-label">Not yet tested</span>
+        All LoRa results on this page used the older 159&nbsp;mW radio. Version 3 has a 1&nbsp;W LoRa radio, which we haven't range-tested yet.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" aria-labelledby="videos">
+  <div class="wrap">
+    <p class="sec-label"><span>07</span>Videos</p>
+    <div class="sec-body">
+      <h2 id="videos">Videos</h2>
+      <p class="muted">Demos and walkthroughs, newest first. Videos from before the version 3 release (2026-08-24) show earlier hardware. Each one loads from YouTube (youtube-nocookie.com) only when you press play.</p>
+      <div class="video-grid">
+        <figure>
+          <a class="yt" href="https://www.youtube.com/watch?v=gnjL0Lkp4RQ" data-yt="gnjL0Lkp4RQ" data-title="Nucleus v3 release, VoIP integrations, 1W Meshtastic radio">
+            <img src="{{ '/assets/img/video/gnjL0Lkp4RQ.jpg' | relative_url }}" alt="Video thumbnail: Nucleus v3 release" width="480" height="270" loading="lazy" decoding="async">
+            <span class="yt-play">Play 4:15</span>
+          </a>
+          <figcaption><b>2026-08-24</b>Nucleus v3 release, voice integrations and the 1&nbsp;W Meshtastic radio.</figcaption>
+        </figure>
+        <figure>
+          <a class="yt" href="https://www.youtube.com/watch?v=EWvKA6eAYQk" data-yt="EWvKA6eAYQk" data-title="ATAK video streaming via the Nucleus onboard OpenTAK server">
+            <img src="{{ '/assets/img/video/EWvKA6eAYQk.jpg' | relative_url }}" alt="Video thumbnail: ATAK video streaming through OpenTAKServer on an older grey node" width="480" height="270" loading="lazy" decoding="async">
+            <span class="yt-play">Play 2:10</span>
+          </a>
+          <figcaption><b>2026-05-03</b>ATAK video streaming through OpenTAKServer on a node.</figcaption>
+        </figure>
+        <figure>
+          <a class="yt" href="https://www.youtube.com/watch?v=gCCbwbx1XNs" data-yt="gCCbwbx1XNs" data-title="Nucleus update for May 2026">
+            <img src="{{ '/assets/img/video/gCCbwbx1XNs.jpg' | relative_url }}" alt="Video thumbnail: two phones showing the node web UI" width="480" height="270" loading="lazy" decoding="async">
+            <span class="yt-play">Play 5:54</span>
+          </a>
+          <figcaption><b>2026-05-03</b>Nucleus update for May 2026.</figcaption>
+        </figure>
+        <figure>
+          <a class="yt" href="https://www.youtube.com/watch?v=PsK474PKhlI" data-yt="PsK474PKhlI" data-title="Reticulum integration">
+            <img src="{{ '/assets/img/video/PsK474PKhlI.jpg' | relative_url }}" alt="Video thumbnail: a node board and a phone on a desk" width="480" height="270" loading="lazy" decoding="async">
+            <span class="yt-play">Play 3:48</span>
+          </a>
+          <figcaption><b>2025-08-31</b>Reticulum on the node, a quick walkthrough.</figcaption>
+        </figure>
+        <figure>
+          <a class="yt" href="https://www.youtube.com/watch?v=R5DFeud1Huc" data-yt="R5DFeud1Huc" data-title="Natak Mesh node walkthrough">
+            <img src="{{ '/assets/img/video/R5DFeud1Huc.jpg' | relative_url }}" alt="Video thumbnail: two phones next to an older node" width="480" height="270" loading="lazy" decoding="async">
+            <span class="yt-play">Play 4:02</span>
+          </a>
+          <figcaption><b>2025-07-11</b>Node walkthrough.</figcaption>
+        </figure>
+      </div>
+      <p class="small muted">More on our <a href="https://www.youtube.com/@NatakMesh">YouTube channel</a>.</p>
+      <div class="buy">
+        <h2>Test it yourself</h2>
+        <p class="muted">Range depends on where you put the nodes and how many you have. A mesh needs at least two.</p>
+        <div class="actions">
+          <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+          <a href="mailto:{{ site.email }}">Questions? Email us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
