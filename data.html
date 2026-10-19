@@ -1,210 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EZPF1EF47"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-4EZPF1EF47');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Data — Nucleus ATAK Mesh Radio | Natak Mesh</title>
-    <meta name="description" content="Testing results and performance data for the Nucleus ATAK mesh radio — WiFi mesh throughput, LoRa range tests, and field deployment data.">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <!-- Favicon placeholder - update when branding is ready -->
-    <link rel="icon" href="favicon.ico">
-    <style>
-        /* Data page specific styles */
-        .product-section {
-            padding: var(--spacing-xxl) 0;
-        }
-        
-        .product-section:nth-child(even) {
-            background-color: var(--background-alt);
-        }
-        
-        .product-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--spacing-xl);
-        }
-        
-        .product-image {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .product-img {
-            width: 100%;
-            max-width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-        
-        .product-details {
-            width: 100%;
-        }
-        
-        .product-features {
-            margin-top: var(--spacing-lg);
-        }
-        
-        .product-features h3 {
-            margin-bottom: var(--spacing-md);
-        }
-        
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .feature-list li {
-            margin-bottom: var(--spacing-sm);
-            padding-left: var(--spacing-lg);
-            position: relative;
-        }
-        
-        .feature-list li::before {
-            content: '•';
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-        
-        .section-description {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto var(--spacing-xl);
-            color: var(--text-light);
-        }
-
-        /* Accordion Styles */
-        .accordion {
-            margin-bottom: 50px !important;
-        }
-
-        .accordion-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: var(--spacing-lg);
-            cursor: pointer;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border-radius: var(--border-radius);
-            transition: background-color 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .accordion-header:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .accordion-header.active {
-            background-color: var(--primary-dark);
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-        }
-
-        .accordion-icon {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .accordion-header.active .accordion-icon {
-            transform: rotate(45deg);
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            background-color: white;
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
-        }
-
-        .accordion-content.active {
-            max-height: 15000px;
-            transition: max-height 0.5s ease-in;
-        }
-
-        .accordion-content-inner {
-            padding: var(--spacing-xl);
-            color: #333;
-        }
-
-        .accordion-content-inner h3 {
-            color: #222;
-        }
-
-        .accordion-content-inner p,
-        .accordion-content-inner li {
-            color: #444;
-        }
-
-        .version-info {
-            font-size: 0.85rem;
-            font-weight: normal;
-            opacity: 0.9;
-            margin-left: 1rem;
-        }
-        
-        /* This media query is no longer needed since we're already using a column layout
-        @media (max-width: 992px) {
-            .product-container {
-                flex-direction: column;
-            }
-            
-            .product-image,
-            .product-details {
-                max-width: 100%;
-            }
-        }
-        */
-    </style>
-</head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <div class="logo">
-                <img src="images/Natak Mesh Logo Kit/drive-download-20250629T123827Z-1-001/Logos 300ppi/NatakMeshsecondary-overlay.png" alt="Natak Mesh" class="header-logo">
-            </div>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Toggle Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="use-cases.html">Use Cases</a></li>
-                    <li><a href="videos.html">Videos</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="data.html" class="active">Test Data</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#" class="shop-button">Shop</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+---
+title: "Test Data — Nucleus ATAK Mesh Radio"
+description: "Testing results and performance data for the Nucleus ATAK mesh radio — WiFi mesh throughput, LoRa range tests, and field deployment data."
+nav: data
+page_css: data
+page_js: data
+---
     <main>
         <section class="hero">
             <div class="container">
@@ -240,27 +40,27 @@
                             <h3>Test Setup</h3>
                             <p>Node 0023 connected to yogurt cup antenna on second story balcony (see Fig. 1).</p>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/midlo_1/antenna 2.jpg" alt="Yogurt cup antenna on second story balcony" class="product-img">
+                                <img src="/assets/img/tests/midlo-antenna.jpg" alt="Yogurt cup antenna on second story balcony" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 1</p>
                             </div>
                             <p>Node 0022 using stock Nucleus antennas was mounted in a pack as this was the mobile node for the test. See Fig. 2.</p>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/midlo_1/PACK1.jpg" alt="Node 0022 mounted in pack" class="product-img">
+                                <img src="/assets/img/tests/midlo-pack.jpg" alt="Node 0022 mounted in pack" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 2</p>
                             </div>
                             <p>The area was an apartment complex of relatively large apartments (~1,000+ ft²) built in 2014. Typical structure shown in Fig. 3.</p>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/midlo_1/typCl.jpg" alt="Typical apartment complex structure" class="product-img">
+                                <img src="/assets/img/tests/midlo-typical-setup.jpg" alt="Typical apartment complex structure" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 3</p>
                             </div>
                             <p>The test was performed as follows. Node 0022 and 0023 Meshtastic radios were disconnected from the Nucleus serial connection and connected to the official app. They were both set into range test mode with Node 0023 (stationary) set to a 15 second transmit cycle.</p>
                             <p>Node 0022 was then transported around the complex. Wi-Fi was monitored via the Nucleus_OS web UI with the link quality reported at each location (green markers). Yellow markers indicate intermittent/poor Wi-Fi connection. Once Wi-Fi was lost, LoRa pings were noted with red diamonds. No failure was noted for the LoRa connections — pings were constant throughout the entire test run. See following figures.</p>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/midlo_1/Screenshot_20260502-092825.png" alt="Test results map view" class="product-img">
+                                <img src="/assets/img/tests/midlo-atak-2.jpg" alt="Test results map view" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 4</p>
                             </div>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/midlo_1/Screenshot_20260502-092838.png" alt="Test results detail view" class="product-img">
+                                <img src="/assets/img/tests/midlo-atak-3.jpg" alt="Test results detail view" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 5</p>
                             </div>
                         </div>
@@ -285,7 +85,7 @@
                         <div class="accordion-content-inner">
                             <div class="product-container">
                     <div class="product-image" style="height: auto;">
-                        <img src="images/guat_test/Photos-3-001/all markers.png" alt="Wi-Fi Max Range Test" class="product-img">
+                        <img src="/assets/img/tests/guat-all-markers.jpg" alt="Wi-Fi Max Range Test" class="product-img">
                     </div>
                     <div class="product-details">
                         <h3>Maximum Nucleus Range Test</h3>
@@ -295,11 +95,11 @@
                             <h3>Test Setup</h3>
                             <p>A stationary Nucleus node was staged at ~48 meters above the lake, the stationary node's Meshtastic radio was set into range test mode. The second node was taken via boat onto the lake. Wi-Fi connection was tracked via the mobile node's web interface. The mobile node's Meshtastic radio in range test mode received sequential pings from the base node.</p>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/guat_test/Photos-3-001/base_node_setup.jpg" alt="Base Node Setup" class="product-img">
+                                <img src="/assets/img/tests/guat-base-node.jpg" alt="Base Node Setup" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Base node</p>
                             </div>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/guat_test/Photos-3-001/mobile_node-2.jpg" alt="Mobile Node" class="product-img">
+                                <img src="/assets/img/tests/guat-mobile-node.jpg" alt="Mobile Node" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Mobile node</p>
                             </div>
                         </div>
@@ -310,25 +110,25 @@
                                 <li>On the outbound trip WiFi connectivity suffered a fast throughput fall off from 5.7 Mbps to ~2.9 Mbps at around 1,600 meters and had full cut out before 1,700 meters. See Figure 1.</li>
                             </ul>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/guat_test/Photos-3-001/outbound_wifi_cutoff.png" alt="Outbound WiFi Cutoff" class="product-img">
+                                <img src="/assets/img/tests/guat-wifi-cutoff.jpg" alt="Outbound WiFi Cutoff" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 1</p>
                             </div>
                             <ul class="feature-list" style="margin-top: var(--spacing-lg);">
                                 <li>Test continued across the lake tracking LoRa pings. No issues out to 12.26 km at which point we ran out of lake and began the return trip. See Figure 2.</li>
                             </ul>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/guat_test/Photos-3-001/lora.png" alt="LoRa Test Results" class="product-img">
+                                <img src="/assets/img/tests/guat-lora-markers.jpg" alt="LoRa Test Results" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 2</p>
                             </div>
                             <ul class="feature-list" style="margin-top: var(--spacing-lg);">
                                 <li>On the return trip, on a slightly different heading than the outbound trip, the WiFi radio established a mesh connection at ~5.5 km. See Figure 3. From there throughput improved, reaching ~4 Mbps between 2 and 2.5 km improving as we got closer to the base node. Note the throughput drop off at around 500m is likely due to terrain shadowing between the base node and the dock. See Figure 4.</li>
                             </ul>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/guat_test/Photos-3-001/wifi_5k.png" alt="WiFi Connection at 5.5km" class="product-img">
+                                <img src="/assets/img/tests/guat-wifi-5km.jpg" alt="WiFi Connection at 5.5km" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 3</p>
                             </div>
                             <div class="product-image" style="height: auto; margin-top: var(--spacing-lg);">
-                                <img src="images/guat_test/Photos-3-001/wiw_5k_2.png" alt="WiFi Throughput on Return Trip" class="product-img">
+                                <img src="/assets/img/tests/guat-wifi-5km-2.jpg" alt="WiFi Throughput on Return Trip" class="product-img">
                                 <p style="text-align: center; margin-top: var(--spacing-sm); font-style: italic; color: var(--text-light);">Figure 4</p>
                             </div>
                         </div>
@@ -347,7 +147,7 @@
                         <div class="accordion-content-inner">
                             <div class="product-container">
                     <div class="product-image" style="height: auto;">
-                        <img src="images/1km.png" alt="1 Kilometer WiFi Range Test" class="product-img">
+                        <img src="/assets/img/tests/wifi-1km-throughput.jpg" alt="1 Kilometer WiFi Range Test" class="product-img">
                     </div>
                     <div class="product-details">
                         <h3>WiFi Range Test</h3>
@@ -386,7 +186,7 @@
                         <div class="accordion-content-inner">
                             <div class="product-container">
                     <div class="product-image" style="height: auto;">
-                        <img src="images/test1.png" alt="WiFi Throughput at Various Ranges Test" class="product-img">
+                        <img src="/assets/img/tests/wifi-throughput-1.jpg" alt="WiFi Throughput at Various Ranges Test" class="product-img">
                     </div>
                     <div class="product-details">
                         <h3>WiFi Throughput at Various Ranges</h3>
@@ -427,7 +227,7 @@
                         <div class="accordion-content-inner">
                             <div class="product-container">
                     <div class="product-image" style="height: auto;">
-                        <img src="images/test2.png" alt="Additional WiFi Throughput Test" class="product-img">
+                        <img src="/assets/img/tests/wifi-throughput-2.jpg" alt="Additional WiFi Throughput Test" class="product-img">
                     </div>
                     <div class="product-details">
                         <h3>Additional WiFi Throughput Test</h3>
@@ -502,72 +302,3 @@
         </section>
 
     </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Natak Mesh</h3>
-                    <p>Innovative networking solutions for secure, reliable connectivity.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="use-cases.html">Use Cases</a></li>
-                        <li><a href="videos.html">Videos</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="data.html">Test Data</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Videos</h3>
-                    <ul>
-                        <li><a href="videos.html">Nucleus</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: nathan@natakmesh.com</p>
-                    <p>Tampa, FL</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script>
-        // Accordion functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const accordionHeaders = document.querySelectorAll('.accordion-header');
-            
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    // Toggle active class on header
-                    this.classList.toggle('active');
-                    
-                    // Get the accordion content
-                    const content = this.nextElementSibling;
-                    
-                    // Toggle active class on content
-                    content.classList.toggle('active');
-                    
-                    // Toggle icon between + and -
-                    const icon = this.querySelector('.accordion-icon');
-                    if (this.classList.contains('active')) {
-                        icon.textContent = '−';
-                    } else {
-                        icon.textContent = '+';
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>

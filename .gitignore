@@ -1,0 +1,23 @@
+# Internal planning notes. The GitHub repo is public, so anything committed
+# is readable by anyone even if Jekyll doesn't publish it to the site.
+_planning/
+
+# Jekyll build output and caches (used once the Jekyll migration lands)
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+vendor/
+.bundle/
+
+# Editor / OS noise
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Raw design/source files belong in the media archive, not the repo
+*.excalidraw
+*.drawio
+*.zip

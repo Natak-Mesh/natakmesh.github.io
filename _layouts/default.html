@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/normalize.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    {%- if page.page_css %}
+    <link rel="stylesheet" href="{{ '/assets/css/pages/' | append: page.page_css | append: '.css' | relative_url }}">
+    {%- endif %}
+    {% include head-icons.html %}
+    {% include analytics.html %}
+</head>
+<body>
+    {% include header.html %}
+
+    {{ content }}
+
+    {% include footer.html %}
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    {%- if page.page_js %}
+    <script src="{{ '/assets/js/pages/' | append: page.page_js | append: '.js' | relative_url }}"></script>
+    {%- endif %}
+</body>
+</html>

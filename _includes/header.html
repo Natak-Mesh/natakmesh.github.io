@@ -1,0 +1,20 @@
+<header class="site-header">
+        <div class="container">
+            <a class="logo" href="{{ '/' | relative_url }}">
+                <img src="{{ '/assets/img/brand/natakmesh-logo-horizontal.png' | relative_url }}" alt="Natak Mesh" class="header-logo" width="800" height="220">
+            </a>
+            <nav class="main-nav" aria-label="Main">
+                <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="site-nav">
+                    {%- for item in site.data.navigation.main %}
+                    <li><a href="{{ item.url | relative_url }}"{% if page.nav == item.id %} class="active" aria-current="page"{% endif %}>{{ item.title }}</a></li>
+                    {%- endfor %}
+                    <li><a href="{{ site.shop_url }}" class="shop-button" target="_blank" rel="noopener">Shop</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>

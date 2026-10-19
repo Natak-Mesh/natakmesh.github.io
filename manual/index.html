@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nucleus User Manual</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -132,7 +134,7 @@
 <div class="container">
 
     <div class="logo">
-        <img src="images/NatakMeshsecondary-overlay.png" alt="Natak Mesh">
+        <img src="/assets/img/brand/natakmesh-logo-horizontal.png" alt="Natak Mesh">
     </div>
 
     <h1>Nucleus User Manual</h1>
@@ -145,11 +147,11 @@
 
     <div class="fig-pair">
         <div class="fig-item">
-            <img src="../images/v3_nucleus_OS_manual_photos/wifi-logo.jpg" alt="Fig. 1: Wi-Fi antenna"><br>
+            <img src="/assets/img/manual/wifi-antenna-ports.jpg" alt="Fig. 1: Wi-Fi antenna"><br>
             <em>Fig. 1: Wi-Fi antenna</em>
         </div>
         <div class="fig-item">
-            <img src="../images/v3_nucleus_OS_manual_photos/lora-logo.jpg" alt="Fig. 2: LoRa antenna"><br>
+            <img src="/assets/img/manual/lora-antenna-port.jpg" alt="Fig. 2: LoRa antenna"><br>
             <em>Fig. 2: LoRa antenna</em>
         </div>
     </div>
@@ -160,11 +162,11 @@
 
     <div class="fig-pair">
         <div class="fig-item">
-            <img src="../images/v3_nucleus_OS_manual_photos/no%20cap%20closeup%201.jpg" alt="Fig. 3: Bulkhead connections"><br>
+            <img src="/assets/img/hardware/nucleus-v3-ports-closeup.jpg" alt="Fig. 3: Bulkhead connections"><br>
             <em>Fig. 3: Bulkhead connections</em>
         </div>
         <div class="fig-item">
-            <img src="images/with_battery_1.jpg" alt="Fig. 4: General assembly"><br>
+            <img src="/assets/img/hardware/nucleus-v3-with-battery.jpg" alt="Fig. 4: General assembly"><br>
             <em>Fig. 4: General assembly</em>
         </div>
     </div>
@@ -175,7 +177,7 @@
     <p>Due to the nature of the shorter wavelengths of the onboard radios, it is recommended to mount the antennas as high as possible on the body to provide the best line of sight (Fig. 5). Either by physically setting the radio higher or using remote mount antennas.</p>
 
     <div class="fig-single">
-        <img src="images/radio placement.jpg" alt="Fig. 5: Radio placement"><br>
+        <img src="/assets/img/manual/radio-placement.jpg" alt="Fig. 5: Radio placement"><br>
         <em>Fig. 5: Radio placement</em>
     </div>
 
@@ -188,49 +190,49 @@
     <h3>Front Page</h3>
     <p>The front page displays a menu of the available functions on the Nucleus, with navigation buttons along the bottom of the screen (Fig. 6).</p>
     <div class="fig-single">
-        <img src="../images/v3_nucleus_OS_manual_photos/front-page.png" alt="Fig. 6: Nucleus OS front page"><br>
+        <img src="/assets/img/manual/os-front-page.png" alt="Fig. 6: Nucleus OS front page"><br>
         <em>Fig. 6: Nucleus OS front page</em>
     </div>
 
     <h3>Mesh Connections</h3>
     <p>The Mesh Connections page displays the connected nodes on both the WiFi and LoRa meshes (Fig. 7).</p>
     <div class="fig-single">
-        <img src="../images/v3_nucleus_OS_manual_photos/conections-page.png" alt="Fig. 7: Mesh Connections page"><br>
+        <img src="/assets/img/manual/os-connections-page.png" alt="Fig. 7: Mesh Connections page"><br>
         <em>Fig. 7: Mesh Connections page</em>
     </div>
 
     <h3>Node Configuration Page</h3>
     <p>The Node Configuration page allows modification of mesh and node variables without having to edit system files directly (Fig. 9).</p>
     <div class="fig-single">
-        <img src="../images/v3_nucleus_OS_manual_photos/config%20page.png" alt="Fig. 9: Node Configuration page"><br>
+        <img src="/assets/img/manual/os-config-page.png" alt="Fig. 9: Node Configuration page"><br>
         <em>Fig. 9: Node Configuration page</em>
     </div>
 
     <h3>Tailscale</h3>
     <p>This page allows the user to start/stop Tailscale connections and select a tailnet if there are multiples configured (Fig. 11). As a default, the node will be connected to the Natak Mesh tailnet to allow remote updating and troubleshooting if desired. New tailnets can be added or removed as desired.</p>
     <div class="fig-single">
-        <img src="../images/v3_nucleus_OS_manual_photos/tailscale-page.png" alt="Fig. 11: Tailscale page"><br>
+        <img src="/assets/img/manual/os-tailscale-page.png" alt="Fig. 11: Tailscale page"><br>
         <em>Fig. 11: Tailscale page</em>
     </div>
 
     <h3>Meshtastic Page</h3>
     <p>This page allows serial control of the onboard Meshtastic radio, enabling sending and receiving messages with other Meshtastic radios without use of the app (Fig. 14). Functionality here will expand in future revisions; currently it provides bare bones messaging.</p>
     <div class="fig-single">
-        <img src="images/OS_Meshtastic_page.png" alt="Fig. 14: Meshtastic page"><br>
+        <img src="/assets/img/manual/os-meshtastic-page.png" alt="Fig. 14: Meshtastic page"><br>
         <em>Fig. 14: Meshtastic page</em>
     </div>
 
     <h3>Reticulum Monitoring Page</h3>
     <p>This page monitors the onboard Reticulum transport instance (Fig. 15). It displays the running state, reachable destinations, and interfaces.</p>
     <div class="fig-single">
-        <img src="images/OS_reticulum_page.png" alt="Fig. 15: Reticulum Monitoring page"><br>
+        <img src="/assets/img/manual/os-reticulum-page.png" alt="Fig. 15: Reticulum Monitoring page"><br>
         <em>Fig. 15: Reticulum Monitoring page</em>
     </div>
 
     <h3>OpenTAKServer Page</h3>
     <p>This page displays the server running state, number of connected EUDs, video stream list, and a link to open the OTS web interface (Fig. 16). This allows access to OTS directly from the Nucleus OS.</p>
     <div class="fig-single">
-        <img src="images/OS_OTS_page.png" alt="Fig. 16: OpenTAKServer page"><br>
+        <img src="/assets/img/manual/os-opentakserver-page.png" alt="Fig. 16: OpenTAKServer page"><br>
         <em>Fig. 16: OpenTAKServer page</em>
     </div>
 
@@ -249,14 +251,14 @@
     <h3>Jami</h3>
     <p>Navigate to Account Settings &gt; Advanced to configure the OpenDHT settings to match those shown in Fig. 17. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
     <div class="fig-single fig-single-sm">
-        <img src="images/jami_opendht_settings.png" alt="Fig. 17: Jami OpenDHT settings"><br>
+        <img src="/assets/img/manual/jami-opendht-settings.jpg" alt="Fig. 17: Jami OpenDHT settings"><br>
         <em>Fig. 17: Jami OpenDHT settings</em>
     </div>
 
     <h3>Sideband</h3>
     <p>Navigate to the Connectivity section of Sideband and configure the TCP settings to match those shown in Fig. 18. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
     <div class="fig-single fig-single-sm">
-        <img src="images/sideband_tcp.png" alt="Fig. 18: Sideband TCP settings"><br>
+        <img src="/assets/img/manual/sideband-tcp.jpg" alt="Fig. 18: Sideband TCP settings"><br>
         <em>Fig. 18: Sideband TCP settings</em>
     </div>
 

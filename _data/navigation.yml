@@ -1,0 +1,27 @@
+# Main navigation. Used by _includes/header.html and _includes/footer.html.
+# `id` is matched against a page's `nav:` front matter to highlight it.
+main:
+  - id: home
+    title: Home
+    url: /index.html
+  - id: products
+    title: Products
+    url: /products.html
+  - id: use-cases
+    title: Use Cases
+    url: /use-cases.html
+  - id: videos
+    title: Videos
+    url: /videos.html
+  - id: resources
+    title: Resources
+    url: /resources.html
+  - id: data
+    title: Test Data
+    url: /data.html
+  - id: about
+    title: About
+    url: /about.html
+  - id: contact
+    title: Contact
+    url: /contact.html

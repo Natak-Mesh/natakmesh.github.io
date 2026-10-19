@@ -1,0 +1,33 @@
+<footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Natak Mesh</h3>
+                    <p>Portable mesh radios built for ATAK.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        {%- for item in site.data.navigation.main %}
+                        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+                        {%- endfor %}
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Videos</h3>
+                    <ul>
+                        <li><a href="{{ '/videos.html' | relative_url }}">Nucleus</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+                    <p>{{ site.location }}</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {{ site.time | date: '%Y' }} Natak Mesh. All rights reserved.</p>
+                <p class="footer-analytics">Visits are counted with <a href="https://www.goatcounter.com/">GoatCounter</a>: no cookies, no personal data.</p>
+            </div>
+        </div>
+    </footer>

@@ -1,0 +1,40 @@
+# Local preview of the site, matching GitHub Pages.
+#
+#   docker compose up        -> http://localhost:4000 (rebuilds on save)
+#   Ctrl+C                   -> stop
+#
+# The first start installs gems (a few minutes). They're cached in the
+# `gems` volume, so later starts are quick.
+services:
+  # One-shot: a new named volume is owned by root. Hand it to your user so
+  # `site` (which runs as you) can install gems into it.
+  gems-init:
+    image: ruby:3.3
+    user: root
+    volumes:
+      - gems:/gems
+    command: chown "${UID:-1000}:${GID:-1000}" /gems
+
+  site:
+    image: ruby:3.3
+    depends_on:
+      gems-init:
+        condition: service_completed_successfully
+    working_dir: /site
+    # Run as your user so _site/ and Gemfile.lock aren't owned by root.
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      BUNDLE_PATH: /gems
+      HOME: /tmp
+    volumes:
+      - .:/site
+      - gems:/gems
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    command: >
+      sh -c "bundle install --quiet &&
+             bundle exec jekyll serve --host 0.0.0.0 --livereload --force_polling"
+
+volumes:
+  gems:

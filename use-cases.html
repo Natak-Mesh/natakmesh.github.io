@@ -1,168 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4EZPF1EF47"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4EZPF1EF47');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Use Cases — ATAK, Secure Comms, Mesh Networking | Natak Mesh</title>
-    <meta name="description" content="How Natak Mesh is used — ATAK operations, secure communications with Reticulum and VPN tunnels, off-grid mesh comms with Jami and Meshtastic, and private TAK server deployments accessible over VPN.">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="favicon.ico">
-    <style>
-        .use-case-hero {
-            background-color: var(--background-alt);
-            padding: var(--spacing-xxl) 0;
-            text-align: center;
-        }
-
-        .use-case-hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: var(--spacing-md);
-            color: var(--secondary-dark);
-        }
-
-        .use-case-hero p {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .use-case-cards {
-            padding: var(--spacing-xxl) 0;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: var(--spacing-xl);
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .uc-card {
-            background-color: var(--background-alt);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .uc-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-        }
-
-        .uc-card-image {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            background-color: var(--background-color);
-        }
-
-        .uc-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .uc-card-body {
-            padding: var(--spacing-lg);
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .uc-card-body h2 {
-            font-size: 1.5rem;
-            color: #f85b18;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .uc-card-body .card-tagline {
-            color: var(--text-light);
-            font-size: 1rem;
-            margin-bottom: var(--spacing-md);
-            line-height: 1.6;
-        }
-
-        .uc-card-body .card-features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 var(--spacing-lg) 0;
-            flex: 1;
-        }
-
-        .uc-card-body .card-features li {
-            padding: var(--spacing-xs) 0;
-            padding-left: var(--spacing-lg);
-            position: relative;
-            color: var(--text-color);
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-
-        .uc-card-body .card-features li::before {
-            content: '\2192';
-            color: #f85b18;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .uc-card-body .button {
-            align-self: flex-start;
-        }
-
-        @media (max-width: 768px) {
-            .use-case-hero h1 {
-                font-size: 2rem;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header class="site-header">
-        <div class="container">
-            <div class="logo">
-                <img src="images/Natak Mesh Logo Kit/drive-download-20250629T123827Z-1-001/Logos 300ppi/NatakMeshsecondary-overlay.png" alt="Natak Mesh" class="header-logo">
-            </div>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Toggle Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="use-cases.html" class="active">Use Cases</a></li>
-                    <li><a href="videos.html">Videos</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="data.html">Test Data</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#" class="shop-button">Shop</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+---
+title: "Use Cases — ATAK, Secure Comms, Mesh Networking"
+description: "How Natak Mesh is used — ATAK operations, secure communications with Reticulum and VPN tunnels, off-grid mesh comms with Jami and Meshtastic, and private TAK server deployments accessible over VPN."
+nav: use-cases
+page_css: use-cases
+---
     <main>
         <!-- Hero -->
         <section class="use-case-hero">
@@ -180,7 +21,7 @@
                     <!-- ATAK Card -->
                     <div class="uc-card">
                         <div class="uc-card-image">
-                            <img src="images/12_25_update/atak.jpg" alt="ATAK running on mesh">
+                            <img src="/assets/img/field/atak-two-phones-v2.jpg" alt="ATAK running on mesh">
                         </div>
                         <div class="uc-card-body">
                             <h2>ATAK Operations</h2>
@@ -199,7 +40,7 @@
                     <!-- Secure Comms Card -->
                     <div class="uc-card">
                         <div class="uc-card-image">
-                            <img src="images/12_25_update/rns_transport.jpg" alt="Reticulum transport node">
+                            <img src="/assets/img/field/reticulum-transport-node-v2.jpg" alt="Reticulum transport node">
                         </div>
                         <div class="uc-card-body">
                             <h2>Secure Communications</h2>
@@ -217,7 +58,7 @@
                     <!-- Mesh Comms Card -->
                     <div class="uc-card">
                         <div class="uc-card-image">
-                            <img src="images/12_25_update/2_radios.jpg" alt="Nucleus dual radio mesh node">
+                            <img src="/assets/img/field/nucleus-v2-pair.jpg" alt="Nucleus dual radio mesh node">
                         </div>
                         <div class="uc-card-body">
                             <h2>Mesh Communications</h2>
@@ -235,7 +76,7 @@
                     <!-- TAK Server Card -->
                     <div class="uc-card">
                         <div class="uc-card-image">
-                            <img src="images/6_20_26_photoshoot/server_1.jpg" alt="Natak TAK Server appliance">
+                            <img src="/assets/img/hardware/tak-server-appliance.jpg" alt="Natak TAK Server appliance">
                         </div>
                         <div class="uc-card-body">
                             <h2>TAK Server Deployments</h2>
@@ -261,51 +102,9 @@
                 <h2>Ready to Build Your Network?</h2>
                 <p>Get started with Nucleus mesh nodes and the Natak TAK Server. Contact us for pricing and availability.</p>
                 <div class="cta-buttons">
-                    <a href="#" class="button secondary shop-button">Shop Now</a>
+                    <a href="{{ site.shop_url }}" class="button secondary shop-button" target="_blank" rel="noopener">Shop Now</a>
                     <a href="contact.html" class="button secondary">Contact Us</a>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>Natak Mesh</h3>
-                    <p>Portable mesh radios built for ATAK.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="use-cases.html">Use Cases</a></li>
-                        <li><a href="videos.html">Videos</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="data.html">Test Data</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Videos</h3>
-                    <ul>
-                        <li><a href="videos.html">Nucleus</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: nathan@natakmesh.com</p>
-                    <p>Tampa, FL</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Natak Mesh. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-</body>
-</html>

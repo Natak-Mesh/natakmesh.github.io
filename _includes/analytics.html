@@ -1,0 +1,8 @@
+{%- comment -%}
+  GoatCounter: cookieless page-view counts, no personal data.
+  Only included in production builds (GitHub Pages sets JEKYLL_ENV=production),
+  so local previews are never counted. Set `goatcounter:` in _config.yml.
+{%- endcomment -%}
+{%- if jekyll.environment == "production" and site.goatcounter -%}
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{%- endif -%}

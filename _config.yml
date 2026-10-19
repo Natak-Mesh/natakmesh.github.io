@@ -1,0 +1,75 @@
+# Site settings. Used by the layout, jekyll-seo-tag and the sitemap.
+# Changes to this file need a restart of `docker compose up` to take effect.
+title: Natak Mesh
+description: >-
+  Portable mesh network nodes. WiFi mesh, LoRa and Reticulum in one
+  battery-powered unit, built for ATAK teams and for people who want to own
+  their own network.
+url: "https://www.natakmesh.com"
+baseurl: ""
+lang: en_US
+email: nathan@natakmesh.com
+location: Tampa, FL
+
+# Store and analytics
+shop_url: "https://natak.odoo.com/shop"
+# GoatCounter site code (https://<code>.goatcounter.com). Only loaded in
+# production builds (GitHub Pages), so local previews aren't counted.
+goatcounter: natakmesh
+
+# jekyll-seo-tag
+logo: /assets/img/brand/natakmesh-emblem-orange.png
+author: Natak Mesh
+social:
+  name: Natak Mesh
+  links:
+    - https://www.youtube.com/@NatakMesh
+    - https://www.instagram.com/natak_mesh/
+    - https://www.linkedin.com/company/natak-mesh/
+    - https://github.com/Natak-Mesh
+
+# No GitHub Pages theme: the site has its own layout. (Without this, the
+# default "primer" theme writes a stray assets/css/style.css.)
+theme: null
+
+# Don't write _site/redirects.json (not used).
+redirect_from:
+  json: false
+
+# Only plugins on the GitHub Pages allow-list: https://pages.github.com/versions/
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-redirect-from
+
+# Stubs that keep old file URLs working (one file per old URL in _redirects/).
+# Moved *pages* use `redirect_from:` in their front matter instead.
+collections:
+  redirects:
+    output: true
+
+# Pages get the default layout and a share image unless they say otherwise.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: /assets/img/hardware/nucleus-v3-cap-on.jpg
+  # Documents under review stay out of the sitemap (see _planning/document-review.md).
+  - scope:
+      path: "assets/docs"
+    values:
+      sitemap: false
+
+# Files in the repo that must not be published.
+# (_planning/ and other underscore folders are never published.)
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - docker-compose.yml
+  - tools/
+  - vendor/
+  - .jekyll-cache/
+  - node_modules/

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Redirecting…</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ page.redirect_target | absolute_url }}">
+<meta http-equiv="refresh" content="0; url={{ page.redirect_target | relative_url }}">
+</head>
+<body>
+<p>This file moved to <a href="{{ page.redirect_target | relative_url }}">{{ page.redirect_target | absolute_url }}</a>.</p>
+</body>
+</html>
