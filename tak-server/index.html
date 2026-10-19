@@ -1,0 +1,85 @@
+---
+layout: page
+title: ION TAK Server
+description: "The ION TAK Server is a mini-PC that runs the official TAK Server, with a web UI for setup, MediaMTX for video and Tailscale for private remote access."
+nav: tak-server
+image: /assets/img/hardware/tak-server-appliance.jpg
+---
+{%- comment -%}
+  Separate product from Nucleus (Nathan, Session 4a, D10). Facts are from the
+  old products.html #tak-server section, confirmed by Nathan. It doesn't need
+  or pair with a Nucleus, so don't describe it that way.
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>ION TAK Server</b> &nbsp;/&nbsp; Appliance</p>
+      <h1>ION TAK Server</h1>
+      <p class="lede">A mini-PC that boots straight into a configured, official TAK Server. It's for teams that already have a network connection and want a TAK server of their own.</p>
+      <p>Your team reaches it privately over Tailscale from any internet connection. It doesn't use a public cloud service, and it doesn't need a Nucleus.</p>
+      <div class="actions">
+        <a class="btn btn-line" href="mailto:{{ site.email }}?subject=ION%20TAK%20Server">Email us about pricing</a>
+        <a href="{{ site.shop_url }}" rel="noopener">Shop</a>
+      </div>
+      <dl class="readout">
+        <div><dt>Server</dt><dd>Official TAK Server</dd></div>
+        <div><dt>Video</dt><dd>MediaMTX</dd></div>
+        <div><dt>Remote access</dt><dd>Tailscale</dd></div>
+      </dl>
+    </div>
+    <figure>
+      <img src="{{ '/assets/img/hardware/tak-server-appliance.jpg' | relative_url }}" alt="Black and silver mini-PC with a Natak Mesh sticker on the lid and USB ports on the front" width="1043" height="959" decoding="async" fetchpriority="high">
+      <figcaption><b>FIG. 01</b>ION TAK Server.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="what">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>What it runs</p>
+    <div class="sec-body">
+      <h2 id="what">What's on it</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Part</th><th scope="col">What it does</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Official TAK Server</th><td>Situational awareness, data packages and mission management for ATAK and other TAK clients. Configured before it ships.</td></tr>
+            <tr><th scope="row">Web UI</th><td>Our own interface for setting up and managing the server.</td></tr>
+            <tr><th scope="row">MediaMTX</th><td>A media server on the box for low-latency video to connected clients.</td></tr>
+            <tr><th scope="row">Tailscale</th><td>A private VPN, so your team can reach the server over any internet connection without opening it to the public internet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="note-label">Specs not final</span>
+        We're still finalising the hardware specs and the full software list. Email us for availability and pricing.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="which">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>Which one</p>
+    <div class="sec-body">
+      <h2 id="which">ION TAK Server or Nucleus</h2>
+      <p class="muted">They're separate products. The ION TAK Server is for teams that already have a network connection. <a href="{{ '/nucleus/' | relative_url }}">Nucleus</a> is a mesh radio for places with no network: it builds its own WiFi and LoRa mesh between units.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="ask">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>Ask</p>
+    <div class="sec-body">
+      <div class="buy">
+        <h2 id="ask">Get an ION TAK Server</h2>
+        <p class="muted">Tell us how many users you expect and how they'll connect. We'll reply with availability and a price.</p>
+        <div class="actions">
+          <a class="btn btn-buy" href="mailto:{{ site.email }}?subject=ION%20TAK%20Server">Email {{ site.email }}</a>
+          <a href="{{ site.shop_url }}" rel="noopener">Shop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

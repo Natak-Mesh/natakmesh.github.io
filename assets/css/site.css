@@ -275,6 +275,7 @@ figure.phone img { background: var(--bg); }
   gap: 2rem clamp(1.5rem, 3vw, 3rem);
   align-items: start;
 }
+.split > div > * + h3 { margin-top: 2rem; }
 .cols-2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));

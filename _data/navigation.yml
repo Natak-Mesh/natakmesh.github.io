@@ -1,21 +1,21 @@
-# Main navigation. Used by _includes/header.html and _includes/footer.html.
+# Old navigation (default.html pages). Used by _includes/header.html and _includes/footer.html.
 # `id` is matched against a page's `nav:` front matter to highlight it.
 main:
   - id: home
     title: Home
-    url: /index.html
-  - id: products
-    title: Products
-    url: /products.html
+    url: /
+  - id: nucleus
+    title: Nucleus
+    url: /nucleus/
+  - id: tak-server
+    title: TAK Server
+    url: /tak-server/
   - id: use-cases
     title: Use Cases
     url: /use-cases.html
   - id: videos
     title: Videos
     url: /videos.html
-  - id: resources
-    title: Resources
-    url: /resources.html
   - id: data
     title: Test Data
     url: /data.html
@@ -27,14 +27,15 @@ main:
     url: /contact.html
 
 # New layout (_layouts/page.html, _includes/site-header.html).
-# URLs point at today's pages until Session 4 moves them (REDESIGN.md section 5).
+# Pages not rebuilt yet keep their current URLs (REDESIGN.md section 5).
+# Never point an item at a redirect stub.
 primary:
   - id: nucleus
     title: Nucleus
-    url: /products.html
+    url: /nucleus/
   - id: tak-server
     title: TAK Server
-    url: /products.html#tak-server
+    url: /tak-server/
   - id: field
     title: Field
     url: /use-cases.html
@@ -50,9 +51,9 @@ primary:
 
 footer:
   - title: Nucleus
-    url: /products.html
+    url: /nucleus/
   - title: TAK Server
-    url: /products.html#tak-server
+    url: /tak-server/
   - title: Reticulum
     url: /use-cases/secure-comms.html
   - title: Field tests

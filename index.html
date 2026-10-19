@@ -1,74 +1,111 @@
 ---
-title: "Nucleus — Mesh Networking with Native ATAK Integration"
-description: "Nucleus is a portable mesh radio with two parallel networks built for ATAK. High-speed WiFi mesh for full ATAK operations, plus a LoRa mesh running simultaneously to extend SA — plus a built-in CoT bridge that extends SA over LoRa. No plugins required."
+layout: page
+title: Natak Mesh
+description: "Nucleus is a portable mesh radio: a 2.4 GHz WiFi mesh and a 915 MHz LoRa radio in one box. ATAK, push-to-talk and Reticulum with no infrastructure."
 nav: home
 ---
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h2>Your Own Private TAK Network</h2>
-                    <p>Off-grid mesh radios and a private TAK server — run TAK your way, with or without internet, and keep it all under your control.</p>
-                    <div class="hero-buttons">
-                        <a href="products.html" class="button primary">See Products</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <!-- Product image -->
-                    <img src="/assets/img/hardware/nucleus-v3-cap-on.jpg" alt="Nucleus Hardware" class="hero-product-image">
-                </div>
-            </div>
-        </section>
+{%- comment -%}
+  Software facts: V3 OS 0.16.0 docs. Range figures: data.html / nucleus specs.
+  The two doors point at today's Field and Reticulum pages until /field/ (4b)
+  and /reticulum/ (Session 5) exist. No wired-link claims (Q1/Q2 open).
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>Natak Mesh</b> &nbsp;/&nbsp; Tampa, FL</p>
+      <h1>A mesh radio you own</h1>
+      <p class="lede">Nucleus puts a 2.4&nbsp;GHz WiFi mesh and a 915&nbsp;MHz LoRa radio in one portable box. Two or more units build their own network, with no towers, no internet and no accounts.</p>
+      <p>Phones join a node's access point and get ATAK, push-to-talk voice, text and Reticulum across the whole mesh. When one node has internet, every node can share it.</p>
+      <div class="actions">
+        <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+        <a href="{{ '/nucleus/' | relative_url }}">What's in a Nucleus</a>
+      </div>
+    </div>
+    <figure>
+      <img src="{{ '/assets/img/hardware/nucleus-v3-cap-on.jpg' | relative_url }}" alt="Black Nucleus v3 standing upright with its two antennas fitted" width="722" height="959" decoding="async" fetchpriority="high">
+      <figcaption><b>FIG. 01</b>Nucleus v3.</figcaption>
+    </figure>
+  </div>
+</section>
 
-        <!-- Product Family Section -->
-        <section class="product-family">
-            <div class="container">
-                <h2 class="section-title">Our Products</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <img src="/assets/img/hardware/nucleus-v3-with-battery.jpg" alt="Nucleus MANET node" style="width: 100%; height: 450px; object-fit: contain; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
-                        <h3>Nucleus MANET node</h3>
-                        <p>Off-grid ATAK over WiFi + LoRa mesh — bridges internet when it's available</p>
-                        <a href="products.html#nucleus" class="button secondary" style="margin-top: var(--spacing-sm);">Learn More</a>
-                    </div>
-                    <div class="feature-card">
-                        <img src="/assets/img/hardware/tak-server-appliance.jpg" alt="ION Takserver" style="width: 100%; height: 450px; object-fit: contain; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
-                        <h3>ION Takserver</h3>
-                        <p>Your own private TAKServer appliance — accessible anywhere over VPN</p>
-                        <a href="products.html#tak-server" class="button secondary" style="margin-top: var(--spacing-sm);">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="sec" aria-labelledby="field">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>In the field</p>
+    <div class="sec-body">
+      <h2 id="field">ATAK without a network</h2>
+      <div class="split">
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-battery-phone.jpg' | relative_url }}" alt="Black Nucleus with a power bank and a phone showing a map with team markers" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 02</b>A phone on the node's access point.</figcaption>
+        </figure>
+        <div>
+          <p class="muted">ATAK runs over the WiFi mesh at full rate, with no plugin on the phone. When a teammate walks out of WiFi range, a bridge on the node sends their position and chat over LoRa, so they stay on the map.</p>
+          <ul class="muted">
+            <li>Push-to-talk voice from a phone browser or an OpenVLM headset.</li>
+            <li>One text inbox over WiFi and LoRa. Plain Meshtastic radios on the same channel can join in.</li>
+            <li>Each radio has its own switch in the web UI, and LoRa can go receive-only. The access point always comes back at boot.</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-line" href="{{ '/use-cases.html' | relative_url }}">Field use</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Why Natak Mesh Section -->
-        <section class="features" style="background-color: var(--background-alt);">
-            <div class="container">
-                <h2 class="section-title">Why Natak Mesh</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📡</div>
-                        <h3>Built for TAK</h3>
-                        <p>Native ATAK over mesh and a full official TAKServer — your network, no third party.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🌐</div>
-                        <h3>On-Grid or Off</h3>
-                        <p>The Nucleus needs zero infrastructure but uses internet when it's there; the TAK Server runs over any connection you've got.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
-                        <h3>Private &amp; Self-Hosted</h3>
-                        <p>Your hardware, your keys. Tailscale VPN keeps remote access private — no public cloud.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔗</div>
-                        <h3>Better Together</h3>
-                        <p>Pair the server with the mesh, or run an edge server right on a node — field and remote users share one TAK server.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="sec" aria-labelledby="own">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>Own your network</p>
+    <div class="sec-body">
+      <h2 id="own">Reticulum on every node</h2>
+      <p class="muted">Every Nucleus runs Reticulum as a transport node, so encrypted traffic routes across the mesh and an optional USB RNode radio. Sideband, MeshChat and NomadNet connect to the node over TCP. The software is open source (MIT), and nodes update straight from GitHub.</p>
+      <dl class="facts">
+        <dt>Client apps</dt><dd>TCP to 10.20.&lt;node&gt;.1, port 4242</dd>
+        <dt>Direct messages</dt><dd>LXMF, from the web UI. Manual announces by default.</dd>
+        <dt>Wider network</dt><dd>Optional entry node. Outside announces stay out of the mesh.</dd>
+      </dl>
+      <div class="actions">
+        <a class="btn btn-line" href="{{ '/use-cases/secure-comms.html' | relative_url }}">Reticulum on Nucleus</a>
+        <a href="https://github.com/Natak-Mesh/V3_OS">V3 OS on GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </main>
+<section class="sec" aria-labelledby="measured">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>Measured</p>
+    <div class="sec-body">
+      <h2 id="measured">Range from our field tests</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Link</th><th scope="col">Conditions</th><th scope="col">Measured</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">WiFi mesh</th><td>50 m elevation difference, clear line of sight</td><td class="v">5 km</td></tr>
+            <tr><th scope="row">WiFi mesh</th><td>Ground level</td><td class="v">1 km</td></tr>
+            <tr><th scope="row">LoRa</th><td>With elevation, 159&nbsp;mW radio</td><td class="v">22 mi, link held</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted">Single links between two radios. Range on a mesh grows with the number of nodes. <a href="{{ '/data.html' | relative_url }}">Test details</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="buy">
+  <div class="wrap">
+    <p class="sec-label"><span>04</span>Buy</p>
+    <div class="sec-body">
+      <div class="buy">
+        <h2 id="buy">Start with two</h2>
+        <p class="muted">A mesh needs at least two Nucleus units. Each ships with two antennas, a USB-C cable and an M12 power cable.</p>
+        <div class="actions">
+          <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+          <a href="mailto:{{ site.email }}">Questions? Email us</a>
+        </div>
+      </div>
+      <p class="small muted">Already have a network and just need a TAK server? See the <a href="{{ '/tak-server/' | relative_url }}">ION TAK Server</a>.</p>
+    </div>
+  </div>
+</section>

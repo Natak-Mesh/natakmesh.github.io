@@ -1,0 +1,265 @@
+---
+layout: page
+title: Nucleus mesh radio
+description: "Nucleus is a portable mesh radio with a 2.4 GHz WiFi mesh and a 1 W, 915 MHz LoRa radio. It runs ATAK, Meshtastic and Reticulum without any infrastructure."
+nav: nucleus
+redirect_from:
+  - /products.html
+  - /nucleus-specs.html
+  - /resources.html
+---
+{%- comment -%}
+  Software facts: V3 OS 0.16.0 (github.com/Natak-Mesh/V3_OS: README, docs/manual,
+  config/config.yaml, nucleusd/schema.py). Hardware numbers, USB-C use and box
+  contents confirmed by Nathan (Session 4a). Don't add claims from the old site.
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>Nucleus</b> &nbsp;/&nbsp; Version 3</p>
+      <h1>Nucleus mesh radio</h1>
+      <p class="lede">Nucleus is a portable node with two radios: a 2.4&nbsp;GHz WiFi mesh for full-rate ATAK and voice, and a 915&nbsp;MHz LoRa radio for position and chat when you're out of WiFi range.</p>
+      <p>Turn on two or more and they find each other. You don't need a base station or a cloud account. Phones join the node's own access point and see everyone on the mesh.</p>
+      <div class="actions">
+        <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+        <a href="#specs">Full specifications</a>
+        <a href="https://github.com/Natak-Mesh/V3_OS/tree/main/docs/manual">Operator manual</a>
+      </div>
+      <dl class="readout">
+        <div><dt>WiFi mesh</dt><dd>2.4 GHz · 500 mW</dd></div>
+        <div><dt>LoRa</dt><dd>915 MHz · 1 W</dd></div>
+        <div><dt>Power</dt><dd>5 V · 3 W typ.</dd></div>
+        <div><dt>Throughput</dt><dd>~30 Mbps close</dd></div>
+      </dl>
+    </div>
+    <figure>
+      <img src="{{ '/assets/img/hardware/nucleus-v3-cap-on-angle.jpg' | relative_url }}" alt="Black Nucleus v3 radio standing upright with its WiFi and LoRa antennas fitted and port caps on" width="722" height="959" decoding="async" fetchpriority="high">
+      <figcaption><b>FIG. 01</b>Nucleus v3, caps on. Finned PCTG enclosure, two RP-SMA antennas.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="what">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>What it is</p>
+    <div class="sec-body">
+      <h2 id="what">Two meshes in one box</h2>
+      <div class="cols-2">
+        <div>
+          <h3>WiFi mesh</h3>
+          <p class="muted">An 802.11s mesh on 2.4&nbsp;GHz, encrypted with WPA3. Babel routes traffic between nodes, so it finds its way across several hops, and ATAK's multicast reaches the whole mesh. It carries anything IP: ATAK, video streams and push-to-talk voice. We measure about 30&nbsp;Mbps between nearby nodes.</p>
+        </div>
+        <div>
+          <h3>LoRa</h3>
+          <p class="muted">A 1&nbsp;W Meshtastic radio on 915&nbsp;MHz. It moves small messages a long way. A built-in bridge passes ATAK position and chat (CoT) over LoRa, so a teammate past WiFi range still shows up on the map. Plain Meshtastic radios on the same channel can read and answer your messages.</p>
+        </div>
+      </div>
+      <div class="fig-row">
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-pouch.jpg' | relative_url }}" alt="Black Nucleus in an olive MOLLE pouch with the antennas above the flap" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 02</b>In its pouch.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-with-battery.jpg' | relative_url }}" alt="Black Nucleus next to a USB power bank, connected by its M12 power cable" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 03</b>Runs from a 5&nbsp;V USB power bank.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-helmet-kit.jpg' | relative_url }}" alt="Black Nucleus next to a helmet, with an OpenVLM headset plugged into its USB-C port and a power bank" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 04</b>OpenVLM headset on the USB-C port, for push-to-talk.</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-rear-logo.jpg' | relative_url }}" alt="Rear of the black Nucleus enclosure with the serial number 42 and the Natak Mesh logo printed in orange" width="697" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 05</b>Serial number on the back.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="software">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>What runs on it</p>
+    <div class="sec-body">
+      <h2 id="software">Software on the node</h2>
+      <p class="muted">Every Nucleus runs V3 OS, our open-source build on Debian 13. One config file drives every service. You change settings in the web UI from the node's access point (<code>http://0042-nucleus.local</code> on node 42), and the node rewrites and restarts only what changed.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Service</th><th scope="col">What it does</th><th scope="col">Default</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">WiFi mesh</th><td>802.11s with WPA3. Babel routing, multicast forwarding for ATAK.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Meshtastic + CoT bridge</th><td>Runs the LoRa radio and passes ATAK position and chat over it.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Text messaging</th><td>One inbox. Each message goes out over WiFi and LoRa and shows which one delivered it.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Push-to-talk voice</th><td>Voice over the WiFi mesh. Talk from a phone browser or an OpenVLM headset.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Reticulum transport</th><td>Routes Reticulum over the WiFi mesh and a USB RNode. Sideband, MeshChat and NomadNet connect over TCP on the access point.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Reticulum entry node</th><td>Links out to a public Reticulum node when there's internet. Outside announces aren't flooded into the mesh.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">LXMF direct messages</th><td>One-to-one Reticulum messages from the web UI. Announcing is manual by default.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Internet gateway</th><td>Plug Ethernet into a router or Starlink and the mesh shares that connection.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Host firewall</th><td>UFW, rebuilt from the config on every start. Ethernet is closed except SSH and the password-protected web UI.</td><td><span class="status on">On</span></td></tr>
+            <tr><th scope="row">Tailscale</th><td>Remote access to the node over the internet.</td><td><span class="status opt">Off until you log in</span></td></tr>
+            <tr><th scope="row">HaLow mesh</th><td>A second, long-range 802.11s mesh on sub-GHz Wi-Fi HaLow (802.11ah).</td><td><span class="status opt">Needs HaLow USB radio</span></td></tr>
+            <tr><th scope="row">TAK Server or OpenTAKServer</th><td>A TAK server on the node itself, one or the other. Installed separately.</td><td><span class="status opt">Off</span></td></tr>
+            <tr><th scope="row">LXMF propagation node</th><td>Store-and-forward for Reticulum peers that are offline.</td><td><span class="status opt">Off</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted" id="tak-server">Need a dedicated TAK server for a team that already has a network connection? That's the <a href="{{ '/tak-server/' | relative_url }}">ION TAK Server</a>, a separate product.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" aria-labelledby="interfaces">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>Interfaces</p>
+    <div class="sec-body">
+      <h2 id="interfaces">Ports and radios</h2>
+      <div class="split">
+        <figure>
+          <img src="{{ '/assets/img/hardware/nucleus-v3-ports-closeup.jpg' | relative_url }}" alt="Top panel of the black Nucleus with the caps off, showing the USB-C port, RJ45 Ethernet jack, M12 power connector and two antenna connectors" width="722" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 06</b>Top panel, caps off. USB-C, RJ45, M12 power, WiFi and LoRa antennas.</figcaption>
+        </figure>
+        <div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th scope="col">Port</th><th scope="col">Use</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">WiFi antenna</th><td>2.4&nbsp;GHz mesh. The RP-SMA next to the WiFi symbol.</td></tr>
+                <tr><th scope="row">LoRa antenna</th><td>915&nbsp;MHz Meshtastic. The other RP-SMA.</td></tr>
+                <tr><th scope="row">RJ45 Ethernet</th><td>Gigabit. Internet uplink by default, or LAN mode to give addresses to wired devices.</td></tr>
+                <tr><th scope="row">USB-C</th><td>An RNode LoRa radio (RAK4631) for Reticulum, a HaLow radio (Morse Micro MM8108) or an OpenVLM headset.</td></tr>
+                <tr><th scope="row">M12 power</th><td>5&nbsp;V in.</td></tr>
+                <tr><th scope="row">WiFi access point</th><td>5&nbsp;GHz, for phones and laptops. Named after the serial number, e.g. <code>0042-nucleus-ap</code>.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Ethernet</h3>
+          <p class="muted">Out of the box the Ethernet port is a WAN port. Plug it into a router, a hotspot or Starlink and the node shares that connection with the mesh. In LAN mode it gives addresses to wired devices instead, such as a laptop. The web UI asks for a password over Ethernet. Over the mesh and the access point it doesn't.</p>
+          <h3>Radios off, node on</h3>
+          <p class="muted">Each radio has its own switch in the web UI. Turn off the WiFi mesh or the access point, or put the LoRa radio in receive-only mode, and the node keeps running over Ethernet. The mesh and LoRa settings survive a reboot. The access point always comes back on at boot, so you can't lock yourself out.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" id="specs" aria-labelledby="specs-h">
+  <div class="wrap">
+    <p class="sec-label"><span>04</span>Specifications</p>
+    <div class="sec-body">
+      <h2 id="specs-h">Specifications</h2>
+      <div class="cols-2 spec">
+        <table>
+          <caption>Radios</caption>
+          <tbody>
+            <tr><th scope="row">WiFi mesh</th><td class="v">2.4 GHz, 20 MHz channel</td></tr>
+            <tr><th scope="row">WiFi conducted power</th><td class="v">500 mW</td></tr>
+            <tr><th scope="row">LoRa</th><td class="v">915 MHz, SF7, 250 kHz</td></tr>
+            <tr><th scope="row">LoRa radio</th><td class="v">SX1262 (RAK13302)</td></tr>
+            <tr><th scope="row">LoRa conducted power</th><td class="v">1,000 mW</td></tr>
+            <tr><th scope="row">Access point</th><td class="v">5 GHz</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <caption>Antennas</caption>
+          <tbody>
+            <tr><th scope="row">WiFi antenna</th><td class="v">5 dBi</td></tr>
+            <tr><th scope="row">LoRa antenna</th><td class="v">5 dBi</td></tr>
+            <tr><th scope="row">Connector</th><td class="v">RP-SMA</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <caption>Compute and I/O</caption>
+          <tbody>
+            <tr><th scope="row">Platform</th><td class="v">Raspberry Pi 4</td></tr>
+            <tr><th scope="row">Memory</th><td class="v">1 GB</td></tr>
+            <tr><th scope="row">Operating system</th><td class="v">V3 OS 0.16, Debian 13</td></tr>
+            <tr><th scope="row">Ethernet</th><td class="v">10/100/1000 Mbps, RJ45</td></tr>
+            <tr><th scope="row">USB</th><td class="v">USB-C, USB 2.0</td></tr>
+            <tr><th scope="row">GPS</th><td class="v">UART</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <caption>Power and enclosure</caption>
+          <tbody>
+            <tr><th scope="row">Input</th><td class="v">5 V DC, M12</td></tr>
+            <tr><th scope="row">Average current</th><td class="v">0.6 A</td></tr>
+            <tr><th scope="row">Typical consumption</th><td class="v">3 W</td></tr>
+            <tr><th scope="row">Battery</th><td class="v">External, USB power bank</td></tr>
+            <tr><th scope="row">Enclosure</th><td class="v">PCTG</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="range">
+  <div class="wrap">
+    <p class="sec-label"><span>05</span>Range</p>
+    <div class="sec-body">
+      <h2 id="range">Range</h2>
+      <p class="muted">On a mesh, range depends on how many nodes you have and where you put them, more than on the power of any one unit. You extend coverage by adding nodes. Every figure below is a single link between two radios from our own <a href="{{ '/data.html' | relative_url }}">field tests</a>.</p>
+      <div class="cols-2">
+        <table>
+          <caption>WiFi mesh</caption>
+          <thead><tr><th scope="col">Conditions</th><th scope="col">Measured</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">50 m elevation difference, clear line of sight</th><td class="v">5 km</td></tr>
+            <tr><th scope="row">Ground level</th><td class="v">1 km</td></tr>
+            <tr><th scope="row">Buildings or dense trees</th><td class="v">100 m</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <caption>LoRa</caption>
+          <thead><tr><th scope="col">Conditions</th><th scope="col">Measured</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">With elevation, longest test</th><td class="v">22 mi, link held</td></tr>
+            <tr><th scope="row">With elevation, second test</th><td class="v">8 mi, link held</td></tr>
+            <tr><th scope="row">Maximum</th><td class="v">Not yet found</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <span class="note-label">Not yet tested</span>
+        The LoRa results were measured on 159&nbsp;mW radios. Version 3 ships a 1,000&nbsp;mW LoRa radio, which we haven't range-tested yet.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" aria-labelledby="source">
+  <div class="wrap">
+    <p class="sec-label"><span>06</span>Software and source</p>
+    <div class="sec-body">
+      <h2 id="source">Open source, top to bottom</h2>
+      <p class="muted">V3 OS is on GitHub under the MIT licence. Everything it builds on is an open project you can read and run yourself.</p>
+      <ul class="link-list">
+        <li><a href="https://github.com/Natak-Mesh/V3_OS">V3 OS</a><span>The node software. Nodes update themselves from here through the web UI.</span></li>
+        <li><a href="https://github.com/Natak-Mesh/V3_OS/tree/main/docs/manual">Operator manual</a><span>One page per web UI screen: mesh, messaging, voice, Meshtastic, Reticulum, radios.</span></li>
+        <li><a href="https://reticulum.network">Reticulum</a><span>The network stack behind Sideband, MeshChat and NomadNet.</span></li>
+        <li><a href="https://meshtastic.org">Meshtastic</a><span>Firmware for the LoRa radio.</span></li>
+        <li><a href="https://github.com/brian7704/OpenTAKServer">OpenTAKServer</a><span>Open-source TAK server. Can be installed on a node.</span></li>
+        <li><a href="https://tak.gov">ATAK</a><span>The Android TAK client. Free, needs a tak.gov account.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="buy">
+  <div class="wrap">
+    <p class="sec-label"><span>07</span>Buy</p>
+    <div class="sec-body">
+      <div class="buy">
+        <h2 id="buy">Get a Nucleus</h2>
+        <p class="muted">In the box: the Nucleus, two antennas (WiFi and LoRa), a USB-C cable and an M12 power cable. A mesh needs at least two.</p>
+        <div class="actions">
+          <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+          <a href="mailto:{{ site.email }}">Questions? Email us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
