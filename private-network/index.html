@@ -1,0 +1,121 @@
+---
+layout: page
+title: Private network
+description: "Use Nucleus and Reticulum as a private network: encrypted messaging with no carrier and no accounts, linked between sites over the internet or Tailscale, and still working with no internet at all."
+nav: private-network
+redirect_from:
+  - /use-cases/secure-comms.html
+---
+{%- comment -%}
+  Use cases first, setup lives in the manual. Facts from V3 OS 0.16.0
+  (docs/manual/reticulum.md, config/config.yaml, schema.py): rnsd transport on
+  every node, manual LXMF announce by default, contacts added by address,
+  RNode (RAK4631) on USB, propagation node off by default, outgoing Reticulum
+  link target is configurable, Tailscale off until you log in. Don't name
+  config keys or interfaces here. No Jami, no Headscale, no wired-link claims.
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>Private network</b> &nbsp;/&nbsp; Reticulum</p>
+      <h1>A private network you control</h1>
+      <p class="lede">Every Nucleus runs Reticulum. Your group gets encrypted communication with no carrier, no accounts and no phone numbers, and you decide who's on it and how far it reaches.</p>
+      <p>One site or ten, with the internet or without it. Below is what people use it for, and who you trust in each setup. Where the protection stops is on the <a href="{{ '/threat-model/' | relative_url }}">threat model</a> page.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="uses">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>Use cases</p>
+    <div class="sec-body">
+      <h2 id="uses">What you can do with it</h2>
+      <div class="cols-2">
+        <div>
+          <h3>Talk without a carrier</h3>
+          <p class="muted">A site, an event, a farm or a disaster area. People message each other through the nodes, with no SIM, no sign-up and no internet. Every node relays for every other node, so the network grows as you add nodes.</p>
+        </div>
+        <div>
+          <h3>Link your sites</h3>
+          <p class="muted">Point a node at any Reticulum node: a server at your headquarters, another team's node or a partner's network. Separate meshes become one private network over whatever internet connection each site has.</p>
+        </div>
+        <div>
+          <h3>Keep the links inside your VPN</h3>
+          <p class="muted">Log the nodes in to your Tailscale network and run the links between sites over it. They never sit open on the public internet. The same tailnet lets you reach and manage every node from anywhere.</p>
+        </div>
+        <div>
+          <h3>Reach past WiFi</h3>
+          <p class="muted">Plug an RNode LoRa radio into a node and the same network runs over LoRa too. People keep the same address on WiFi, LoRa or the internet, and messages take whichever path is up.</p>
+        </div>
+        <div>
+          <h3>Only the people you choose</h3>
+          <p class="muted">Addresses are cryptographic keys, not names or numbers. The node doesn't announce itself unless you tell it to. You hand your address to the people you want, in person, on paper or read out over a radio.</p>
+        </div>
+        <div>
+          <h3>Messages that wait</h3>
+          <p class="muted">Turn on store and forward on a node, and messages for someone who's out of range are held until they come back. Nobody has to be online at the same moment.</p>
+        </div>
+        <div>
+          <h3>Keep working when cut off</h3>
+          <p class="muted">Lose the internet and nothing local stops. The network is just your nodes and your people, and it carries on until the connection comes back.</p>
+        </div>
+        <div>
+          <h3>Nothing to read in between</h3>
+          <p class="muted">Messages are encrypted end to end, with forward secrecy. The nodes, the internet links and the VPN in between only carry ciphertext, so a relay you don't own can't read your traffic.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="trust">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>Who you trust</p>
+    <div class="sec-body">
+      <h2 id="trust">Three ways to run it</h2>
+      <p class="muted">Message content is encrypted in all three. What changes is who can see that your network exists.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Setup</th><th scope="col">Who can reach you</th><th scope="col">Who you trust</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Your nodes only</th><td>People on your nodes. Nothing leaves the mesh.</td><td>No one outside your group.</td></tr>
+            <tr><th scope="row">Linked over the internet</th><td>Your sites, and anyone on the Reticulum nodes you link to.</td><td>Reticulum's encryption. Those networks can see addresses that announce, not what's said.</td></tr>
+            <tr><th scope="row">Linked over Tailscale</th><td>Only devices in your tailnet.</td><td>Tailscale's coordination server, which sees which devices are in your tailnet. Tunnels are WireGuard.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="join">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>Get on it</p>
+    <div class="sec-body">
+      <h2 id="join">Any Reticulum app works</h2>
+      <p class="muted">Phones and laptops join a node's access point and use any standard Reticulum app, such as Sideband, Columba, MeshChat or NomadNet. The node's web UI can send direct messages too. Setup steps are in the <a href="{{ '/manual/' | relative_url }}">manual</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="reach">
+  <div class="wrap">
+    <p class="sec-label"><span>04</span>Reach us</p>
+    <div class="sec-body">
+      <h2 id="reach">Reach us over Reticulum</h2>
+      <dl class="facts">
+        <dt>LXMF</dt><dd>11efea534593c763cd173f7d62123bff</dd>
+        <dt>NomadNet</dt><dd>94a419d0accb789e62e4b8f7bb5b1fce:/page/index.mu</dd>
+      </dl>
+      <div class="buy">
+        <h2>Get a Nucleus</h2>
+        <p class="muted">Read the <a href="{{ '/threat-model/' | relative_url }}">threat model</a> first, so you know where the protection stops.</p>
+        <div class="actions">
+          <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+          <a href="https://github.com/Natak-Mesh/V3_OS">V3 OS on GitHub</a>
+          <a href="mailto:{{ site.email }}">Questions? Email us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,5 @@
 # Old navigation (default.html pages). Used by _includes/header.html and _includes/footer.html.
-# Only use-cases/secure-comms.html still uses it (until Session 5).
+# No page uses it since Session 5.
 # `id` is matched against a page's `nav:` front matter to highlight it.
 main:
   - id: home
@@ -29,8 +29,6 @@ main:
 
 # New layout (_layouts/page.html, _includes/site-header.html).
 # Never point an item at a redirect stub.
-# "Reticulum" stays on the old secure-comms page until Session 5 replaces
-# it (name and page are decided then).
 primary:
   - id: nucleus
     title: Nucleus
@@ -41,9 +39,9 @@ primary:
   - id: field
     title: Field
     url: /field/
-  - id: reticulum
-    title: Reticulum
-    url: /use-cases/secure-comms.html
+  - id: private-network
+    title: Private network
+    url: /private-network/
   - id: field-tests
     title: Field tests
     url: /field-tests/
@@ -58,8 +56,10 @@ footer:
     url: /tak-server/
   - title: Field
     url: /field/
-  - title: Reticulum
-    url: /use-cases/secure-comms.html
+  - title: Private network
+    url: /private-network/
+  - title: Threat model
+    url: /threat-model/
   - title: Field tests
     url: /field-tests/
   - title: Manual

@@ -1,0 +1,72 @@
+---
+layout: page
+title: Threat model
+description: "What Nucleus protects against, what it doesn't, and why. Encryption on the mesh and in Reticulum, and the limits: RF detection, jamming, LoRa metadata, seized nodes and compromised phones."
+nav: threat-model
+---
+{%- comment -%}
+  Facts only from pages already checked against V3 OS 0.16.0 (/nucleus/,
+  /field/, /private-network/). No disk-encryption claim either way (not
+  confirmed). No security.txt yet (Session 6): reports go to the email address.
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>Threat model</b> &nbsp;/&nbsp; Limits</p>
+      <h1>What Nucleus protects, and what it doesn't</h1>
+      <p class="lede">Nucleus encrypts traffic on the mesh and keeps local communication off carriers and cloud services. It doesn't make you invisible, and it can't stop someone who holds a node or a phone.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="protects">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>Protects</p>
+    <div class="sec-body">
+      <h2 id="protects">What it protects against</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Threat</th><th scope="col">How</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Reading traffic on the WiFi mesh</th><td>802.11s with WPA3 encrypts every link between nodes.</td></tr>
+            <tr><th scope="row">Reading Reticulum messages</th><td>End-to-end encryption with forward secrecy. Nodes in between carry ciphertext. See <a href="{{ '/private-network/' | relative_url }}">private network</a>.</td></tr>
+            <tr><th scope="row">Depending on carriers or cloud services</th><td>Local communication runs on your own nodes, with no internet connection and no accounts.</td></tr>
+            <tr><th scope="row">Losing one path</th><td>Text goes out over WiFi and LoRa. If one is down, the other can still deliver it.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="limits">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>Limits</p>
+    <div class="sec-body">
+      <h2 id="limits">What it doesn't protect against</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Threat</th><th scope="col">Why</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">RF detection and direction-finding</th><td>Every transmitter can be detected and located, including WiFi and LoRa.</td></tr>
+            <tr><th scope="row">Jamming</th><td>A radio path can be jammed. Traffic can move to another path, but the jammed one is denied.</td></tr>
+            <tr><th scope="row">LoRa readers on your channel</th><td>Any Meshtastic radio on the same channel can read and answer your messages. Packet headers, such as the sending node, are not encrypted.</td></tr>
+            <tr><th scope="row">Tailscale metadata</th><td>If you log in to Tailscale, its coordination server sees which devices are in your network.</td></tr>
+            <tr><th scope="row">A seized node</th><td>Assume whoever holds a node can read its configuration and the messages stored on it.</td></tr>
+            <tr><th scope="row">A compromised phone or laptop</th><td>Encryption ends on the device. If the device is compromised, so are its messages.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="report">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>Report</p>
+    <div class="sec-body">
+      <h2 id="report">Report a security issue</h2>
+      <p class="muted">Email <a href="mailto:{{ site.email }}">{{ site.email }}</a>, or send an LXMF message to <code>11efea534593c763cd173f7d62123bff</code>.</p>
+    </div>
+  </div>
+</section>
