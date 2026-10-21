@@ -7,8 +7,8 @@ nav: manual
 {%- comment -%}
   Restyled in Session 4b. The TEXT is unchanged from the old manual on purpose:
   a content rewrite against V3 OS is a separate task. Known outdated parts
-  (flagged to Nathan): "Nucleus OS" (lines with the OS name), Jami section,
-  web UI at :5000, ~/Nucleus_os repo, Meshtastic "serial control", default
+  (flagged to Nathan): "Nucleus OS" (lines with the OS name),
+  web UI at :5000, ~/Nucleus_os repo, default
   Tailscale tailnet. Older-hardware photos are allowed in the manual.
 {%- endcomment %}
 <section class="hero">
@@ -98,36 +98,115 @@ nav: manual
         <img src="{{ '/assets/img/manual/os-connections-page.png' | relative_url }}" alt="Phone screenshot of the Mesh Connections page listing WiFi and LoRa nodes" width="427" height="959" loading="lazy" decoding="async">
         <figcaption><b>FIG. 07</b>Mesh Connections page</figcaption>
       </figure>
-      <h3>Node Configuration Page</h3>
-      <p class="muted">The Node Configuration page allows modification of mesh and node variables without having to edit system files directly (Fig. 9).</p>
+      <h3>Voice (PTT)</h3>
+      <p class="muted">This page shows the push-to-talk state, the current voice channel, the number of talkers, the connected handset and the transport in use (Fig. 8). The voice channel is set and switched here. Open soft-PTT handset opens the handset in the browser.</p>
       <figure class="phone">
-        <img src="{{ '/assets/img/manual/os-config-page.png' | relative_url }}" alt="Phone screenshot of the Node Configuration page" width="427" height="959" loading="lazy" decoding="async">
-        <figcaption><b>FIG. 09</b>Node Configuration page</figcaption>
+        <img src="{{ '/assets/img/manual/os-ptt-page.png' | relative_url }}" alt="Phone screenshot of the Voice page showing PTT state, channel, talkers, handset and transport" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 08</b>Voice page</figcaption>
+      </figure>
+      <p class="muted">The soft-PTT handset opens at <code>/voice</code> on the node over HTTPS (Fig. 9). Press and hold TALK, or hold the spacebar, to talk. The handset can transmit over the IP mesh or over LoRa, and shows the channel and who is talking.</p>
+      <p class="muted">The handset uses the node's own certificate, so the browser shows a warning when the page is first opened (Fig. 10). Tap Advanced, then continue to the page.</p>
+      <div class="cols-2">
+        <figure class="phone">
+          <img src="{{ '/assets/img/manual/os-ptt-soft-button.png' | relative_url }}" alt="Phone screenshot of the soft-PTT handset with a TALK button, transport and channel selection" width="427" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 09</b>Soft-PTT handset</figcaption>
+        </figure>
+        <figure class="phone">
+          <img src="{{ '/assets/img/manual/os-ptt-warning.png' | relative_url }}" alt="Phone screenshot of the browser warning that the connection is not private" width="427" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 10</b>Browser certificate warning</figcaption>
+        </figure>
+      </div>
+      <h3>Meshtastic</h3>
+      <p class="muted">This page shows whether the Meshtastic radio is detected and whether the bridge is running (Fig. 11). The radio configuration, channel, presence heartbeat and CoT TX rate limit are set from here.</p>
+      <figure class="phone">
+        <img src="{{ '/assets/img/manual/os-meshtastic-page.png' | relative_url }}" alt="Phone screenshot of the Meshtastic page showing radio and bridge status and its menu" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 11</b>Meshtastic page</figcaption>
+      </figure>
+      <h3>Meshtastic Radio Configuration</h3>
+      <p class="muted">Read config from radio loads the radio's current settings (Fig. 12). The node names, modem preset, frequency slot, channel name, encryption key, region, hop limit, TX power and role can then be changed. A frequency slot of 0 picks the slot automatically. Apply to radio saves the changes and reboots the radio, which takes about 30–120 seconds.</p>
+      <figure class="phone">
+        <img src="{{ '/assets/img/manual/os-meshtastic-config-2.png' | relative_url }}" alt="Phone screenshot of the Meshtastic radio configuration settings" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 12</b>Meshtastic radio configuration</figcaption>
+      </figure>
+      <h3>Meshtastic Channel</h3>
+      <p class="muted">This page shares the node's channel, applies a channel URL, or joins a peer's channel (Fig. 13).</p>
+      <figure class="phone">
+        <img src="{{ '/assets/img/manual/os-meshtastic-channel-page.png' | relative_url }}" alt="Phone screenshot of the Set Channel page with share, apply URL and join peer options" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 13</b>Meshtastic channel page</figcaption>
+      </figure>
+      <h3>Interfaces and Services</h3>
+      <p class="muted">This page lists the node's network interfaces with their state and addresses, and the system services with whether each is active (Fig. 14).</p>
+      <figure class="phone">
+        <img src="{{ '/assets/img/manual/os-interfaces-services-page.png' | relative_url }}" alt="Phone screenshot of the Interfaces and Services page listing network interfaces and service states" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 14</b>Interfaces and Services page</figcaption>
+      </figure>
+      <h3>Radios</h3>
+      <p class="muted">This page turns the Wi-Fi mesh, the Meshtastic radio and the access point on or off (Fig. 15).</p>
+      <figure class="phone">
+        <img src="{{ '/assets/img/manual/os-radio-controls-page.png' | relative_url }}" alt="Phone screenshot of the Radios page with on/off switches for Wi-Fi mesh, Meshtastic and access point" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 15</b>Radios page</figcaption>
+      </figure>
+      <h3>Reticulum</h3>
+      <p class="muted">This page shows whether the Reticulum daemon (rnsd) is up, its uptime, the number of known paths and the node's announce setting (Fig. 16). Announce now makes the node discoverable to others. Direct Messages, Add Contacts and Interfaces open the pages below.</p>
+      <figure class="phone">
+        <img src="{{ '/assets/img/manual/os-reticulum-page.png' | relative_url }}" alt="Phone screenshot of the Reticulum page showing rnsd status and its menu" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 16</b>Reticulum page</figcaption>
+      </figure>
+      <h3>Reticulum Direct Messages</h3>
+      <p class="muted">This page lists your contacts and whether a path to each one is known (Fig. 17). REQ PATH requests a path to a contact. Modify contacts edits the list.</p>
+      <figure class="phone">
+        <img src="{{ '/assets/img/manual/os-reticulum-dm-page.png' | relative_url }}" alt="Phone screenshot of the Direct Messages page listing contacts with REQ PATH buttons" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 17</b>Reticulum direct messages</figcaption>
+      </figure>
+      <h3>Reticulum Add Contacts</h3>
+      <p class="muted">This page shows the node's own address (its <code>lxmf.delivery</code> destination hash) to give to anyone who wants to message you. It works in Sideband, MeshChat, NomadNet or another Nucleus (Fig. 18). To add a contact, paste their 32-character destination hash, enter an optional nickname and select Add contact. Then press REQ PATH on the contact to fetch its key. Nodes found on the WiFi mesh are listed at the bottom.</p>
+      <figure class="phone">
+        <img src="{{ '/assets/img/manual/os-reticulum-dest-share-page.png' | relative_url }}" alt="Phone screenshot of the Add Contacts page showing the node's destination hash and the add contact form" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 18</b>Reticulum add contacts</figcaption>
+      </figure>
+      <h3>Reticulum Interfaces</h3>
+      <p class="muted">This page lists the Reticulum interfaces with their mode, state, traffic and clients (Fig. 19). Configure RNode sets up the RNode LoRa radio.</p>
+      <figure class="phone">
+        <img src="{{ '/assets/img/manual/os-reticulum-interface-page.png' | relative_url }}" alt="Phone screenshot of the Reticulum Interfaces table with a Configure RNode option" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 19</b>Reticulum interfaces</figcaption>
       </figure>
       <h3>Tailscale</h3>
-      <p class="muted">This page allows the user to start/stop Tailscale connections and select a tailnet if there are multiples configured (Fig. 11). As a default, the node will be connected to the Natak Mesh tailnet to allow remote updating and troubleshooting if desired. New tailnets can be added or removed as desired.</p>
+      <p class="muted">This page allows the user to start/stop Tailscale connections and select a tailnet if there are multiples configured (Fig. 20). As a default, the node will be connected to the Natak Mesh tailnet to allow remote updating and troubleshooting if desired. New tailnets can be added or removed as desired.</p>
       <figure class="phone">
         <img src="{{ '/assets/img/manual/os-tailscale-page.png' | relative_url }}" alt="Phone screenshot of the Tailscale page" width="427" height="959" loading="lazy" decoding="async">
-        <figcaption><b>FIG. 11</b>Tailscale page</figcaption>
+        <figcaption><b>FIG. 20</b>Tailscale page</figcaption>
       </figure>
-      <h3>Meshtastic Page</h3>
-      <p class="muted">This page allows serial control of the onboard Meshtastic radio, enabling sending and receiving messages with other Meshtastic radios without use of the app (Fig. 14). Functionality here will expand in future revisions; currently it provides bare bones messaging.</p>
+      <h3>Radio Configuration</h3>
+      <p class="muted">The Radio Configuration page allows modification of mesh and node variables without having to edit system files directly (Fig. 21).</p>
       <figure class="phone">
-        <img src="{{ '/assets/img/manual/os-meshtastic-page.png' | relative_url }}" alt="Phone screenshot of the Meshtastic page" width="427" height="959" loading="lazy" decoding="async">
-        <figcaption><b>FIG. 14</b>Meshtastic page</figcaption>
+        <img src="{{ '/assets/img/manual/os-config-page.png' | relative_url }}" alt="Phone screenshot of the Radio Configuration page with node, Wi-Fi mesh and access point settings" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 21</b>Radio Configuration page</figcaption>
       </figure>
-      <h3>Reticulum Monitoring Page</h3>
-      <p class="muted">This page monitors the onboard Reticulum transport instance (Fig. 15). It displays the running state, reachable destinations, and interfaces.</p>
+      <h3>HaLow</h3>
+      <p class="muted">This page shows the HaLow radio's interface, IP address, channel, bandwidth and service state (Fig. 22). HaLow is turned on or off here, and its bandwidth and channel are set here. All nodes in the mesh must use the same bandwidth and channel. The SSID, password and country are shared with the Wi-Fi mesh and are changed on the Radio Configuration page.</p>
       <figure class="phone">
-        <img src="{{ '/assets/img/manual/os-reticulum-page.png' | relative_url }}" alt="Phone screenshot of the Reticulum monitoring page" width="427" height="959" loading="lazy" decoding="async">
-        <figcaption><b>FIG. 15</b>Reticulum Monitoring page</figcaption>
+        <img src="{{ '/assets/img/manual/os-halow-page.png' | relative_url }}" alt="Phone screenshot of the HaLow page showing status and settings" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 22</b>HaLow page</figcaption>
       </figure>
-      <h3>OpenTAKServer Page</h3>
-      <p class="muted">This page displays the server running state, number of connected EUDs, video stream list, and a link to open the OTS web interface (Fig. 16). This allows access to OTS directly from the Nucleus OS.</p>
+      <h3>TAK Server Page</h3>
+      <p class="muted">This page is for the official TAK Server running on the Nucleus. It displays the server running state and the address of the TAK Server web admin, and provides the certificates needed to use it (Fig. 23).</p>
+      <p class="muted">Download <code>webadmin.p12</code> and import it into your browser before opening the web admin. The web admin is where users and certificates are managed. The truststore (<code>truststore-00xx-nucleus-ca.p12</code>, where <code>xx</code> is your node's serial number) can also be downloaded here. Client devices connect to the TAK Server on port <code>8089</code>.</p>
       <figure class="phone">
-        <img src="{{ '/assets/img/manual/os-opentakserver-page.png' | relative_url }}" alt="Phone screenshot of the OpenTAKServer page" width="409" height="919" loading="lazy" decoding="async">
-        <figcaption><b>FIG. 16</b>OpenTAKServer page</figcaption>
+        <img src="{{ '/assets/img/manual/os-takserver-page.png' | relative_url }}" alt="Phone screenshot of the TAK Server page showing server status, web admin address and certificate downloads" width="427" height="959" loading="lazy" decoding="async">
+        <figcaption><b>FIG. 23</b>TAK Server page</figcaption>
       </figure>
+      <h3>Node Settings</h3>
+      <p class="muted">Theme switches the web UI between the classic and htop styles (Fig. 24, Fig. 25). The theme is saved in that browser only. Reboot and Power off take the node down immediately. After a power off, the node can only be turned back on with physical access.</p>
+      <div class="cols-2">
+        <figure class="phone">
+          <img src="{{ '/assets/img/manual/os-node-settings-page.png' | relative_url }}" alt="Phone screenshot of the Node Settings page in the classic theme with theme, reboot and power off options" width="427" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 24</b>Node Settings, classic theme</figcaption>
+        </figure>
+        <figure class="phone">
+          <img src="{{ '/assets/img/manual/os-second-theme.png' | relative_url }}" alt="Phone screenshot of the Node Settings page in the htop theme" width="427" height="959" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 25</b>Node Settings, htop theme</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -152,22 +231,14 @@ nav: manual
     <p class="sec-label"><span>05</span>App Setup</p>
     <div class="sec-body">
       <h2 id="apps">App Setup</h2>
-      <h3>Jami</h3>
-      <p class="muted">Navigate to Account Settings &gt; Advanced to configure the OpenDHT settings to match those shown in Fig. 17. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
-      <figure class="phone">
-        <img src="{{ '/assets/img/manual/jami-opendht-settings.jpg' | relative_url }}" alt="Phone screenshot of the Jami account OpenDHT settings" width="758" height="1600" loading="lazy" decoding="async">
-        <figcaption><b>FIG. 17</b>Jami OpenDHT settings</figcaption>
-      </figure>
       <h3>Sideband</h3>
-      <p class="muted">Navigate to the Connectivity section of Sideband and configure the TCP settings to match those shown in Fig. 18. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
+      <p class="muted">Navigate to the Connectivity section of Sideband and configure the TCP settings to match those shown in Fig. 26. All IP addresses should be replaced with your node's IP address — the <code>10.20.17.1</code> shown is only an example.</p>
       <figure class="phone">
         <img src="{{ '/assets/img/manual/sideband-tcp.jpg' | relative_url }}" alt="Phone screenshot of the Sideband connectivity settings with a TCP host and port" width="758" height="1600" loading="lazy" decoding="async">
-        <figcaption><b>FIG. 18</b>Sideband TCP settings</figcaption>
+        <figcaption><b>FIG. 26</b>Sideband TCP settings</figcaption>
       </figure>
-      <h3>Meshtastic</h3>
-      <p class="muted">Refer to the official Meshtastic documentation to configure the Meshtastic radio. Once configured, the user can continue to use the Meshtastic app or switch to serial control of the Meshtastic radio through the Nucleus UI.</p>
       <h3>ATAK</h3>
-      <p class="muted">ATAK will automatically take advantage of the Nucleus Wi-Fi mesh with no configuration needed. The official Meshtastic plugin can be loaded to give ATAK use of the onboard Meshtastic radio. If OpenTAKServer is installed, the OTS connection can be activated as well. Configuration of these features will be covered in future documentation.</p>
+      <p class="muted">ATAK will automatically take advantage of the Nucleus Wi-Fi mesh with no configuration needed. The CoT bridge also automatically forwards PLI and ATAK messages over the Meshtastic radio, with no configuration needed in ATAK.</p>
     </div>
   </div>
 </section>

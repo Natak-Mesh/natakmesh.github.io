@@ -1,0 +1,116 @@
+---
+layout: page
+title: Use cases
+nav: use-cases
+description: "Examples of Nucleus deployment: ATAK, Meshtastic, private Reticulum networks, links between sites, low-emission operation, wired links and internet sharing."
+redirect_from:
+  - /use-cases.html
+  - /use-cases/secure-comms.html
+  - /private-network/
+---
+{%- comment -%}
+  Quick sheet. Examples, not firmware modes: each is a combination of
+  independently configured interfaces. Each entry is two or three sentences
+  and links to the matching section of /field/, which describes each function.
+  No technical detail (ports, settings, UI page names): that is for the manual.
+  Style: the voice of the Reticulum manual (third person, definitional, no
+  colloquial language), at product-page depth.
+  Replaces /operating-modes/ (never published) and /private-network/.
+  Wired links stated per Nathan (supersedes REDESIGN.md D7/Q1).
+{%- endcomment %}
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>Use cases</b> &nbsp;/&nbsp; Nucleus</p>
+      <h1>Use cases</h1>
+      <p class="lede">A Nucleus node includes a 2.4&nbsp;GHz WiFi mesh radio, a LoRa radio, an Ethernet port and a WiFi access point. Two optional expansion modules connect to its USB-C port: a WiFi HaLow radio, which provides an additional IP mesh in the 900&nbsp;MHz band, and an RNode, which provides an additional Reticulum interface over LoRa. Each interface is enabled and configured independently, so the same hardware serves a wide range of applications.</p>
+      <p>The examples below are not fixed operating modes. Each is a combination of standard settings, and most can be combined on the same node or within the same network. Each function is described in detail on <a href="{{ '/field/' | relative_url }}">Field operations</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="summary">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>Summary</p>
+    <div class="sec-body">
+      <h2 id="summary">Interfaces used in each example</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Use case</th><th scope="col">2.4&nbsp;GHz WiFi mesh</th><th scope="col">LoRa radio</th><th scope="col">Ethernet</th><th scope="col">Internet</th><th scope="col">Expansion modules</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><a href="#atak">ATAK</a></th><td class="v">On</td><td class="v">On</td><td class="v">Optional</td><td class="v">Optional</td><td class="v">&ndash;</td></tr>
+            <tr><th scope="row"><a href="#meshtastic">Meshtastic only</a></th><td class="v">Off</td><td class="v">On</td><td class="v">&ndash;</td><td class="v">&ndash;</td><td class="v">&ndash;</td></tr>
+            <tr><th scope="row"><a href="#reticulum">Private Reticulum network</a></th><td class="v">On</td><td class="v">Optional</td><td class="v">Optional</td><td class="v">Optional</td><td class="v">RNode (optional)</td></tr>
+            <tr><th scope="row"><a href="#sites">Links between sites</a></th><td class="v">Optional</td><td class="v">Optional</td><td class="v">On</td><td class="v">Required</td><td class="v">&ndash;</td></tr>
+            <tr><th scope="row"><a href="#halow">HaLow mesh</a></th><td class="v">Optional</td><td class="v">Optional</td><td class="v">Optional</td><td class="v">Optional</td><td class="v">HaLow (required)</td></tr>
+            <tr><th scope="row"><a href="#lpi">Low emission</a></th><td class="v">Off</td><td class="v">Receive only</td><td class="v">&ndash;</td><td class="v">&ndash;</td><td class="v">RNode (required)</td></tr>
+            <tr><th scope="row"><a href="#wired">Hard-wired links</a></th><td class="v">Off</td><td class="v">Off</td><td class="v">On</td><td class="v">&ndash;</td><td class="v">&ndash;</td></tr>
+            <tr><th scope="row"><a href="#gateway">Internet sharing</a></th><td class="v">On</td><td class="v">Optional</td><td class="v">On</td><td class="v">Required</td><td class="v">&ndash;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small muted">Expansion modules are optional and connect to the USB-C port. All other interfaces are built in.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="examples">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>Examples</p>
+    <div class="sec-body">
+      <h2 id="examples">Examples</h2>
+      <div class="cols-2">
+        <div>
+          <h3 id="atak">ATAK</h3>
+          <p class="muted">The default configuration. ATAK operates over the 2.4&nbsp;GHz WiFi mesh at full speed, with push-to-talk voice and messaging on the same network. Devices beyond WiFi range remain on the map through the LoRa fallback.</p>
+          <p class="small muted"><a href="{{ '/field/#atak' | relative_url }}">ATAK</a> &middot; <a href="{{ '/field/#lora' | relative_url }}">LoRa fallback</a> &middot; <a href="{{ '/field/#voice' | relative_url }}">Push-to-talk</a></p>
+        </div>
+        <div>
+          <h3 id="meshtastic">Meshtastic only</h3>
+          <p class="muted">With the 2.4&nbsp;GHz WiFi mesh disabled, the node operates as a standard Meshtastic node, and messages are sent from any phone or laptop on its access point. It interoperates with any Meshtastic radio on the same channel.</p>
+          <p class="small muted"><a href="{{ '/field/#text' | relative_url }}">Messaging and Meshtastic</a></p>
+        </div>
+        <div>
+          <h3 id="reticulum">Private Reticulum network</h3>
+          <p class="muted">A group of nodes forms a private, end-to-end encrypted network with no carrier, no accounts and no phone numbers. Reticulum operates over the 2.4&nbsp;GHz WiFi mesh and Ethernet. Where neither is available or wanted, an optional RNode module provides a Reticulum link over LoRa.</p>
+          <p class="small muted"><a href="{{ '/field/#reticulum' | relative_url }}">Reticulum</a></p>
+        </div>
+        <div>
+          <h3 id="sites">Links between sites</h3>
+          <p class="muted">Meshes at separate locations are joined into one private network over any available internet connection, optionally inside a Tailscale network. Each site continues to operate locally if the connection is lost.</p>
+          <p class="small muted"><a href="{{ '/field/#sites' | relative_url }}">Links between sites</a></p>
+        </div>
+        <div>
+          <h3 id="halow">HaLow mesh</h3>
+          <p class="muted">An optional WiFi HaLow module provides an IP mesh in the 900&nbsp;MHz band, as an additional link alongside or in place of the 2.4&nbsp;GHz WiFi mesh. Throughput is substantially lower than the 2.4&nbsp;GHz WiFi mesh.</p>
+          <p class="small muted"><a href="{{ '/field/#halow' | relative_url }}">HaLow mesh</a></p>
+        </div>
+        <div>
+          <h3 id="lpi">Low emission</h3>
+          <p class="muted">The 2.4&nbsp;GHz WiFi mesh is disabled and the LoRa radio only listens. Messages are sent over an optional RNode module, and the node transmits only when the operator sends a message. Reduced emissions lower the probability of detection, but do not prevent it.</p>
+          <p class="small muted"><a href="{{ '/threat-model/' | relative_url }}">Threat model</a></p>
+        </div>
+        <div>
+          <h3 id="wired">Hard-wired links</h3>
+          <p class="muted">Nodes are connected by Ethernet cable, or by fiber for longer distances and electrical isolation, with all radios disabled. The link produces no RF emissions.</p>
+          <p class="small muted"><a href="{{ '/field/#reticulum' | relative_url }}">Reticulum</a></p>
+        </div>
+        <div>
+          <h3 id="gateway">Internet sharing</h3>
+          <p class="muted">One node connected to a router, mobile hotspot or Starlink terminal shares that connection with every node and device on the mesh. No configuration is required on the other nodes.</p>
+          <p class="small muted"><a href="{{ '/field/#internet' | relative_url }}">Internet sharing</a></p>
+        </div>
+      </div>
+      <div class="buy">
+        <h2>Ordering</h2>
+        <p class="muted">A mesh network requires at least two nodes. Measured link ranges are documented in <a href="{{ '/field-tests/' | relative_url }}">field tests</a>, and the protections and limits of Nucleus are described in the <a href="{{ '/threat-model/' | relative_url }}">threat model</a>.</p>
+        <div class="actions">
+          <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
+          <a href="{{ '/manual/' | relative_url }}">Manual</a>
+          <a href="mailto:{{ site.email }}">Contact</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

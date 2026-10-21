@@ -6,7 +6,7 @@ nav: threat-model
 ---
 {%- comment -%}
   Facts only from pages already checked against V3 OS 0.16.0 (/nucleus/,
-  /field/, /private-network/). No disk-encryption claim either way (not
+  /field/, /use-cases/). No disk-encryption claim either way (not
   confirmed). No security.txt yet (Session 6): reports go to the email address.
 {%- endcomment %}
 <section class="hero">
@@ -28,8 +28,8 @@ nav: threat-model
         <table>
           <thead><tr><th scope="col">Threat</th><th scope="col">How</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Reading traffic on the WiFi mesh</th><td>802.11s with WPA3 encrypts every link between nodes.</td></tr>
-            <tr><th scope="row">Reading Reticulum messages</th><td>End-to-end encryption with forward secrecy. Nodes in between carry ciphertext. See <a href="{{ '/private-network/' | relative_url }}">private network</a>.</td></tr>
+            <tr><th scope="row">Reading traffic on the WiFi meshes</th><td>Both the 2.4&nbsp;GHz and HaLow meshes are encrypted with WPA3 on every link between nodes.</td></tr>
+            <tr><th scope="row">Reading Reticulum messages</th><td>End-to-end encryption with forward secrecy. Nodes in between carry ciphertext. See <a href="{{ '/field/#reticulum' | relative_url }}">field operations</a>.</td></tr>
             <tr><th scope="row">Depending on carriers or cloud services</th><td>Local communication runs on your own nodes, with no internet connection and no accounts.</td></tr>
             <tr><th scope="row">Losing one path</th><td>Text goes out over WiFi and LoRa. If one is down, the other can still deliver it.</td></tr>
           </tbody>

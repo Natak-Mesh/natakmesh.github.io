@@ -1,23 +1,24 @@
 ---
 layout: page
 title: Natak Mesh
-description: "Nucleus is a portable mesh radio: a 2.4 GHz WiFi mesh and a 915 MHz LoRa radio in one box. ATAK, push-to-talk and Reticulum with no infrastructure."
+description: "Natak Mesh develops grid-independent communication systems built from commercial off-the-shelf hardware and open-source software."
 nav: home
 ---
 {%- comment -%}
-  Software facts: V3 OS 0.16.0 docs. Range figures: /field-tests/ and the Nucleus specs.
-  "In the field" -> /field/. "Own your network" -> /private-network/. No wired-link claims (Q1/Q2 open).
+  Company page, not a Nucleus page. Hardware detail lives on /nucleus/. Don't repeat specs here.
+  Themes: COTS hardware, no proprietary parts, open source, user-modifiable Linux, rapid iteration,
+  grid-independent RF links, private operation over existing networks, Reticulum network expansion.
+  Style: modelled on the Reticulum manual. Third person, definitional, technical, no colloquial language.
 {%- endcomment %}
 <section class="hero">
   <div class="wrap">
     <div>
-      <p class="eyebrow"><b>Natak Mesh</b> &nbsp;/&nbsp; Tampa, FL</p>
-      <h1>A mesh radio you own</h1>
-      <p class="lede">Nucleus puts a 2.4&nbsp;GHz WiFi mesh and a 915&nbsp;MHz LoRa radio in one portable box. Two or more units build their own network, with no towers, no internet and no accounts.</p>
-      <p>Phones join a node's access point and get ATAK, push-to-talk voice, text and Reticulum across the whole mesh. When one node has internet, every node can share it.</p>
+      <p class="eyebrow"><b>Natak Mesh</b></p>
+      <h1>Natak Mesh</h1>
+      <p class="lede">Natak Mesh develops grid-independent communication systems built from commercial off-the-shelf hardware and open-source software. The current platform, Nucleus, is a Linux-based mesh networking node that operates without external infrastructure.</p>
       <div class="actions">
         <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
-        <a href="{{ '/nucleus/' | relative_url }}">What's in a Nucleus</a>
+        <a href="{{ '/nucleus/' | relative_url }}">Nucleus details</a>
       </div>
     </div>
     <figure>
@@ -27,84 +28,68 @@ nav: home
   </div>
 </section>
 
-<section class="sec" aria-labelledby="field">
+<section class="sec" aria-labelledby="principles">
   <div class="wrap">
-    <p class="sec-label"><span>01</span>In the field</p>
+    <p class="sec-label"><span>01</span>Design Principles</p>
     <div class="sec-body">
-      <h2 id="field">ATAK without a network</h2>
-      <div class="split">
-        <figure>
-          <img src="{{ '/assets/img/hardware/nucleus-v3-battery-phone.jpg' | relative_url }}" alt="Black Nucleus with a power bank and a phone showing a map with team markers" width="722" height="959" loading="lazy" decoding="async">
-          <figcaption><b>FIG. 02</b>A phone on the node's access point.</figcaption>
-        </figure>
-        <div>
-          <p class="muted">ATAK runs over the WiFi mesh at full rate, with no plugin on the phone. When a teammate walks out of WiFi range, a bridge on the node sends their position and chat over LoRa, so they stay on the map.</p>
-          <ul class="muted">
-            <li>Push-to-talk voice from a phone browser or an OpenVLM headset.</li>
-            <li>One text inbox over WiFi and LoRa. Plain Meshtastic radios on the same channel can join in.</li>
-            <li>Each radio has its own switch in the web UI, and LoRa can go receive-only. The access point always comes back at boot.</li>
+      <h2 id="principles">Design Principles</h2>
+      <p class="muted">Nucleus contains no proprietary hardware or software, and does not depend on any vendor-operated service.</p>
+      <ul class="muted">
+        <li><b>Commercial off-the-shelf hardware</b>
+          <ul>
+            <li>Standard single-board computer, radio and power components</li>
           </ul>
-          <div class="actions">
-            <a class="btn btn-line" href="{{ '/field/' | relative_url }}">Field use</a>
-          </div>
-        </div>
-      </div>
+        </li>
+        <li><b>Open-source software</b>
+          <ul>
+            <li>MIT-licensed operating system based on Debian Linux</li>
+            <li>Built on open protocols, including Meshtastic, Reticulum and Babel</li>
+          </ul>
+        </li>
+        <li><b>User-modifiable</b>
+          <ul>
+            <li>Each node is a standard Linux system, and the operator can modify or extend it</li>
+          </ul>
+        </li>
+        <li><b>Rapid iteration</b>
+          <ul>
+            <li>Software updates are published to a public repository and installed directly on nodes</li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 
-<section class="sec" aria-labelledby="own">
+<section class="sec" aria-labelledby="rf">
   <div class="wrap">
-    <p class="sec-label"><span>02</span>Own your network</p>
+    <p class="sec-label"><span>02</span>RF Links</p>
     <div class="sec-body">
-      <h2 id="own">Reticulum on every node</h2>
-      <p class="muted">Every Nucleus runs Reticulum as a transport node, so encrypted traffic routes across the mesh and an optional USB RNode radio. Sideband, MeshChat and NomadNet connect to the node over TCP. The software is open source (MIT), and nodes update straight from GitHub.</p>
-      <dl class="facts">
-        <dt>Client apps</dt><dd>TCP to 10.20.&lt;node&gt;.1, port 4242</dd>
-        <dt>Direct messages</dt><dd>LXMF, from the web UI. Manual announces by default.</dd>
-        <dt>Wider network</dt><dd>Optional entry node. Outside announces stay out of the mesh.</dd>
-      </dl>
+      <h2 id="rf">Grid-Independent RF Links</h2>
+      <p class="muted">Nucleus nodes establish two RF networks simultaneously: a 2.4&nbsp;GHz WiFi mesh for high-bandwidth IP traffic, and a LoRa mesh for low-bandwidth messaging over long distances. Both networks are self-configuring. Neither requires cellular service, an internet connection or fixed infrastructure.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="private">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>Private Operation</p>
+    <div class="sec-body">
+      <h2 id="private">Private Operation over Existing Networks</h2>
+      <p class="muted">Where an internet connection is available, it can serve as a carrier without exposing the network. Tailscale provides an encrypted overlay network between nodes and operator devices. Reticulum links separate networks over any IP connection, with end-to-end encryption.</p>
       <div class="actions">
-        <a class="btn btn-line" href="{{ '/private-network/' | relative_url }}">Private network</a>
-        <a href="https://github.com/Natak-Mesh/V3_OS">V3 OS on GitHub</a>
+        <a class="btn btn-line" href="{{ '/field/#sites' | relative_url }}">Links between sites</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" aria-labelledby="measured">
+<section class="sec" aria-labelledby="expansion">
   <div class="wrap">
-    <p class="sec-label"><span>03</span>Measured</p>
+    <p class="sec-label"><span>04</span>Network Expansion</p>
     <div class="sec-body">
-      <h2 id="measured">Range from our field tests</h2>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th scope="col">Link</th><th scope="col">Conditions</th><th scope="col">Measured</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">WiFi mesh</th><td>50 m elevation difference, clear line of sight</td><td class="v">5 km</td></tr>
-            <tr><th scope="row">WiFi mesh</th><td>Ground level</td><td class="v">1 km</td></tr>
-            <tr><th scope="row">LoRa</th><td>With elevation, 159&nbsp;mW radio</td><td class="v">22 mi, link held</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="small muted">Single links between two radios. Range on a mesh grows with the number of nodes. <a href="{{ '/field-tests/' | relative_url }}">Test details</a></p>
-    </div>
-  </div>
-</section>
-
-<section class="sec" aria-labelledby="buy">
-  <div class="wrap">
-    <p class="sec-label"><span>04</span>Buy</p>
-    <div class="sec-body">
-      <div class="buy">
-        <h2 id="buy">Start with two</h2>
-        <p class="muted">A mesh needs at least two Nucleus units. Each ships with two antennas, a USB-C cable and an M12 power cable.</p>
-        <div class="actions">
-          <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
-          <a href="mailto:{{ site.email }}">Questions? Email us</a>
-        </div>
-      </div>
-      <p class="small muted">Already have a network and just need a TAK server? See the <a href="{{ '/tak-server/' | relative_url }}">ION TAK Server</a>.</p>
+      <h2 id="expansion">Network Expansion</h2>
+      <p class="muted">Every Nucleus runs a Reticulum transport instance. Reticulum operates over any combination of physical media, so a single node can be the starting point of a complete private network spanning WiFi, LoRa, Ethernet, fiber and internet links. Reticulum routes traffic across these links automatically.</p>
     </div>
   </div>
 </section>

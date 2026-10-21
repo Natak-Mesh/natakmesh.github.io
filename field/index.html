@@ -1,33 +1,35 @@
 ---
 layout: page
-title: Nucleus in the field
-description: "ATAK over a WiFi mesh with no plugin, position and chat over LoRa past WiFi range, push-to-talk voice, one text inbox with Meshtastic, and an optional TAK server on a node."
+title: Field operations
+description: "The functions of Nucleus: ATAK over a 2.4 GHz WiFi mesh with LoRa fallback, an optional HaLow mesh, push-to-talk voice, Meshtastic-compatible messaging, private Reticulum networks, links between sites, on-node TAK servers and internet sharing."
 nav: field
 redirect_from:
-  - /use-cases.html
   - /use-cases/atak.html
   - /use-cases/mesh-comms.html
 ---
 {%- comment -%}
-  Software facts: V3 OS 0.16.0 only (README, docs/manual: meshtastic, messaging,
-  messaging-internals, voice, voice-internals, takserver, opentakserver, radios,
-  firewall; config/config.yaml; nucleusd/schema.py; templates/smcroute.conf.j2;
-  meshtastic/cot_bridge.py). No Jami, no BLE mode, no Bifrost PTT, no AES-256
-  claim: none of those are in V3 OS. ION TAK Server is not mentioned (D10).
-  No black-unit photos yet: Nathan will supply them.
+  Feature reference for a marketing site. One short section per function:
+  what it does, why it matters, and a plain limit where one applies.
+  No port numbers, multicast addresses, timers, config steps or UI page names:
+  those belong in the manual and the V3 OS docs.
+  Style: the voice of the Reticulum manual (third person, definitional, no
+  colloquial language), at product-page depth.
+  Facts: V3 OS 0.16.0 only. No Jami, no BLE mode, no Bifrost PTT, no AES-256
+  claim. ION TAK Server is not mentioned (D10). Use cases (/use-cases/) links
+  here by section id: atak, lora, halow, voice, text, reticulum, sites, server, internet.
 {%- endcomment %}
 <section class="hero">
   <div class="wrap">
     <div>
-      <p class="eyebrow"><b>Field</b> &nbsp;/&nbsp; ATAK teams</p>
-      <h1>Nucleus in the field</h1>
-      <p class="lede">Phones join a Nucleus access point and run ATAK over the WiFi mesh at full rate, with no plugin. When a teammate walks out of WiFi range, their position and chat keep moving over LoRa.</p>
-      <p>The same nodes carry push-to-talk voice, a shared text inbox that plain Meshtastic radios can join, and an internet connection when one node has one. This page covers what each of those does, and where it stops.</p>
+      <p class="eyebrow"><b>Field operations</b> &nbsp;/&nbsp; Functions</p>
+      <h1>Field operations</h1>
+      <p class="lede">A network of Nucleus nodes provides situational awareness, voice, messaging and private communication without cellular service, internet access or fixed infrastructure. Client devices connect to the access point of the nearest node, and require no additional software or configuration.</p>
+      <p>This page describes each function. Examples of how the functions are combined are given on <a href="{{ '/use-cases/' | relative_url }}">Use cases</a>.</p>
       <dl class="readout">
-        <div><dt>WiFi mesh</dt><dd>~30 Mbps close</dd></div>
-        <div><dt>LoRa CoT</dt><dd>1 update / 30 s</dd></div>
-        <div><dt>Voice</dt><dd>PTT, 16 kHz</dd></div>
-        <div><dt>Phone setup</dt><dd>Join the AP</dd></div>
+        <div><dt>2.4 GHz WiFi mesh</dt><dd>~30 Mbps</dd></div>
+        <div><dt>LoRa fallback</dt><dd>Position and chat</dd></div>
+        <div><dt>Voice</dt><dd>Push-to-talk</dd></div>
+        <div><dt>Client setup</dt><dd>None</dd></div>
       </dl>
     </div>
   </div>
@@ -37,52 +39,44 @@ redirect_from:
   <div class="wrap">
     <p class="sec-label"><span>01</span>ATAK</p>
     <div class="sec-body">
-      <h2 id="atak">ATAK over the WiFi mesh</h2>
+      <h2 id="atak">ATAK over the 2.4&nbsp;GHz WiFi mesh</h2>
       <div class="split">
         <figure>
-          <img src="{{ '/assets/img/tests/midlo-atak-3.jpg' | relative_url }}" alt="ATAK map of an apartment complex with range rings and the markers left during a WiFi and LoRa test" width="1100" height="495" loading="lazy" decoding="async">
-          <figcaption><b>FIG. 01</b>ATAK during our May 2026 test on hardware 1.2. Details in <a href="{{ '/field-tests/#congested' | relative_url }}">field tests</a>.</figcaption>
+          <img src="{{ '/assets/img/tests/midlo-atak-3.jpg' | relative_url }}" alt="ATAK map of an apartment complex with range rings and the markers recorded during a WiFi and LoRa range test" width="1100" height="495" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 01</b>ATAK during the May 2026 range test. Details in <a href="{{ '/field-tests/#congested' | relative_url }}">field tests</a>.</figcaption>
         </figure>
         <div>
-          <p class="muted">Connect the phone to the node's access point (<code>0042-nucleus-ap</code> on node 42) and open ATAK. There's nothing else to set up. ATAK finds the other phones on the mesh by itself, with its normal multicast.</p>
-          <p class="muted">Each node forwards ATAK's multicast groups between its access point and the mesh, and the mesh carries them across up to 8 nodes. Positions, chat, pictures, routes and data packages move at WiFi speed, about 30&nbsp;Mbps between nearby nodes.</p>
+          <p class="muted">ATAK operates natively over the 2.4&nbsp;GHz WiFi mesh, with no plugin and no server. Devices on any node discover each other automatically, and traffic is relayed across multiple nodes to reach the whole network.</p>
+          <p class="muted">Positions, chat, images, routes and data packages are exchanged at WiFi speeds, approximately 30&nbsp;Mbps between nearby nodes. The ATAK voice plugin is also supported.</p>
         </div>
       </div>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th scope="col">Multicast group</th><th scope="col">ATAK traffic</th></tr></thead>
-          <tbody>
-            <tr><th scope="row"><code>239.2.3.1</code></th><td>Position and CoT data (SA)</td></tr>
-            <tr><th scope="row"><code>224.10.10.1</code></th><td>Discovery and chat</td></tr>
-            <tr><th scope="row"><code>239.255.255.1</code>, <code>.2</code>, <code>.12</code></th><td>ATAK voice plugin: general, presence, channel 1</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="small muted">ATAK sends multicast with a TTL of 1. The node raises it to 8 as it enters the mesh, so it can cross nodes. The mesh drops repeated packets itself, so a busy net doesn't flood.</p>
     </div>
   </div>
 </section>
 
 <section class="sec" aria-labelledby="lora">
   <div class="wrap">
-    <p class="sec-label"><span>02</span>LoRa bridge</p>
+    <p class="sec-label"><span>02</span>LoRa fallback</p>
     <div class="sec-body">
-      <h2 id="lora">Position and chat past WiFi range</h2>
-      <p class="muted">Every node runs a CoT bridge on its 915&nbsp;MHz LoRa radio. It picks up ATAK position and chat from the local network, compresses them and sends them over Meshtastic. Nodes that hear them put them back on their own network as normal ATAK multicast. The phone needs no plugin and no setting.</p>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th scope="col">Setting</th><th scope="col">Default</th><th scope="col">What it does</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">What crosses LoRa</th><td class="v">SA, GeoChat</td><td>Position and chat only. Pictures, files and video stay on WiFi.</td></tr>
-            <tr><th scope="row">Rate limit</th><td class="v">30 s per UID</td><td>Repeat updates from the same callsign inside the window are dropped, to keep the channel clear. Set 0 to 3,600&nbsp;s. Changes apply within about 10&nbsp;s.</td></tr>
-            <tr><th scope="row">Heartbeat</th><td class="v">Every 5 min</td><td>Keeps an idle node in its peers' LoRa list. Nodes drop off after 15&nbsp;minutes of silence.</td></tr>
-            <tr><th scope="row">Transmit</th><td class="v">On</td><td>Switch the LoRa radio to receive-only in the web UI. It keeps listening and never transmits. Survives a reboot.</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <h2 id="lora">LoRa fallback</h2>
+      <p class="muted">Every node carries a long-range LoRa radio alongside the 2.4&nbsp;GHz WiFi mesh. When a device moves beyond WiFi range, its position and chat messages continue to reach the rest of the network over LoRa. The node performs this relay automatically, and the device requires no plugin or configuration. The LoRa transmitter can also be disabled, leaving the radio in receive-only operation.</p>
       <div class="note">
         <span class="note-label">Limit</span>
-        LoRa is slow. A teammate on LoRa updates about every 30&nbsp;seconds, not in real time. Our LoRa range tests ran on older 159&nbsp;mW radios. Version 3 has a 1&nbsp;W radio that we haven't range-tested yet.
+        LoRa carries position and chat only, updated approximately every 30&nbsp;seconds rather than in real time. Images, files, video and voice require the 2.4&nbsp;GHz WiFi mesh. The 1&nbsp;W radio in version&nbsp;3 has not yet been range-tested.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="halow">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>HaLow</p>
+    <div class="sec-body">
+      <h2 id="halow">HaLow mesh</h2>
+      <p class="muted">An optional WiFi HaLow module, connected to the USB-C port, adds an IP mesh in the 900&nbsp;MHz band. It serves as an additional link alongside the 2.4&nbsp;GHz WiFi mesh, or in place of it where that band is unsuitable. Like the 2.4&nbsp;GHz mesh, it is encrypted with WPA3.</p>
+      <div class="note">
+        <span class="note-label">Limit</span>
+        Throughput is substantially lower than the 2.4&nbsp;GHz WiFi mesh.
       </div>
     </div>
   </div>
@@ -90,26 +84,22 @@ redirect_from:
 
 <section class="sec" aria-labelledby="voice">
   <div class="wrap">
-    <p class="sec-label"><span>03</span>Voice</p>
+    <p class="sec-label"><span>04</span>Voice</p>
     <div class="sec-body">
       <h2 id="voice">Push-to-talk</h2>
       <div class="split">
         <figure class="phone">
-          <img src="{{ '/assets/img/screenshots/ptt-app.jpg' | relative_url }}" alt="The node's push-to-talk page on a phone: transport and channel pickers, a large TALK button and a receiving list" width="400" height="897" loading="lazy" decoding="async">
-          <figcaption><b>FIG. 02</b>The <code>/voice</code> page in a phone browser.</figcaption>
+          <img src="{{ '/assets/img/screenshots/ptt-app.jpg' | relative_url }}" alt="The push-to-talk page of the node in a mobile browser: transport and channel selectors, a large TALK button and a list of active transmissions" width="400" height="897" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 02</b>Push-to-talk in a mobile browser.</figcaption>
         </figure>
         <div>
-          <p class="muted">Voice runs on the node, so any phone on the access point can talk without an app. Open <code>https://0042-nucleus.local/voice</code>, hold TALK and speak. The page needs HTTPS for the microphone. The node uses a self-signed certificate, so the browser asks you to accept it the first time.</p>
-          <h3>Headset</h3>
-          <p class="muted">Plug an OpenVLM headset into the node's USB-C port for a hardware PTT button. The node picks it up when you plug it in. Phones and headsets on the same channel hear each other.</p>
-          <h3>How it works</h3>
-          <ul class="muted">
-            <li>16&nbsp;kHz audio, multicast over the WiFi mesh.</li>
-            <li>Named channels. The default is <code>1: Command</code>.</li>
-            <li>No floor control. If two people talk at once, you hear both.</li>
-            <li>The ATAK voice plugin also works, through the multicast groups above.</li>
-          </ul>
-          <p class="small muted">Optional: speech-to-text over LoRa. The node transcribes a short message, sends it as one Meshtastic packet, and the receiving node reads it out. Off by default. The speech models have to be installed on the node first.</p>
+          <p class="muted">Push-to-talk voice is provided by the node itself. Any phone or laptop on the access point can participate from a web browser, with no application installed. Traffic is organised into named channels.</p>
+          <p class="muted">A hardware PTT can be connected to the node through an OpenVLM adapter. Browser users and hardware PTT users on the same channel hear each other.</p>
+          <p class="muted">An optional feature transcribes short voice messages and sends them over LoRa, where the receiving node plays them back as synthesised speech.</p>
+          <div class="note">
+            <span class="note-label">Limit</span>
+            Live voice requires the 2.4&nbsp;GHz WiFi mesh.
+          </div>
         </div>
       </div>
     </div>
@@ -118,47 +108,63 @@ redirect_from:
 
 <section class="sec" aria-labelledby="text">
   <div class="wrap">
-    <p class="sec-label"><span>04</span>Text and Meshtastic</p>
+    <p class="sec-label"><span>05</span>Messaging</p>
     <div class="sec-body">
-      <h2 id="text">One inbox, two radios</h2>
-      <p class="muted">The node's Messaging page sends each message over the WiFi mesh and LoRa at the same time. Copies that arrive both ways are merged, and each message shows how it got there: <code>wifi</code>, <code>lora</code> or <code>wifi+lora</code>. Messages are up to 200 characters.</p>
-      <p class="muted">The LoRa copy is a plain Meshtastic text on the primary channel. A Meshtastic radio or phone on the same channel sees your messages, and its messages show up in your inbox.</p>
-      <dl class="facts">
-        <dt>Join a channel</dt><dd>Ask other Nucleus nodes on the mesh for their channel, then copy it with one tap.</dd>
-        <dt>Share a channel</dt><dd>Channel URL or QR code, for any Meshtastic radio.</dd>
-        <dt>Radio settings</dt><dd>Name, preset, region, hop limit, TX power and role, from the web UI.</dd>
-      </dl>
+      <h2 id="text">Messaging and Meshtastic interoperability</h2>
+      <p class="muted">The built-in message inbox sends every message over the 2.4&nbsp;GHz WiFi mesh and LoRa at the same time, so a message is delivered over whichever path is available. The LoRa copy is a standard Meshtastic message. Meshtastic radios on the same channel can therefore exchange messages with Nucleus users, and a Nucleus node can also operate as an ordinary Meshtastic node.</p>
       <div class="note">
         <span class="note-label">Limit</span>
-        A Meshtastic-only radio reaches the inbox over LoRa only. Nucleus nodes out of its radio range won't see its messages, even when they're on the WiFi mesh.
+        Meshtastic radios reach the inbox over LoRa only, and must be within LoRa range of a Nucleus node. Any Meshtastic radio on the same channel can read these messages.
       </div>
     </div>
   </div>
 </section>
 
+<section class="sec" aria-labelledby="reticulum">
+  <div class="wrap">
+    <p class="sec-label"><span>06</span>Reticulum</p>
+    <div class="sec-body">
+      <h2 id="reticulum">Private Reticulum network</h2>
+      <p class="muted">Every node runs Reticulum, an encrypted networking stack that requires no carrier, no accounts and no phone numbers. A group of nodes forms a private network that relays traffic for all of its members and grows as nodes are added. Reticulum operates over the 2.4&nbsp;GHz WiFi mesh and Ethernet. Where no WiFi or wired link is available or wanted, an optional RNode module provides a Reticulum interface over LoRa.</p>
+      <p class="muted">Addresses are derived from cryptographic keys rather than names or numbers, and a node does not advertise itself unless the operator chooses to. Messages are encrypted end to end with forward secrecy, so relays carry only ciphertext. A node can also hold messages for recipients who are out of range and deliver them when they return. Standard applications such as Sideband, Columba, MeshChat and NomadNet are supported, and messages can be sent from the web interface of the node.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="sec" aria-labelledby="sites">
+  <div class="wrap">
+    <p class="sec-label"><span>07</span>Links between sites</p>
+    <div class="sec-body">
+      <h2 id="sites">Links between sites</h2>
+      <p class="muted">Where an internet connection is available, separate meshes can be joined into one private network. Reticulum links between sites carry only encrypted traffic, and can be run inside a Tailscale network so that they are not exposed on the public internet. Tailscale also provides remote access to every node. If the connection is lost, each site continues to operate locally.</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Configuration</th><th scope="col">Reachable by</th><th scope="col">Visible to</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Local nodes only</th><td>Devices on the local mesh</td><td>No outside party</td></tr>
+            <tr><th scope="row">Linked over the internet</th><td>All linked sites and networks</td><td>Linked networks can see that the network exists, but not message content</td></tr>
+            <tr><th scope="row">Linked over Tailscale</th><td>Only devices in the private network</td><td>Tailscale can see which devices are members</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="sec" aria-labelledby="server">
   <div class="wrap">
-    <p class="sec-label"><span>05</span>TAK server and video</p>
+    <p class="sec-label"><span>08</span>TAK server and video</p>
     <div class="sec-body">
-      <h2 id="server">A TAK server on the mesh</h2>
+      <h2 id="server">On-node TAK server</h2>
       <div class="split">
         <figure>
-          <img src="{{ '/assets/img/screenshots/atak-rtsp-video.jpg' | relative_url }}" alt="ATAK video list showing an RTSP test stream from a node at 10.20.11.1, next to the map" width="1600" height="758" loading="lazy" decoding="async">
-          <figcaption><b>FIG. 03</b>An RTSP test stream from a node, in ATAK's video list.</figcaption>
+          <img src="{{ '/assets/img/screenshots/atak-rtsp-video.jpg' | relative_url }}" alt="ATAK video list showing an RTSP test stream from a node, next to the map" width="1600" height="758" loading="lazy" decoding="async">
+          <figcaption><b>FIG. 03</b>A video stream served by a node, shown in ATAK.</figcaption>
         </figure>
         <div>
-          <p class="muted">Basic ATAK use needs no server. For certificates, data feeds and video, one node can also run a TAK server. Every ATAK client on the mesh or on an access point can reach it.</p>
-          <ul class="muted">
-            <li><strong>Official TAK Server</strong>, with MediaMTX for video. You supply the TAK Server package from tak.gov. A setup script installs it and creates the certificates.</li>
-            <li><strong>OpenTAKServer</strong>, installed with its own installer.</li>
-          </ul>
-          <p class="muted">A node runs one or the other, never both. Both are off by default, and most nodes never run either.</p>
+          <p class="muted">Basic ATAK operation does not require a server. Where certificate management, data feeds or video are needed, one node can host the official TAK Server or OpenTAKServer, together with a video server. Every ATAK client on the network can reach it.</p>
         </div>
-      </div>
-      <div class="note">
-        <span class="note-label">Default</span>
-        MediaMTX streams are open. Anyone who can reach the node can publish and watch, with no password. Lock it down in its config if that matters to you.
       </div>
     </div>
   </div>
@@ -166,34 +172,33 @@ redirect_from:
 
 <section class="sec" aria-labelledby="internet">
   <div class="wrap">
-    <p class="sec-label"><span>06</span>Internet</p>
+    <p class="sec-label"><span>09</span>Internet</p>
     <div class="sec-body">
-      <h2 id="internet">Share one connection</h2>
-      <p class="muted">Out of the box the Ethernet port is a WAN port. Plug one node into a router, a hotspot or Starlink and it shares that connection with the whole mesh: every node, and every phone on every access point. You don't set anything up on the other nodes.</p>
-      <p class="muted">Without a connection, everything above keeps working. The mesh never needs the internet.</p>
+      <h2 id="internet">Internet sharing</h2>
+      <p class="muted">When one node is connected to a router, mobile hotspot or Starlink terminal, it shares that connection with every node and every device on the mesh. No configuration is required on the other nodes. Internet access is optional, and every other function on this page operates without it.</p>
     </div>
   </div>
 </section>
 
 <section class="sec" aria-labelledby="watch">
   <div class="wrap">
-    <p class="sec-label"><span>07</span>Watch</p>
+    <p class="sec-label"><span>10</span>Watch</p>
     <div class="sec-body">
-      <h2 id="watch">Version 3 on video</h2>
+      <h2 id="watch">Version 3 demonstration</h2>
       <figure class="narrow">
         <a class="yt" href="https://www.youtube.com/watch?v=gnjL0Lkp4RQ" data-yt="gnjL0Lkp4RQ" data-title="Nucleus v3 release, VoIP integrations, 1W Meshtastic radio">
           <img src="{{ '/assets/img/video/gnjL0Lkp4RQ.jpg' | relative_url }}" alt="Video thumbnail: Nucleus v3 release" width="480" height="270" loading="lazy" decoding="async">
           <span class="yt-play">Play 4:15</span>
         </a>
-        <figcaption><b>2026-08-24</b>Nucleus v3 release, voice integrations and the 1&nbsp;W Meshtastic radio. Loads from YouTube when you press play.</figcaption>
+        <figcaption><b>2026-08-24</b>Nucleus v3 release, voice integrations and the 1&nbsp;W Meshtastic radio. The video is loaded from YouTube only when played.</figcaption>
       </figure>
       <div class="buy">
-        <h2>Get a Nucleus</h2>
-        <p class="muted">A mesh needs at least two. See how far the links reached in our <a href="{{ '/field-tests/' | relative_url }}">field tests</a> first.</p>
+        <h2>Ordering</h2>
+        <p class="muted">A mesh network requires at least two nodes. Measured link ranges are documented in <a href="{{ '/field-tests/' | relative_url }}">field tests</a>, and configuration is described in the <a href="{{ '/manual/' | relative_url }}">manual</a>.</p>
         <div class="actions">
           <a class="btn btn-buy" href="{{ site.shop_url }}" rel="noopener">Buy Nucleus</a>
-          <a href="{{ '/manual/' | relative_url }}">Manual</a>
-          <a href="mailto:{{ site.email }}">Questions? Email us</a>
+          <a href="{{ '/use-cases/' | relative_url }}">Use cases</a>
+          <a href="mailto:{{ site.email }}">Contact</a>
         </div>
       </div>
     </div>

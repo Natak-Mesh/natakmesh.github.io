@@ -9,10 +9,10 @@ main:
     title: Nucleus
     url: /nucleus/
   - id: tak-server
-    title: TAK Server
+    title: ION TAK Server
     url: /tak-server/
   - id: field
-    title: Field
+    title: Field operations
     url: /field/
   - id: field-tests
     title: Field Tests
@@ -34,14 +34,14 @@ primary:
     title: Nucleus
     url: /nucleus/
   - id: tak-server
-    title: TAK Server
+    title: ION TAK Server
     url: /tak-server/
   - id: field
-    title: Field
+    title: Field operations
     url: /field/
-  - id: private-network
-    title: Private network
-    url: /private-network/
+  - id: use-cases
+    title: Use cases
+    url: /use-cases/
   - id: field-tests
     title: Field tests
     url: /field-tests/
@@ -52,12 +52,12 @@ primary:
 footer:
   - title: Nucleus
     url: /nucleus/
-  - title: TAK Server
+  - title: ION TAK Server
     url: /tak-server/
-  - title: Field
+  - title: Field operations
     url: /field/
-  - title: Private network
-    url: /private-network/
+  - title: Use cases
+    url: /use-cases/
   - title: Threat model
     url: /threat-model/
   - title: Field tests

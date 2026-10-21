@@ -413,8 +413,9 @@ td .lede, td .eyebrow { display: block; margin: 0; }
   .fig-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 54rem) {
-  /* The menu collapses only when JS has set .js on <html>.
+@media (max-width: 76rem) {
+  /* Nav collapses below the full width of the logo and primary links (~1,160 px).
+     The menu collapses only when JS has set .js on <html>.
      Without JS the links stay visible and wrap. */
   .js .menu-toggle { display: block; }
   .js .nav {
@@ -430,7 +431,9 @@ td .lede, td .eyebrow { display: block; margin: 0; }
   html:not(.js) .site-header .wrap { flex-wrap: wrap; gap: 0.75rem 2rem; padding-top: 0.75rem; padding-bottom: 0.75rem; }
   html:not(.js) .nav { margin-left: 0; flex-basis: 100%; }
   html:not(.js) .nav ul { flex-wrap: wrap; gap: 0.75rem 1.25rem; }
+}
 
+@media (max-width: 54rem) {
   .hero .wrap { grid-template-columns: minmax(0, 1fr); }
   .readout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero figure { max-width: 22rem; }
