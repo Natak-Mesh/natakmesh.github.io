@@ -59,11 +59,7 @@ redirect_from:
     <p class="sec-label"><span>02</span>LoRa fallback</p>
     <div class="sec-body">
       <h2 id="lora">LoRa fallback</h2>
-      <p class="muted">Every node carries a long-range LoRa radio alongside the 2.4&nbsp;GHz WiFi mesh. When a device moves beyond WiFi range, its position and chat messages continue to reach the rest of the network over LoRa. The node performs this relay automatically, and the device requires no plugin or configuration. The LoRa transmitter can also be disabled, leaving the radio in receive-only operation.</p>
-      <div class="note">
-        <span class="note-label">Limit</span>
-        LoRa carries position and chat only, updated approximately every 30&nbsp;seconds rather than in real time. Images, files, video and voice require the 2.4&nbsp;GHz WiFi mesh. The 1&nbsp;W radio in version&nbsp;3 has not yet been range-tested.
-      </div>
+      <p class="muted">Every node carries a long-range LoRa radio alongside the 2.4&nbsp;GHz WiFi mesh. When a device moves beyond WiFi range, its ATAK position and chat messages continue to reach the rest of the network over LoRa. The node performs this relay automatically, and the device requires no plugin or configuration. The LoRa transmitter can also be disabled, leaving the radio in receive-only operation.</p>
     </div>
   </div>
 </section>
@@ -74,10 +70,6 @@ redirect_from:
     <div class="sec-body">
       <h2 id="halow">HaLow mesh</h2>
       <p class="muted">An optional WiFi HaLow module, connected to the USB-C port, adds an IP mesh in the 900&nbsp;MHz band. It serves as an additional link alongside the 2.4&nbsp;GHz WiFi mesh, or in place of it where that band is unsuitable. Like the 2.4&nbsp;GHz mesh, it is encrypted with WPA3.</p>
-      <div class="note">
-        <span class="note-label">Limit</span>
-        Throughput is substantially lower than the 2.4&nbsp;GHz WiFi mesh.
-      </div>
     </div>
   </div>
 </section>
@@ -96,10 +88,6 @@ redirect_from:
           <p class="muted">Push-to-talk voice is provided by the node itself. Any phone or laptop on the access point can participate from a web browser, with no application installed. Traffic is organised into named channels.</p>
           <p class="muted">A hardware PTT can be connected to the node through an OpenVLM adapter. Browser users and hardware PTT users on the same channel hear each other.</p>
           <p class="muted">An optional feature transcribes short voice messages and sends them over LoRa, where the receiving node plays them back as synthesised speech.</p>
-          <div class="note">
-            <span class="note-label">Limit</span>
-            Live voice requires the 2.4&nbsp;GHz WiFi mesh.
-          </div>
         </div>
       </div>
     </div>
@@ -112,10 +100,6 @@ redirect_from:
     <div class="sec-body">
       <h2 id="text">Messaging and Meshtastic interoperability</h2>
       <p class="muted">The built-in message inbox sends every message over the 2.4&nbsp;GHz WiFi mesh and LoRa at the same time, so a message is delivered over whichever path is available. The LoRa copy is a standard Meshtastic message. Meshtastic radios on the same channel can therefore exchange messages with Nucleus users, and a Nucleus node can also operate as an ordinary Meshtastic node.</p>
-      <div class="note">
-        <span class="note-label">Limit</span>
-        Meshtastic radios reach the inbox over LoRa only, and must be within LoRa range of a Nucleus node. Any Meshtastic radio on the same channel can read these messages.
-      </div>
     </div>
   </div>
 </section>
