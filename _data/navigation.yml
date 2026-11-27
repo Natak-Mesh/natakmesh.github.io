@@ -48,6 +48,9 @@ primary:
   - id: manual
     title: Manual
     url: /manual/
+  - id: faq
+    title: FAQ
+    url: /faq/
 
 footer:
   - title: Nucleus
@@ -64,6 +67,8 @@ footer:
     url: /field-tests/
   - title: Manual
     url: /manual/
+  - title: FAQ
+    url: /faq/
   - title: About
     url: /about/
   - title: Contact

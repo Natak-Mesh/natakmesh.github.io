@@ -1,0 +1,89 @@
+---
+layout: page
+title: FAQ
+description: "Questions about how Nucleus is built: HaLow and 2.4 GHz, Babel and SMCRoute or batman-adv, ATAK over WiFi or Meshtastic, and when a TAK server is worth running."
+nav: faq
+---
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><b>FAQ</b> &nbsp;/&nbsp; Questions</p>
+      <h1>Frequently asked questions</h1>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="halow">
+  <div class="wrap">
+    <p class="sec-label"><span>01</span>HaLow</p>
+    <div class="sec-body">
+      <h2 id="halow">Why 2.4&nbsp;GHz instead of HaLow?</h2>
+      <p class="muted">This question comes up quite a bit. For most of a year of development the Nucleus was HaLow based for its IP link. I read the same information you have and decided that was the route I wanted to go. But when it came to real world testing I just did not see real advantages. The HaLow radio gave up a lot of throughput to standard 2.4&nbsp;GHz WiFi and didn't offer any effective range improvement. Now that was 1st gen HaLow gear, but after some research (I'm a mechanical engineer, not a dedicated RF guy so if I've totally misunderstood this stuff feel free to drop me an email) it's not as clear cut as "HaLow better" which seems to match my real world testing. New generation hardware is out, so this topic may get an update in the future if I ever get around to doing a side by side comparison with modern HaLow stuff, but for now, this is the explanation of why we made the decision to go with 2.4&nbsp;GHz WiFi instead of HaLow for the primary IP link.</p>
+      <ul class="muted">
+        <li><b>Fresnel zone and ground reflection on body-worn nodes.</b> Body-worn nodes sit 3–4&nbsp;ft off the ground, far lower than is ideal. At that height the ground blocks part of the Fresnel zone, and more of it at 915&nbsp;MHz, because the zone is wider at lower frequencies. The ground also reflects a copy of the signal that partly cancels the direct one (the two-ray model), and it cancels more at longer wavelengths. Beyond a few tens of meters, that extra cancellation roughly offsets 915&nbsp;MHz's free-space advantage. In real terrain HaLow keeps a few dB of its advantage, not the full 8.5&nbsp;dB.</li>
+        <li><b>Narrow channels: range at the cost of throughput.</b> Part of HaLow's claimed range comes from its narrow 1–2&nbsp;MHz channels, not from the frequency. A narrower channel picks up less noise, about 13&nbsp;dB less at 1&nbsp;MHz than at 20&nbsp;MHz, so the receiver can hear weaker signals. The same narrow channel limits throughput. Each packet also takes much longer to send, so nodes wait longer for the channel and collisions are more likely. Every mesh hop then divides what's left, so after 2–3 hops very little remains.</li>
+        <li><b>Hardware availability.</b> 2.4&nbsp;GHz WiFi is more mature, with in-kernel Linux drivers and more widely available hardware, for now.</li>
+        <li><b>HaLow's real advantages.</b> With antennas mounted high enough to avoid the ground effects above, HaLow likely keeps its full free-space advantage of about 8.5&nbsp;dB. Lower frequencies also lose less signal through obstacles. Typical wall losses are 3.5&nbsp;dB at 900&nbsp;MHz versus 6&nbsp;dB at 2.4&nbsp;GHz for 89&nbsp;mm brick, and 12&nbsp;dB versus 15&nbsp;dB for 102&nbsp;mm concrete. Through 100&nbsp;m of foliage, a standard foliage model predicts about 6&nbsp;dB less loss at 915&nbsp;MHz. The advantage exists, but in real-world testing it didn't matter against real obstacles: 2–3 houses blocked both radios.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="routing">
+  <div class="wrap">
+    <p class="sec-label"><span>02</span>Routing</p>
+    <div class="sec-body">
+      <h2 id="routing">Why Babel and SMCRoute instead of batman-adv?</h2>
+      <p class="muted">The real driver for me moving to Babel/SMCroute was really to simplify the user experience for myself, I got tired of dealing with mac addresses and having to use batctl for route metrics/troubleshooting. Being able to use standard IP tools simplified things for me . After some research it looks like there are also some real advantages with respect to  the mesh 'housekeeping' traffic for babel vs batman on lower throughput networks. Batman does have some advantages by keeping the entire mesh as a flat L2 network, but I prefer this (to me ) cleaner IP based routing and again I'm not a professional networking guy. If I've gotten any of this wildly incorrect I'd love to hear about it.</p>
+
+      <ul class="muted">
+        <li><b>Lighter routing traffic.</b> Babel exchanges hellos (every 4&nbsp;s) and route updates (every 16&nbsp;s) only with direct neighbors and never rebroadcasts them. batman-adv rebroadcasts every node's OGM across the whole mesh every second: with 5 nodes, that's 25 broadcasts a second against fewer than 2 for Babel.</li>
+        <li><b>Standard IP routing.</b> Babel routes by IP address and installs its routes in the normal kernel routing table, so <code>ip route</code>, <code>ping</code>, <code>traceroute</code>, firewalls and multicast routing (SMCRoute) work as usual. batman-adv works at layer 2 by MAC address, hides the hops inside one virtual switch, and needs its own <code>batctl</code> tools for troubleshooting.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="atak">
+  <div class="wrap">
+    <p class="sec-label"><span>03</span>ATAK</p>
+    <div class="sec-body">
+      <h2 id="atak">Why ATAK over WiFi instead of only Meshtastic?</h2>
+      <p class="muted">I think a lot of Meshtastic-only ATAK users will have a really good experience when they see how different ATAK feels with an IP connection. Even 'slow' WiFi links are on the order of a thousand times faster than a LoRa connection. There's no 30 second wait for a position to update or a few second wait for a message to come across. This also unlocks pictures, data packages, etc. LoRa is a great fallback to make up for the shorter range of a WiFi link, but the WiFi link gives the ideal ATAK experience.</p>
+      <ul class="muted">
+        <li><b>WiFi.</b> ATAK is IP native, so over the WiFi mesh it just works the way it was designed to. Default CoT messages go out as they are. Positions update quickly, texts show up almost instantly, and pictures and files transfer fast.</li>
+        <li><b>LoRa.</b> Due to LoRa's packet size limit, CoT needs a compression/decompression pipeline to work. Combined with very low data throughput, ATAK over LoRa needs rate limiting to avoid flooding the network. LoRa has great range, but it adds some complexity and won't be as responsive as a WiFi link.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="tak-server">
+  <div class="wrap">
+    <p class="sec-label"><span>04</span>TAK Server</p>
+    <div class="sec-body">
+      <h2 id="tak-server">Do I need a TAK server on an ATAK mesh?</h2>
+      <p class="muted">I believe a TAK server can be useful in some circumstances, but it may be overkill. I've put together a little bulleted list of some of the useful things having a TAK server does for the group. But in no way is a TAK server required to use ATAK on the network. ATAK EUDs will discover each other and can pass traffic along just fine without a server.</p>
+      <ul class="muted">
+        <li><b>Central routing.</b> Clients keep a connection open to the server instead of relying on multicast, so users on different networks, on cellular or coming in over Tailscale all see each other. On the Nucleus mesh, multicast already reaches every node, so this matters less for local-only users.</li>
+        <li><b>Certificates and security.</b> Clients connect over encrypted links with client certificates, and a lost or compromised device can have its certificate revoked. Enrollment can be done with a username and password instead of copying certificate files by hand.</li>
+        <li><b>User and group management.</b> Groups control who sees whose traffic, and the server can tie into LDAP or Active Directory. Admins get a web dashboard showing who's connected.</li>
+        <li><b>Data packages.</b> A package is uploaded once and kept on the server, so users download it when they need it, including people who join later.</li>
+        <li><b>Data Sync (missions).</b> Shared mission folders stay on the server. Users subscribe to them and get updates to overlays, files and logs.</li>
+        <li><b>Late joiners and history.</b> The server stores traffic, so a user who connects late gets current positions, and past activity can be pulled back up for after-action review.</li>
+        <li><b>Federation.</b> Separate servers can share selected groups with each other. This is useful for larger organisations or several teams.</li>
+        <li><b>Data feeds.</b> Outside sources, such as aircraft tracks or sensors, can be brought in and sent to every client.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="power">
+  <div class="wrap">
+    <p class="sec-label"><span>05</span>Power</p>
+    <div class="sec-body">
+      <h2 id="power">Why an external USB power source instead of internal or PRC batteries?</h2>
+      <p class="muted">Mainly it boils down to USB power sources being ubiquitous, cheap, and available in sizes that can run a Nucleus for a day or more at a time. Using one keeps the complexity and cost of the Nucleus down, and lets the user use whatever USB power source they have available.</p>
+    </div>
+  </div>
+</section>
